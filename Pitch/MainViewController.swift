@@ -21,6 +21,7 @@ class MainViewController: UIViewController, TunerDelegate {
     
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet var lines: [UIView]!
+    @IBOutlet var lineHeights: [NSLayoutConstraint]!
     @IBOutlet weak var movingLineCenterConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
@@ -36,6 +37,8 @@ class MainViewController: UIViewController, TunerDelegate {
         tuner = Tuner()
         tuner?.delegate = self
         tuner?.start()
+        
+        printFonts()
     }
     
     // MARK: TunerDelegate
@@ -49,9 +52,9 @@ class MainViewController: UIViewController, TunerDelegate {
             noteLabel.text = output.pitch
             movingLineCenterConstraint.constant = CGFloat(-output.distance * 30.0)
             
-            if abs(output.distance) < 0.5 {
+            if abs(output.distance) < 0.4 {
                 animateViewTo(newState: .Green)
-            } else if abs(output.distance) < 1.0 {
+            } else if abs(output.distance) < 1.5 {
                 animateViewTo(newState: .LightGreen)
             } else {
                 animateViewTo(newState: .White)
@@ -74,7 +77,8 @@ class MainViewController: UIViewController, TunerDelegate {
             state = newState
             var viewBackgroundColor: UIColor!
             var lineTextColor: UIColor!
-//            var font: UIFont = UIFont(name: "Lato-Hairline", size: 100.0)!
+            var lineThickness: CGFloat = 1.0
+            var font: UIFont = UIFont(name: "Lato-Hairline", size: 100.0)!
             
             switch newState {
             case .White:
@@ -86,17 +90,33 @@ class MainViewController: UIViewController, TunerDelegate {
             case .Green:
                 viewBackgroundColor = UIColor.greenView
                 lineTextColor = UIColor.white
-//               font = UIFont(name: "Lato-Light", size: 100.0)!
+                lineThickness = 2.0
+                font = UIFont(name: "Lato-Thin", size: 100.0)!
+            }
+            
+            for height in lineHeights {
+                height.constant = lineThickness
             }
             
             UIView.animate(withDuration: 0.2, animations: {
                 self.view.backgroundColor = viewBackgroundColor
                 self.noteLabel.textColor = lineTextColor
-//                self.noteLabel.font = font
+                self.noteLabel.font = font
                 for line in self.lines {
                     line.backgroundColor = lineTextColor
+                    line.layoutIfNeeded()
                 }
             })
+        }
+    }
+    
+    func printFonts() {
+        let fontFamilyNames = UIFont.familyNames
+        for familyName in fontFamilyNames {
+            print("------------------------------")
+            print("Font Family Name = [\(familyName)]")
+            let names = UIFont.fontNames(forFamilyName: familyName)
+            print("Font Names = [\(names)]")
         }
     }
 
