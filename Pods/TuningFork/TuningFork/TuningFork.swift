@@ -99,6 +99,11 @@ private let frequencies: [Float] = [
      */
     open fileprivate(set) var frequency: Float = 0.0
     
+    /**
+     Whether the frequency is determined to be an actual note or just random background noise.
+    */
+    open fileprivate(set) var isValid: Bool = false
+    
     fileprivate override init() {}
 }
 
@@ -112,6 +117,7 @@ private let frequencies: [Float] = [
     
     fileprivate let updateInterval: TimeInterval = 0.03
     fileprivate let smoothingBufferCount = 30
+    fileprivate let frequencyBufferCount = 20
     
     /**
      Object adopting the TunerDelegate protocol that should receive callbacks
@@ -125,6 +131,7 @@ private let frequencies: [Float] = [
     fileprivate let analyzer: AKAudioAnalyzer
     fileprivate var timer: Timer?
     fileprivate var smoothingBuffer: [Float] = []
+    fileprivate var frequencyBuffer: [Float] = []
     fileprivate var previousAmplitude: Float
     fileprivate var previousFrequency: Float
     
@@ -162,7 +169,6 @@ private let frequencies: [Float] = [
             if self.analyzer.trackedAmplitude.value > self.threshold {
                 let amplitude = self.analyzer.trackedAmplitude.value
                 var frequency = self.analyzer.trackedFrequency.value
-                print(amplitude)
                 
                 if amplitude - previousAmplitude > 0.01 || abs(frequency - previousFrequency) > 40.0 {
                     self.smoothing = 1.0
@@ -175,9 +181,11 @@ private let frequencies: [Float] = [
                 previousAmplitude = amplitude
                 previousFrequency = frequency
                 
+                addFrequencyToBuffer(frequency)
                 frequency = self.smooth(frequency)
+                let standardDeviation = self.standardDeviation(arr: frequencyBuffer)
                 
-                let output = Tuner.newOutput(frequency, amplitude)
+                let output = Tuner.newOutput(frequency, amplitude, standardDeviation)
                 DispatchQueue.main.async {
                     d.tunerDidUpdate(self, output: output)
                 }
@@ -193,6 +201,13 @@ private let frequencies: [Float] = [
         analyzer.stop()
         timer?.invalidate()
         timer = nil
+    }
+    
+    fileprivate func addFrequencyToBuffer(_ value: Float) {
+        if frequencyBuffer.count > frequencyBufferCount {
+            frequencyBuffer.removeFirst()
+        }
+        frequencyBuffer.append(value)
     }
     
     /**
@@ -212,7 +227,7 @@ private let frequencies: [Float] = [
         return frequency
     }
     
-    static func newOutput(_ frequency: Float, _ amplitude: Float) -> TunerOutput {
+    static func newOutput(_ frequency: Float, _ amplitude: Float, _ standardDeviation: Float) -> TunerOutput {
         let output = TunerOutput()
         
         var norm = frequency
@@ -239,6 +254,17 @@ private let frequencies: [Float] = [
         output.distance = frequency - frequencies[i]
         output.pitch = String(format: "%@", sharps[i % sharps.count], flats[i % flats.count])
         
+        if standardDeviation < 10.0 && amplitude > 0.03 {
+            output.isValid = true
+        }
+        
         return output
+    }
+    
+    func standardDeviation(arr : [Float]) -> Float {
+        let length = Float(arr.count)
+        let avg = arr.reduce(0, {$0 + $1}) / length
+        let sumOfSquaredAvgDiff = arr.map { pow($0 - avg, 2.0)}.reduce(0, {$0 + $1})
+        return sqrt(sumOfSquaredAvgDiff / length)
     }
 }

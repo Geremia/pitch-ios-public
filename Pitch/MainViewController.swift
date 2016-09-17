@@ -37,14 +37,12 @@ class MainViewController: UIViewController, TunerDelegate {
         tuner = Tuner()
         tuner?.delegate = self
         tuner?.start()
-        
-        printFonts()
     }
     
     // MARK: TunerDelegate
     
     func tunerDidUpdate(_ tuner: Tuner, output: TunerOutput) {
-        if output.amplitude < 0.01 {
+        if !output.isValid {
             noteLabel.text = "--"
             movingLineCenterConstraint.constant = 0.0
             animateViewTo(newState: .White)
@@ -94,29 +92,37 @@ class MainViewController: UIViewController, TunerDelegate {
                 font = UIFont(name: "Lato-Thin", size: 100.0)!
             }
             
-            for height in lineHeights {
-                height.constant = lineThickness
+            var delay = 0.0
+            if newState == .Green {
+                delay = 1.0
             }
             
-            UIView.animate(withDuration: 0.2, animations: {
-                self.view.backgroundColor = viewBackgroundColor
-                self.noteLabel.textColor = lineTextColor
-                self.noteLabel.font = font
-                for line in self.lines {
-                    line.backgroundColor = lineTextColor
-                    line.layoutIfNeeded()
+            let when = DispatchTime.now() + delay
+            let stateBeforeDelay = state
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                if stateBeforeDelay == self.state {
+                    UIView.transition(with: self.noteLabel, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState], animations: {
+                        self.noteLabel.textColor = lineTextColor
+                        self.noteLabel.font = font
+                        }, completion: { _ in })
+                    
+                    UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState], animations: {
+                        self.view.backgroundColor = viewBackgroundColor
+                        for line in self.lines {
+                            line.backgroundColor = lineTextColor
+                        }
+                        }, completion: { finished in
+                            if finished {
+                                for height in self.lineHeights {
+                                    height.constant = lineThickness
+                                }
+                                for line in self.lines {
+                                    line.layoutIfNeeded()
+                                }
+                            }
+                    })
                 }
-            })
-        }
-    }
-    
-    func printFonts() {
-        let fontFamilyNames = UIFont.familyNames
-        for familyName in fontFamilyNames {
-            print("------------------------------")
-            print("Font Family Name = [\(familyName)]")
-            let names = UIFont.fontNames(forFamilyName: familyName)
-            print("Font Names = [\(names)]")
+            }
         }
     }
 
