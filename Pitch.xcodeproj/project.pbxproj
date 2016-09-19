@@ -538,7 +538,7 @@
 				DEVELOPMENT_TEAM = J2F7Z3X3WF;
 				INFOPLIST_FILE = Pitch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.plutoniumapps.Pitch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.plutoniumapps.GTProTecht;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -552,7 +552,7 @@
 				DEVELOPMENT_TEAM = J2F7Z3X3WF;
 				INFOPLIST_FILE = Pitch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.plutoniumapps.Pitch;
+				PRODUCT_BUNDLE_IDENTIFIER = com.plutoniumapps.GTProTecht;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
