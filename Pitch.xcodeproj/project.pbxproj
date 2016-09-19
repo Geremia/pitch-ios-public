@@ -550,6 +550,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J2F7Z3X3WF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/TuningFork\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/AudioKit\"",
+				);
 				INFOPLIST_FILE = Pitch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plutoniumapps.GTProTecht;
