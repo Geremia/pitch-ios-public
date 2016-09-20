@@ -254,7 +254,7 @@ private let frequencies: [Float] = [
         output.distance = frequency - frequencies[i]
         output.pitch = String(format: "%@", sharps[i % sharps.count], flats[i % flats.count])
         
-        if standardDeviation < 10.0 && amplitude > 0.03 {
+        if standardDeviation < 10.0 && amplitude > 0.01 {
             output.isValid = true
         }
         
