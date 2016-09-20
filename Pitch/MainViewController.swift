@@ -22,9 +22,22 @@ class MainViewController: UIViewController, TunerDelegate {
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet var lines: [UIView]!
     @IBOutlet var lineHeights: [NSLayoutConstraint]!
-    @IBOutlet weak var movingLineCenterConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var portraitElements: [UIView]!
+    @IBOutlet var landscapeElements: [UIView]!
+    
+    @IBOutlet weak var portraitMovingLineCenterConstraint: NSLayoutConstraint!
+    @IBOutlet weak var landscapeMovingLineCenterConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
+    
+    var movingLineCenterConstraint: NSLayoutConstraint {
+        if UIDevice.current.orientation == .portrait {
+            return portraitMovingLineCenterConstraint
+        } else {
+            return landscapeMovingLineCenterConstraint
+        }
+    }
     
     private var tuner: Tuner?
     private var state: MainViewState = .White
@@ -33,13 +46,45 @@ class MainViewController: UIViewController, TunerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tuner = Tuner()
         tuner?.delegate = self
         tuner?.start()
     }
     
-    // MARK: TunerDelegate
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        updateUI(for: UIApplication.shared.statusBarOrientation, animationDuration: 0)
+    }
+    
+    // MARK: - Device Rotation
+    
+    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        updateUI(for: toInterfaceOrientation, animationDuration: duration)
+    }
+    
+    func updateUI(for orientation: UIInterfaceOrientation, animationDuration: TimeInterval) {
+        UIView.animate(withDuration: animationDuration, animations: {
+            if orientation == .portrait {
+                for element in self.landscapeElements {
+                    element.alpha = 0.0
+                }
+                
+                for element in self.portraitElements {
+                    element.alpha = 1.0
+                }
+            } else {
+                for element in self.landscapeElements {
+                    element.alpha = 1.0
+                }
+                
+                for element in self.portraitElements {
+                    element.alpha = 0.0
+                }
+            }
+        })
+    }
+    
+    // MARK: TunerDelegate Methods
     
     func tunerDidUpdate(_ tuner: Tuner, output: TunerOutput) {
         if !output.isValid {
@@ -48,7 +93,11 @@ class MainViewController: UIViewController, TunerDelegate {
             animateViewTo(newState: .White)
         } else {
             noteLabel.text = output.pitch
-            movingLineCenterConstraint.constant = CGFloat(-output.distance * 30.0)
+            if UIDevice.current.orientation == .portrait {
+                movingLineCenterConstraint.constant = CGFloat(-output.distance * 30.0)
+            } else {
+                movingLineCenterConstraint.constant = CGFloat(output.distance * 30.0)
+            }
             
             if abs(output.distance) < 0.4 {
                 animateViewTo(newState: .Green)
