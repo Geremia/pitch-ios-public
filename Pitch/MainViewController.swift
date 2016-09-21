@@ -32,7 +32,7 @@ class MainViewController: UIViewController, TunerDelegate {
     // MARK: - Properties
     
     var movingLineCenterConstraint: NSLayoutConstraint {
-        if UIDevice.current.orientation == .portrait {
+        if UIApplication.shared.statusBarOrientation.isPortrait {
             return portraitMovingLineCenterConstraint
         } else {
             return landscapeMovingLineCenterConstraint
@@ -64,7 +64,7 @@ class MainViewController: UIViewController, TunerDelegate {
     
     func updateUI(for orientation: UIInterfaceOrientation, animationDuration: TimeInterval) {
         UIView.animate(withDuration: animationDuration, animations: {
-            if orientation == .portrait {
+            if orientation.isPortrait {
                 for element in self.landscapeElements {
                     element.alpha = 0.0
                 }
@@ -93,7 +93,7 @@ class MainViewController: UIViewController, TunerDelegate {
             animateViewTo(newState: .White)
         } else {
             noteLabel.text = output.pitch
-            if UIDevice.current.orientation == .portrait {
+            if UIApplication.shared.statusBarOrientation.isPortrait {
                 movingLineCenterConstraint.constant = CGFloat(-output.distance * 30.0)
             } else {
                 movingLineCenterConstraint.constant = CGFloat(output.distance * 30.0)
