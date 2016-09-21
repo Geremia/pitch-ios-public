@@ -100,6 +100,11 @@ private let frequencies: [Float] = [
     open fileprivate(set) var frequency: Float = 0.0
     
     /**
+     The standard deviation of the last 10 detected frequencies
+     */
+    open fileprivate(set) var standardDeviation: Float = 0.0
+    
+    /**
      Whether the frequency is determined to be an actual note or just random background noise.
     */
     open fileprivate(set) var isValid: Bool = false
@@ -254,6 +259,7 @@ private let frequencies: [Float] = [
         output.distance = frequency - frequencies[i]
         output.pitch = String(format: "%@", sharps[i % sharps.count], flats[i % flats.count])
         
+        output.standardDeviation = standardDeviation
         if standardDeviation < 10.0 && amplitude > 0.01 {
             output.isValid = true
         }

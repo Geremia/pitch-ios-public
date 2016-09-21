@@ -146,17 +146,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amplitiude: XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIG-pk-c1y">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="x9g-0K-hqg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Std. Dev: XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9O-L8-opE">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="ZIs-fW-fFk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ScC-vN-a2a" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="2fU-RK-Rbt"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="H9O-L8-opE" secondAttribute="bottom" constant="61" id="3dz-DP-NGm"/>
                             <constraint firstItem="zEw-Tb-xul" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-80" id="8zP-5o-hQ4"/>
                             <constraint firstItem="ScC-vN-a2a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="80" id="A3U-Xk-Q5w"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oO0-84-TkP" secondAttribute="bottom" id="CDx-ZY-Mx6"/>
+                            <constraint firstItem="H9O-L8-opE" firstAttribute="top" secondItem="QIG-pk-c1y" secondAttribute="bottom" constant="10" id="Fj4-M5-QVF"/>
+                            <constraint firstItem="QIG-pk-c1y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Iuy-yh-qu3"/>
                             <constraint firstItem="zUl-4a-gzD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Oj8-1l-yIh"/>
                             <constraint firstItem="oO0-84-TkP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SW0-MX-MQ0"/>
                             <constraint firstItem="eFM-fb-ftt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-80" id="UGX-oi-8js"/>
                             <constraint firstItem="zEw-Tb-xul" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UuF-MB-nl1"/>
+                            <constraint firstItem="H9O-L8-opE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WeZ-AZ-MaF"/>
                             <constraint firstItem="Jpl-Qo-b0N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="b06-qE-Bwb"/>
                             <constraint firstItem="oO0-84-TkP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="fLj-gF-RFi"/>
                             <constraint firstItem="Jpl-Qo-b0N" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="80" id="hHC-tg-vI5"/>
@@ -169,9 +189,11 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="amplitudeLabel" destination="QIG-pk-c1y" id="c50-eU-LfF"/>
                         <outlet property="landscapeMovingLineCenterConstraint" destination="fLj-gF-RFi" id="N5U-BA-bdV"/>
                         <outlet property="noteLabel" destination="4CE-78-WqF" id="2pw-wg-JUd"/>
                         <outlet property="portraitMovingLineCenterConstraint" destination="hHC-tg-vI5" id="e2M-Sk-rhA"/>
+                        <outlet property="stdDevLabel" destination="H9O-L8-opE" id="Y4m-o2-eZu"/>
                         <outletCollection property="lines" destination="ZSu-7s-5FP" collectionClass="NSMutableArray" id="eKJ-h4-71u"/>
                         <outletCollection property="lines" destination="VLu-TF-oPS" collectionClass="NSMutableArray" id="14J-EO-ndu"/>
                         <outletCollection property="lines" destination="ScC-vN-a2a" collectionClass="NSMutableArray" id="Opc-JO-dkI"/>
@@ -184,19 +206,19 @@
                         <outletCollection property="lines" destination="zEw-Tb-xul" collectionClass="NSMutableArray" id="p9C-fM-fw9"/>
                         <outletCollection property="lines" destination="zUl-4a-gzD" collectionClass="NSMutableArray" id="Ld2-7j-bx9"/>
                         <outletCollection property="lineHeights" destination="dpV-qi-7Lf" collectionClass="NSMutableArray" id="m9d-dX-rAC"/>
-                        <outletCollection property="lineHeights" destination="wk7-h7-e2i" id="g9i-8F-PB9"/>
-                        <outletCollection property="lineHeights" destination="ZeT-cV-rA3" id="9er-VS-DRS"/>
-                        <outletCollection property="portraitElements" destination="Jpl-Qo-b0N" id="zxD-nT-xWS"/>
-                        <outletCollection property="portraitElements" destination="ScC-vN-a2a" id="tfk-1G-lHR"/>
-                        <outletCollection property="portraitElements" destination="eFM-fb-ftt" id="Plq-3o-H4l"/>
-                        <outletCollection property="landscapeElements" destination="oO0-84-TkP" id="l6U-U7-0bO"/>
-                        <outletCollection property="landscapeElements" destination="zEw-Tb-xul" id="PlG-9c-rTP"/>
-                        <outletCollection property="landscapeElements" destination="zUl-4a-gzD" id="shf-gT-5Sm"/>
+                        <outletCollection property="lineHeights" destination="wk7-h7-e2i" collectionClass="NSMutableArray" id="g9i-8F-PB9"/>
+                        <outletCollection property="lineHeights" destination="ZeT-cV-rA3" collectionClass="NSMutableArray" id="9er-VS-DRS"/>
+                        <outletCollection property="portraitElements" destination="Jpl-Qo-b0N" collectionClass="NSMutableArray" id="zxD-nT-xWS"/>
+                        <outletCollection property="portraitElements" destination="ScC-vN-a2a" collectionClass="NSMutableArray" id="tfk-1G-lHR"/>
+                        <outletCollection property="portraitElements" destination="eFM-fb-ftt" collectionClass="NSMutableArray" id="Plq-3o-H4l"/>
+                        <outletCollection property="landscapeElements" destination="oO0-84-TkP" collectionClass="NSMutableArray" id="l6U-U7-0bO"/>
+                        <outletCollection property="landscapeElements" destination="zEw-Tb-xul" collectionClass="NSMutableArray" id="PlG-9c-rTP"/>
+                        <outletCollection property="landscapeElements" destination="zUl-4a-gzD" collectionClass="NSMutableArray" id="shf-gT-5Sm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="35.532233883058474" y="36"/>
+            <point key="canvasLocation" x="34.399999999999999" y="35.532233883058474"/>
         </scene>
     </scenes>
 </document>

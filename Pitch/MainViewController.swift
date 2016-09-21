@@ -29,6 +29,9 @@ class MainViewController: UIViewController, TunerDelegate {
     @IBOutlet weak var portraitMovingLineCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var landscapeMovingLineCenterConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var amplitudeLabel: UILabel!
+    @IBOutlet weak var stdDevLabel: UILabel!
+    
     // MARK: - Properties
     
     var movingLineCenterConstraint: NSLayoutConstraint {
@@ -87,6 +90,9 @@ class MainViewController: UIViewController, TunerDelegate {
     // MARK: TunerDelegate Methods
     
     func tunerDidUpdate(_ tuner: Tuner, output: TunerOutput) {
+        amplitudeLabel.text = "Amplitude: \(output.amplitude)"
+        stdDevLabel.text = "Std. Dev: \(output.standardDeviation)"
+        
         if !output.isValid {
             noteLabel.text = "--"
             movingLineCenterConstraint.constant = 0.0
