@@ -94,11 +94,23 @@ class MainViewController: UIViewController, TunerDelegate {
         stdDevLabel.text = "Std. Dev: \(output.standardDeviation)"
         
         if !output.isValid {
-            noteLabel.text = "--"
+            noteLabel.attributedText = NSMutableAttributedString(string: "--", attributes: nil)
             movingLineCenterConstraint.constant = 0.0
             animateViewTo(newState: .White)
         } else {
-            noteLabel.text = output.pitch
+//            if output.pitch.characters.count > 1 {
+//                let font:UIFont? = UIFont(name: "Lato-Hairline", size:100)
+//                let fontSuper:UIFont? = UIFont(name: "Lato-Hairline", size:40)
+//                let attString:NSMutableAttributedString = NSMutableAttributedString(string: output.pitch, attributes: [NSFontAttributeName:font!])
+//                attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:42], range: NSRange(location:1,length:1))
+//                noteLabel.text = nil
+//                noteLabel.attributedText = attString
+//            } else {
+//                noteLabel.text = output.pitch
+//                noteLabel.attributedText = nil
+//            }
+            displayPitch(pitch: output.pitch)
+            
             if UIApplication.shared.statusBarOrientation.isPortrait {
                 movingLineCenterConstraint.constant = CGFloat(-output.distance * 30.0)
             } else {
@@ -178,6 +190,18 @@ class MainViewController: UIViewController, TunerDelegate {
                     })
                 }
             }
+        }
+    }
+    
+    func displayPitch(pitch: String) {
+        if pitch.characters.count > 1 {
+            let font = noteLabel.font
+            let fontSuper:UIFont? = noteLabel.font.withSize(40.0)
+            let attString:NSMutableAttributedString = NSMutableAttributedString(string: pitch, attributes: [NSFontAttributeName:font!])
+            attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:42], range: NSRange(location:1,length:1))
+            noteLabel.attributedText = attString
+        } else {
+            noteLabel.attributedText = NSMutableAttributedString(string: pitch, attributes: nil)
         }
     }
 
