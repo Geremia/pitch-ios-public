@@ -13,6 +13,15 @@ enum MainViewState {
     case White
     case LightGreen
     case Green
+    
+    var font: UIFont {
+        switch self {
+        case .Green:
+            return UIFont(name: "Lato-Thin", size: 110.0)!
+        default:
+            return UIFont(name: "Lato-Hairline", size: 110.0)!
+        }
+    }
 }
 
 class MainViewController: UIViewController, TunerDelegate {
@@ -98,18 +107,9 @@ class MainViewController: UIViewController, TunerDelegate {
             movingLineCenterConstraint.constant = 0.0
             animateViewTo(newState: .White)
         } else {
-//            if output.pitch.characters.count > 1 {
-//                let font:UIFont? = UIFont(name: "Lato-Hairline", size:100)
-//                let fontSuper:UIFont? = UIFont(name: "Lato-Hairline", size:40)
-//                let attString:NSMutableAttributedString = NSMutableAttributedString(string: output.pitch, attributes: [NSFontAttributeName:font!])
-//                attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:42], range: NSRange(location:1,length:1))
-//                noteLabel.text = nil
-//                noteLabel.attributedText = attString
-//            } else {
-//                noteLabel.text = output.pitch
-//                noteLabel.attributedText = nil
-//            }
-            displayPitch(pitch: output.pitch)
+            if noteLabel.text != output.pitch {
+                displayPitch(pitch: output.pitch)
+            }
             
             if UIApplication.shared.statusBarOrientation.isPortrait {
                 movingLineCenterConstraint.constant = CGFloat(-output.distance * 30.0)
@@ -143,7 +143,6 @@ class MainViewController: UIViewController, TunerDelegate {
             var viewBackgroundColor: UIColor!
             var lineTextColor: UIColor!
             var lineThickness: CGFloat = 1.0
-            var font: UIFont = UIFont(name: "Lato-Hairline", size: 100.0)!
             
             switch newState {
             case .White:
@@ -156,7 +155,6 @@ class MainViewController: UIViewController, TunerDelegate {
                 viewBackgroundColor = UIColor.greenView
                 lineTextColor = UIColor.white
                 lineThickness = 2.0
-                font = UIFont(name: "Lato-Thin", size: 100.0)!
             }
             
             var delay = 0.0
@@ -168,9 +166,11 @@ class MainViewController: UIViewController, TunerDelegate {
             let stateBeforeDelay = state
             DispatchQueue.main.asyncAfter(deadline: when) {
                 if stateBeforeDelay == self.state {
+                    let font = self.state.font
                     UIView.transition(with: self.noteLabel, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState], animations: {
                         self.noteLabel.textColor = lineTextColor
                         self.noteLabel.font = font
+                        self.displayPitch(pitch: self.noteLabel.text!)
                         }, completion: { _ in })
                     
                     UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState], animations: {
@@ -196,7 +196,7 @@ class MainViewController: UIViewController, TunerDelegate {
     func displayPitch(pitch: String) {
         if pitch.characters.count > 1 {
             let font = noteLabel.font
-            let fontSuper:UIFont? = noteLabel.font.withSize(40.0)
+            let fontSuper:UIFont? = noteLabel.font.withSize(45.0)
             let attString:NSMutableAttributedString = NSMutableAttributedString(string: pitch, attributes: [NSFontAttributeName:font!])
             attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:42], range: NSRange(location:1,length:1))
             noteLabel.attributedText = attString
