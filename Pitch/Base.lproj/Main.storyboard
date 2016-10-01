@@ -162,6 +162,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68B-T0-hsf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="kND-BN-ywH"/>
+                                    <constraint firstAttribute="width" constant="76" id="sif-4I-ngQ"/>
+                                </constraints>
+                                <state key="normal" image="black_feedback"/>
+                                <connections>
+                                    <action selector="feedbackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ue-bX-XeL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -176,6 +186,7 @@
                             <constraint firstItem="oO0-84-TkP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SW0-MX-MQ0"/>
                             <constraint firstItem="eFM-fb-ftt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-80" id="UGX-oi-8js"/>
                             <constraint firstItem="zEw-Tb-xul" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UuF-MB-nl1"/>
+                            <constraint firstAttribute="trailing" secondItem="68B-T0-hsf" secondAttribute="trailing" id="WId-Xx-dEu"/>
                             <constraint firstItem="H9O-L8-opE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WeZ-AZ-MaF"/>
                             <constraint firstItem="Jpl-Qo-b0N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="b06-qE-Bwb"/>
                             <constraint firstItem="oO0-84-TkP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="60" id="fLj-gF-RFi"/>
@@ -185,11 +196,13 @@
                             <constraint firstItem="4CE-78-WqF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nmd-kd-DYy"/>
                             <constraint firstItem="eFM-fb-ftt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="vYB-k6-IUI"/>
                             <constraint firstItem="4CE-78-WqF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-9" id="wOR-cl-HBI"/>
+                            <constraint firstItem="68B-T0-hsf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="z4U-FG-3tw"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="amplitudeLabel" destination="QIG-pk-c1y" id="c50-eU-LfF"/>
+                        <outlet property="feedbackButton" destination="68B-T0-hsf" id="1SB-Ep-Ah7"/>
                         <outlet property="landscapeMovingLineCenterConstraint" destination="fLj-gF-RFi" id="N5U-BA-bdV"/>
                         <outlet property="noteLabel" destination="4CE-78-WqF" id="2pw-wg-JUd"/>
                         <outlet property="portraitMovingLineCenterConstraint" destination="hHC-tg-vI5" id="e2M-Sk-rhA"/>
@@ -221,4 +234,7 @@
             <point key="canvasLocation" x="34.399999999999999" y="35.532233883058474"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="black_feedback" width="25" height="25"/>
+    </resources>
 </document>

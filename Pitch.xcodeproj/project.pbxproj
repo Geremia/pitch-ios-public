@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C253C361D9FF7E900BD07D6 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C351D9FF7E900BD07D6 /* MainViewState.swift */; };
 		4CDF00001D8B0BFA00BEAD0D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFC1D8B0BFA00BEAD0D /* Lato-Thin.ttf */; };
 		4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */; };
 		4CDFFFFD1D8B0BFA00BEAD0D /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFF91D8B0BFA00BEAD0D /* Lato-Hairline.ttf */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C253C351D9FF7E900BD07D6 /* MainViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
 		4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+PitchColors.swift"; sourceTree = "<group>"; };
 		4CDFFFF91D8B0BFA00BEAD0D /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
 		4CDFFFFA1D8B0BFA00BEAD0D /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */,
+				4C253C351D9FF7E900BD07D6 /* MainViewState.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */,
 				4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */,
 				4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */,
+				4C253C361D9FF7E900BD07D6 /* MainViewState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,7 +546,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.plutoniumapps.GTProTecht;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -563,7 +567,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.plutoniumapps.GTProTecht;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

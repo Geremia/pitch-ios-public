@@ -8,25 +8,13 @@
 
 import UIKit
 import TuningFork
+import MessageUI
 
-enum MainViewState {
-    case White
-    case LightGreen
-    case Green
-    
-    var font: UIFont {
-        switch self {
-        case .Green:
-            return UIFont(name: "Lato-Thin", size: 110.0)!
-        default:
-            return UIFont(name: "Lato-Hairline", size: 110.0)!
-        }
-    }
-}
-
-class MainViewController: UIViewController, TunerDelegate {
+class MainViewController: UIViewController, MFMailComposeViewControllerDelegate, TunerDelegate {
     
     // MARK: - Outlets
+    
+    @IBOutlet weak var feedbackButton: UIButton!
     
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet var lines: [UIView]!
@@ -80,7 +68,6 @@ class MainViewController: UIViewController, TunerDelegate {
                 for element in self.landscapeElements {
                     element.alpha = 0.0
                 }
-                
                 for element in self.portraitElements {
                     element.alpha = 1.0
                 }
@@ -88,7 +75,6 @@ class MainViewController: UIViewController, TunerDelegate {
                 for element in self.landscapeElements {
                     element.alpha = 1.0
                 }
-                
                 for element in self.portraitElements {
                     element.alpha = 0.0
                 }
@@ -140,22 +126,6 @@ class MainViewController: UIViewController, TunerDelegate {
     func animateViewTo(newState: MainViewState) {
         if newState != state {
             state = newState
-            var viewBackgroundColor: UIColor!
-            var lineTextColor: UIColor!
-            var lineThickness: CGFloat = 1.0
-            
-            switch newState {
-            case .White:
-                viewBackgroundColor = UIColor.white
-                lineTextColor = UIColor.black
-            case .LightGreen:
-                viewBackgroundColor = UIColor.lightGreenView
-                lineTextColor = UIColor.black
-            case .Green:
-                viewBackgroundColor = UIColor.greenView
-                lineTextColor = UIColor.white
-                lineThickness = 2.0
-            }
             
             var delay = 0.0
             if newState == .Green {
@@ -168,20 +138,24 @@ class MainViewController: UIViewController, TunerDelegate {
                 if stateBeforeDelay == self.state {
                     let font = self.state.font
                     UIView.transition(with: self.noteLabel, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState], animations: {
-                        self.noteLabel.textColor = lineTextColor
-                        self.noteLabel.font = font
+                        self.noteLabel.textColor = newState.lineTextColor
+                        self.noteLabel.font = newState.font
                         self.displayPitch(pitch: self.noteLabel.text!)
                         }, completion: { _ in })
                     
+                    UIView.transition(with: self.feedbackButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState], animations: {
+                        self.feedbackButton.setImage(newState.feedbackImage, for: .normal)
+                        }, completion: { _ in })
+                    
                     UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState], animations: {
-                        self.view.backgroundColor = viewBackgroundColor
+                        self.view.backgroundColor = newState.viewBackgroundColor
                         for line in self.lines {
-                            line.backgroundColor = lineTextColor
+                            line.backgroundColor = newState.lineTextColor
                         }
                         }, completion: { finished in
                             if finished {
                                 for height in self.lineHeights {
-                                    height.constant = lineThickness
+                                    height.constant = newState.lineThickness
                                 }
                                 for line in self.lines {
                                     line.layoutIfNeeded()
@@ -204,7 +178,27 @@ class MainViewController: UIViewController, TunerDelegate {
             noteLabel.attributedText = NSMutableAttributedString(string: pitch, attributes: nil)
         }
     }
-
+    
+    // MARK: - Actions
+    
+    @IBAction func feedbackPressed(_ sender: AnyObject) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["pulse@plutoniumapps.com"])
+            mail.setSubject("Pitch Tuner Feedback")
+            mail.setMessageBody("Hi Seth and Daniel,\n", isHTML: true)
+            
+            present(mail, animated: true, completion: nil)
+        }
+    }
+    
+    // MARK: - MFMailComposeViewControllerDelegate
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
     // MARK: - Status Bar Style
     
     override var prefersStatusBarHidden: Bool {
