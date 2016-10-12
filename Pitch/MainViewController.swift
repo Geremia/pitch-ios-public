@@ -42,6 +42,8 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     private var tuner: Tuner?
     private var state: MainViewState = .White
     
+    var today: Day = Day()
+    
     // MARK: - Setup Views
 
     override func viewDidLoad() {
@@ -88,6 +90,21 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         amplitudeLabel.text = "Amplitude: \(output.amplitude)"
         stdDevLabel.text = "Std. Dev: \(output.standardDeviation)"
         
+        updateUI(output: output)
+        addOutputToAnalytics(output: output)
+    }
+    
+    // MARK: - Analytics
+    
+    func addOutputToAnalytics(output: TunerOutput) {
+        if output.isValid {
+            today.addDataPoint(tunerOutput: output)
+        }
+    }
+    
+    // MARK: - UI
+    
+    func updateUI(output: TunerOutput) {
         if !output.isValid {
             noteLabel.attributedText = NSMutableAttributedString(string: "--", attributes: nil)
             movingLineCenterConstraint.constant = 0.0
@@ -120,8 +137,6 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             self.view.layoutIfNeeded()
         })
     }
-    
-    // MARK: - UI
     
     func animateViewTo(newState: MainViewState) {
         if newState != state {
