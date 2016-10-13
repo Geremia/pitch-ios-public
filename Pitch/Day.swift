@@ -13,39 +13,44 @@ class Day: NSObject {
     
     // MARK: - Variables
     
-    let tuningThreshold: Float = 0.5 // The threshold in cents for being 'in-tune'
+    let tuningThreshold: Float = 0.4 // The threshold in cents for being 'in-tune'
     
     var date: Date
     var inTunePercentage: Double
-    var inTunePercentageDataPoints: Int // The number of data points added for inTunePercentage
-    var timeToCenter: Double
-    var timeToCenterDataPoints: Int // The number of data points added for timeToCenter
+    var inTunePercentageDataCount: Int // The number of data points added for inTunePercentage
+    var timeToCenter: TimeInterval
+    var timeToCenterDataCount: Int // The number of data points added for timeToCenter
     
     // MARK: - Initialization
     
     override init() {
         date = Date()
         inTunePercentage = -1
-        inTunePercentageDataPoints = 0
+        inTunePercentageDataCount = 0
         timeToCenter = -1
-        timeToCenterDataPoints = 0
+        timeToCenterDataCount = 0
     }
     
     // MARK: - Functions
     
     func addDataPoint(tunerOutput: TunerOutput) {
-        inTunePercentageDataPoints += 1
+        inTunePercentageDataCount += 1
         
         let inTune: Double = tunerOutput.distance < tuningThreshold ? 1 : 0
-        let newDataPointWeight = 1 / Double(self.inTunePercentageDataPoints)
+        let newDataPointWeight = 1 / Double(self.inTunePercentageDataCount)
         let oldAverageWeight = 1 - newDataPointWeight
         
         inTunePercentage = (inTunePercentage * oldAverageWeight) + (inTune * newDataPointWeight)
-        
         print("In-tune \((inTunePercentage * 100).roundTo(places: 2))% of the time.")
     }
     
-    func addDataPoint(timeToCenter: Double) {
+    func addDataPoint(timeToCenter time: Double) {
+        timeToCenterDataCount += 1
         
+        let newDataPointWeight = 1 / Double(self.timeToCenterDataCount)
+        let oldAverageWeight = 1 - newDataPointWeight
+        
+        timeToCenter = (timeToCenter * oldAverageWeight) + (time * newDataPointWeight)
+        print("Time to center average: \(timeToCenter.roundTo(places: 2)).")
     }
 }

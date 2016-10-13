@@ -10,6 +10,7 @@
 		4C253C361D9FF7E900BD07D6 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C351D9FF7E900BD07D6 /* MainViewState.swift */; };
 		4C253C7D1DAEDF0800BD07D6 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C7C1DAEDF0800BD07D6 /* Day.swift */; };
 		4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C7E1DAEE98900BD07D6 /* Extensions.swift */; };
+		4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C801DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift */; };
 		4CDF00001D8B0BFA00BEAD0D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFC1D8B0BFA00BEAD0D /* Lato-Thin.ttf */; };
 		4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */; };
 		4CDFFFFD1D8B0BFA00BEAD0D /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFF91D8B0BFA00BEAD0D /* Lato-Hairline.ttf */; };
@@ -46,6 +47,7 @@
 		4C253C351D9FF7E900BD07D6 /* MainViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
 		4C253C7C1DAEDF0800BD07D6 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		4C253C7E1DAEE98900BD07D6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		4C253C801DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PitchUserDefaults.swift"; sourceTree = "<group>"; };
 		4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+PitchColors.swift"; sourceTree = "<group>"; };
 		4CDFFFF91D8B0BFA00BEAD0D /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
 		4CDFFFFA1D8B0BFA00BEAD0D /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */,
+				4C253C801DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift */,
 				4C253C7E1DAEE98900BD07D6 /* Extensions.swift */,
 			);
 			name = Extensions;
@@ -401,6 +404,7 @@
 				4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */,
 				4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */,
 				4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */,
+				4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */,
 				4C253C7D1DAEDF0800BD07D6 /* Day.swift in Sources */,
 				4C253C361D9FF7E900BD07D6 /* MainViewState.swift in Sources */,
 			);
@@ -557,7 +561,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = J2F7Z3X3WF;
 				INFOPLIST_FILE = Pitch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plutoniumapps.GTProTecht;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -578,7 +582,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/AudioKit\"",
 				);
 				INFOPLIST_FILE = Pitch/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plutoniumapps.GTProTecht;
 				PRODUCT_NAME = "$(TARGET_NAME)";

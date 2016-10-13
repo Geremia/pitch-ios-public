@@ -92,6 +92,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         
         updateUI(output: output)
         addOutputToAnalytics(output: output)
+        updatePitchCenterTimer(output: output)
     }
     
     // MARK: - Analytics
@@ -99,6 +100,48 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     func addOutputToAnalytics(output: TunerOutput) {
         if output.isValid {
             today.addDataPoint(tunerOutput: output)
+        }
+    }
+    
+    var addedCurrentCenterTime: Bool = false
+    var pitchStartTime: Date?
+    var pitchCenterTimer: Timer?
+    
+    func updatePitchCenterTimer(output: TunerOutput) {
+        if output.isValid {
+            if pitchStartTime == nil {
+                startTimingPitch()
+            }
+            
+            if state == .Green {
+                pitchCenterTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
+                    if !self.addedCurrentCenterTime {
+                        self.addPitchCenterTimeToAnalytics()
+                    }
+                })
+            }
+        } else {
+            stopTimingPitch()
+            pitchStartTime = nil
+        }
+    }
+    
+    func startTimingPitch() {
+        pitchStartTime = Date()
+        addedCurrentCenterTime = false
+    }
+    
+    func stopTimingPitch() {
+        pitchCenterTimer?.invalidate()
+        pitchCenterTimer = nil
+        addedCurrentCenterTime = true
+    }
+    
+    func addPitchCenterTimeToAnalytics() {
+        if let time = self.pitchStartTime {
+            let interval = Date().timeIntervalSince(time)
+            today.addDataPoint(timeToCenter: interval)
+            self.stopTimingPitch()
         }
     }
     
@@ -219,5 +262,11 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     override var prefersStatusBarHidden: Bool {
         return true
     }
+}
+
+// MARK: - Analytics
+
+extension MainViewController {
+    
 }
 
