@@ -9,7 +9,7 @@
 import Foundation
 import TuningFork
 
-class Day: NSObject {
+class Day: NSObject, NSCoding {
     
     // MARK: - Variables
     
@@ -29,6 +29,24 @@ class Day: NSObject {
         inTunePercentageDataCount = 0
         timeToCenter = -1
         timeToCenterDataCount = 0
+    }
+    
+    // MARK: - NSCoding
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.date = aDecoder.decodeObject(forKey: "date") as! Date
+        self.inTunePercentage = aDecoder.decodeDouble(forKey: "inTunePercentage")
+        self.inTunePercentageDataCount = aDecoder.decodeInteger(forKey: "inTunePercentageDataCount")
+        self.timeToCenter = aDecoder.decodeDouble(forKey: "timeToCenter")
+        self.timeToCenterDataCount = aDecoder.decodeInteger(forKey: "timeToCenterDataCount")
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(date, forKey: "date")
+        aCoder.encode(inTunePercentage, forKey: "inTunePercentage")
+        aCoder.encode(inTunePercentageDataCount, forKey: "inTunePercentageDataCount")
+        aCoder.encode(timeToCenter, forKey: "timeToCenter")
+        aCoder.encode(timeToCenterDataCount, forKey: "timeToCenterDataCount")
     }
     
     // MARK: - Functions
