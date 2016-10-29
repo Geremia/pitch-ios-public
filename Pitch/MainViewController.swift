@@ -16,18 +16,22 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     
     @IBOutlet weak var feedbackButton: UIButton!
     
+    // Tuner
+    
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet var lines: [UIView]!
     @IBOutlet var lineHeights: [NSLayoutConstraint]!
-    
     @IBOutlet var portraitElements: [UIView]!
     @IBOutlet var landscapeElements: [UIView]!
-    
     @IBOutlet weak var portraitMovingLineCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var landscapeMovingLineCenterConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var amplitudeLabel: UILabel!
     @IBOutlet weak var stdDevLabel: UILabel!
+    @IBOutlet weak var pitchPipeButton: UIButton!
+    
+    // Pitch Pipe
+    
+    @IBOutlet weak var pitchPipeBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     
@@ -38,6 +42,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             return landscapeMovingLineCenterConstraint
         }
     }
+    var isPitchPipeOpen: Bool = false
     
     private var tuner: Tuner?
     private var state: MainViewState = .White
@@ -48,6 +53,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.pitchPipeBottomConstraint.constant = -231
         tuner = Tuner()
         tuner?.delegate = self
         tuner?.start()
@@ -248,6 +254,24 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             mail.setMessageBody("Hi Daniel,\n This is how I think you can improve the Pitch tuner app: \n\n", isHTML: true)
             
             present(mail, animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func pitchPipePressed(_ sender: AnyObject) {
+        if self.isPitchPipeOpen {
+            self.pitchPipeBottomConstraint.constant = -231
+            self.isPitchPipeOpen = false
+            self.pitchPipeButton.setImage(#imageLiteral(resourceName: "audio_wave"), for: .normal)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+        } else {
+            self.pitchPipeBottomConstraint.constant = 0
+            self.isPitchPipeOpen = true
+            self.pitchPipeButton.setImage(#imageLiteral(resourceName: "down_arrow"), for: .normal)
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
         }
     }
     
