@@ -243,9 +243,9 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["pitch@plutoniumapps.com"])
+            mail.setToRecipients(["dkuntz0@gmail.com"])
             mail.setSubject("Pitch Tuner Feedback")
-            mail.setMessageBody("Hi Seth and Daniel,\n", isHTML: true)
+            mail.setMessageBody("Hi Daniel,\n This is how I think you can improve the Pitch tuner app: \n\n", isHTML: true)
             
             present(mail, animated: true, completion: nil)
         }
