@@ -19,10 +19,10 @@ class SoundGenerator : NSObject {
         
         let pitches = Pitch.octaveOnePitches
         for pitch in pitches {
-            let oscillator = AKOscillator(waveform: AKTable(.sine, size: 4096))
+            let oscillator = AKOscillator(waveform: AKTable(.triangle, size: 4096))
             oscillator.frequency = pitch.frequency()
             oscillator.amplitude = 0.0
-            oscillator.rampTime = 0.05
+            oscillator.rampTime = 0.01
             oscillators.append(oscillator)
             self.mixer.connect(oscillator)
         }
@@ -35,7 +35,7 @@ class SoundGenerator : NSObject {
     
     final func playNoteOn(channelNumber: Int) {
         let oscillator = oscillators[channelNumber]
-        oscillator.amplitude = 1.0
+        oscillator.amplitude = 10.0
         oscillator.play()
     }
     
