@@ -27,6 +27,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     @IBOutlet weak var amplitudeLabel: UILabel!
     @IBOutlet weak var stdDevLabel: UILabel!
     @IBOutlet weak var pitchPipeButton: UIButton!
+    @IBOutlet weak var pitchPipeView: PitchPipeView!
     
     // Pitch Pipe
     
@@ -52,9 +53,13 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pitchPipeBottomConstraint.constant = -231
+        
         tuner = Tuner()
         tuner?.delegate = self
+        
+        self.pitchPipeBottomConstraint.constant = -231
+        self.pitchPipeView.soundGenerator.tuner = tuner
+        self.pitchPipeView.soundGenerator.setUp()
         tuner?.start()
     }
     

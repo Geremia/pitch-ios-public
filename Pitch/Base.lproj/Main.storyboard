@@ -603,6 +603,7 @@
                         <outlet property="noteLabel" destination="4CE-78-WqF" id="2pw-wg-JUd"/>
                         <outlet property="pitchPipeBottomConstraint" destination="XzX-Wk-8aq" id="pna-oa-XBu"/>
                         <outlet property="pitchPipeButton" destination="hxQ-Xm-BOA" id="qRN-df-NSz"/>
+                        <outlet property="pitchPipeView" destination="iVv-DE-UIr" id="Zog-24-HHy"/>
                         <outlet property="portraitMovingLineCenterConstraint" destination="MJM-rE-AOe" id="1tX-M1-qEh"/>
                         <outlet property="stdDevLabel" destination="H9O-L8-opE" id="Y4m-o2-eZu"/>
                         <outletCollection property="lines" destination="ZSu-7s-5FP" collectionClass="NSMutableArray" id="eKJ-h4-71u"/>

@@ -22,22 +22,7 @@ class PitchPipeView: UIView {
     // MARK: - Properties
     
     var sustainOn: Bool = false
-//    var soundGenerator: SoundGenerator = SoundGenerator()
-    
-    // MARK: - Awake from Nib
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-//        let oscillator = AKOscillator()
-//        oscillator.waveform = AKTable(size: 4096)
-//        oscillator.frequency = AKParameter(value: 440.0)
-//        oscillator.amplitude = AKParameter(value: 1.0)
-//        AKOrchestra.start()
-//        oscillator.
-        
-//        soundGenerator.setUp()
-    }
+    var soundGenerator: SoundGenerator = SoundGenerator()
     
     // MARK: - Pitch Button UI
     
@@ -64,10 +49,10 @@ class PitchPipeView: UIView {
         let isActive = button.backgroundColor == UIColor.greenView
         if isActive {
             off(pitchButton: button)
-//            soundGenerator.playNoteOff(channelNumber: button.tag)
+            soundGenerator.playNoteOff(channelNumber: button.tag)
         } else {
             on(pitchButton: button)
-//            soundGenerator.playNoteOn(channelNumber: button.tag)
+            soundGenerator.playNoteOn(channelNumber: button.tag)
         }
     }
     
@@ -75,7 +60,7 @@ class PitchPipeView: UIView {
         if !sustainOn {
             let button = sender as! UIButton
             off(pitchButton: button)
-//            soundGenerator.playNoteOff(channelNumber: button.tag)
+            soundGenerator.playNoteOff(channelNumber: button.tag)
         }
     }
     
@@ -89,7 +74,7 @@ class PitchPipeView: UIView {
             }, completion: nil)
         for button in self.pitchButtons {
             off(pitchButton: button)
-//            soundGenerator.playNoteOff(channelNumber: button.tag)
+            soundGenerator.playNoteOff(channelNumber: button.tag)
         }
         sustainOn = !sustainOn
     }
