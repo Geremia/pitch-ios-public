@@ -29,9 +29,7 @@ class PitchPipeView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let pitches = Pitch.octaveTwoPitches
-        for pitch in pitches {
-        }
+//        let oscillator = AKOscillator(
     }
     
     // MARK: - Pitch Button UI

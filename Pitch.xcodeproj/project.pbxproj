@@ -23,6 +23,8 @@
 		4CEAD6DE1D8A0CFD000492E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6DC1D8A0CFD000492E6 /* LaunchScreen.storyboard */; };
 		4CEAD6E91D8A0CFD000492E6 /* PitchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6E81D8A0CFD000492E6 /* PitchTests.swift */; };
 		4CEAD6F41D8A0CFD000492E6 /* PitchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6F31D8A0CFD000492E6 /* PitchUITests.swift */; };
+		4CFC73B31DC59B3700AFD8AC /* PitchPipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */; };
+		4CFC73B51DC59B9800AFD8AC /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CFC73B41DC59B9800AFD8AC /* Lato-Semibold.ttf */; };
 		ED97DF447623C3DFD64041F0 /* Pods_Pitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8360C12DA4D6F67ED4940CF3 /* Pods_Pitch.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		4CEAD6EF1D8A0CFD000492E6 /* PitchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEAD6F31D8A0CFD000492E6 /* PitchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchUITests.swift; sourceTree = "<group>"; };
 		4CEAD6F51D8A0CFD000492E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchPipeView.swift; sourceTree = "<group>"; };
+		4CFC73B41DC59B9800AFD8AC /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		8360C12DA4D6F67ED4940CF3 /* Pods_Pitch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9347156199E522006A665FA9 /* Pods-Pitch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pitch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pitch/Pods-Pitch.debug.xcconfig"; sourceTree = "<group>"; };
 		95D14CD9A7235D78DCC28133 /* Pods-Pitch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pitch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pitch/Pods-Pitch.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				4CDFFFFA1D8B0BFA00BEAD0D /* Lato-Light.ttf */,
 				4CDFFFFB1D8B0BFA00BEAD0D /* Lato-Regular.ttf */,
 				4CDFFFFC1D8B0BFA00BEAD0D /* Lato-Thin.ttf */,
+				4CFC73B41DC59B9800AFD8AC /* Lato-Semibold.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 			children = (
 				4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */,
 				4C253C351D9FF7E900BD07D6 /* MainViewState.swift */,
+				4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -322,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CDFFFFE1D8B0BFA00BEAD0D /* Lato-Light.ttf in Resources */,
+				4CFC73B51DC59B9800AFD8AC /* Lato-Semibold.ttf in Resources */,
 				4CDFFFFF1D8B0BFA00BEAD0D /* Lato-Regular.ttf in Resources */,
 				4CDF00001D8B0BFA00BEAD0D /* Lato-Thin.ttf in Resources */,
 				4CEAD6DE1D8A0CFD000492E6 /* LaunchScreen.storyboard in Resources */,
@@ -407,6 +414,7 @@
 				4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */,
 				4C253C7D1DAEDF0800BD07D6 /* Day.swift in Sources */,
 				4C253C361D9FF7E900BD07D6 /* MainViewState.swift in Sources */,
+				4CFC73B31DC59B3700AFD8AC /* PitchPipeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
