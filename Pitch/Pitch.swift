@@ -10,6 +10,9 @@ import Foundation
 
 enum Pitch: Double {
     
+    case a4 = 220.0
+    case aSharp4 = 233.08
+    case b4 = 246.94
     case c4 = 261.63
     case cSharp4 = 277.18
     case d4 = 293.66
@@ -19,10 +22,10 @@ enum Pitch: Double {
     case fSharp4 = 369.99
     case g4 = 392.00
     case gSharp4 = 415.30
-    case a4 = 440.00
-    case aSharp4 = 466.16
-    case b4 = 493.88
     
+    case a5 = 440.0
+    case aSharp5 = 466.17
+    case b5 = 493.86
     case c5 = 523.25
     case cSharp5 = 554.37
     case d5 = 587.33
@@ -32,10 +35,10 @@ enum Pitch: Double {
     case fSharp5 = 739.99
     case g5 = 783.99
     case gSharp5 = 830.61
-    case a5 = 880.00
-    case aSharp5 = 932.33
-    case b5 = 987.77
     
+    case a6 = 880.0
+    case aSharp6 = 932.33
+    case b6 = 987.77
     case c6 = 1046.50
     case cSharp6 = 1108.73
     case d6 = 1174.66
@@ -45,13 +48,10 @@ enum Pitch: Double {
     case fSharp6 = 1479.98
     case g6 = 1567.98
     case gSharp6 = 1661.22
-    case a6 = 1760.00
-    case aSharp6 = 1864.66
-    case b6 = 1975.53
     
-    static let octaveOnePitches: [Pitch] = [.c4, .cSharp4, .d4, .dSharp4, .e4, .f4, .fSharp4, .g4, .gSharp4, .a4, .aSharp4, .b4]
-    static let octaveTwoPitches: [Pitch] = [.c5, .cSharp5, .d5, .dSharp5, .e5, .f5, .fSharp5, .g5, .gSharp5, .a5, .aSharp5, .b5]
-    static let octaveThreePitches: [Pitch] = [.c6, .cSharp6, .d6, .dSharp6, .e6, .f6, .fSharp6, .g6, .gSharp6, .a6, .aSharp6, .b6]
+    static let octaveOnePitches: [Pitch] = [.a4, .aSharp4, .b4, .c4, .cSharp4, .d4, .dSharp4, .e4, .f4, .fSharp4, .g4, .gSharp4]
+    static let octaveTwoPitches: [Pitch] = [.a5, .aSharp5, .b5, .c5, .cSharp5, .d5, .dSharp5, .e5, .f5, .fSharp5, .g5, .gSharp5]
+    static let octaveThreePitches: [Pitch] = [.a6, .aSharp6, .b6, .c6, .cSharp6, .d6, .dSharp6, .e6, .f6, .fSharp6, .g6, .gSharp6]
     
     init(shortName: String, octave: Int) {
         let pitchSetToIterate: [Pitch]

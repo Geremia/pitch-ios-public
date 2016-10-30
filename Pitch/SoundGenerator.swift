@@ -15,16 +15,18 @@ class SoundGenerator : NSObject {
     var mixer: AKMixer!
     
     final func setUp() {
+        self.mixer = AKMixer(tuner.silence)
+        
         let pitches = Pitch.octaveOnePitches
         for pitch in pitches {
-            let oscillator = AKOscillator(waveform: AKTable(.triangle, size: 4096))
+            let oscillator = AKOscillator(waveform: AKTable(.sine, size: 4096))
             oscillator.frequency = pitch.frequency()
             oscillator.amplitude = 0.0
             oscillator.rampTime = 0.05
             oscillators.append(oscillator)
+            self.mixer.connect(oscillator)
         }
         
-        self.mixer = AKMixer(tuner.silence, oscillators[0])
         AudioKit.output = mixer
         AudioKit.start()
         

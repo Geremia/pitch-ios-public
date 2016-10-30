@@ -204,7 +204,6 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             let stateBeforeDelay = state
             DispatchQueue.main.asyncAfter(deadline: when) {
                 if stateBeforeDelay == self.state {
-                    let font = self.state.font
                     UIView.transition(with: self.noteLabel, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState], animations: {
                         self.noteLabel.textColor = newState.lineTextColor
                         self.noteLabel.font = newState.font
