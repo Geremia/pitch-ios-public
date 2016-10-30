@@ -120,7 +120,7 @@ private let frequencies: [Double] = [
  */
 @objc open class Tuner: NSObject {
     
-    fileprivate let updateInterval: TimeInterval = 0.03
+    fileprivate let updateInterval: TimeInterval = 0.01
     fileprivate let smoothingBufferCount = 30
     fileprivate let frequencyBufferCount = 20
     
@@ -175,11 +175,12 @@ private let frequencies: [Double] = [
     
     func timerAction() {
         if let d = self.delegate {
+            print(self.analyzer.amplitude)
             if self.analyzer.amplitude > self.threshold {
                 let amplitude = self.analyzer.amplitude
                 var frequency = self.analyzer.frequency
                 
-                if amplitude - previousAmplitude > 0.01 || abs(frequency - previousFrequency) > 40.0 {
+                if amplitude - previousAmplitude > 0.05 || abs(frequency - previousFrequency) > (distanceBetweenNotes(frequency: frequency) / 2) {
                     self.smoothing = 1.0
                     self.smoothingBuffer.removeAll()
                 } else if smoothingBuffer.count < smoothingBufferCount {
@@ -201,6 +202,29 @@ private let frequencies: [Double] = [
             }
         }
     }
+    
+    func distanceBetweenNotes(frequency: Double) -> Double {
+        var norm = frequency
+        while norm > frequencies[frequencies.count - 1] {
+            norm = norm / 2.0
+        }
+        while norm < frequencies[0] {
+            norm = norm * 2.0
+        }
+        
+        var i = -1
+        var min = Double.infinity
+        for n in 0...frequencies.count-1 {
+            let diff = frequencies[n] - norm
+            if abs(diff) < abs(min) {
+                min = diff
+                i = n
+            }
+        }
+        
+        return frequencies[i] - frequencies[i - 1]
+    }
+    
     
         /**
          Stops the tuner.
@@ -264,7 +288,7 @@ private let frequencies: [Double] = [
         output.pitch = String(format: "%@", sharps[i % sharps.count], flats[i % flats.count])
         
         output.standardDeviation = standardDeviation
-        if standardDeviation < 10.0 && amplitude > 0.01 {
+        if standardDeviation < 10.0 && amplitude > 0.045 {
             output.isValid = true
         }
         

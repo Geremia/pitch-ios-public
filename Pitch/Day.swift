@@ -58,7 +58,7 @@ class Day: NSObject, NSCoding {
         let oldAverageWeight = 1 - newDataPointWeight
         
         inTunePercentage = (inTunePercentage * oldAverageWeight) + (inTune * newDataPointWeight)
-        print("In-tune \((inTunePercentage * 100).roundTo(places: 2))% of the time.")
+//        print("In-tune \((inTunePercentage * 100).roundTo(places: 2))% of the time.")
     }
     
     func addDataPoint(timeToCenter time: Double) {
@@ -68,6 +68,6 @@ class Day: NSObject, NSCoding {
         let oldAverageWeight = 1 - newDataPointWeight
         
         timeToCenter = (timeToCenter * oldAverageWeight) + (time * newDataPointWeight)
-        print("Time to center average: \(timeToCenter.roundTo(places: 2)).")
+//        print("Time to center average: \(timeToCenter.roundTo(places: 2)).")
     }
 }

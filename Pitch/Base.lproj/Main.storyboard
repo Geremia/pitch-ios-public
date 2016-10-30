@@ -195,7 +195,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="zUl-4a-gzD" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" constant="80" id="0dC-37-bL5"/>
                                     <constraint firstItem="eFM-fb-ftt" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" constant="-80" id="0j3-UW-aCF"/>
@@ -469,7 +468,6 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="RkH-1m-34D" secondAttribute="trailing" id="0C4-Ne-2cJ"/>
                                     <constraint firstItem="qpy-FC-z3p" firstAttribute="width" secondItem="kRC-mt-qZ1" secondAttribute="width" id="0F0-2p-ToK"/>
