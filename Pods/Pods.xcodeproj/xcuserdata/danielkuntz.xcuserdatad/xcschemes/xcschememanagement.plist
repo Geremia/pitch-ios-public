@@ -4,22 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AudioKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Chronos-Swift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Pitch.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<true/>
-		</dict>
-		<key>TuningFork.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05F946142EEC270831FA4612303F675E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>0C4798DD7FEBB19BDBADFFBB2F4F8748</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5EECCD049B5A1BBC2B4117857B86C637</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D20530795D42C6ABAE550A10D8E25BBD</key>
+		<key>1859AD51A96B51AD798F6D3707722958</key>
 		<dict>
 			<key>primary</key>
 			<true/>

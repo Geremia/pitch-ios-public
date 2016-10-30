@@ -7,13 +7,12 @@
 //
 
 import Foundation
-import TuningFork
 
 class Day: NSObject, NSCoding {
     
     // MARK: - Variables
     
-    let tuningThreshold: Float = 0.4 // The threshold in cents for being 'in-tune'
+    let tuningThreshold: Double = 0.4 // The threshold in cents for being 'in-tune'
     
     var date: Date
     var inTunePercentage: Double

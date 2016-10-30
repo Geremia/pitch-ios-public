@@ -1,35 +1,12 @@
 PODS:
-  - AudioKit (2.3)
-  - Chronos-Swift (0.2.2)
-  - TuningFork (0.1.1):
-    - AudioKit (~> 2.3)
-    - Chronos-Swift (~> 0.2.2)
+  - AudioKit (3.4.1)
 
 DEPENDENCIES:
-  - Chronos-Swift (from `https://github.com/comyar/Chronos-Swift.git`, branch `master`)
-  - TuningFork (from `https://github.com/comyar/TuningFork.git`, branch `swift-3`)
-
-EXTERNAL SOURCES:
-  Chronos-Swift:
-    :branch: master
-    :git: https://github.com/comyar/Chronos-Swift.git
-  TuningFork:
-    :branch: swift-3
-    :git: https://github.com/comyar/TuningFork.git
-
-CHECKOUT OPTIONS:
-  Chronos-Swift:
-    :commit: 7450d4850db8ca098e77d20ff2fb6aea6f2ffdc4
-    :git: https://github.com/comyar/Chronos-Swift.git
-  TuningFork:
-    :commit: f3490599aba0868b1ecc339d8450c131cf502a1d
-    :git: https://github.com/comyar/TuningFork.git
+  - AudioKit (~> 3.4)
 
 SPEC CHECKSUMS:
-  AudioKit: 393be71739265448039ef268f3582dee82783b0d
-  Chronos-Swift: 68a4fff66a41a1b698b30353d66bea412c5bba73
-  TuningFork: 396d441b9e240c278f32d1b0736abb979e538789
+  AudioKit: 4aff6321b4733ccdec69cc134934a40d4d24d688
 
-PODFILE CHECKSUM: dc840a5cbe590d2ef0d70fbe6e98814eb43cd259
+PODFILE CHECKSUM: 6503a7ac8703132050698ce5fccee345b5ccb5d0
 
 COCOAPODS: 1.0.1

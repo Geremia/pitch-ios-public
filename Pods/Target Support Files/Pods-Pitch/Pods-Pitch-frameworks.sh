@@ -84,10 +84,8 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AudioKit/AudioKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/TuningFork/TuningFork.framework"
+  install_framework "${PODS_ROOT}/AudioKit/iOS/AudioKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/AudioKit/AudioKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/TuningFork/TuningFork.framework"
+  install_framework "${PODS_ROOT}/AudioKit/iOS/AudioKit.framework"
 fi
