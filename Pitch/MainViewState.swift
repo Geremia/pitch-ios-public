@@ -17,7 +17,7 @@ enum MainViewState {
     var font: UIFont {
         switch self {
         case .Green:
-            return UIFont(name: "Lato-Thin", size: 110.0)!
+            return UIFont(name: "Lato-Light", size: 110.0)!
         default:
             return UIFont(name: "Lato-Hairline", size: 110.0)!
         }
@@ -46,7 +46,7 @@ enum MainViewState {
     var lineThickness: CGFloat {
         switch self {
         case .Green:
-            return 2.0
+            return 4.0
         default:
             return 1.0
         }
@@ -58,6 +58,24 @@ enum MainViewState {
             return #imageLiteral(resourceName: "white_feedback")
         default:
             return #imageLiteral(resourceName: "black_feedback")
+        }
+    }
+    
+    var downArrowImage: UIImage {
+        switch self {
+        case .Green:
+            return #imageLiteral(resourceName: "white_down_arrow")
+        default:
+            return #imageLiteral(resourceName: "down_arrow")
+        }
+    }
+    
+    var audioWaveImage: UIImage {
+        switch self {
+        case .Green:
+            return #imageLiteral(resourceName: "white_audio_wave")
+        default:
+            return #imageLiteral(resourceName: "audio_wave")
         }
     }
 }

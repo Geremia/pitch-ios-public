@@ -49,29 +49,23 @@ enum Pitch: Double {
     case g6 = 1567.98
     case gSharp6 = 1661.22
     
-    static let octaveOnePitches: [Pitch] = [.a4, .aSharp4, .b4, .c4, .cSharp4, .d4, .dSharp4, .e4, .f4, .fSharp4, .g4, .gSharp4]
-    static let octaveTwoPitches: [Pitch] = [.a5, .aSharp5, .b5, .c5, .cSharp5, .d5, .dSharp5, .e5, .f5, .fSharp5, .g5, .gSharp5]
-    static let octaveThreePitches: [Pitch] = [.a6, .aSharp6, .b6, .c6, .cSharp6, .d6, .dSharp6, .e6, .f6, .fSharp6, .g6, .gSharp6]
+    case a7 = 1760.0
+    case aSharp7 = 1864.66
+    case b7 = 1975.54
+    case c7 = 2093
+    case cSharp7 = 2217.46
+    case d7 = 2349.32
+    case dSharp7 = 2489.02
+    case e7 = 2637.02
+    case f7 = 2793.82
+    case fSharp7 = 2959.96
+    case g7 = 3135.96
+    case gSharp7 = 3322.44
     
-    init(shortName: String, octave: Int) {
-        let pitchSetToIterate: [Pitch]
-        if octave == 1 {
-            pitchSetToIterate = Pitch.octaveOnePitches
-        } else if octave == 2 {
-            pitchSetToIterate = Pitch.octaveTwoPitches
-        } else {
-            pitchSetToIterate = Pitch.octaveThreePitches
-        }
-        
-        var rawValue: Double = Pitch.c4.rawValue
-        for pitch in pitchSetToIterate {
-            if pitch.shortName() == shortName {
-                rawValue = pitch.rawValue
-            }
-        }
-        
-        self.init(rawValue: rawValue)!
-    }
+    static let octaveFourPitches: [Pitch] = [.a4, .aSharp4, .b4, .c4, .cSharp4, .d4, .dSharp4, .e4, .f4, .fSharp4, .g4, .gSharp4]
+    static let octaveFivePitches: [Pitch] = [.a5, .aSharp5, .b5, .c5, .cSharp5, .d5, .dSharp5, .e5, .f5, .fSharp5, .g5, .gSharp5]
+    static let octaveSixPitches: [Pitch] = [.a6, .aSharp6, .b6, .c6, .cSharp6, .d6, .dSharp6, .e6, .f6, .fSharp6, .g6, .gSharp6]
+    static let octaveSevenPitches: [Pitch] = [.a7, .aSharp7, .b7, .c7, .cSharp7, .d7, .dSharp7, .e7, .f7, .fSharp7, .g7, .gSharp7]
     
     func frequency() -> Double {
         return self.rawValue
@@ -89,29 +83,29 @@ enum Pitch: Double {
     
     func shortName() -> String {
         switch self {
-        case .c4, .c5, .c6:
+        case .c4, .c5, .c6, .c7:
             return "C"
-        case .cSharp4, .cSharp5, .cSharp6:
+        case .cSharp4, .cSharp5, .cSharp6, .cSharp7:
             return "C#"
-        case .d4, .d5, .d6:
+        case .d4, .d5, .d6, .d7:
             return "D"
-        case .dSharp4, .dSharp5, .dSharp6:
+        case .dSharp4, .dSharp5, .dSharp6, .dSharp7:
             return "D#"
-        case .e4, .e5, .e6:
+        case .e4, .e5, .e6, .e7:
             return "E"
-        case .f4, .f5, .f6:
+        case .f4, .f5, .f6, .f7:
             return "F"
-        case .fSharp4, .fSharp5, .fSharp6:
+        case .fSharp4, .fSharp5, .fSharp6, .fSharp7:
             return "F#"
-        case .g4, .g5, .g6:
+        case .g4, .g5, .g6, .g7:
             return "G"
-        case .gSharp4, .gSharp5, .gSharp6:
+        case .gSharp4, .gSharp5, .gSharp6, .gSharp7:
             return "G#"
-        case .a4, .a5, .a6:
+        case .a4, .a5, .a6, .a7:
             return "A"
-        case .aSharp4, .aSharp5, .aSharp6:
+        case .aSharp4, .aSharp5, .aSharp6, .aSharp7:
             return "A#"
-        case .b4, .b5, .b6:
+        case .b4, .b5, .b6, .b7:
             return "B"
         }
     }
@@ -121,15 +115,15 @@ enum Pitch: Double {
             return shortName()
         } else {
             switch self {
-            case .cSharp4, .cSharp5, .cSharp6:
+            case .cSharp4, .cSharp5, .cSharp6, .cSharp7:
                 return "C#/Db"
-            case .dSharp4, .dSharp5, .dSharp6:
+            case .dSharp4, .dSharp5, .dSharp6, .dSharp7:
                 return "D#/Eb"
-            case .fSharp4, .fSharp5, .fSharp6:
+            case .fSharp4, .fSharp5, .fSharp6, .fSharp7:
                 return "F#/Gb"
-            case .gSharp4, .gSharp5, .gSharp6:
+            case .gSharp4, .gSharp5, .gSharp6, .gSharp7:
                 return "G#/Ab"
-            case .aSharp4, .aSharp5, .aSharp6:
+            case .aSharp4, .aSharp5, .aSharp6, .aSharp7:
                 return "A#/Bb"
             default:
                 return "C"

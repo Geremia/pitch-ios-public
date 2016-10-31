@@ -186,9 +186,9 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             movingLineCenterConstraint.constant = 0.0
         }
         
-        UIView.animate(withDuration: 0.08, animations: {
+        UIView.animate(withDuration: 0.08, delay: 0, options: [.allowUserInteraction], animations: {
             self.view.layoutIfNeeded()
-        })
+            }, completion: nil)
     }
     
     func animateViewTo(newState: MainViewState) {
@@ -204,17 +204,22 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             let stateBeforeDelay = state
             DispatchQueue.main.asyncAfter(deadline: when) {
                 if stateBeforeDelay == self.state {
-                    UIView.transition(with: self.noteLabel, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState], animations: {
+                    UIView.transition(with: self.noteLabel, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
                         self.noteLabel.textColor = newState.lineTextColor
                         self.noteLabel.font = newState.font
                         self.displayPitch(pitch: self.noteLabel.text!)
                         }, completion: { _ in })
                     
-                    UIView.transition(with: self.feedbackButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState], animations: {
+                    UIView.transition(with: self.feedbackButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
                         self.feedbackButton.setImage(newState.feedbackImage, for: .normal)
+                        if self.isPitchPipeOpen {
+                            self.pitchPipeButton.setImage(newState.downArrowImage, for: .normal)
+                        } else {
+                            self.pitchPipeButton.setImage(newState.audioWaveImage, for: .normal)
+                        }
                         }, completion: { _ in })
                     
-                    UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState], animations: {
+                    UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
                         self.view.backgroundColor = newState.viewBackgroundColor
                         for line in self.lines {
                             line.backgroundColor = newState.lineTextColor
@@ -264,18 +269,16 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         if self.isPitchPipeOpen {
             self.pitchPipeBottomConstraint.constant = -231
             self.isPitchPipeOpen = false
-            self.pitchPipeButton.setImage(#imageLiteral(resourceName: "audio_wave"), for: .normal)
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.layoutIfNeeded()
-            })
+            self.pitchPipeButton.setImage(self.state.audioWaveImage, for: .normal)
         } else {
             self.pitchPipeBottomConstraint.constant = 0
             self.isPitchPipeOpen = true
-            self.pitchPipeButton.setImage(#imageLiteral(resourceName: "down_arrow"), for: .normal)
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.layoutIfNeeded()
-            })
+            self.pitchPipeButton.setImage(self.state.downArrowImage, for: .normal)
         }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
+            self.view.layoutIfNeeded()
+            }, completion: nil)
     }
     
     // MARK: - MFMailComposeViewControllerDelegate

@@ -468,6 +468,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="RkH-1m-34D" secondAttribute="trailing" id="0C4-Ne-2cJ"/>
                                     <constraint firstItem="qpy-FC-z3p" firstAttribute="width" secondItem="kRC-mt-qZ1" secondAttribute="width" id="0F0-2p-ToK"/>

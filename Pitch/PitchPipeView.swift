@@ -36,7 +36,7 @@ class PitchPipeView: UIView {
     
     func off(pitchButton button: UIButton) {
         UIView.transition(with: button, duration: 0.05, options: .transitionCrossDissolve, animations: {
-            button.backgroundColor = UIColor.white
+            button.backgroundColor = UIColor.clear
             button.titleLabel?.font = UIFont(name: "Lato-Light", size: 26)
             button.setTitleColor(UIColor.grayText, for: .normal)
             }, completion: nil)
@@ -67,7 +67,7 @@ class PitchPipeView: UIView {
     @IBAction func sustainButtonPressed(_ sender: AnyObject) {
         let button = sender as! UIButton
         let image = sustainOn ? #imageLiteral(resourceName: "infinity") : #imageLiteral(resourceName: "white_infinity")
-        let color = sustainOn ? UIColor.white : UIColor.greenView
+        let color = sustainOn ? UIColor.clear : UIColor.greenView
         UIView.transition(with: button, duration: 0.05, options: .transitionCrossDissolve, animations: {
             button.setImage(image, for: .normal)
             button.backgroundColor = color
@@ -81,17 +81,19 @@ class PitchPipeView: UIView {
     
     @IBAction func minusButtonPressed(_ sender: AnyObject) {
         var currentOctave = Int(octaveLabel.text!)!
-        if currentOctave > 3 {
+        if currentOctave > 4 {
             currentOctave -= 1
+            soundGenerator.decrementOctave()
+            octaveLabel.text = String(currentOctave)
         }
-        octaveLabel.text = String(currentOctave)
     }
     
     @IBAction func plusButtonPressed(_ sender: AnyObject) {
         var currentOctave = Int(octaveLabel.text!)!
         if currentOctave < 7 {
             currentOctave += 1
+            soundGenerator.incrementOctave()
+            octaveLabel.text = String(currentOctave)
         }
-        octaveLabel.text = String(currentOctave)
     }
 }
