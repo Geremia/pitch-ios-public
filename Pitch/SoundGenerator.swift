@@ -10,76 +10,65 @@ import Foundation
 import AudioKit
 
 class SoundGenerator : NSObject {
-    var oscillators = [AKOscillator]()
+    private var bank: AKOscillatorBank!
+    private var mixer: AKMixer!
+    private var octaveConstant: Int = 81
+    private var channelsOn: [Int] = []
+    
     var tuner: Tuner!
-    var mixer: AKMixer!
     
     final func setUp() {
         self.mixer = AKMixer(tuner.silence)
         
-        let pitches = Pitch.octaveFourPitches
-        for pitch in pitches {
-            let oscillator = AKOscillator(waveform: AKTable(.triangle, size: 4096))
-            oscillator.frequency = pitch.frequency()
-            oscillator.amplitude = 0.0
-            oscillator.rampTime = 0.01
-            oscillators.append(oscillator)
-            self.mixer.connect(oscillator)
-        }
+        AKSettings.defaultToSpeaker = true
         
+        bank = AKOscillatorBank(waveform: AKTable(.triangle), attackDuration: 0.06, releaseDuration: 0.06)
+        mixer.connect(bank)
         AudioKit.output = mixer
         AudioKit.start()
-        
-//        oscillators[0].start()
     }
     
     final func playNoteOn(channelNumber: Int) {
-        let oscillator = oscillators[channelNumber]
-        oscillator.amplitude = 5.0
-        oscillator.play()
+        bank.play(noteNumber: channelNumber + octaveConstant, velocity: 127)
+        channelsOn.append(channelNumber)
     }
     
     final func playNoteOff(channelNumber: Int) {
-        let oscillator = oscillators[channelNumber]
-        oscillator.amplitude = 0.0
+        bank.stop(noteNumber: channelNumber + octaveConstant)
+        if let index = channelsOn.index(of: channelNumber) {
+            channelsOn.remove(at: index)
+        }
     }
     
     final func incrementOctave() {
-        for oscillator in self.oscillators {
-            oscillator.rampTime = 0.0
-            oscillator.frequency = oscillator.frequency * 2.0
-            oscillator.rampTime = 0.01
+        let oldOctaveConstant = octaveConstant
+        octaveConstant += 12
+        setAttackReleaseDurationZero()
+        for channel in channelsOn {
+            bank.stop(noteNumber: channel + oldOctaveConstant)
+            bank.play(noteNumber: channel + octaveConstant, velocity: 127)
         }
+        resetAttackReleaseDuration()
     }
     
     final func decrementOctave() {
-        for oscillator in self.oscillators {
-            oscillator.rampTime = 0.0
-            oscillator.frequency = oscillator.frequency / 2.0
-            oscillator.rampTime = 0.01
+        let oldOctaveConstant = octaveConstant
+        octaveConstant -= 12
+        setAttackReleaseDurationZero()
+        for channel in channelsOn {
+            bank.stop(noteNumber: channel + oldOctaveConstant)
+            bank.play(noteNumber: channel + octaveConstant, velocity: 127)
         }
+        resetAttackReleaseDuration()
+    }
+    
+    private func setAttackReleaseDurationZero() {
+        bank.attackDuration = 0.0
+        bank.releaseDuration = 0.0
+    }
+    
+    private func resetAttackReleaseDuration() {
+        bank.attackDuration = 0.06
+        bank.releaseDuration = 0.06
     }
 }
-
-
-//class Synth: AKInstrument {
-//    
-//    var frequency = AKInstrumentProperty(value: 0,  minimum: 0, maximum: 4000)
-//    var amplitude = AKInstrumentProperty(value: 0,  minimum: 0, maximum: 1.0)
-//    
-//    override init() {
-//        super.init()
-//        
-//        addProperty(frequency)
-//        addProperty(amplitude)
-//        
-//        let oscillator = AKOscillator()
-//        
-//        oscillator.frequency = frequency
-//        oscillator.amplitude = amplitude
-//        oscillator.waveform = AKTable.standardTriangleWave()
-//        
-//        connect(oscillator)
-//        connect(AKAudioOutput(audioSource: oscillator))
-//    }
-//}
