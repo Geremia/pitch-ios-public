@@ -244,6 +244,7 @@
 				4CEAD6CE1D8A0CFD000492E6 /* Resources */,
 				511BD80BD1D32E3CEAE32B92 /* [CP] Embed Pods Frameworks */,
 				10D799CFC05FD106B827988B /* [CP] Copy Pods Resources */,
+				4C89C1241DC8E91300AE841F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -401,6 +402,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		4C89C1241DC8E91300AE841F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/AudioKit.framework/fix-framework.sh\"";
 		};
 		511BD80BD1D32E3CEAE32B92 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -591,6 +605,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = M24FQVR7AD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/AudioKit/iOS",
+				);
 				INFOPLIST_FILE = Pitch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -614,6 +632,7 @@
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/TuningFork\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/AudioKit\"",
+					"$(PROJECT_DIR)/Pods/AudioKit/iOS",
 				);
 				INFOPLIST_FILE = Pitch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
