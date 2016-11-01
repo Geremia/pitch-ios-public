@@ -61,6 +61,9 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         self.pitchPipeView.soundGenerator.tuner = tuner
         self.pitchPipeView.soundGenerator.setUp()
         tuner?.start()
+        
+        view.layer.cornerRadius = 8.0
+        view.clipsToBounds = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
