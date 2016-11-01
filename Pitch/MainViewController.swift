@@ -259,7 +259,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             mail.mailComposeDelegate = self
             mail.setToRecipients(["dkuntz0@gmail.com"])
             mail.setSubject("Pitch Tuner Feedback")
-            mail.setMessageBody("Hi Daniel,\n This is how I think you can improve the Pitch tuner app: \n\n", isHTML: true)
+            mail.setMessageBody("Hi Daniel,\n This is how I think you can improve the Pitch tuner app: \n\n\n", isHTML: true)
             
             present(mail, animated: true, completion: nil)
         }

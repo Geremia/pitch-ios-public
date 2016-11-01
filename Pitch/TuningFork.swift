@@ -133,7 +133,7 @@ private let frequencies: [Double] = [
     fileprivate let threshold: Double
     fileprivate var smoothing: Float
     fileprivate let microphone: AKMicrophone
-    fileprivate let analyzer: AKFrequencyTracker
+    let analyzer: AKFrequencyTracker
     var silence: AKBooster
     fileprivate var timer: Timer?
     fileprivate var smoothingBuffer: [Double] = []
@@ -155,7 +155,7 @@ private let frequencies: [Double] = [
         self.previousFrequency = 0.0
         microphone = AKMicrophone()
         analyzer = AKFrequencyTracker.init(microphone)
-        silence = AKBooster(analyzer, gain: 1.0)
+        silence = AKBooster(analyzer, gain: 0.0)
 //        AudioKit.output = silence
     }
     
@@ -164,7 +164,7 @@ private let frequencies: [Double] = [
      */
     open func start() {
 //        AudioKit.start()
-        AKSettings.audioInputEnabled = true
+//        AKSettings.audioInputEnabled = true
         microphone.start()
         analyzer.start()
         
@@ -183,7 +183,7 @@ private let frequencies: [Double] = [
                 } else if smoothingBuffer.count < smoothingBufferCount {
                     self.smoothing = 0.3
                 } else {
-                    self.smoothing = 0.04
+                    self.smoothing = 0.02
                 }
                 previousAmplitude = amplitude
                 previousFrequency = frequency
