@@ -15,3 +15,7 @@ extension Double {
         return (self * divisor).rounded() / divisor
     }
 }
+
+func log2(val: Double) -> Double {
+    return log(val)/log(2.0)
+}

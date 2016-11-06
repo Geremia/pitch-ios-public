@@ -18,6 +18,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     // Tuner
     
     @IBOutlet weak var noteLabel: UILabel!
+    @IBOutlet weak var centsLabel: UILabel!
     @IBOutlet var lines: [UIView]!
     @IBOutlet var lineHeights: [NSLayoutConstraint]!
     @IBOutlet var portraitElements: [UIView]!
@@ -164,11 +165,15 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         if !output.isValid {
             noteLabel.attributedText = NSMutableAttributedString(string: "--", attributes: nil)
             movingLineCenterConstraint.constant = 0.0
+            centsLabel.isHidden = true
             animateViewTo(newState: .White)
         } else {
             if noteLabel.text != output.pitch {
                 displayPitch(pitch: output.pitch)
             }
+            
+            centsLabel.isHidden = false
+            updateCentsLabel(offset: output.centsDistace)
             
             if UIApplication.shared.statusBarOrientation.isPortrait {
                 movingLineCenterConstraint.constant = CGFloat(-output.distance * 30.0)
@@ -210,6 +215,8 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
                     UIView.transition(with: self.noteLabel, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
                         self.noteLabel.textColor = newState.lineTextColor
                         self.noteLabel.font = newState.font
+                        self.centsLabel.textColor = newState.lineTextColor
+                        self.centsLabel.font = newState.centsLabelFont
                         self.displayPitch(pitch: self.noteLabel.text!)
                         }, completion: { _ in })
                     
@@ -251,6 +258,14 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             noteLabel.attributedText = attString
         } else {
             noteLabel.attributedText = NSMutableAttributedString(string: pitch, attributes: nil)
+        }
+    }
+    
+    func updateCentsLabel(offset: Double) {
+        if offset > 0 {
+            centsLabel.text = "+\(offset.roundTo(places: 1))"
+        } else {
+            centsLabel.text = "\(offset.roundTo(places: 1))"
         }
     }
     

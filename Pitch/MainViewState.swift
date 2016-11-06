@@ -23,6 +23,15 @@ enum MainViewState {
         }
     }
     
+    var centsLabelFont: UIFont {
+        switch self {
+        case .Green:
+            return UIFont(name: "Lato-Semibold", size: 17.0)!
+        default:
+            return UIFont(name: "Lato-Light", size: 17.0)!
+        }
+    }
+    
     var viewBackgroundColor: UIColor {
         switch self {
         case .White:

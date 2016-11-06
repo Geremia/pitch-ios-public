@@ -20,12 +20,16 @@ class SoundGenerator : NSObject {
     final func setUp() {
         self.mixer = AKMixer(tuner.silence)
         
-        AKSettings.defaultToSpeaker = true
-        
         bank = AKOscillatorBank(waveform: AKTable(.triangle), attackDuration: 0.06, releaseDuration: 0.06)
         mixer.connect(bank)
         AudioKit.output = mixer
         AudioKit.start()
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
+        } catch let error {
+            print(error)
+        }
     }
     
     final func playNoteOn(channelNumber: Int) {

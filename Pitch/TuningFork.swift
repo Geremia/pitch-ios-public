@@ -90,6 +90,12 @@ private let frequencies: [Double] = [
     open fileprivate(set) var distance: Double = 0.0
     
     /**
+     The difference between the frequency of the interpreted pitch and the actual
+     frequency of the microphone audio in cents
+     */
+    open fileprivate(set) var centsDistace: Double = 0.0
+    
+    /**
      The amplitude of the microphone audio.
      */
     open fileprivate(set) var amplitude: Double = 0.0
@@ -282,6 +288,7 @@ private let frequencies: [Double] = [
         output.frequency = frequency
         output.amplitude = amplitude
         output.distance = frequency - frequencies[i]
+        output.centsDistace = 1200 * log2(frequency/frequencies[i])
         output.pitch = String(format: "%@", sharps[i % sharps.count], flats[i % flats.count])
         
         output.standardDeviation = standardDeviation
