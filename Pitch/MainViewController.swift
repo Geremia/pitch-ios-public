@@ -29,13 +29,16 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     @IBOutlet weak var stdDevLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var pitchPipeButton: UIButton!
-    @IBOutlet weak var pitchPipeView: PitchPipeView!
     
     // Pitch Pipe
     
+    @IBOutlet weak var pitchPipeView: PitchPipeView!
     @IBOutlet weak var pitchPipeBottomConstraint: NSLayoutConstraint!
     
-    // MARK: - Properties
+    // MARK: - Variables
+    
+    var presentAniamtionController = VerticalSlideAnimationController(direction: .left)
+    var dismissAnimationController = VerticalSlideAnimationController(direction: .right)
     
     var movingLineCenterConstraint: NSLayoutConstraint {
         if UIApplication.shared.statusBarOrientation.isPortrait {
@@ -286,7 +289,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     }
     
     @IBAction func settingsPressed(_ sender: Any) {
-        
+        //
     }
     
     @IBAction func pitchPipePressed(_ sender: AnyObject) {
@@ -311,6 +314,15 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         controller.dismiss(animated: true, completion: nil)
     }
     
+     // MARK: - Navigation
+    
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mainToSettings" {
+            let destination: SettingsViewController = segue.destination as! SettingsViewController
+            destination.transitioningDelegate = self
+        }
+     }
+    
     // MARK: - Status Bar Style
     
     override var prefersStatusBarHidden: Bool {
@@ -318,9 +330,15 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     }
 }
 
-// MARK: - Analytics
-
-extension MainViewController {
+extension MainViewController: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return presentAniamtionController
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return dismissAnimationController
+    }
     
 }
 
