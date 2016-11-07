@@ -70,6 +70,15 @@ enum MainViewState {
         }
     }
     
+    var menuImage: UIImage {
+        switch self {
+        case .Green:
+            return #imageLiteral(resourceName: "white_menu")
+        default:
+            return #imageLiteral(resourceName: "menu")
+        }
+    }
+    
     var downArrowImage: UIImage {
         switch self {
         case .Green:

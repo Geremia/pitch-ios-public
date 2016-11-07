@@ -27,6 +27,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     @IBOutlet weak var landscapeMovingLineCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var amplitudeLabel: UILabel!
     @IBOutlet weak var stdDevLabel: UILabel!
+    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var pitchPipeButton: UIButton!
     @IBOutlet weak var pitchPipeView: PitchPipeView!
     
@@ -222,6 +223,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
                     
                     UIView.transition(with: self.feedbackButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
                         self.feedbackButton.setImage(newState.feedbackImage, for: .normal)
+                        self.settingsButton.setImage(newState.menuImage, for: .normal)
                         if self.isPitchPipeOpen {
                             self.pitchPipeButton.setImage(newState.downArrowImage, for: .normal)
                         } else {
@@ -281,6 +283,10 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
             
             present(mail, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction func settingsPressed(_ sender: Any) {
+        
     }
     
     @IBAction func pitchPipePressed(_ sender: AnyObject) {
