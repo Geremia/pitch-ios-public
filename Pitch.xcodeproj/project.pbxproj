@@ -14,6 +14,7 @@
 		4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C801DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift */; };
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
+		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
 		4CDEB5791DD11B68005301BF /* VerticalSlideAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEB5781DD11B68005301BF /* VerticalSlideAnimationController.swift */; };
 		4CDF00001D8B0BFA00BEAD0D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFC1D8B0BFA00BEAD0D /* Lato-Thin.ttf */; };
 		4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */; };
@@ -60,6 +61,7 @@
 		4C253C801DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PitchUserDefaults.swift"; sourceTree = "<group>"; };
 		4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
+		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4CDEB5781DD11B68005301BF /* VerticalSlideAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalSlideAnimationController.swift; sourceTree = "<group>"; };
 		4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+PitchColors.swift"; sourceTree = "<group>"; };
 		4CDFFFF91D8B0BFA00BEAD0D /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */,
 				4C253C801DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift */,
 				4C253C7E1DAEE98900BD07D6 /* Extensions.swift */,
+				4CDA4A011DD17A6C00D05DAB /* Constants.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				4CFC73BB1DC6491800AFD8AC /* Pitch.swift in Sources */,
 				4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */,
 				4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */,
+				4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */,
 				4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */,
 				4C253C7D1DAEDF0800BD07D6 /* Day.swift in Sources */,
 				4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */,

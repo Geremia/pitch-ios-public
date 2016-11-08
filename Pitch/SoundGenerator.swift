@@ -33,35 +33,39 @@ class SoundGenerator : NSObject {
     }
     
     final func playNoteOn(channelNumber: Int) {
-        bank.play(noteNumber: channelNumber + octaveConstant, velocity: 127)
+        let concertOffset = UserDefaults.standard.key().concertOffset
+        bank.play(noteNumber: channelNumber + octaveConstant + concertOffset, velocity: 127)
         channelsOn.append(channelNumber)
     }
     
     final func playNoteOff(channelNumber: Int) {
-        bank.stop(noteNumber: channelNumber + octaveConstant)
+        let concertOffset = UserDefaults.standard.key().concertOffset
+        bank.stop(noteNumber: channelNumber + octaveConstant + concertOffset)
         if let index = channelsOn.index(of: channelNumber) {
             channelsOn.remove(at: index)
         }
     }
     
     final func incrementOctave() {
+        let concertOffset = UserDefaults.standard.key().concertOffset
         let oldOctaveConstant = octaveConstant
         octaveConstant += 12
         setAttackReleaseDurationZero()
         for channel in channelsOn {
-            bank.stop(noteNumber: channel + oldOctaveConstant)
-            bank.play(noteNumber: channel + octaveConstant, velocity: 127)
+            bank.stop(noteNumber: channel + oldOctaveConstant + concertOffset)
+            bank.play(noteNumber: channel + octaveConstant + concertOffset, velocity: 127)
         }
         resetAttackReleaseDuration()
     }
     
     final func decrementOctave() {
+        let concertOffset = UserDefaults.standard.key().concertOffset
         let oldOctaveConstant = octaveConstant
         octaveConstant -= 12
         setAttackReleaseDurationZero()
         for channel in channelsOn {
-            bank.stop(noteNumber: channel + oldOctaveConstant)
-            bank.play(noteNumber: channel + octaveConstant, velocity: 127)
+            bank.stop(noteNumber: channel + oldOctaveConstant + concertOffset)
+            bank.play(noteNumber: channel + octaveConstant + concertOffset, velocity: 127)
         }
         resetAttackReleaseDuration()
     }

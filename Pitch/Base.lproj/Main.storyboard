@@ -605,7 +605,7 @@
                                             <action selector="pitchButtonReleased:" destination="iVv-DE-UIr" eventType="touchUpInside" id="dI1-UZ-Vjw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMu-Sa-RXP" userLabel="sustain">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMu-Sa-RXP" userLabel="sustain">
                                         <rect key="frame" x="0.0" y="162" width="94" height="69"/>
                                         <state key="normal" image="infinity"/>
                                         <connections>

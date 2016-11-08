@@ -24,6 +24,14 @@ class PitchPipeView: UIView {
     var sustainOn: Bool = false
     var soundGenerator: SoundGenerator = SoundGenerator()
     
+    // MARK: - Awake From Nib
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(PitchPipeView.allOff), name: pitchPipeResetNotification, object: nil)
+    }
+    
     // MARK: - Pitch Button UI
     
     func on(pitchButton button: UIButton) {
@@ -80,11 +88,15 @@ class PitchPipeView: UIView {
             button.setImage(image, for: .normal)
             button.backgroundColor = color
             }, completion: nil)
+        allOff()
+        sustainOn = !sustainOn
+    }
+    
+    func allOff() {
         for button in self.pitchButtons {
             off(pitchButton: button)
             soundGenerator.playNoteOff(channelNumber: button.tag)
         }
-        sustainOn = !sustainOn
     }
     
     @IBAction func minusButtonPressed(_ sender: AnyObject) {

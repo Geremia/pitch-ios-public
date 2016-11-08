@@ -95,6 +95,10 @@ enum Key: Int {
         }
     }
     
+    var concertOffset: Int {
+        return self.rawValue - 3
+    }
+    
     var name: String {
         let displayMode = UserDefaults.standard.displayMode()
         switch displayMode {

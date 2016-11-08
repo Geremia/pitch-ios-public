@@ -290,11 +290,12 @@ private let frequencies: [Double] = [
         output.standardDeviation = standardDeviation
         
         let displayMode = UserDefaults.standard.displayMode()
+        let concertOffset = UserDefaults.standard.key().concertOffset
         switch displayMode {
         case .sharps:
-            output.pitch = String(format: "%@", sharps[i % sharps.count])
+            output.pitch = String(format: "%@", sharps[(i - concertOffset) % sharps.count])
         case .flats:
-            output.pitch = String(format: "%@", flats[i % flats.count])
+            output.pitch = String(format: "%@", flats[(i - concertOffset) % flats.count])
         }
         
         let amplitudeThreshold = UserDefaults.standard.micSensitivity().amplitudeThreshold

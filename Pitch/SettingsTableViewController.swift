@@ -106,6 +106,8 @@ class SettingsTableViewController: UITableViewController {
         UIView.transition(with: keyLabel, duration: 0.1, options: [.transitionCrossDissolve], animations: {
             self.keyLabel.text = self.currentKey.name
         }, completion: nil)
+        
+        NotificationCenter.default.post(name: pitchPipeResetNotification, object: nil)
     }
 
     /*
