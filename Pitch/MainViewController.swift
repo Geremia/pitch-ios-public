@@ -35,6 +35,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     @IBOutlet weak var pitchPipeView: PitchPipeView!
     @IBOutlet weak var pitchPipeBottomConstraint: NSLayoutConstraint!
     
+    
     // MARK: - Variables
     
     var presentAniamtionController = VerticalSlideAnimationController(direction: .left)
@@ -69,6 +70,11 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pitchPipeView.updateButtonLabels()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -257,10 +263,17 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
     func displayPitch(pitch: String) {
         if pitch.characters.count > 1 {
             let font = noteLabel.font
-            let fontSuper:UIFont? = noteLabel.font.withSize(45.0)
+            let fontSuper:UIFont? = noteLabel.font.withSize(38.0)
             let attString:NSMutableAttributedString = NSMutableAttributedString(string: pitch, attributes: [NSFontAttributeName:font!])
-            attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:42], range: NSRange(location:1,length:1))
-            noteLabel.attributedText = attString
+            attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:48], range: NSRange(location:1,length:1))
+            
+            let displayMode = UserDefaults.standard.displayMode()
+            switch displayMode {
+            case .sharps:
+                noteLabel.setAttributedText(attString, withSpacing: -2.0)
+            case .flats:
+                noteLabel.setAttributedText(attString, withSpacing: -7.0)
+            }
         } else {
             noteLabel.attributedText = NSMutableAttributedString(string: pitch, attributes: nil)
         }

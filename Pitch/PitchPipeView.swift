@@ -42,6 +42,14 @@ class PitchPipeView: UIView {
             }, completion: nil)
     }
     
+    func updateButtonLabels() {
+        for button in self.pitchButtons {
+            if let key = Key.fromName((button.titleLabel?.text)!) {
+                button.setTitle(key.name, for: .normal)
+            }
+        }
+    }
+    
     // MARK: - Actions
 
     @IBAction func pitchButtonPressed(_ sender: AnyObject) {

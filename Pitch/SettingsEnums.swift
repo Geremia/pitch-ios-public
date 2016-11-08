@@ -13,14 +13,14 @@ enum MicSensitivity: Int {
     case normal
     case high
     
-    var amplitudeThreshold: Float {
+    var amplitudeThreshold: Double {
         switch self {
         case .low:
-            return 0.055
+            return 0.065
         case .normal:
             return 0.045
         case .high:
-            return 0.025
+            return 0.015
         }
     }
     
@@ -63,6 +63,37 @@ enum Key: Int {
     case fsharp
     case g
     case gsharp
+    
+    static func fromName(_ name: String) -> Key? {
+        switch name {
+        case "A":
+            return Key.a
+        case "A♯", "B♭":
+            return Key.asharp
+        case "B":
+            return Key.b
+        case "C":
+            return Key.c
+        case "C♯", "D♭":
+            return Key.csharp
+        case "D":
+            return Key.d
+        case "D♯", "E♭":
+            return Key.dsharp
+        case "E":
+            return Key.e
+        case "F":
+            return Key.f
+        case "F♯", "G♭":
+            return Key.fsharp
+        case "G":
+            return Key.g
+        case "G♯", "A♭":
+            return Key.gsharp
+        default:
+            return nil
+        }
+    }
     
     var name: String {
         let displayMode = UserDefaults.standard.displayMode()

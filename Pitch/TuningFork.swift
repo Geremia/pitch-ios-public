@@ -179,29 +179,27 @@ private let frequencies: [Double] = [
     
     func timerAction() {
         if let d = self.delegate {
-            if self.analyzer.amplitude > self.threshold {
-                let amplitude = self.analyzer.amplitude
-                var frequency = self.analyzer.frequency
-                
-                if amplitude - previousAmplitude > 0.05 || abs(frequency - previousFrequency) > (distanceBetweenNotes(frequency: frequency) / 2) {
-                    self.smoothing = 1.0
-                    self.smoothingBuffer.removeAll()
-                } else if smoothingBuffer.count < smoothingBufferCount {
-                    self.smoothing = 0.3
-                } else {
-                    self.smoothing = 0.02
-                }
-                previousAmplitude = amplitude
-                previousFrequency = frequency
-                
-                addFrequencyToBuffer(frequency)
-                frequency = self.smooth(frequency)
-                let standardDeviation = self.standardDeviation(arr: frequencyBuffer)
-                
-                let output = Tuner.newOutput(frequency, amplitude, standardDeviation)
-                DispatchQueue.main.async {
-                    d.tunerDidUpdate(self, output: output)
-                }
+            let amplitude = self.analyzer.amplitude
+            var frequency = self.analyzer.frequency
+            
+            if amplitude - previousAmplitude > 0.05 || abs(frequency - previousFrequency) > (distanceBetweenNotes(frequency: frequency) / 2) {
+                self.smoothing = 1.0
+                self.smoothingBuffer.removeAll()
+            } else if smoothingBuffer.count < smoothingBufferCount {
+                self.smoothing = 0.3
+            } else {
+                self.smoothing = 0.02
+            }
+            previousAmplitude = amplitude
+            previousFrequency = frequency
+            
+            addFrequencyToBuffer(frequency)
+            frequency = self.smooth(frequency)
+            let standardDeviation = self.standardDeviation(arr: frequencyBuffer)
+            
+            let output = Tuner.newOutput(frequency, amplitude, standardDeviation)
+            DispatchQueue.main.async {
+                d.tunerDidUpdate(self, output: output)
             }
         }
     }
@@ -289,10 +287,18 @@ private let frequencies: [Double] = [
         output.amplitude = amplitude
         output.distance = frequency - frequencies[i]
         output.centsDistace = 1200 * log2(frequency/frequencies[i])
-        output.pitch = String(format: "%@", sharps[i % sharps.count], flats[i % flats.count])
-        
         output.standardDeviation = standardDeviation
-        if standardDeviation < 10.0 && amplitude > 0.045 {
+        
+        let displayMode = UserDefaults.standard.displayMode()
+        switch displayMode {
+        case .sharps:
+            output.pitch = String(format: "%@", sharps[i % sharps.count])
+        case .flats:
+            output.pitch = String(format: "%@", flats[i % flats.count])
+        }
+        
+        let amplitudeThreshold = UserDefaults.standard.micSensitivity().amplitudeThreshold
+        if standardDeviation < 10.0 && amplitude > amplitudeThreshold {
             output.isValid = true
         }
         
