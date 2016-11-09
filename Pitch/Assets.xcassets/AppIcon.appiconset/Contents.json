@@ -3,49 +3,49 @@
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "icon-60pt-green.png",
+      "filename" : "80 - Spotlight@40w.png",
       "scale" : "2x"
     },
     {
       "size" : "20x20",
       "idiom" : "iphone",
-      "filename" : "icon-60pt-green@60w.png",
+      "filename" : "80 - Spotlight@60w.png",
       "scale" : "3x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "icon-60pt-green@58w.png",
+      "filename" : "58 - Settings.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "icon-60pt-green@87w.png",
+      "filename" : "58 - Settings@87w.png",
       "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "icon-60pt-green@80w.png",
+      "filename" : "80 - Spotlight.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "icon-60pt-green@120w.png",
+      "filename" : "120 - iPhone-1.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "icon-60pt-green@2x.png",
+      "filename" : "120 - iPhone.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "icon-60pt-green@3x.png",
+      "filename" : "180 - iPhone 6 Plus.png",
       "scale" : "3x"
     }
   ],

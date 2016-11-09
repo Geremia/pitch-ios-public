@@ -15,6 +15,7 @@
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
+		4CDA4A031DD2B3FB00D05DAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6DA1D8A0CFD000492E6 /* Assets.xcassets */; };
 		4CDEB5791DD11B68005301BF /* VerticalSlideAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEB5781DD11B68005301BF /* VerticalSlideAnimationController.swift */; };
 		4CDF00001D8B0BFA00BEAD0D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFC1D8B0BFA00BEAD0D /* Lato-Thin.ttf */; };
 		4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */; };
@@ -24,7 +25,6 @@
 		4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D31D8A0CFD000492E6 /* AppDelegate.swift */; };
 		4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */; };
 		4CEAD6D91D8A0CFD000492E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D71D8A0CFD000492E6 /* Main.storyboard */; };
-		4CEAD6DB1D8A0CFD000492E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6DA1D8A0CFD000492E6 /* Assets.xcassets */; };
 		4CEAD6DE1D8A0CFD000492E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6DC1D8A0CFD000492E6 /* LaunchScreen.storyboard */; };
 		4CEAD6E91D8A0CFD000492E6 /* PitchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6E81D8A0CFD000492E6 /* PitchTests.swift */; };
 		4CEAD6F41D8A0CFD000492E6 /* PitchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6F31D8A0CFD000492E6 /* PitchUITests.swift */; };
@@ -389,8 +389,8 @@
 				4CDFFFFF1D8B0BFA00BEAD0D /* Lato-Regular.ttf in Resources */,
 				4CDF00001D8B0BFA00BEAD0D /* Lato-Thin.ttf in Resources */,
 				4CEAD6DE1D8A0CFD000492E6 /* LaunchScreen.storyboard in Resources */,
-				4CEAD6DB1D8A0CFD000492E6 /* Assets.xcassets in Resources */,
 				4CDFFFFD1D8B0BFA00BEAD0D /* Lato-Hairline.ttf in Resources */,
+				4CDA4A031DD2B3FB00D05DAB /* Assets.xcassets in Resources */,
 				4CEAD6D91D8A0CFD000492E6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
