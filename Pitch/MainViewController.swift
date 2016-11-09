@@ -7,13 +7,8 @@
 //
 
 import UIKit
-import MessageUI
 
-class MainViewController: UIViewController, MFMailComposeViewControllerDelegate, TunerDelegate {
-    
-    // MARK: - Outlets
-    
-    @IBOutlet weak var feedbackButton: UIButton!
+class MainViewController: UIViewController, TunerDelegate {
     
     // Tuner
     
@@ -230,8 +225,7 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
                         self.displayPitch(pitch: self.noteLabel.text!)
                         }, completion: { _ in })
                     
-                    UIView.transition(with: self.feedbackButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
-                        self.feedbackButton.setImage(newState.feedbackImage, for: .normal)
+                    UIView.transition(with: self.settingsButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
                         self.settingsButton.setImage(newState.menuImage, for: .normal)
                         if self.isPitchPipeOpen {
                             self.pitchPipeButton.setImage(newState.downArrowImage, for: .normal)
@@ -239,6 +233,14 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
                             self.pitchPipeButton.setImage(newState.audioWaveImage, for: .normal)
                         }
                         }, completion: { _ in })
+                    
+                    UIView.transition(with: self.pitchPipeButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
+                        if self.isPitchPipeOpen {
+                            self.pitchPipeButton.setImage(newState.downArrowImage, for: .normal)
+                        } else {
+                            self.pitchPipeButton.setImage(newState.audioWaveImage, for: .normal)
+                        }
+                    }, completion: { _ in })
                     
                     UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
                         self.view.backgroundColor = newState.viewBackgroundColor
@@ -287,24 +289,6 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         }
     }
     
-    // MARK: - Actions
-    
-    @IBAction func feedbackPressed(_ sender: AnyObject) {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients(["dkuntz0@gmail.com"])
-            mail.setSubject("Pitch Tuner Feedback")
-            mail.setMessageBody("Hi Daniel,\n This is how I think you can improve the Pitch tuner app: \n\n\n", isHTML: true)
-            
-            present(mail, animated: true, completion: nil)
-        }
-    }
-    
-    @IBAction func settingsPressed(_ sender: Any) {
-        //
-    }
-    
     @IBAction func pitchPipePressed(_ sender: AnyObject) {
         if self.isPitchPipeOpen {
             self.pitchPipeBottomConstraint.constant = -231
@@ -319,12 +303,6 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
             self.view.layoutIfNeeded()
             }, completion: nil)
-    }
-    
-    // MARK: - MFMailComposeViewControllerDelegate
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
     }
     
      // MARK: - Navigation
@@ -344,7 +322,6 @@ class MainViewController: UIViewController, MFMailComposeViewControllerDelegate,
 }
 
 extension MainViewController: UIViewControllerTransitioningDelegate {
-    
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return presentAniamtionController
     }
@@ -352,6 +329,5 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return dismissAnimationController
     }
-    
 }
 
