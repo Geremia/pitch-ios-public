@@ -37,23 +37,36 @@ class PitchPipeView: UIView {
     func on(pitchButton button: UIButton) {
         UIView.transition(with: button, duration: 0.05, options: .transitionCrossDissolve, animations: {
             button.backgroundColor = UIColor.greenView
+            button.setAttributedTitle(nil, for: .normal)
             button.titleLabel?.font = UIFont(name: "Lato-Semibold", size: 26)
             button.setTitleColor(UIColor.white, for: .normal)
+            self.updateButtonLabels()
             }, completion: nil)
     }
     
     func off(pitchButton button: UIButton) {
         UIView.transition(with: button, duration: 0.05, options: .transitionCrossDissolve, animations: {
             button.backgroundColor = UIColor.clear
+            button.setAttributedTitle(nil, for: .normal)
             button.titleLabel?.font = UIFont(name: "Lato-Light", size: 26)
             button.setTitleColor(UIColor.grayText, for: .normal)
+            self.updateButtonLabels()
             }, completion: nil)
     }
     
     func updateButtonLabels() {
         for button in self.pitchButtons {
             if let key = Key.fromName((button.titleLabel?.text)!) {
-                button.setTitle(key.name, for: .normal)
+                if key.name.characters.count > 1 {
+                    let font = button.titleLabel?.font
+                    let fontSuper:UIFont? = button.titleLabel?.font.withSize(18.0)
+                    let attString:NSMutableAttributedString = NSMutableAttributedString(string: key.name, attributes: [NSFontAttributeName:font!])
+                    attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:12], range: NSRange(location:1,length:1))
+                    button.titleLabel?.attributedText = attString
+                    button.setAttributedTitle(attString, for: .normal)
+                } else {
+                    button.setTitle(key.name, for: .normal)
+                }
             }
         }
     }
