@@ -85,28 +85,39 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="J1S-Aa-hrz" detailTextLabel="hNc-s9-nOX" rowHeight="48" style="IBUITableViewCellStyleValue1" id="mPi-OX-Dd4">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="48" id="his-Hn-V3v">
                                         <rect key="frame" x="0.0" y="96" width="355" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mPi-OX-Dd4" id="CBd-by-5AX">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="his-Hn-V3v" id="eGS-VO-opT">
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J1S-Aa-hrz">
-                                                    <rect key="frame" x="15" y="13" width="31" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuD-Qw-Nty">
+                                                    <rect key="frame" x="16" y="12" width="31" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="C" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hNc-s9-nOX">
-                                                    <rect key="frame" x="327" y="13" width="13" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="19"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYt-Ct-WFT">
+                                                    <rect key="frame" x="326" y="10.5" width="14" height="26"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="C">
+                                                            <attributes>
+                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                <font key="NSFont" size="21" name="Lato-Semibold"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uuD-Qw-Nty" firstAttribute="leading" secondItem="eGS-VO-opT" secondAttribute="leading" constant="16" id="IWe-wJ-nad"/>
+                                                <constraint firstAttribute="trailing" secondItem="bYt-Ct-WFT" secondAttribute="trailing" constant="15" id="PNx-3z-KUO"/>
+                                                <constraint firstItem="uuD-Qw-Nty" firstAttribute="centerY" secondItem="eGS-VO-opT" secondAttribute="centerY" id="lmO-PJ-L5S"/>
+                                                <constraint firstItem="bYt-Ct-WFT" firstAttribute="centerY" secondItem="eGS-VO-opT" secondAttribute="centerY" id="uTz-HT-kmf"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -119,7 +130,7 @@
                     </tableView>
                     <connections>
                         <outlet property="displayModeLabel" destination="Sh6-Xs-8Ww" id="XJF-Rh-pqe"/>
-                        <outlet property="keyLabel" destination="hNc-s9-nOX" id="mY3-hi-NwO"/>
+                        <outlet property="keyLabel" destination="bYt-Ct-WFT" id="HOL-n6-ffY"/>
                         <outlet property="micSensitivityLabel" destination="GE4-uf-EwW" id="YPI-fL-s4v"/>
                     </connections>
                 </tableViewController>
@@ -372,7 +383,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-78-WqF">
-                                        <rect key="frame" x="152.5" y="143.5" width="70.5" height="132"/>
+                                        <rect key="frame" x="152.5" y="143" width="70.5" height="132"/>
                                         <fontDescription key="fontDescription" name="Lato-Hairline" family="Lato" pointSize="110"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -389,7 +400,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-ws-Axi">
-                                        <rect key="frame" x="175.5" y="275.5" width="24" height="20"/>
+                                        <rect key="frame" x="175.5" y="275" width="24" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

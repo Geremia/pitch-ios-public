@@ -62,7 +62,6 @@ class PitchPipeView: UIView {
                     let fontSuper:UIFont? = button.titleLabel?.font.withSize(18.0)
                     let attString:NSMutableAttributedString = NSMutableAttributedString(string: key.name, attributes: [NSFontAttributeName:font!])
                     attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:12], range: NSRange(location:1,length:1))
-                    button.titleLabel?.attributedText = attString
                     button.setAttributedTitle(attString, for: .normal)
                 } else {
                     button.setTitle(key.name, for: .normal)

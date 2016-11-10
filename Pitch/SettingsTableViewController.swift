@@ -41,7 +41,7 @@ class SettingsTableViewController: UITableViewController {
 
         micSensitivityLabel.text = currentMicSensitivity.name
         displayModeLabel.text = currentDisplayMode.name
-        keyLabel.text = currentKey.name
+        self.updateKeyLabel()
     }
 
     // MARK: - Table view data source
@@ -92,7 +92,7 @@ class SettingsTableViewController: UITableViewController {
         currentDisplayMode = DisplayMode(rawValue: rawValue)!
         UIView.transition(with: displayModeLabel, duration: 0.1, options: [.transitionCrossDissolve], animations: {
             self.displayModeLabel.text = self.currentDisplayMode.name
-            self.keyLabel.text = self.currentKey.name
+            self.updateKeyLabel()
         }, completion: nil)
     }
     
@@ -104,10 +104,22 @@ class SettingsTableViewController: UITableViewController {
         
         currentKey = Key(rawValue: rawValue)!
         UIView.transition(with: keyLabel, duration: 0.1, options: [.transitionCrossDissolve], animations: {
-            self.keyLabel.text = self.currentKey.name
+            self.updateKeyLabel()
         }, completion: nil)
         
         NotificationCenter.default.post(name: pitchPipeResetNotification, object: nil)
+    }
+    
+    func updateKeyLabel() {
+        if currentKey.name.characters.count > 1 {
+            let font = keyLabel.font
+            let fontSuper:UIFont? = keyLabel.font.withSize(14.0)
+            let attString:NSMutableAttributedString = NSMutableAttributedString(string: currentKey.name, attributes: [NSFontAttributeName:font!])
+            attString.setAttributes([NSFontAttributeName: fontSuper!, NSBaselineOffsetAttributeName: 6], range: NSRange(location: 1, length: 1))
+            keyLabel.attributedText = attString
+        } else {
+            keyLabel.attributedText = NSMutableAttributedString(string: currentKey.name, attributes: nil)
+        }
     }
 
     /*
