@@ -205,6 +205,10 @@ private let frequencies: [Double] = [
     }
     
     func distanceBetweenNotes(frequency: Double) -> Double {
+        if frequency <= 0 {
+            return Double(Int.max)
+        }
+        
         var norm = frequency
         while norm > frequencies[frequencies.count - 1] {
             norm = norm / 2.0
@@ -265,6 +269,9 @@ private let frequencies: [Double] = [
         let output = TunerOutput()
         
         var norm = frequency
+        if norm <= 0.0 {
+            norm = 1.0
+        }
         while norm > frequencies[frequencies.count - 1] {
             norm = norm / 2.0
         }
