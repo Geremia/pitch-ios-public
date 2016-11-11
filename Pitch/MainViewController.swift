@@ -70,12 +70,13 @@ class MainViewController: UIViewController, TunerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         pitchPipeView.updateButtonLabels()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         updateUI(for: UIApplication.shared.statusBarOrientation, animationDuration: 0)
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        
+//    }
     
     // MARK: - Device Rotation
     
