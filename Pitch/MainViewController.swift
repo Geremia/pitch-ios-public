@@ -73,11 +73,6 @@ class MainViewController: UIViewController, TunerDelegate {
         updateUI(for: UIApplication.shared.statusBarOrientation, animationDuration: 0)
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//    }
-    
     // MARK: - Device Rotation
     
     override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
