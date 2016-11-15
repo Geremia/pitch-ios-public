@@ -62,4 +62,12 @@ extension UserDefaults {
     func setKey(newValue: Key) {
         set(newValue.rawValue, forKey: "key")
     }
+    
+    func darkModeOn() -> Bool {
+        return bool(forKey: "darkModeOn")
+    }
+    
+    func setDarkModeOn(_ on: Bool) {
+        set(on, forKey: "darkModeOn")
+    }
 }

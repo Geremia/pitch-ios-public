@@ -18,6 +18,7 @@ class PitchPipeView: UIView {
     @IBOutlet var minusButton: UIButton!
     @IBOutlet var plusButton: UIButton!
     @IBOutlet var octaveLabel: UILabel!
+    @IBOutlet var octaveTextLabel: UILabel!
     
     // MARK: - Properties
     
@@ -28,15 +29,51 @@ class PitchPipeView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        darkModeChanged()
         
         NotificationCenter.default.addObserver(self, selector: #selector(PitchPipeView.allOff), name: pitchPipeResetNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PitchPipeView.darkModeChanged), name: darkModeChangedNotification, object: nil)
+    }
+    
+    // MARK: - Dark Mode Switching
+    
+    func darkModeChanged() {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        if darkModeOn {
+            backgroundColor = UIColor.darkGrayView
+            minusButton.setImage(#imageLiteral(resourceName: "white_minus"), for: .normal)
+            plusButton.setImage(#imageLiteral(resourceName: "white_plus"), for: .normal)
+            octaveLabel.textColor = UIColor.white
+            octaveTextLabel.textColor = UIColor.white
+        } else {
+            backgroundColor = UIColor.white
+            minusButton.setImage(#imageLiteral(resourceName: "minus"), for: .normal)
+            plusButton.setImage(#imageLiteral(resourceName: "plus"), for: .normal)
+            octaveLabel.textColor = UIColor.darkText
+            octaveTextLabel.textColor = UIColor.darkText
+        }
+        
+        updateSustainButton()
+        for button in self.pitchButtons {
+            let isActive = button.backgroundColor == UIColor.inTune || button.backgroundColor == UIColor.darkInTune
+            if isActive {
+                on(pitchButton: button)
+            } else {
+                off(pitchButton: button)
+            }
+        }
     }
     
     // MARK: - Pitch Button UI
     
     func on(pitchButton button: UIButton) {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
         UIView.transition(with: button, duration: 0.05, options: .transitionCrossDissolve, animations: {
-            button.backgroundColor = UIColor.greenView
+            if darkModeOn {
+                button.backgroundColor = UIColor.darkInTune
+            } else {
+                button.backgroundColor = UIColor.inTune
+            }
             button.setAttributedTitle(nil, for: .normal)
             button.titleLabel?.font = UIFont(name: "Lato-Semibold", size: 26)
             button.setTitleColor(UIColor.white, for: .normal)
@@ -45,11 +82,16 @@ class PitchPipeView: UIView {
     }
     
     func off(pitchButton button: UIButton) {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
         UIView.transition(with: button, duration: 0.05, options: .transitionCrossDissolve, animations: {
+            if darkModeOn {
+                button.setTitleColor(UIColor.white, for: .normal)
+            } else {
+                button.setTitleColor(UIColor.grayText, for: .normal)
+            }
             button.backgroundColor = UIColor.clear
             button.setAttributedTitle(nil, for: .normal)
             button.titleLabel?.font = UIFont(name: "Lato-Light", size: 26)
-            button.setTitleColor(UIColor.grayText, for: .normal)
             self.updateButtonLabels()
             }, completion: nil)
     }
@@ -74,7 +116,7 @@ class PitchPipeView: UIView {
 
     @IBAction func pitchButtonPressed(_ sender: AnyObject) {
         let button = sender as! UIButton
-        let isActive = button.backgroundColor == UIColor.greenView
+        let isActive = button.backgroundColor == UIColor.inTune || button.backgroundColor == UIColor.darkInTune
         if isActive {
             off(pitchButton: button)
             soundGenerator.playNoteOff(channelNumber: button.tag)
@@ -93,15 +135,27 @@ class PitchPipeView: UIView {
     }
     
     @IBAction func sustainButtonPressed(_ sender: AnyObject) {
-        let button = sender as! UIButton
-        let image = sustainOn ? #imageLiteral(resourceName: "infinity") : #imageLiteral(resourceName: "white_infinity")
-        let color = sustainOn ? UIColor.clear : UIColor.greenView
-        UIView.transition(with: button, duration: 0.05, options: .transitionCrossDissolve, animations: {
-            button.setImage(image, for: .normal)
-            button.backgroundColor = color
-            }, completion: nil)
-        allOff()
         sustainOn = !sustainOn
+        updateSustainButton()
+        allOff()
+    }
+    
+    func updateSustainButton() {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        let image: UIImage
+        let color: UIColor
+        if darkModeOn {
+            image = sustainOn ? #imageLiteral(resourceName: "thick_infinity") : #imageLiteral(resourceName: "white_infinity")
+            color = sustainOn ? UIColor.darkInTune : UIColor.clear
+        } else {
+            image = sustainOn ? #imageLiteral(resourceName: "thick_infinity") : #imageLiteral(resourceName: "infinity")
+            color = sustainOn ? UIColor.inTune : UIColor.clear
+        }
+        
+        UIView.transition(with: sustainButton, duration: 0.05, options: .transitionCrossDissolve, animations: {
+            self.sustainButton.setImage(image, for: .normal)
+            self.sustainButton.backgroundColor = color
+        }, completion: nil)
     }
     
     func allOff() {

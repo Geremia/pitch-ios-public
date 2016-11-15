@@ -13,6 +13,9 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     // MARK: - Outlets
     
+    @IBOutlet weak var settingsLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var improveLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
     
     // MARK: - Setup Views
@@ -23,8 +26,11 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
         feedbackButton.layer.cornerRadius = 8.0
+        darkModeChanged()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.darkModeChanged), name: darkModeChangedNotification, object: nil)
     }
-
+    
     // MARK: - Actions
     
     @IBAction func backPressed(_ sender: Any) {
@@ -47,6 +53,25 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Dark Mode Switching 
+    
+    func darkModeChanged() {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        if darkModeOn {
+            view.backgroundColor = UIColor.darkGrayView
+            settingsLabel.textColor = UIColor.white
+            improveLabel.textColor = UIColor.white
+            backButton.setImage(#imageLiteral(resourceName: "white_forward_arrow"), for: .normal)
+            feedbackButton.backgroundColor = UIColor.darkInTune
+        } else {
+            view.backgroundColor = UIColor.white
+            settingsLabel.textColor = UIColor.black
+            improveLabel.textColor = UIColor.black
+            backButton.setImage(#imageLiteral(resourceName: "forward_arrow"), for: .normal)
+            feedbackButton.backgroundColor = UIColor.inTune
+        }
     }
     
     // MARK: - Status Bar Style

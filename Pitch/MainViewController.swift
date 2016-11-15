@@ -46,7 +46,7 @@ class MainViewController: UIViewController, TunerDelegate {
     var isPitchPipeOpen: Bool = false
     
     private var tuner: Tuner?
-    private var state: MainViewState = .White
+    private var state: MainViewState = .outOfTune
     
     var today: Day = Day()
     
@@ -65,6 +65,9 @@ class MainViewController: UIViewController, TunerDelegate {
         
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.darkModeChanged), name: darkModeChangedNotification, object: nil)
+        darkModeChanged()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -128,7 +131,7 @@ class MainViewController: UIViewController, TunerDelegate {
                 startTimingPitch()
             }
             
-            if state == .Green {
+            if state == .inTune {
                 pitchCenterTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
                     if !self.addedCurrentCenterTime {
                         self.addPitchCenterTimeToAnalytics()
@@ -167,7 +170,7 @@ class MainViewController: UIViewController, TunerDelegate {
             noteLabel.attributedText = NSMutableAttributedString(string: "--", attributes: nil)
             movingLineCenterConstraint.constant = 0.0
             centsLabel.isHidden = true
-            animateViewTo(newState: .White)
+            setViewTo(newState: .outOfTune)
         } else {
             if noteLabel.text != output.pitch {
                 displayPitch(pitch: output.pitch)
@@ -183,11 +186,11 @@ class MainViewController: UIViewController, TunerDelegate {
             }
             
             if abs(output.distance) < 0.4 {
-                animateViewTo(newState: .Green)
+                setViewTo(newState: .inTune)
             } else if abs(output.distance) < 1.5 {
-                animateViewTo(newState: .LightGreen)
+                setViewTo(newState: .almostInTune)
             } else {
-                animateViewTo(newState: .White)
+                setViewTo(newState: .outOfTune)
             }
         }
         
@@ -200,12 +203,12 @@ class MainViewController: UIViewController, TunerDelegate {
             }, completion: nil)
     }
     
-    func animateViewTo(newState: MainViewState) {
+    func setViewTo(newState: MainViewState) {
         if newState != state {
             state = newState
             
             var delay = 0.0
-            if newState == .Green {
+            if newState == .inTune {
                 delay = 1.0
             }
             
@@ -213,49 +216,53 @@ class MainViewController: UIViewController, TunerDelegate {
             let stateBeforeDelay = state
             DispatchQueue.main.asyncAfter(deadline: when) {
                 if stateBeforeDelay == self.state {
-                    UIView.transition(with: self.noteLabel, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
-                        self.noteLabel.textColor = newState.lineTextColor
-                        self.noteLabel.font = newState.font
-                        self.centsLabel.textColor = newState.lineTextColor
-                        self.centsLabel.font = newState.centsLabelFont
-                        self.displayPitch(pitch: self.noteLabel.text!)
-                        }, completion: { _ in })
-                    
-                    UIView.transition(with: self.settingsButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
-                        self.settingsButton.setImage(newState.menuImage, for: .normal)
-                        if self.isPitchPipeOpen {
-                            self.pitchPipeButton.setImage(newState.downArrowImage, for: .normal)
-                        } else {
-                            self.pitchPipeButton.setImage(newState.audioWaveImage, for: .normal)
-                        }
-                        }, completion: { _ in })
-                    
-                    UIView.transition(with: self.pitchPipeButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
-                        if self.isPitchPipeOpen {
-                            self.pitchPipeButton.setImage(newState.downArrowImage, for: .normal)
-                        } else {
-                            self.pitchPipeButton.setImage(newState.audioWaveImage, for: .normal)
-                        }
-                    }, completion: { _ in })
-                    
-                    UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
-                        self.view.backgroundColor = newState.viewBackgroundColor
-                        for line in self.lines {
-                            line.backgroundColor = newState.lineTextColor
-                        }
-                        }, completion: { finished in
-                            if finished {
-                                for height in self.lineHeights {
-                                    height.constant = newState.lineThickness
-                                }
-                                for line in self.lines {
-                                    line.layoutIfNeeded()
-                                }
-                            }
-                    })
+                    self.animateViewTo(newState: newState)
                 }
             }
         }
+    }
+    
+    func animateViewTo(newState: MainViewState) {
+        UIView.transition(with: self.noteLabel, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
+            self.noteLabel.textColor = newState.lineTextColor
+            self.noteLabel.font = newState.font
+            self.centsLabel.textColor = newState.lineTextColor
+            self.centsLabel.font = newState.centsLabelFont
+            self.displayPitch(pitch: self.noteLabel.text!)
+        }, completion: { _ in })
+        
+        UIView.transition(with: self.settingsButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
+            self.settingsButton.setImage(newState.menuImage, for: .normal)
+            if self.isPitchPipeOpen {
+                self.pitchPipeButton.setImage(newState.downArrowImage, for: .normal)
+            } else {
+                self.pitchPipeButton.setImage(newState.audioWaveImage, for: .normal)
+            }
+        }, completion: { _ in })
+        
+        UIView.transition(with: self.pitchPipeButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
+            if self.isPitchPipeOpen {
+                self.pitchPipeButton.setImage(newState.downArrowImage, for: .normal)
+            } else {
+                self.pitchPipeButton.setImage(newState.audioWaveImage, for: .normal)
+            }
+        }, completion: { _ in })
+        
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
+            self.view.backgroundColor = newState.viewBackgroundColor
+            for line in self.lines {
+                line.backgroundColor = newState.lineTextColor
+            }
+        }, completion: { finished in
+            if finished {
+                for height in self.lineHeights {
+                    height.constant = newState.lineThickness
+                }
+                for line in self.lines {
+                    line.layoutIfNeeded()
+                }
+            }
+        })
     }
     
     func displayPitch(pitch: String) {
@@ -296,12 +303,19 @@ class MainViewController: UIViewController, TunerDelegate {
             self.pitchPipeButton.setImage(self.state.downArrowImage, for: .normal)
         }
         
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
             self.view.layoutIfNeeded()
             }, completion: nil)
     }
     
-     // MARK: - Navigation
+    // MARK: - Dark Mode Switching
+    
+    func darkModeChanged() {
+        state = .outOfTune
+        animateViewTo(newState: .outOfTune)
+    }
+    
+    // MARK: - Navigation
     
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mainToSettings" {

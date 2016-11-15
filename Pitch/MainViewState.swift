@@ -10,13 +10,17 @@ import Foundation
 import UIKit
 
 enum MainViewState {
-    case White
-    case LightGreen
-    case Green
+    case outOfTune
+    case almostInTune
+    case inTune
+    
+    private var darkModeOn: Bool {
+        return UserDefaults.standard.darkModeOn()
+    }
     
     var font: UIFont {
         switch self {
-        case .Green:
+        case .inTune:
             return UIFont(name: "Lato-Light", size: 110.0)!
         default:
             return UIFont(name: "Lato-Hairline", size: 110.0)!
@@ -25,7 +29,7 @@ enum MainViewState {
     
     var centsLabelFont: UIFont {
         switch self {
-        case .Green:
+        case .inTune:
             return UIFont(name: "Lato-Semibold", size: 17.0)!
         default:
             return UIFont(name: "Lato-Light", size: 17.0)!
@@ -34,27 +38,43 @@ enum MainViewState {
     
     var viewBackgroundColor: UIColor {
         switch self {
-        case .White:
-            return UIColor.white
-        case .LightGreen:
-            return UIColor.lightGreenView
-        case .Green:
-            return UIColor.greenView
+        case .outOfTune:
+            if darkModeOn {
+                return UIColor.darkGrayView
+            } else {
+                return UIColor.white
+            }
+        case .almostInTune:
+            if darkModeOn {
+                return UIColor.darkAlmostInTune
+            } else {
+                return UIColor.almostInTune
+            }
+        case .inTune:
+            if darkModeOn {
+                return UIColor.darkInTune
+            } else {
+                return UIColor.inTune
+            }
         }
     }
     
     var lineTextColor: UIColor {
         switch self {
-        case .Green:
+        case .inTune:
             return UIColor.white
         default:
-            return UIColor.black
+            if darkModeOn {
+                return UIColor.white
+            } else {
+                return UIColor.black
+            }
         }
     }
     
     var lineThickness: CGFloat {
         switch self {
-        case .Green:
+        case .inTune:
             return 4.0
         default:
             return 1.0
@@ -63,37 +83,53 @@ enum MainViewState {
     
     var feedbackImage: UIImage {
         switch self {
-        case .Green:
+        case .inTune:
             return #imageLiteral(resourceName: "white_feedback")
         default:
-            return #imageLiteral(resourceName: "black_feedback")
+            if darkModeOn {
+                return #imageLiteral(resourceName: "white_feedback")
+            } else {
+                return #imageLiteral(resourceName: "black_feedback")
+            }
         }
     }
     
     var menuImage: UIImage {
         switch self {
-        case .Green:
-            return #imageLiteral(resourceName: "white_menu")
+        case .inTune:
+            return #imageLiteral(resourceName: "thick_menu")
         default:
-            return #imageLiteral(resourceName: "menu")
+            if darkModeOn {
+                return #imageLiteral(resourceName: "white_menu")
+            } else {
+                return #imageLiteral(resourceName: "menu")
+            }
         }
     }
     
     var downArrowImage: UIImage {
         switch self {
-        case .Green:
-            return #imageLiteral(resourceName: "white_down_arrow")
+        case .inTune:
+            return #imageLiteral(resourceName: "thick_down_arrow")
         default:
-            return #imageLiteral(resourceName: "down_arrow")
+            if darkModeOn {
+                return #imageLiteral(resourceName: "white_down_arrow")
+            } else {
+                return #imageLiteral(resourceName: "down_arrow")
+            }
         }
     }
     
     var audioWaveImage: UIImage {
         switch self {
-        case .Green:
-            return #imageLiteral(resourceName: "white_audio_wave")
+        case .inTune:
+            return #imageLiteral(resourceName: "thick_audio_wave")
         default:
-            return #imageLiteral(resourceName: "audio_wave")
+            if darkModeOn {
+                return #imageLiteral(resourceName: "white_audio_wave")
+            } else {
+                return #imageLiteral(resourceName: "audio_wave")
+            }
         }
     }
 }

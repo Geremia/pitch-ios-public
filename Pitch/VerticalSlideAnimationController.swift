@@ -52,13 +52,22 @@ class VerticalSlideAnimationController: NSObject, UIViewControllerAnimatedTransi
         
         transitionContext.containerView.addSubview(toViewController.view!)
         
+        let darkModeOn = UserDefaults.standard.darkModeOn()
         switch self.direction {
         case .above:
             toViewController.view.frame = CGRect(x: 0, y: -height, width: width, height: height)
-            transitionContext.containerView.backgroundColor = UIColor.white
+            if darkModeOn {
+                transitionContext.containerView.backgroundColor = UIColor.darkGrayView
+            } else {
+                transitionContext.containerView.backgroundColor = UIColor.white
+            }
         case .below:
             toViewController.view.frame = CGRect(x: 0, y: height, width: width, height: height)
-            transitionContext.containerView.backgroundColor = UIColor.white
+            if darkModeOn {
+                transitionContext.containerView.backgroundColor = UIColor.darkGrayView
+            } else {
+                transitionContext.containerView.backgroundColor = UIColor.white
+            }
         case .fromBottom:
             toViewController.view.frame = CGRect(x: 0, y: height, width: width, height: height)
             self.darkView.frame = fromViewController.view.frame

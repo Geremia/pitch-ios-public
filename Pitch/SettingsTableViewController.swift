@@ -27,21 +27,32 @@ class SettingsTableViewController: UITableViewController {
             UserDefaults.standard.setKey(newValue: currentKey)
         }
     }
+    var darkModeOn: Bool = UserDefaults.standard.darkModeOn() {
+        didSet {
+            UserDefaults.standard.setDarkModeOn(darkModeOn)
+        }
+    }
     
     // MARK: - Outlets
     
     @IBOutlet weak var micSensitivityLabel: UILabel!
     @IBOutlet weak var displayModeLabel: UILabel!
     @IBOutlet weak var keyLabel: UILabel!
+    @IBOutlet weak var darkModeSwitch: UISwitch!
+    
+    @IBOutlet var allLabels: [UILabel]!
     
     // MARK: - Setup Views
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.tableFooterView = UIView()
         micSensitivityLabel.text = currentMicSensitivity.name
         displayModeLabel.text = currentDisplayMode.name
-        self.updateKeyLabel()
+        darkModeSwitch.setOn(darkModeOn, animated: false)
+        updateKeyLabel()
+        darkModeChanged()
     }
 
     // MARK: - Table view data source
@@ -51,7 +62,7 @@ class SettingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -122,6 +133,30 @@ class SettingsTableViewController: UITableViewController {
         }
     }
 
+    @IBAction func darkModeSwitched(_ sender: Any) {
+        let on = (sender as! UISwitch).isOn
+        darkModeOn = on
+        darkModeChanged()
+        NotificationCenter.default.post(name: darkModeChangedNotification, object: nil)
+    }
+    
+    func darkModeChanged() {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        if darkModeOn {
+            view.backgroundColor = UIColor.darkGrayView
+            tableView.separatorColor = UIColor.darkGray
+            for label in allLabels {
+                label.textColor = UIColor.white
+            }
+        } else {
+            view.backgroundColor = UIColor.white
+            tableView.separatorColor = UIColor.separatorColor
+            for label in allLabels {
+                label.textColor = UIColor.black
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
