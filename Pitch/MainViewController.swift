@@ -65,6 +65,7 @@ class MainViewController: UIViewController, TunerDelegate {
         
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
+        view.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.darkModeChanged), name: darkModeChangedNotification, object: nil)
         darkModeChanged()
@@ -313,6 +314,13 @@ class MainViewController: UIViewController, TunerDelegate {
     func darkModeChanged() {
         state = .outOfTune
         animateViewTo(newState: .outOfTune)
+        
+        let when = DispatchTime.now() + 0.2
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            UIView.transition(with: self.view, duration: 0.2, options: [.transitionCrossDissolve, .allowUserInteraction], animations: {
+                self.view.isHidden = false
+            }, completion: nil)
+        }
     }
     
     // MARK: - Navigation
