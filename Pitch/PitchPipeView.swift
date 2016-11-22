@@ -167,7 +167,7 @@ class PitchPipeView: UIView {
     
     @IBAction func minusButtonPressed(_ sender: AnyObject) {
         var currentOctave = Int(octaveLabel.text!)!
-        if currentOctave > 1 {
+        if currentOctave > 3 {
             currentOctave -= 1
             soundGenerator.decrementOctave()
             octaveLabel.text = String(currentOctave)
@@ -176,7 +176,7 @@ class PitchPipeView: UIView {
     
     @IBAction func plusButtonPressed(_ sender: AnyObject) {
         var currentOctave = Int(octaveLabel.text!)!
-        if currentOctave < 5 {
+        if currentOctave < 7 {
             currentOctave += 1
             soundGenerator.incrementOctave()
             octaveLabel.text = String(currentOctave)

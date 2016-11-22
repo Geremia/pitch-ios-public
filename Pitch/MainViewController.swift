@@ -14,6 +14,7 @@ class MainViewController: UIViewController, TunerDelegate {
     
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var centsLabel: UILabel!
+    @IBOutlet weak var octaveLabel: UILabel!
     @IBOutlet var lines: [UIView]!
     @IBOutlet var lineHeights: [NSLayoutConstraint]!
     @IBOutlet var portraitElements: [UIView]!
@@ -171,6 +172,7 @@ class MainViewController: UIViewController, TunerDelegate {
             noteLabel.attributedText = NSMutableAttributedString(string: "--", attributes: nil)
             movingLineCenterConstraint.constant = 0.0
             centsLabel.isHidden = true
+            octaveLabel.isHidden = true
             setViewTo(newState: .outOfTune)
         } else {
             if noteLabel.text != output.pitch {
@@ -179,6 +181,9 @@ class MainViewController: UIViewController, TunerDelegate {
             
             centsLabel.isHidden = false
             updateCentsLabel(offset: output.centsDistace)
+            
+            octaveLabel.isHidden = false
+            octaveLabel.text = String(output.octave)
             
             if UIApplication.shared.statusBarOrientation.isPortrait {
                 movingLineCenterConstraint.constant = CGFloat(-output.distance * 30.0)
@@ -229,6 +234,8 @@ class MainViewController: UIViewController, TunerDelegate {
             self.noteLabel.font = newState.font
             self.centsLabel.textColor = newState.lineTextColor
             self.centsLabel.font = newState.centsLabelFont
+            self.octaveLabel.textColor = newState.lineTextColor
+            self.octaveLabel.font = newState.octaveLabelFont
             self.displayPitch(pitch: self.noteLabel.text!)
         }, completion: { _ in })
         
@@ -281,7 +288,7 @@ class MainViewController: UIViewController, TunerDelegate {
                 noteLabel.setAttributedText(attString, withSpacing: -7.0)
             }
         } else {
-            noteLabel.attributedText = NSMutableAttributedString(string: pitch, attributes: nil)
+            noteLabel.attributedText = NSMutableAttributedString(string: pitch + " ", attributes: nil)
         }
     }
     

@@ -36,6 +36,10 @@ enum MainViewState {
         }
     }
     
+    var octaveLabelFont: UIFont {
+        return centsLabelFont.withSize(32.0)
+    }
+    
     var viewBackgroundColor: UIColor {
         switch self {
         case .outOfTune:
