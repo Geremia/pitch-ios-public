@@ -453,7 +453,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/AudioKit.framework/fix-framework.sh\"";
+			shellScript = "\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/AudioKit.framework/fix-framework.sh\"\n\"${PODS_ROOT}/Fabric/run\" caa158d830db55c4ba2b1dc1fc2d678689e6e673 93698f30a213fa180439d6c3041df2864041f95854e11505e05f66405df33143";
 		};
 		511BD80BD1D32E3CEAE32B92 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

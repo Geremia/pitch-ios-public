@@ -4,5 +4,7 @@ use_frameworks!
 
 target 'Pitch' do 
   pod 'AudioKit', '~> 3.4.3'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
 
