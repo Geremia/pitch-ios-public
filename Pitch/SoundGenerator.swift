@@ -22,6 +22,7 @@ class SoundGenerator : NSObject {
         
         bank = AKOscillatorBank(waveform: AKTable(.triangle), attackDuration: 0.06, releaseDuration: 0.06)
         mixer.connect(bank)
+        
         AudioKit.output = mixer
         AudioKit.start()
         
