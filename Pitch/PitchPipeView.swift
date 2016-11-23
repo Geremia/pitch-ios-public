@@ -14,6 +14,7 @@ class PitchPipeView: UIView {
     // MARK: - Outlets
     
     @IBOutlet var pitchButtons: [UIButton]!
+    @IBOutlet var separators: [UIView]!
     @IBOutlet var sustainButton: UIButton!
     @IBOutlet var minusButton: UIButton!
     @IBOutlet var plusButton: UIButton!
@@ -40,7 +41,7 @@ class PitchPipeView: UIView {
     func darkModeChanged() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
         if darkModeOn {
-            backgroundColor = UIColor.darkGrayView
+            backgroundColor = UIColor.darkPitchPipeBackground
             minusButton.setImage(#imageLiteral(resourceName: "white_minus"), for: .normal)
             plusButton.setImage(#imageLiteral(resourceName: "white_plus"), for: .normal)
             octaveLabel.textColor = UIColor.white
@@ -49,18 +50,18 @@ class PitchPipeView: UIView {
             backgroundColor = UIColor.white
             minusButton.setImage(#imageLiteral(resourceName: "minus"), for: .normal)
             plusButton.setImage(#imageLiteral(resourceName: "plus"), for: .normal)
-            octaveLabel.textColor = UIColor.darkText
-            octaveTextLabel.textColor = UIColor.darkText
+            octaveLabel.textColor = UIColor.grayText
+            octaveTextLabel.textColor = UIColor.grayText
         }
         
         updateSustainButton()
         for button in self.pitchButtons {
             let isActive = button.backgroundColor == UIColor.inTune || button.backgroundColor == UIColor.darkInTune
-            if isActive {
-                on(pitchButton: button)
-            } else {
-                off(pitchButton: button)
-            }
+            isActive ? on(pitchButton: button) : off(pitchButton: button)
+        }
+        
+        for separator in separators {
+            separator.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.separatorColor
         }
     }
     
@@ -78,7 +79,7 @@ class PitchPipeView: UIView {
             button.titleLabel?.font = UIFont(name: "Lato-Semibold", size: 26)
             button.setTitleColor(UIColor.white, for: .normal)
             self.updateButtonLabels()
-            }, completion: nil)
+        }, completion: nil)
     }
     
     func off(pitchButton button: UIButton) {
@@ -93,7 +94,7 @@ class PitchPipeView: UIView {
             button.setAttributedTitle(nil, for: .normal)
             button.titleLabel?.font = UIFont(name: "Lato-Light", size: 26)
             self.updateButtonLabels()
-            }, completion: nil)
+        }, completion: nil)
     }
     
     func updateButtonLabels() {

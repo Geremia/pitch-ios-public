@@ -749,51 +749,51 @@
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLr-Rf-CQb">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
-                                        <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.11" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="0.5" id="4P1-eq-pUu"/>
+                                            <constraint firstAttribute="height" constant="1.5" id="4P1-eq-pUu"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzE-Vy-Gwj">
                                         <rect key="frame" x="0.0" y="54" width="375" height="1"/>
-                                        <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.11" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="0.5" id="dzp-WU-nfT"/>
+                                            <constraint firstAttribute="height" constant="1.5" id="dzp-WU-nfT"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tAh-W3-WTn">
                                         <rect key="frame" x="0.0" y="108" width="375" height="1"/>
-                                        <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.11" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="0.5" id="rRi-5a-gfu"/>
+                                            <constraint firstAttribute="height" constant="1.5" id="rRi-5a-gfu"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIB-Xl-EOF">
                                         <rect key="frame" x="0.0" y="162" width="375" height="1"/>
-                                        <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.11" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="0.5" id="CCc-pi-X5h"/>
+                                            <constraint firstAttribute="height" constant="1.5" id="CCc-pi-X5h"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xMn-Ga-ntp">
                                         <rect key="frame" x="93" y="0.0" width="1" height="231"/>
-                                        <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.11" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="0.5" id="UPu-fA-Mqd"/>
+                                            <constraint firstAttribute="width" constant="1.5" id="UPu-fA-Mqd"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdS-c0-HDo">
                                         <rect key="frame" x="186.5" y="0.0" width="1" height="162"/>
-                                        <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.11" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="0.5" id="l5c-3p-QeD"/>
+                                            <constraint firstAttribute="width" constant="1.5" id="l5c-3p-QeD"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbL-VI-4Dh">
                                         <rect key="frame" x="280.5" y="0.0" width="1" height="162"/>
-                                        <color key="backgroundColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.11" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="0.5" id="A6s-1O-oSb"/>
+                                            <constraint firstAttribute="width" constant="1.5" id="A6s-1O-oSb"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -909,6 +909,13 @@
                                     <outletCollection property="pitchButtons" destination="f3Z-KM-eZm" collectionClass="NSMutableArray" id="rG5-Oo-AIm"/>
                                     <outletCollection property="pitchButtons" destination="9lN-S2-eu2" collectionClass="NSMutableArray" id="qHT-vU-ZOg"/>
                                     <outletCollection property="pitchButtons" destination="GM1-SO-ott" collectionClass="NSMutableArray" id="4td-9l-7J8"/>
+                                    <outletCollection property="separators" destination="rLr-Rf-CQb" collectionClass="NSMutableArray" id="WHP-dC-hPE"/>
+                                    <outletCollection property="separators" destination="uzE-Vy-Gwj" collectionClass="NSMutableArray" id="5ak-wa-NNd"/>
+                                    <outletCollection property="separators" destination="tAh-W3-WTn" collectionClass="NSMutableArray" id="uNb-Tc-1He"/>
+                                    <outletCollection property="separators" destination="lIB-Xl-EOF" collectionClass="NSMutableArray" id="2YS-FC-shP"/>
+                                    <outletCollection property="separators" destination="xMn-Ga-ntp" collectionClass="NSMutableArray" id="XXr-XX-H46"/>
+                                    <outletCollection property="separators" destination="pdS-c0-HDo" collectionClass="NSMutableArray" id="pI8-23-Btz"/>
+                                    <outletCollection property="separators" destination="MbL-VI-4Dh" collectionClass="NSMutableArray" id="RW0-gm-96L"/>
                                 </connections>
                             </view>
                         </subviews>
