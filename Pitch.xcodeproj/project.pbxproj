@@ -28,6 +28,7 @@
 		4CEAD6DE1D8A0CFD000492E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6DC1D8A0CFD000492E6 /* LaunchScreen.storyboard */; };
 		4CEAD6E91D8A0CFD000492E6 /* PitchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6E81D8A0CFD000492E6 /* PitchTests.swift */; };
 		4CEAD6F41D8A0CFD000492E6 /* PitchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6F31D8A0CFD000492E6 /* PitchUITests.swift */; };
+		4CF25E911DE8BA07009D109F /* InstrumentKeyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF25E901DE8BA07009D109F /* InstrumentKeyTableViewController.swift */; };
 		4CFC73B31DC59B3700AFD8AC /* PitchPipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */; };
 		4CFC73B51DC59B9800AFD8AC /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CFC73B41DC59B9800AFD8AC /* Lato-Semibold.ttf */; };
 		4CFC73B91DC646EC00AFD8AC /* SoundGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC73B81DC646EC00AFD8AC /* SoundGenerator.swift */; };
@@ -81,6 +82,7 @@
 		4CEAD6EF1D8A0CFD000492E6 /* PitchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEAD6F31D8A0CFD000492E6 /* PitchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchUITests.swift; sourceTree = "<group>"; };
 		4CEAD6F51D8A0CFD000492E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CF25E901DE8BA07009D109F /* InstrumentKeyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentKeyTableViewController.swift; sourceTree = "<group>"; };
 		4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchPipeView.swift; sourceTree = "<group>"; };
 		4CFC73B41DC59B9800AFD8AC /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		4CFC73B81DC646EC00AFD8AC /* SoundGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundGenerator.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				4C1FD5121DD117A700C1C6B9 /* SettingsViewController.swift */,
 				4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */,
 				4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */,
+				4CF25E901DE8BA07009D109F /* InstrumentKeyTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				4C253C361D9FF7E900BD07D6 /* MainViewState.swift in Sources */,
 				4CFC73BE1DC6821400AFD8AC /* TuningFork.swift in Sources */,
 				4CDEB5791DD11B68005301BF /* VerticalSlideAnimationController.swift in Sources */,
+				4CF25E911DE8BA07009D109F /* InstrumentKeyTableViewController.swift in Sources */,
 				4CFC73B31DC59B3700AFD8AC /* PitchPipeView.swift in Sources */,
 				4C1FD5131DD117A700C1C6B9 /* SettingsViewController.swift in Sources */,
 			);

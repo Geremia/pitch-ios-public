@@ -9,22 +9,30 @@
 import UIKit
 import MessageUI
 
-class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate, SettingsTableViewControllerDelegate {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var settingsView: UIView!
+    @IBOutlet weak var settingsViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var settingsLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var improveLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
+    
+    @IBOutlet weak var instrumentKeyView: UIView!
+    @IBOutlet weak var instrumentKeyBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Setup Views
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.layer.cornerRadius = 8.0
-        view.clipsToBounds = true
+        settingsView.layer.cornerRadius = 8.0
+        settingsView.layer.masksToBounds = true
+        instrumentKeyView.layer.cornerRadius = 8.0
+        instrumentKeyView.layer.masksToBounds = true
+        
         feedbackButton.layer.cornerRadius = 8.0
         darkModeChanged()
         
@@ -55,18 +63,52 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         controller.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - SettingsTableViewControllerDelegate
+    
+    func instrumentKeySelected() {
+        openInstrumentKeyView()
+    }
+    
+    func openInstrumentKeyView() {
+//        settingsView.isUserInteractionEnabled = false
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.closeInstrumentKeyView(_:)))
+        settingsView.addGestureRecognizer(tapGestureRecognizer)
+        
+        instrumentKeyBottomConstraint.constant = 0
+        settingsViewBottomConstraint.constant = instrumentKeyView.frame.height + 8
+        
+        UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
+            self.view.layoutIfNeeded()
+            self.settingsView.alpha = 0.5
+        }, completion: nil)
+    }
+    
+    func closeInstrumentKeyView(_ gestureRecognizer: UITapGestureRecognizer) {
+        settingsView.removeGestureRecognizer(gestureRecognizer)
+        
+        instrumentKeyBottomConstraint.constant = -(instrumentKeyView.frame.height + 8)
+        settingsViewBottomConstraint.constant = 0
+
+        UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
+            self.view.layoutIfNeeded()
+            self.settingsView.alpha = 1.0
+        }, completion: nil)
+    }
+    
     // MARK: - Dark Mode Switching 
     
     func darkModeChanged() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
         if darkModeOn {
-            view.backgroundColor = UIColor.darkGrayView
+            settingsView.backgroundColor = UIColor.darkGrayView
+            instrumentKeyView.backgroundColor = UIColor.darkGrayView
             settingsLabel.textColor = UIColor.white
             improveLabel.textColor = UIColor.white
             backButton.setImage(#imageLiteral(resourceName: "white_forward_arrow"), for: .normal)
             feedbackButton.backgroundColor = UIColor.darkInTune
         } else {
-            view.backgroundColor = UIColor.white
+            settingsView.backgroundColor = UIColor.white
+            instrumentKeyView.backgroundColor = UIColor.white
             settingsLabel.textColor = UIColor.black
             improveLabel.textColor = UIColor.black
             backButton.setImage(#imageLiteral(resourceName: "forward_arrow"), for: .normal)
@@ -79,15 +121,15 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     override var prefersStatusBarHidden: Bool {
         return true
     }
-
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "settingsTableEmbed" {
+            let settingsTableViewController: SettingsTableViewController = segue.destination as! SettingsTableViewController
+            settingsTableViewController.delegate = self
+        }
     }
-    */
+    
 
 }

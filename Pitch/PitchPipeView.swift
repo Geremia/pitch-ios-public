@@ -76,7 +76,7 @@ class PitchPipeView: UIView {
                 button.backgroundColor = UIColor.inTune
             }
             button.setAttributedTitle(nil, for: .normal)
-            button.titleLabel?.font = UIFont(name: "Lato-Semibold", size: 26)
+            button.titleLabel?.font = UIFont(name: "Lato-Semibold", size: 24)
             button.setTitleColor(UIColor.white, for: .normal)
             self.updateButtonLabels()
         }, completion: nil)
@@ -92,7 +92,7 @@ class PitchPipeView: UIView {
             }
             button.backgroundColor = UIColor.clear
             button.setAttributedTitle(nil, for: .normal)
-            button.titleLabel?.font = UIFont(name: "Lato-Light", size: 26)
+            button.titleLabel?.font = UIFont(name: "Lato-Light", size: 24)
             self.updateButtonLabels()
         }, completion: nil)
     }
@@ -104,7 +104,7 @@ class PitchPipeView: UIView {
                     let font = button.titleLabel?.font
                     let fontSuper:UIFont? = button.titleLabel?.font.withSize(18.0)
                     let attString:NSMutableAttributedString = NSMutableAttributedString(string: key.name, attributes: [NSFontAttributeName:font!])
-                    attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:12], range: NSRange(location:1,length:1))
+                    attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:11], range: NSRange(location:1,length:1))
                     button.setAttributedTitle(attString, for: .normal)
                 } else {
                     button.setTitle(key.name, for: .normal)

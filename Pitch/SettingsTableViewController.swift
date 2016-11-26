@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SettingsTableViewControllerDelegate {
+    func instrumentKeySelected()
+}
+
 class SettingsTableViewController: UITableViewController {
     
     // MARK: - Variables
@@ -32,6 +36,8 @@ class SettingsTableViewController: UITableViewController {
             UserDefaults.standard.setDarkModeOn(darkModeOn)
         }
     }
+    
+    var delegate: SettingsTableViewControllerDelegate?
     
     // MARK: - Outlets
     
@@ -74,7 +80,8 @@ class SettingsTableViewController: UITableViewController {
         case 1:
             changeDisplayMode()
         case 2:
-            changeKey()
+//            changeKey()
+            delegate?.instrumentKeySelected()
         default:
             return
         }
