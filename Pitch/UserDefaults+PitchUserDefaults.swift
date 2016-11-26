@@ -51,6 +51,14 @@ extension UserDefaults {
         set(newValue.rawValue, forKey: "displayMode")
     }
     
+    func autoKeyOn() -> Bool {
+        return bool(forKey: "autoKeyOn")
+    }
+    
+    func setAutoKey(_ on: Bool) {
+        set(on, forKey: "autoKeyOn")
+    }
+    
     func key() -> Key {
         if let rawValue = object(forKey: "key") as? Int {
             return Key(rawValue: rawValue)!
