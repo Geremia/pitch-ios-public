@@ -56,15 +56,15 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     
     // MARK: - UIPickerViewDelegate
     
-    let instruments = ["Bb Clarinet", "Eb Clarinet", "Alto Saxophone", "Piano", "Trumpet"]
-    let keys = ["C", "D♭","D","E♭","E","F","G♭","G","A♭","A","B♭","B"]
+    let instruments: [Instrument] = Instrument.allCases
+    let keys: [Key] = Key.allCases
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
-            return instruments[row]
+            return instruments[row].name
         default:
-            return keys[row]
+            return keys[row].name
         }
     }
     
@@ -72,9 +72,9 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         let string: NSMutableAttributedString
         switch component {
         case 0:
-            string = NSMutableAttributedString(string: instruments[row])
+            string = NSMutableAttributedString(string: instruments[row].name)
         default:
-            string = NSMutableAttributedString(string: keys[row])
+            string = NSMutableAttributedString(string: keys[row].name)
         }
         
         let darkModeOn = UserDefaults.standard.darkModeOn()

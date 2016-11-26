@@ -64,6 +64,8 @@ enum Key: Int {
     case g
     case gsharp
     
+    static let allCases: [Key] = [.a, .asharp, .b, .c, .csharp, .d, .dsharp, .e, .f, .fsharp, .g, .gsharp]
+    
     static func fromName(_ name: String) -> Key? {
         switch name {
         case "A":
@@ -175,6 +177,8 @@ enum Instrument: Int {
     case bassTrombone
     case euphonium
     case tuba
+    
+    static let allCases: [Instrument] = [.piccolo, .flute, .oboe, .englishHorn, .bassoon, .eFlatClarinet, .bFlatClarinet, .bassClarinet, .sopranoSax, .altoSax, .tenorSax, .bariSax, .frenchHorn, .trumpet, .trombone, .bassTrombone, .euphonium, .tuba]
     
     var name: String {
         switch self {
