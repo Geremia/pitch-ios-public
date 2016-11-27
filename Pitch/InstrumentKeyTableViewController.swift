@@ -12,11 +12,24 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     
     // MARK: - Variables
     
-    @IBOutlet weak var autoKeyLabel: UILabel!
-    @IBOutlet weak var autoKeySwitch: UISwitch!
+    var autoKeyOn: Bool = UserDefaults.standard.autoKeyOn() {
+        didSet {
+            UserDefaults.standard.setAutoKey(autoKeyOn)
+        }
+    }
+    var currentInstrument: Instrument = UserDefaults.standard.instrument() {
+        didSet {
+            UserDefaults.standard.setInstrument(currentInstrument)
+        }
+    }
+    
+    let instruments: [Instrument] = Instrument.allCases
+    let keys: [Key] = Key.allCases
     
     // MARK: - Outlets
     
+    @IBOutlet weak var autoKeyLabel: UILabel!
+    @IBOutlet weak var autoKeySwitch: UISwitch!
     @IBOutlet weak var pickerView: UIPickerView!
     
     // MARK: - Setup Views
@@ -24,9 +37,25 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupPickerView()
         tableView.isScrollEnabled = false
         darkModeChanged()
         NotificationCenter.default.addObserver(self, selector: #selector(InstrumentKeyTableViewController.darkModeChanged), name: darkModeChangedNotification, object: nil)
+    }
+    
+    // MARK: - Setup Picker View
+    
+    func setupPickerView() {
+        autoKeySwitch.setOn(autoKeyOn, animated: false)
+        if let index = instruments.index(of: currentInstrument) {
+            pickerView.selectRow(index, inComponent: 0, animated: false)
+            if autoKeyOn {
+                setKeyForCurrentInstrument(animated: false)
+            } else {
+                let currentKey = UserDefaults.standard.key()
+                pickerView.selectRow(keys.index(of: currentKey)!, inComponent: 1, animated: false)
+            }
+        }
     }
     
     // MARK: - Dark Mode Switching
@@ -36,9 +65,11 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         if darkModeOn {
             autoKeyLabel.textColor = UIColor.white
             autoKeySwitch.onTintColor = UIColor.darkInTune
+            tableView.separatorColor = UIColor.darkGray
         } else {
             autoKeyLabel.textColor = UIColor.black
             autoKeySwitch.onTintColor = UIColor.inTune
+            tableView.separatorColor = UIColor.separatorColor
         }
         
         pickerView.reloadAllComponents()
@@ -56,9 +87,6 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     
     // MARK: - UIPickerViewDelegate
     
-    let instruments: [Instrument] = Instrument.allCases
-    let keys: [Key] = Key.allCases
-    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
@@ -74,7 +102,7 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         case 0:
             string = NSMutableAttributedString(string: instruments[row].name)
         default:
-            string = NSMutableAttributedString(string: keys[row].name)
+            string = NSMutableAttributedString(string: "\(keys[row].name) (\(keys[row].concertOffsetString))")
         }
         
         let darkModeOn = UserDefaults.standard.darkModeOn()
@@ -93,14 +121,31 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         switch component {
         case 0:
-            return view.frame.width * 0.6
+            return view.frame.width * 0.5
         default:
-            return view.frame.width * 0.4
+            return view.frame.width * 0.5
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("selected row")
+        switch component {
+        case 0:
+            currentInstrument = instruments[row]
+            if autoKeyOn {
+                setKeyForCurrentInstrument(animated: true)
+            }
+        default:
+            autoKeySwitch.setOn(false, animated: true)
+            UserDefaults.standard.setAutoKey(false)
+            UserDefaults.standard.setKey(newValue: keys[row])
+        }
+    }
+    
+    func setKeyForCurrentInstrument(animated: Bool) {
+        if let index = self.keys.index(of: currentInstrument.key) {
+            pickerView.selectRow(index, inComponent: 1, animated: animated)
+            UserDefaults.standard.setKey(newValue: self.keys[index])
+        }
     }
     
     // MARK: - UIPickerViewDataSource
@@ -121,6 +166,11 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     // MARK: - Actions
     
     @IBAction func autoKeySwitched(_ sender: Any) {
+        let keySwitch = sender as! UISwitch
+        autoKeyOn = keySwitch.isOn
+        if keySwitch.isOn {
+            setKeyForCurrentInstrument(animated: true)
+        }
     }
 
     /*

@@ -101,6 +101,14 @@ enum Key: Int {
         return self.rawValue - 3
     }
     
+    var concertOffsetString: String {
+        if concertOffset < 0 {
+            return String(concertOffset)
+        } else {
+            return "+\(concertOffset)"
+        }
+    }
+    
     var name: String {
         let displayMode = UserDefaults.standard.displayMode()
         switch displayMode {

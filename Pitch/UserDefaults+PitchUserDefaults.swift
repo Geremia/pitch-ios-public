@@ -52,11 +52,27 @@ extension UserDefaults {
     }
     
     func autoKeyOn() -> Bool {
+        if value(forKey: "autoKeyOn") == nil {
+            return true
+        }
+        
         return bool(forKey: "autoKeyOn")
     }
     
     func setAutoKey(_ on: Bool) {
         set(on, forKey: "autoKeyOn")
+    }
+    
+    func instrument() -> Instrument {
+        if let rawValue = object(forKey: "instrument") as? Int {
+            return Instrument(rawValue: rawValue)!
+        }
+        
+        return Instrument.flute
+    }
+    
+    func setInstrument(_ newValue: Instrument) {
+        set(newValue.rawValue, forKey: "instrument")
     }
     
     func key() -> Key {

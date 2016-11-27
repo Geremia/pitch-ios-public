@@ -193,10 +193,11 @@
         <scene sceneID="Fa3-MB-Pk3">
             <objects>
                 <tableViewController id="IaY-yC-ccq" customClass="InstrumentKeyTableViewController" customModule="Pitch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qd6-rx-Tcm">
-                        <rect key="frame" x="0.0" y="0.0" width="355" height="258"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qd6-rx-Tcm">
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="280"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="PY5-pT-BZt">
                                 <cells>
@@ -233,15 +234,15 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="200" id="Z71-ca-lcK">
-                                        <rect key="frame" x="0.0" y="58" width="355" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="222" id="Z71-ca-lcK">
+                                        <rect key="frame" x="0.0" y="58" width="355" height="222"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z71-ca-lcK" id="zF1-7o-IOg">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="221"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDt-UU-6qD">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="199.5"/>
+                                                <pickerView contentMode="scaleToFill" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDt-UU-6qD">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="221.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <connections>
                                                         <outlet property="dataSource" destination="IaY-yC-ccq" id="gvr-Lq-IHd"/>
@@ -363,13 +364,10 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTT-rb-Tac" userLabel="Instrument/Transposition">
-                                <rect key="frame" x="0.0" y="675" width="375" height="258"/>
+                                <rect key="frame" x="0.0" y="675" width="375" height="280"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlB-Dc-TCc">
-                                        <rect key="frame" x="10" y="0.0" width="355" height="258"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="258" id="zUp-E1-hR8"/>
-                                        </constraints>
+                                        <rect key="frame" x="10" y="0.0" width="355" height="280"/>
                                         <connections>
                                             <segue destination="IaY-yC-ccq" kind="embed" id="u26-MS-f0T"/>
                                         </connections>
@@ -377,7 +375,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="258" id="Pmn-Xa-sLM"/>
+                                    <constraint firstItem="mlB-Dc-TCc" firstAttribute="top" secondItem="rTT-rb-Tac" secondAttribute="top" id="59f-vk-1Vh"/>
+                                    <constraint firstAttribute="height" constant="280" id="Pmn-Xa-sLM"/>
                                     <constraint firstAttribute="bottom" secondItem="mlB-Dc-TCc" secondAttribute="bottom" id="WJL-xW-MHe"/>
                                     <constraint firstAttribute="trailing" secondItem="mlB-Dc-TCc" secondAttribute="trailing" constant="10" id="ggo-Bk-8j3"/>
                                     <constraint firstItem="mlB-Dc-TCc" firstAttribute="leading" secondItem="rTT-rb-Tac" secondAttribute="leading" constant="10" id="ztI-gn-GBY"/>
@@ -387,7 +386,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4ck-GS-giR" firstAttribute="leading" secondItem="PmP-b3-5Y5" secondAttribute="leading" id="0rO-wu-VZ2"/>
-                            <constraint firstItem="4Qd-9H-gQf" firstAttribute="top" secondItem="rTT-rb-Tac" secondAttribute="bottom" constant="-266" id="5DS-40-sIU"/>
+                            <constraint firstItem="4Qd-9H-gQf" firstAttribute="top" secondItem="rTT-rb-Tac" secondAttribute="bottom" constant="-288" id="5DS-40-sIU"/>
                             <constraint firstAttribute="trailing" secondItem="rTT-rb-Tac" secondAttribute="trailing" id="7E4-BD-KDp"/>
                             <constraint firstItem="4ck-GS-giR" firstAttribute="width" secondItem="PmP-b3-5Y5" secondAttribute="width" id="Ot7-ah-GS3"/>
                             <constraint firstItem="rTT-rb-Tac" firstAttribute="leading" secondItem="PmP-b3-5Y5" secondAttribute="leading" id="bZg-n7-wKV"/>
