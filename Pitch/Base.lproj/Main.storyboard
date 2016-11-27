@@ -234,15 +234,15 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="222" id="Z71-ca-lcK">
-                                        <rect key="frame" x="0.0" y="58" width="355" height="222"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="223" id="Z71-ca-lcK">
+                                        <rect key="frame" x="0.0" y="58" width="355" height="223"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z71-ca-lcK" id="zF1-7o-IOg">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="221"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="222"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDt-UU-6qD">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="221.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="222.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <connections>
                                                         <outlet property="dataSource" destination="IaY-yC-ccq" id="gvr-Lq-IHd"/>
