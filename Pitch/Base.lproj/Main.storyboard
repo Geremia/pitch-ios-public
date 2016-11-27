@@ -194,7 +194,7 @@
             <objects>
                 <tableViewController id="IaY-yC-ccq" customClass="InstrumentKeyTableViewController" customModule="Pitch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qd6-rx-Tcm">
-                        <rect key="frame" x="0.0" y="0.0" width="355" height="280"/>
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="281"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
@@ -344,17 +344,25 @@
                                             <action selector="feedbackPressed:" destination="FFt-kb-reG" eventType="touchUpInside" id="sCJ-mQ-k6v"/>
                                         </connections>
                                     </button>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="41X-X5-Y4W">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="41X-X5-Y4W" firstAttribute="leading" secondItem="4ck-GS-giR" secondAttribute="leading" id="53h-pO-Oer"/>
                                     <constraint firstItem="HgG-IX-2xp" firstAttribute="leading" secondItem="4ck-GS-giR" secondAttribute="leading" constant="10" id="DqZ-I5-6dX"/>
                                     <constraint firstItem="ah8-kU-ren" firstAttribute="centerY" secondItem="Ed7-b3-FYB" secondAttribute="centerY" id="PLh-lx-wp7"/>
                                     <constraint firstItem="vll-g5-o3Q" firstAttribute="top" secondItem="QYQ-c3-sou" secondAttribute="bottom" constant="16" id="Vfd-op-BF1"/>
                                     <constraint firstItem="QYQ-c3-sou" firstAttribute="centerX" secondItem="4ck-GS-giR" secondAttribute="centerX" id="XrY-7U-jqA"/>
+                                    <constraint firstAttribute="trailing" secondItem="41X-X5-Y4W" secondAttribute="trailing" id="a21-TM-KVe"/>
                                     <constraint firstItem="HgG-IX-2xp" firstAttribute="top" secondItem="Ed7-b3-FYB" secondAttribute="bottom" constant="20" id="ag4-vY-2Af"/>
                                     <constraint firstItem="QYQ-c3-sou" firstAttribute="top" secondItem="HgG-IX-2xp" secondAttribute="bottom" constant="20" id="dhU-WL-wgv"/>
                                     <constraint firstAttribute="bottom" secondItem="vll-g5-o3Q" secondAttribute="bottom" constant="20" id="fQ0-Jx-Uzy"/>
+                                    <constraint firstItem="41X-X5-Y4W" firstAttribute="top" secondItem="4ck-GS-giR" secondAttribute="top" id="gtw-aa-TTY"/>
                                     <constraint firstItem="Ed7-b3-FYB" firstAttribute="top" secondItem="4ck-GS-giR" secondAttribute="top" constant="20" id="hUa-N8-Msx"/>
+                                    <constraint firstAttribute="bottom" secondItem="41X-X5-Y4W" secondAttribute="bottom" id="ij9-Hw-ZrX"/>
                                     <constraint firstItem="vll-g5-o3Q" firstAttribute="centerX" secondItem="4ck-GS-giR" secondAttribute="centerX" id="nGg-oa-ZhD"/>
                                     <constraint firstItem="syJ-FW-TRB" firstAttribute="centerX" secondItem="4ck-GS-giR" secondAttribute="centerX" id="pMI-DI-iJG"/>
                                     <constraint firstItem="syJ-FW-TRB" firstAttribute="centerY" secondItem="Ed7-b3-FYB" secondAttribute="centerY" id="qE7-Mm-gaf"/>
@@ -367,7 +375,7 @@
                                 <rect key="frame" x="0.0" y="675" width="375" height="280"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlB-Dc-TCc">
-                                        <rect key="frame" x="10" y="0.0" width="355" height="280"/>
+                                        <rect key="frame" x="10" y="0.0" width="355" height="281"/>
                                         <connections>
                                             <segue destination="IaY-yC-ccq" kind="embed" id="u26-MS-f0T"/>
                                         </connections>
@@ -377,7 +385,7 @@
                                 <constraints>
                                     <constraint firstItem="mlB-Dc-TCc" firstAttribute="top" secondItem="rTT-rb-Tac" secondAttribute="top" id="59f-vk-1Vh"/>
                                     <constraint firstAttribute="height" constant="280" id="Pmn-Xa-sLM"/>
-                                    <constraint firstAttribute="bottom" secondItem="mlB-Dc-TCc" secondAttribute="bottom" id="WJL-xW-MHe"/>
+                                    <constraint firstAttribute="bottom" secondItem="mlB-Dc-TCc" secondAttribute="bottom" constant="-1" id="WJL-xW-MHe"/>
                                     <constraint firstAttribute="trailing" secondItem="mlB-Dc-TCc" secondAttribute="trailing" constant="10" id="ggo-Bk-8j3"/>
                                     <constraint firstItem="mlB-Dc-TCc" firstAttribute="leading" secondItem="rTT-rb-Tac" secondAttribute="leading" constant="10" id="ztI-gn-GBY"/>
                                 </constraints>
@@ -405,6 +413,7 @@
                         <outlet property="settingsLabel" destination="syJ-FW-TRB" id="gui-OY-G5k"/>
                         <outlet property="settingsView" destination="4ck-GS-giR" id="uS2-rq-232"/>
                         <outlet property="settingsViewBottomConstraint" destination="mwI-Cc-UEj" id="Wmi-LI-44J"/>
+                        <outlet property="touchBlockingView" destination="41X-X5-Y4W" id="PiL-Sd-Mfg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQC-4l-Try" userLabel="First Responder" sceneMemberID="firstResponder"/>

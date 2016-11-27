@@ -26,11 +26,6 @@ class SettingsTableViewController: UITableViewController {
             UserDefaults.standard.setDisplayMode(newValue: currentDisplayMode)
         }
     }
-    var currentKey: Key = UserDefaults.standard.key() {
-        didSet {
-            UserDefaults.standard.setKey(newValue: currentKey)
-        }
-    }
     var darkModeOn: Bool = UserDefaults.standard.darkModeOn() {
         didSet {
             UserDefaults.standard.setDarkModeOn(darkModeOn)
@@ -80,7 +75,6 @@ class SettingsTableViewController: UITableViewController {
         case 1:
             changeDisplayMode()
         case 2:
-//            changeKey()
             delegate?.instrumentKeySelected()
         default:
             return
@@ -114,21 +108,8 @@ class SettingsTableViewController: UITableViewController {
         }, completion: nil)
     }
     
-    func changeKey() {
-        var rawValue = currentKey.rawValue + 1
-        if rawValue > 11 {
-            rawValue = 0
-        }
-        
-        currentKey = Key(rawValue: rawValue)!
-        UIView.transition(with: keyLabel, duration: 0.1, options: [.transitionCrossDissolve], animations: {
-            self.updateKeyLabel()
-        }, completion: nil)
-        
-        NotificationCenter.default.post(name: pitchPipeResetNotification, object: nil)
-    }
-    
     func updateKeyLabel() {
+        let currentKey = UserDefaults.standard.key()
         if currentKey.name.characters.count > 1 {
             let font = keyLabel.font
             let fontSuper:UIFont? = keyLabel.font.withSize(14.0)

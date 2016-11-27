@@ -13,6 +13,8 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     // MARK: - Outlets
     
+    @IBOutlet weak var touchBlockingView: UIView!
+    
     @IBOutlet weak var settingsView: UIView!
     @IBOutlet weak var settingsViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var settingsLabel: UILabel!
@@ -22,6 +24,10 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     @IBOutlet weak var instrumentKeyView: UIView!
     @IBOutlet weak var instrumentKeyBottomConstraint: NSLayoutConstraint!
+    
+    // MARK: - Variables
+    
+    var settingsTableViewController: SettingsTableViewController?
     
     // MARK: - Setup Views
 
@@ -70,9 +76,10 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     func openInstrumentKeyView() {
-//        settingsView.isUserInteractionEnabled = false
+        touchBlockingView.isHidden = false
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.closeInstrumentKeyView(_:)))
         settingsView.addGestureRecognizer(tapGestureRecognizer)
+        NotificationCenter.default.post(name: darkModeChangedNotification, object: nil)
         
         instrumentKeyBottomConstraint.constant = 0
         settingsViewBottomConstraint.constant = instrumentKeyView.frame.height + 8
@@ -84,6 +91,8 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     func closeInstrumentKeyView(_ gestureRecognizer: UITapGestureRecognizer) {
+        touchBlockingView.isHidden = true
+        settingsTableViewController?.updateKeyLabel()
         settingsView.removeGestureRecognizer(gestureRecognizer)
         
         instrumentKeyBottomConstraint.constant = -(instrumentKeyView.frame.height + 8)
@@ -126,8 +135,9 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "settingsTableEmbed" {
-            let settingsTableViewController: SettingsTableViewController = segue.destination as! SettingsTableViewController
-            settingsTableViewController.delegate = self
+            let tableViewController: SettingsTableViewController = segue.destination as! SettingsTableViewController
+            settingsTableViewController = tableViewController
+            settingsTableViewController?.delegate = self
         }
     }
     
