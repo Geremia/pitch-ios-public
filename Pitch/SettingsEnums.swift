@@ -81,11 +81,7 @@ enum Key: Int {
     }
     
     var concertOffsetString: String {
-        if concertOffset < 0 {
-            return String(concertOffset)
-        } else {
-            return "+\(concertOffset)"
-        }
+        return concertOffset < 0 ? "\(concertOffset)" : "+\(concertOffset)"
     }
     
     var name: String {
