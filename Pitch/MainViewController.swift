@@ -181,21 +181,18 @@ class MainViewController: UIViewController, TunerDelegate {
             
             centsLabel.isHidden = false
             updateCentsLabel(offset: output.centsDistace)
-            
             octaveLabel.isHidden = false
             octaveLabel.text = String(output.octave)
             
-            if UIApplication.shared.statusBarOrientation.isPortrait {
-                movingLineCenterConstraint.constant = CGFloat(-output.distance * 30.0)
-            } else {
-                movingLineCenterConstraint.constant = CGFloat(output.distance * 30.0)
-            }
+            let isPortrait = UIApplication.shared.statusBarOrientation.isPortrait
+            movingLineCenterConstraint.constant = CGFloat(isPortrait ? -output.distance * 30.0 : output.distance * 30.0)
             
-            if abs(output.distance) < 0.4 {
+            switch abs(output.distance) {
+            case 0...0.4:
                 setViewTo(newState: .inTune)
-            } else if abs(output.distance) < 1.5 {
+            case 0.4...1.5:
                 setViewTo(newState: .almostInTune)
-            } else {
+            default:
                 setViewTo(newState: .outOfTune)
             }
         }
@@ -212,11 +209,7 @@ class MainViewController: UIViewController, TunerDelegate {
     func setViewTo(newState: MainViewState) {
         if newState != state {
             state = newState
-            
-            var delay = 0.0
-            if newState == .inTune {
-                delay = 1.0
-            }
+            let delay = newState == .inTune ? 1.0 : 0.0
             
             let when = DispatchTime.now() + delay
             let stateBeforeDelay = state
@@ -229,7 +222,9 @@ class MainViewController: UIViewController, TunerDelegate {
     }
     
     func animateViewTo(newState: MainViewState) {
-        UIView.transition(with: self.noteLabel, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
+        let options: UIViewAnimationOptions = [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction]
+        
+        UIView.transition(with: self.noteLabel, duration: 0.2, options: options, animations: {
             self.noteLabel.textColor = newState.lineTextColor
             self.noteLabel.font = newState.font
             self.centsLabel.textColor = newState.lineTextColor
@@ -239,21 +234,13 @@ class MainViewController: UIViewController, TunerDelegate {
             self.displayPitch(pitch: self.noteLabel.text!)
         }, completion: { _ in })
         
-        UIView.transition(with: self.settingsButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
+        UIView.transition(with: self.settingsButton, duration: 0.2, options: options, animations: {
             self.settingsButton.setImage(newState.menuImage, for: .normal)
-            if self.isPitchPipeOpen {
-                self.pitchPipeButton.setImage(newState.downArrowImage, for: .normal)
-            } else {
-                self.pitchPipeButton.setImage(newState.audioWaveImage, for: .normal)
-            }
         }, completion: { _ in })
         
-        UIView.transition(with: self.pitchPipeButton, duration: 0.2, options: [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction], animations: {
-            if self.isPitchPipeOpen {
-                self.pitchPipeButton.setImage(newState.downArrowImage, for: .normal)
-            } else {
-                self.pitchPipeButton.setImage(newState.audioWaveImage, for: .normal)
-            }
+        UIView.transition(with: self.pitchPipeButton, duration: 0.2, options: options, animations: {
+            let image = self.isPitchPipeOpen ? newState.downArrowImage : newState.audioWaveImage
+            self.pitchPipeButton.setImage(image, for: .normal)
         }, completion: { _ in })
         
         UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
@@ -293,23 +280,15 @@ class MainViewController: UIViewController, TunerDelegate {
     }
     
     func updateCentsLabel(offset: Double) {
-        if offset > 0 {
-            centsLabel.text = "+\(offset.roundTo(places: 1))"
-        } else {
-            centsLabel.text = "\(offset.roundTo(places: 1))"
-        }
+        centsLabel.text = offset > 0 ? "+\(offset.roundTo(places: 1))" : "\(offset.roundTo(places: 1))"
     }
     
     @IBAction func pitchPipePressed(_ sender: AnyObject) {
-        if self.isPitchPipeOpen {
-            self.pitchPipeBottomConstraint.constant = -231
-            self.isPitchPipeOpen = false
-            self.pitchPipeButton.setImage(self.state.audioWaveImage, for: .normal)
-        } else {
-            self.pitchPipeBottomConstraint.constant = 0
-            self.isPitchPipeOpen = true
-            self.pitchPipeButton.setImage(self.state.downArrowImage, for: .normal)
-        }
+        let image = isPitchPipeOpen ? state.audioWaveImage : state.downArrowImage
+        pitchPipeButton.setImage(image, for: .normal)
+        pitchPipeBottomConstraint.constant = isPitchPipeOpen ? -231 : 0
+        
+        isPitchPipeOpen = !isPitchPipeOpen
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
             self.view.layoutIfNeeded()

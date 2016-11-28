@@ -29,6 +29,8 @@ class SettingsTableViewController: UITableViewController {
     var darkModeOn: Bool = UserDefaults.standard.darkModeOn() {
         didSet {
             UserDefaults.standard.setDarkModeOn(darkModeOn)
+            darkModeChanged()
+            NotificationCenter.default.post(name: darkModeChangedNotification, object: nil)
         }
     }
     
@@ -122,26 +124,14 @@ class SettingsTableViewController: UITableViewController {
     }
 
     @IBAction func darkModeSwitched(_ sender: Any) {
-        let on = (sender as! UISwitch).isOn
-        darkModeOn = on
-        darkModeChanged()
-        NotificationCenter.default.post(name: darkModeChangedNotification, object: nil)
+        darkModeOn = (sender as! UISwitch).isOn
     }
     
     func darkModeChanged() {
-        let darkModeOn = UserDefaults.standard.darkModeOn()
-        if darkModeOn {
-            view.backgroundColor = UIColor.darkGrayView
-            tableView.separatorColor = UIColor.darkGray
-            for label in allLabels {
-                label.textColor = UIColor.white
-            }
-        } else {
-            view.backgroundColor = UIColor.white
-            tableView.separatorColor = UIColor.separatorColor
-            for label in allLabels {
-                label.textColor = UIColor.black
-            }
+        view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
+        tableView.separatorColor = darkModeOn ? UIColor.darkGray : UIColor.separatorColor
+        for label in allLabels {
+            label.textColor = darkModeOn ? UIColor.white : UIColor.black
         }
     }
     
