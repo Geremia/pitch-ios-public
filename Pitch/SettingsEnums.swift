@@ -67,34 +67,13 @@ enum Key: Int {
     static let allCases: [Key] = [.a, .asharp, .b, .c, .csharp, .d, .dsharp, .e, .f, .fsharp, .g, .gsharp]
     
     static func fromName(_ name: String) -> Key? {
-        switch name {
-        case "A":
-            return Key.a
-        case "A♯", "B♭":
-            return Key.asharp
-        case "B":
-            return Key.b
-        case "C":
-            return Key.c
-        case "C♯", "D♭":
-            return Key.csharp
-        case "D":
-            return Key.d
-        case "D♯", "E♭":
-            return Key.dsharp
-        case "E":
-            return Key.e
-        case "F":
-            return Key.f
-        case "F♯", "G♭":
-            return Key.fsharp
-        case "G":
-            return Key.g
-        case "G♯", "A♭":
-            return Key.gsharp
-        default:
-            return nil
+        for key in allCases {
+            if name == key.sharpName || name == key.flatName {
+                return key
+            }
         }
+        
+        return nil
     }
     
     var concertOffset: Int {
