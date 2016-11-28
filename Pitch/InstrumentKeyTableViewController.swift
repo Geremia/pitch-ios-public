@@ -62,27 +62,11 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     
     func darkModeChanged() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
-        if darkModeOn {
-            autoKeyLabel.textColor = UIColor.white
-            autoKeySwitch.onTintColor = UIColor.darkInTune
-            tableView.separatorColor = UIColor.darkGray
-        } else {
-            autoKeyLabel.textColor = UIColor.black
-            autoKeySwitch.onTintColor = UIColor.inTune
-            tableView.separatorColor = UIColor.separatorColor
-        }
+        autoKeyLabel.textColor = darkModeOn ? UIColor.white : UIColor.black
+        autoKeySwitch.onTintColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
+        tableView.separatorColor = darkModeOn ? UIColor.darkGray : UIColor.separatorColor
         
         pickerView.reloadAllComponents()
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
     }
     
     // MARK: - UIPickerViewDelegate
@@ -106,11 +90,8 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         }
         
         let darkModeOn = UserDefaults.standard.darkModeOn()
-        if darkModeOn {
-            string.addAttributes([NSFontAttributeName:UIFont(name: "Lato-Light", size: 22.0)!,NSForegroundColorAttributeName:UIColor.white], range: NSMakeRange(0, string.length))
-        } else {
-            string.addAttributes([NSFontAttributeName:UIFont(name: "Lato-Light", size: 22.0)!,NSForegroundColorAttributeName:UIColor.black], range: NSMakeRange(0, string.length))
-        }
+        let color = darkModeOn ? UIColor.white : UIColor.black
+        string.addAttributes([NSFontAttributeName:UIFont(name: "Lato-Light", size: 22.0)!,NSForegroundColorAttributeName:color], range: NSMakeRange(0, string.length))
         
         let label = UILabel()
         label.attributedText = string
@@ -119,12 +100,7 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        switch component {
-        case 0:
-            return view.frame.width * 0.5
-        default:
-            return view.frame.width * 0.5
-        }
+        return view.frame.width * 0.5
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -142,10 +118,9 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     }
     
     func setKeyForCurrentInstrument(animated: Bool) {
-        if let index = self.keys.index(of: currentInstrument.key) {
-            pickerView.selectRow(index, inComponent: 1, animated: animated)
-            UserDefaults.standard.setKey(newValue: self.keys[index])
-        }
+        guard let index = self.keys.index(of: currentInstrument.key) else { return }
+        pickerView.selectRow(index, inComponent: 1, animated: animated)
+        UserDefaults.standard.setKey(newValue: self.keys[index])
     }
     
     // MARK: - UIPickerViewDataSource
@@ -172,15 +147,4 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
             setKeyForCurrentInstrument(animated: true)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

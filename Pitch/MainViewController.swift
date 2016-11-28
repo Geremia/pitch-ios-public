@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController, TunerDelegate {
     
-    // Tuner
+    // MARK: - Tuner Outlets
     
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var centsLabel: UILabel!
@@ -18,281 +18,67 @@ class MainViewController: UIViewController, TunerDelegate {
     @IBOutlet var lines: [UIView]!
     @IBOutlet var lineHeights: [NSLayoutConstraint]!
     @IBOutlet var portraitElements: [UIView]!
-    @IBOutlet var landscapeElements: [UIView]!
     @IBOutlet weak var portraitMovingLineCenterConstraint: NSLayoutConstraint!
-    @IBOutlet weak var landscapeMovingLineCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var amplitudeLabel: UILabel!
     @IBOutlet weak var stdDevLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var pitchPipeButton: UIButton!
     
-    // Pitch Pipe
+    // MARK: - Pitch Pipe Outlets
     
     @IBOutlet weak var pitchPipeView: PitchPipeView!
     @IBOutlet weak var pitchPipeBottomConstraint: NSLayoutConstraint!
     
+    // MARK: - Tuner Variables
     
-    // MARK: - Variables
+    private var tuner: Tuner?
     
     var presentAniamtionController = VerticalSlideAnimationController(direction: .left)
     var dismissAnimationController = VerticalSlideAnimationController(direction: .right)
     
     var movingLineCenterConstraint: NSLayoutConstraint {
-        if UIApplication.shared.statusBarOrientation.isPortrait {
-            return portraitMovingLineCenterConstraint
-        } else {
-            return landscapeMovingLineCenterConstraint
-        }
+        return portraitMovingLineCenterConstraint
     }
     var isPitchPipeOpen: Bool = false
+    var state: MainViewState = .outOfTune
     
-    private var tuner: Tuner?
-    private var state: MainViewState = .outOfTune
+    // MARK: - Analytics Variables
     
     var today: Day = Day()
+    var addedCurrentCenterTime: Bool = false
+    var pitchStartTime: Date?
+    var pitchCenterTimer: Timer?
     
     // MARK: - Setup Views
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTuner()
+        setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pitchPipeView.updateButtonLabels()
+    }
+    
+    func setupTuner() {
         tuner = Tuner()
         tuner?.delegate = self
-        
-        self.pitchPipeBottomConstraint.constant = -231
         self.pitchPipeView.soundGenerator.tuner = tuner
         self.pitchPipeView.soundGenerator.setUp()
         tuner?.start()
-        
+    }
+    
+    func setupUI() {
+        self.pitchPipeBottomConstraint.constant = -231
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
         view.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.darkModeChanged), name: darkModeChangedNotification, object: nil)
         darkModeChanged()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        pitchPipeView.updateButtonLabels()
-        updateUI(for: UIApplication.shared.statusBarOrientation, animationDuration: 0)
-    }
-    
-    // MARK: - Device Rotation
-    
-    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-        updateUI(for: toInterfaceOrientation, animationDuration: duration)
-    }
-    
-    func updateUI(for orientation: UIInterfaceOrientation, animationDuration: TimeInterval) {
-        UIView.animate(withDuration: animationDuration, animations: {
-            if orientation.isPortrait {
-                for element in self.landscapeElements {
-                    element.alpha = 0.0
-                }
-                for element in self.portraitElements {
-                    element.alpha = 1.0
-                }
-            } else {
-                for element in self.landscapeElements {
-                    element.alpha = 1.0
-                }
-                for element in self.portraitElements {
-                    element.alpha = 0.0
-                }
-            }
-        })
-    }
-    
-    // MARK: TunerDelegate Methods
-    
-    func tunerDidUpdate(_ tuner: Tuner, output: TunerOutput) {
-        amplitudeLabel.text = "Amplitude: \(output.amplitude)"
-        stdDevLabel.text = "Std. Dev: \(output.standardDeviation)"
-        
-        updateUI(output: output)
-        addOutputToAnalytics(output: output)
-        updatePitchCenterTimer(output: output)
-    }
-    
-    // MARK: - Analytics
-    
-    func addOutputToAnalytics(output: TunerOutput) {
-        if output.isValid {
-            today.addDataPoint(tunerOutput: output)
-        }
-    }
-    
-    var addedCurrentCenterTime: Bool = false
-    var pitchStartTime: Date?
-    var pitchCenterTimer: Timer?
-    
-    func updatePitchCenterTimer(output: TunerOutput) {
-        if output.isValid {
-            if pitchStartTime == nil {
-                startTimingPitch()
-            }
-            
-            if state == .inTune {
-                pitchCenterTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
-                    if !self.addedCurrentCenterTime {
-                        self.addPitchCenterTimeToAnalytics()
-                    }
-                })
-            }
-        } else {
-            stopTimingPitch()
-            pitchStartTime = nil
-        }
-    }
-    
-    func startTimingPitch() {
-        pitchStartTime = Date()
-        addedCurrentCenterTime = false
-    }
-    
-    func stopTimingPitch() {
-        pitchCenterTimer?.invalidate()
-        pitchCenterTimer = nil
-        addedCurrentCenterTime = true
-    }
-    
-    func addPitchCenterTimeToAnalytics() {
-        if let time = self.pitchStartTime {
-            let interval = Date().timeIntervalSince(time)
-            today.addDataPoint(timeToCenter: interval)
-            self.stopTimingPitch()
-        }
-    }
-    
-    // MARK: - UI
-    
-    func updateUI(output: TunerOutput) {
-        if !output.isValid {
-            noteLabel.attributedText = NSMutableAttributedString(string: "--", attributes: nil)
-            movingLineCenterConstraint.constant = 0.0
-            centsLabel.isHidden = true
-            octaveLabel.isHidden = true
-            setViewTo(newState: .outOfTune)
-        } else {
-            if noteLabel.text != output.pitch {
-                displayPitch(pitch: output.pitch)
-            }
-            
-            centsLabel.isHidden = false
-            updateCentsLabel(offset: output.centsDistace)
-            octaveLabel.isHidden = false
-            octaveLabel.text = String(output.octave)
-            
-            let isPortrait = UIApplication.shared.statusBarOrientation.isPortrait
-            movingLineCenterConstraint.constant = CGFloat(isPortrait ? -output.distance * 30.0 : output.distance * 30.0)
-            
-            switch abs(output.distance) {
-            case 0...0.4:
-                setViewTo(newState: .inTune)
-            case 0.4...1.5:
-                setViewTo(newState: .almostInTune)
-            default:
-                setViewTo(newState: .outOfTune)
-            }
-        }
-        
-        if abs(movingLineCenterConstraint.constant) < 2.0 {
-            movingLineCenterConstraint.constant = 0.0
-        }
-        
-        UIView.animate(withDuration: 0.08, delay: 0, options: [.allowUserInteraction], animations: {
-            self.view.layoutIfNeeded()
-            }, completion: nil)
-    }
-    
-    func setViewTo(newState: MainViewState) {
-        if newState != state {
-            state = newState
-            let delay = newState == .inTune ? 1.0 : 0.0
-            
-            let when = DispatchTime.now() + delay
-            let stateBeforeDelay = state
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                if stateBeforeDelay == self.state {
-                    self.animateViewTo(newState: newState)
-                }
-            }
-        }
-    }
-    
-    func animateViewTo(newState: MainViewState) {
-        let options: UIViewAnimationOptions = [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction]
-        
-        UIView.transition(with: self.noteLabel, duration: 0.2, options: options, animations: {
-            self.noteLabel.textColor = newState.lineTextColor
-            self.noteLabel.font = newState.font
-            self.centsLabel.textColor = newState.lineTextColor
-            self.centsLabel.font = newState.centsLabelFont
-            self.octaveLabel.textColor = newState.lineTextColor
-            self.octaveLabel.font = newState.octaveLabelFont
-            self.displayPitch(pitch: self.noteLabel.text!)
-        }, completion: { _ in })
-        
-        UIView.transition(with: self.settingsButton, duration: 0.2, options: options, animations: {
-            self.settingsButton.setImage(newState.menuImage, for: .normal)
-        }, completion: { _ in })
-        
-        UIView.transition(with: self.pitchPipeButton, duration: 0.2, options: options, animations: {
-            let image = self.isPitchPipeOpen ? newState.downArrowImage : newState.audioWaveImage
-            self.pitchPipeButton.setImage(image, for: .normal)
-        }, completion: { _ in })
-        
-        UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
-            self.view.backgroundColor = newState.viewBackgroundColor
-            for line in self.lines {
-                line.backgroundColor = newState.lineTextColor
-            }
-        }, completion: { finished in
-            if finished {
-                for height in self.lineHeights {
-                    height.constant = newState.lineThickness
-                }
-                for line in self.lines {
-                    line.layoutIfNeeded()
-                }
-            }
-        })
-    }
-    
-    func displayPitch(pitch: String) {
-        if pitch.characters.count > 1 {
-            let font = noteLabel.font
-            let fontSuper:UIFont? = noteLabel.font.withSize(38.0)
-            let attString:NSMutableAttributedString = NSMutableAttributedString(string: pitch, attributes: [NSFontAttributeName:font!])
-            attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:48], range: NSRange(location:1,length:1))
-            
-            let displayMode = UserDefaults.standard.displayMode()
-            switch displayMode {
-            case .sharps:
-                noteLabel.setAttributedText(attString, withSpacing: -2.0)
-            case .flats:
-                noteLabel.setAttributedText(attString, withSpacing: -7.0)
-            }
-        } else {
-            noteLabel.attributedText = NSMutableAttributedString(string: pitch + " ", attributes: nil)
-        }
-    }
-    
-    func updateCentsLabel(offset: Double) {
-        centsLabel.text = offset > 0 ? "+\(offset.roundTo(places: 1))" : "\(offset.roundTo(places: 1))"
-    }
-    
-    @IBAction func pitchPipePressed(_ sender: AnyObject) {
-        let image = isPitchPipeOpen ? state.audioWaveImage : state.downArrowImage
-        pitchPipeButton.setImage(image, for: .normal)
-        pitchPipeBottomConstraint.constant = isPitchPipeOpen ? -231 : 0
-        
-        isPitchPipeOpen = !isPitchPipeOpen
-        
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
-            self.view.layoutIfNeeded()
-            }, completion: nil)
     }
     
     // MARK: - Dark Mode Switching
@@ -307,6 +93,31 @@ class MainViewController: UIViewController, TunerDelegate {
                 self.view.isHidden = false
             }, completion: nil)
         }
+    }
+    
+    // MARK: TunerDelegate Methods
+    
+    func tunerDidUpdate(_ tuner: Tuner, output: TunerOutput) {
+        amplitudeLabel.text = "Amplitude: \(output.amplitude)"
+        stdDevLabel.text = "Std. Dev: \(output.standardDeviation)"
+        
+        updateUI(output: output)
+        addOutputToAnalytics(output: output)
+        updatePitchCenterTimer(output: output)
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func pitchPipePressed(_ sender: AnyObject) {
+        let image = isPitchPipeOpen ? state.audioWaveImage : state.downArrowImage
+        pitchPipeButton.setImage(image, for: .normal)
+        pitchPipeBottomConstraint.constant = isPitchPipeOpen ? -231 : 0
+        
+        isPitchPipeOpen = !isPitchPipeOpen
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
+            self.view.layoutIfNeeded()
+            }, completion: nil)
     }
     
     // MARK: - Navigation
