@@ -112,20 +112,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="355" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Instrument &amp; Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuD-Qw-Nty">
-                                                    <rect key="frame" x="16" y="16.5" width="144" height="23"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Instrument" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuD-Qw-Nty">
+                                                    <rect key="frame" x="16" y="16.5" width="90" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYt-Ct-WFT">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYt-Ct-WFT">
                                                     <rect key="frame" x="236" y="17.5" width="104" height="23"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Clarinet (Bb)">
                                                             <attributes>
                                                                 <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <font key="NSFont" size="19" name="Lato-Semibold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -134,6 +134,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="bYt-Ct-WFT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uuD-Qw-Nty" secondAttribute="trailing" constant="4" id="4Hp-9K-40I"/>
                                                 <constraint firstItem="uuD-Qw-Nty" firstAttribute="leading" secondItem="eGS-VO-opT" secondAttribute="leading" constant="16" id="IWe-wJ-nad"/>
                                                 <constraint firstAttribute="trailing" secondItem="bYt-Ct-WFT" secondAttribute="trailing" constant="15" id="PNx-3z-KUO"/>
                                                 <constraint firstItem="uuD-Qw-Nty" firstAttribute="centerY" secondItem="eGS-VO-opT" secondAttribute="centerY" id="lmO-PJ-L5S"/>
