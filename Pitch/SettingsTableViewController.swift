@@ -39,7 +39,7 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var micSensitivityLabel: UILabel!
-    @IBOutlet weak var displayModeLabel: UILabel!
+    @IBOutlet weak var displayModeControl: UISegmentedControl!
     @IBOutlet weak var keyLabel: UILabel!
     @IBOutlet weak var darkModeSwitch: UISwitch!
     
@@ -50,9 +50,10 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        displayModeControl.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Lato-Semibold", size: 19.0)!], for: .normal)
         tableView.tableFooterView = UIView()
         micSensitivityLabel.text = currentMicSensitivity.name
-        displayModeLabel.text = currentDisplayMode.name
+        displayModeControl.selectedSegmentIndex = currentDisplayMode == .sharps ? 0 : 1
         darkModeSwitch.setOn(darkModeOn, animated: false)
         updateKeyLabel()
         darkModeChanged()
@@ -66,8 +67,6 @@ class SettingsTableViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             changeMicSensitivity()
-        case 1:
-            changeDisplayMode()
         case 2:
             delegate?.instrumentKeySelected()
         default:
@@ -89,18 +88,18 @@ class SettingsTableViewController: UITableViewController {
         }, completion: nil)
     }
     
-    func changeDisplayMode() {
-        var rawValue = currentDisplayMode.rawValue + 1
-        if rawValue > 1 {
-            rawValue = 0
-        }
-        
-        currentDisplayMode = DisplayMode(rawValue: rawValue)!
-        UIView.transition(with: displayModeLabel, duration: 0.1, options: [.transitionCrossDissolve], animations: {
-            self.displayModeLabel.text = self.currentDisplayMode.name
-            self.updateKeyLabel()
-        }, completion: nil)
-    }
+//    func changeDisplayMode() {
+//        var rawValue = currentDisplayMode.rawValue + 1
+//        if rawValue > 1 {
+//            rawValue = 0
+//        }
+//        
+//        currentDisplayMode = DisplayMode(rawValue: rawValue)!
+//        UIView.transition(with: displayModeLabel, duration: 0.1, options: [.transitionCrossDissolve], animations: {
+//            self.displayModeLabel.text = self.currentDisplayMode.name
+//            self.updateKeyLabel()
+//        }, completion: nil)
+//    }
     
     func updateKeyLabel() {
         let currentKey = UserDefaults.standard.key()
@@ -114,16 +113,25 @@ class SettingsTableViewController: UITableViewController {
             keyLabel.attributedText = NSMutableAttributedString(string: currentKey.name, attributes: nil)
         }
     }
+    
+    func darkModeChanged() {
+        view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
+        tableView.separatorColor = darkModeOn ? UIColor.darkGray : UIColor.separatorColor
+        displayModeControl.tintColor = darkModeOn ? UIColor.white : UIColor.black
+        for label in allLabels {
+            label.textColor = darkModeOn ? UIColor.white : UIColor.black
+        }
+    }
+    
+    // MARK: - Actions
 
     @IBAction func darkModeSwitched(_ sender: Any) {
         darkModeOn = (sender as! UISwitch).isOn
     }
     
-    func darkModeChanged() {
-        view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
-        tableView.separatorColor = darkModeOn ? UIColor.darkGray : UIColor.separatorColor
-        for label in allLabels {
-            label.textColor = darkModeOn ? UIColor.white : UIColor.black
-        }
+    @IBAction func displayModeSelected(_ sender: Any) {
+        let selectedSegment = (sender as! UISegmentedControl).selectedSegmentIndex
+        currentDisplayMode = selectedSegment == 0 ? .sharps : .flats
+        updateKeyLabel()
     }
 }

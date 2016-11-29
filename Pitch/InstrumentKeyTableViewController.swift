@@ -56,6 +56,11 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
                 pickerView.selectRow(keys.index(of: currentKey)!, inComponent: 1, animated: false)
             }
         }
+        
+        if pickerView.subviews.count > 2 {
+            pickerView.subviews[1].isHidden = true
+            pickerView.subviews[2].isHidden = true
+        }
     }
     
     // MARK: - Dark Mode Switching
