@@ -99,16 +99,15 @@ class PitchPipeView: UIView {
     
     func updateButtonLabels() {
         for button in self.pitchButtons {
-            if let key = Key.fromName((button.titleLabel?.text)!) {
-                if key.name.characters.count > 1 {
-                    let font = button.titleLabel?.font
-                    let fontSuper:UIFont? = button.titleLabel?.font.withSize(18.0)
-                    let attString:NSMutableAttributedString = NSMutableAttributedString(string: key.name, attributes: [NSFontAttributeName:font!])
-                    attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:11], range: NSRange(location:1,length:1))
-                    button.setAttributedTitle(attString, for: .normal)
-                } else {
-                    button.setTitle(key.name, for: .normal)
-                }
+            guard let key = Key.fromName((button.titleLabel?.text)!) else { break }
+            if key.name.characters.count > 1 {
+                let font = button.titleLabel?.font
+                let fontSuper:UIFont? = button.titleLabel?.font.withSize(18.0)
+                let attString:NSMutableAttributedString = NSMutableAttributedString(string: key.name, attributes: [NSFontAttributeName:font!])
+                attString.setAttributes([NSFontAttributeName:fontSuper!, NSBaselineOffsetAttributeName:11], range: NSRange(location:1,length:1))
+                button.setAttributedTitle(attString, for: .normal)
+            } else {
+                button.setTitle(key.name, for: .normal)
             }
         }
     }
