@@ -289,7 +289,7 @@ private let frequencies: [Double] = [
             }
         }
         
-        output.octave = i / 12
+        output.octave = (i + 5) / 12
         output.frequency = frequency
         output.amplitude = amplitude
         output.distance = frequency - frequencies[i]
