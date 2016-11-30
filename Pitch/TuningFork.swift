@@ -268,10 +268,7 @@ private let frequencies: [Double] = [
     static func newOutput(_ frequency: Double, _ amplitude: Double, _ standardDeviation: Double) -> TunerOutput {
         let output = TunerOutput()
         
-        var norm = frequency
-        if norm <= 0.0 {
-            norm = 1.0
-        }
+        var norm = frequency <= 0.0 ? 1.0 : frequency
         while norm > frequencies[frequencies.count - 1] {
             norm = norm / 2.0
         }
@@ -306,9 +303,7 @@ private let frequencies: [Double] = [
         }
         
         let amplitudeThreshold = UserDefaults.standard.micSensitivity().amplitudeThreshold
-        if standardDeviation < 10.0 && amplitude > amplitudeThreshold {
-            output.isValid = true
-        }
+        output.isValid = standardDeviation < 10.0 && amplitude > amplitudeThreshold
         
         return output
     }
