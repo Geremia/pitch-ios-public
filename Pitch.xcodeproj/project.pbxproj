@@ -23,6 +23,7 @@
 		4CDFFFFE1D8B0BFA00BEAD0D /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFA1D8B0BFA00BEAD0D /* Lato-Light.ttf */; };
 		4CDFFFFF1D8B0BFA00BEAD0D /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFB1D8B0BFA00BEAD0D /* Lato-Regular.ttf */; };
 		4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */; };
+		4CE5F0C11E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */; };
 		4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D31D8A0CFD000492E6 /* AppDelegate.swift */; };
 		4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */; };
 		4CEAD6D91D8A0CFD000492E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D71D8A0CFD000492E6 /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		4CDFFFFB1D8B0BFA00BEAD0D /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		4CDFFFFC1D8B0BFA00BEAD0D /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Animations.swift"; sourceTree = "<group>"; };
 		4CEAD6D01D8A0CFD000492E6 /* Pitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEAD6D31D8A0CFD000492E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */,
+				4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */,
 			);
 			name = Analytics;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 			files = (
 				4CFE12601DECF659005EE1BF /* Instrument.swift in Sources */,
 				4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */,
+				4CE5F0C11E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift in Sources */,
 				4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */,
 				4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */,
 				4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */,

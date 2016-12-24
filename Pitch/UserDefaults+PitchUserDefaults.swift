@@ -19,6 +19,7 @@ extension UserDefaults {
         
         let today = Day()
         setToday(today)
+        setHasSeenAnalyticsAnimation(false)
         return today
     }
     

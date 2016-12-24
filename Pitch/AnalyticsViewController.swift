@@ -35,27 +35,26 @@ class AnalyticsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateIn()
+        
+        if !UserDefaults.standard.hasSeenAnalyticsAnimation() {
+            animateIn()
+            UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
+        }
     }
     
     func setupUI() {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
         
+        let score = UserDefaults.standard.today().inTunePercentage.roundTo(places: 2) * 100
+        scoreLabel.text = "\(Int(score))"
+        
         updateDarkMode()
         setupDescriptionLabel()
         
-        scoreLabel.format = "%d"
-        
-        scoreCircle.transform = CGAffineTransform(scaleX: 0, y: 0)
-        scoreCircle.alpha = 0.0
-        todayLabel.alpha = 0.0
-        todaySeparator.alpha = 0.0
-        descriptionLabel.alpha = 0.0
-        
-        todayLabelTopConstraint.constant += 250
-        todaySeparatorTopConstraint.constant += 350
-        descriptionLabelTopConstraint.constant += 450
+        if !UserDefaults.standard.hasSeenAnalyticsAnimation() {
+            prepareForAnimation()
+        }
     }
     
     func setupDescriptionLabel() {
@@ -74,6 +73,23 @@ class AnalyticsViewController: UIViewController {
         descriptionString.append(NSAttributedString(string: " on average to center the pitch.", attributes: [NSFontAttributeName: lightFont]))
         
         descriptionLabel.attributedText = descriptionString
+    }
+    
+    // MARK: - Animation
+    
+    func prepareForAnimation() {
+        scoreCircle.transform = CGAffineTransform(scaleX: 0, y: 0)
+        scoreCircle.alpha = 0.0
+        scoreLabel.format = "%d"
+        scoreLabel.text = "0"
+        
+        todayLabel.alpha = 0.0
+        todaySeparator.alpha = 0.0
+        descriptionLabel.alpha = 0.0
+        
+        todayLabelTopConstraint.constant += 250
+        todaySeparatorTopConstraint.constant += 350
+        descriptionLabelTopConstraint.constant += 450
     }
     
     func animateIn() {
