@@ -16,6 +16,10 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var analyticsLabel: UILabel!
     
+    @IBOutlet weak var noDataView: UIView!
+    @IBOutlet weak var noDataLabel: UILabel!
+    @IBOutlet weak var noDataImageView: UIImageView!
+    
     @IBOutlet weak var scoreCircle: UIView!
     @IBOutlet weak var scoreLabel: UICountingLabel!
     @IBOutlet weak var todayLabel: UILabel!
@@ -36,7 +40,8 @@ class AnalyticsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !UserDefaults.standard.hasSeenAnalyticsAnimation() {
+        let defaults = UserDefaults.standard
+        if !defaults.hasSeenAnalyticsAnimation() && defaults.today().hasSufficientData {
             animateIn()
             UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
         }
@@ -45,15 +50,19 @@ class AnalyticsViewController: UIViewController {
     func setupUI() {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
-        
-        let score = UserDefaults.standard.today().inTunePercentage.roundTo(places: 2) * 100
-        scoreLabel.text = "\(Int(score))"
-        
         updateDarkMode()
-        setupDescriptionLabel()
         
-        if !UserDefaults.standard.hasSeenAnalyticsAnimation() {
-            prepareForAnimation()
+        let today = UserDefaults.standard.today()
+        if today.hasSufficientData {
+            noDataView.isHidden = true
+            
+            let score = today.inTunePercentage.roundTo(places: 2) * 100
+            scoreLabel.text = "\(Int(score))"
+            setupDescriptionLabel()
+            
+            if !UserDefaults.standard.hasSeenAnalyticsAnimation() {
+                prepareForAnimation()
+            }
         }
     }
     
@@ -80,6 +89,10 @@ class AnalyticsViewController: UIViewController {
     func updateDarkMode() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
         if darkModeOn {
+            noDataView.backgroundColor = .darkGrayView
+            noDataImageView.image = #imageLiteral(resourceName: "line_chart_darkgray")
+            noDataLabel.textColor = .darkGray
+            
             view.backgroundColor = .darkGrayView
             backButton.setImage(#imageLiteral(resourceName: "white_back_arrow"), for: .normal)
             analyticsLabel.textColor = .white

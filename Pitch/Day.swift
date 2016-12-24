@@ -20,6 +20,10 @@ class Day: NSObject, NSCoding {
     var timeToCenter: TimeInterval
     var timeToCenterDataCount: Int // The number of data points added for timeToCenter
     
+    var hasSufficientData: Bool { // Boolean indicating whether enough data has been collected
+        return inTunePercentageDataCount >= 100 && timeToCenterDataCount >= 3
+    }
+    
     // MARK: - Initialization
     
     override init() {
