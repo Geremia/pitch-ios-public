@@ -26,7 +26,34 @@ class AnalyticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupUI()
+    }
+    
+    func setupUI() {
+        view.layer.cornerRadius = 8.0
+        view.clipsToBounds = true
+        view.isHidden = true
+        
+        updateDarkMode()
+    }
+    
+    // MARK: - Dark Mode Switching
+    
+    func updateDarkMode() {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        if darkModeOn {
+            backButton.setImage(#imageLiteral(resourceName: "white_back_arrow"), for: .normal)
+            analyticsLabel.textColor = .white
+            todayLabel.textColor = .white
+            todaySeparator.backgroundColor = .white
+            descriptionLabel.textColor = .white
+        } else {
+            backButton.setImage(#imageLiteral(resourceName: "back_arrow"), for: .normal)
+            analyticsLabel.textColor = .black
+            todayLabel.textColor = .lightGray
+            todaySeparator.backgroundColor = .lightGray
+            descriptionLabel.textColor = .black
+        }
     }
 
     // MARK: - Actions
