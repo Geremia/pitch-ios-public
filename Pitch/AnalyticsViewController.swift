@@ -41,6 +41,7 @@ class AnalyticsViewController: UIViewController {
     func updateDarkMode() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
         if darkModeOn {
+            view.backgroundColor = .darkGrayView
             backButton.setImage(#imageLiteral(resourceName: "white_back_arrow"), for: .normal)
             analyticsLabel.textColor = .white
             todayLabel.textColor = .white
