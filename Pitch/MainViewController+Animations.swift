@@ -16,7 +16,7 @@ extension MainViewController {
     func updateUI(output: TunerOutput) {
         if !output.isValid {
             noteLabel.attributedText = NSMutableAttributedString(string: "--", attributes: nil)
-            movingLineCenterConstraint.constant = 0.0
+            portraitMovingLineCenterConstraint.constant = 0.0
             centsLabel.isHidden = true
             octaveLabel.isHidden = true
             setViewTo(newState: .outOfTune)
@@ -31,7 +31,7 @@ extension MainViewController {
             octaveLabel.text = String(output.octave)
             
             let isPortrait = UIApplication.shared.statusBarOrientation.isPortrait
-            movingLineCenterConstraint.constant = CGFloat(isPortrait ? -output.distance * 30.0 : output.distance * 30.0)
+            portraitMovingLineCenterConstraint.constant = CGFloat(isPortrait ? -output.distance * 30.0 : output.distance * 30.0)
             
             switch abs(output.distance) {
             case 0...0.4:
@@ -43,8 +43,8 @@ extension MainViewController {
             }
         }
         
-        if abs(movingLineCenterConstraint.constant) < 2.0 {
-            movingLineCenterConstraint.constant = 0.0
+        if abs(portraitMovingLineCenterConstraint.constant) < 2.0 {
+            portraitMovingLineCenterConstraint.constant = 0.0
         }
         
         UIView.animate(withDuration: 0.08, delay: 0, options: [.allowUserInteraction], animations: {

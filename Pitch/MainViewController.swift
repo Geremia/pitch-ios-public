@@ -36,9 +36,6 @@ class MainViewController: UIViewController, TunerDelegate {
     var presentAniamtionController = VerticalSlideAnimationController(direction: .left)
     var dismissAnimationController = VerticalSlideAnimationController(direction: .right)
     
-    var movingLineCenterConstraint: NSLayoutConstraint {
-        return portraitMovingLineCenterConstraint
-    }
     var isPitchPipeOpen: Bool = false
     var state: MainViewState = .outOfTune
     
