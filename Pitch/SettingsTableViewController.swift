@@ -18,12 +18,12 @@ class SettingsTableViewController: UITableViewController {
     
     var currentMicSensitivity: MicSensitivity = UserDefaults.standard.micSensitivity() {
         didSet {
-            UserDefaults.standard.setMicSensitivity(newValue: currentMicSensitivity)
+            UserDefaults.standard.setMicSensitivity(currentMicSensitivity)
         }
     }
     var currentDisplayMode: DisplayMode = UserDefaults.standard.displayMode() {
         didSet {
-            UserDefaults.standard.setDisplayMode(newValue: currentDisplayMode)
+            UserDefaults.standard.setDisplayMode(currentDisplayMode)
         }
     }
     var darkModeOn: Bool = UserDefaults.standard.darkModeOn() {

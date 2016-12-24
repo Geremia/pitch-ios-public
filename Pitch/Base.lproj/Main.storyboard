@@ -1034,6 +1034,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="amplitudeLabel" destination="QIG-pk-c1y" id="c50-eU-LfF"/>
+                        <outlet property="analyticsButton" destination="0U7-NV-2BZ" id="m55-hn-eU2"/>
                         <outlet property="centsLabel" destination="2CA-ws-Axi" id="KfM-tk-IDd"/>
                         <outlet property="noteLabel" destination="4CE-78-WqF" id="2pw-wg-JUd"/>
                         <outlet property="octaveLabel" destination="d4h-6o-O5x" id="i8V-98-L97"/>

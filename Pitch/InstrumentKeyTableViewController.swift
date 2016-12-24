@@ -118,14 +118,14 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         default:
             autoKeySwitch.setOn(false, animated: true)
             UserDefaults.standard.setAutoKey(false)
-            UserDefaults.standard.setKey(newValue: keys[row])
+            UserDefaults.standard.setKey(keys[row])
         }
     }
     
     func setKeyForCurrentInstrument(animated: Bool) {
         guard let index = self.keys.index(of: currentInstrument.key) else { return }
         pickerView.selectRow(index, inComponent: 1, animated: animated)
-        UserDefaults.standard.setKey(newValue: self.keys[index])
+        UserDefaults.standard.setKey(self.keys[index])
     }
     
     // MARK: - UIPickerViewDataSource

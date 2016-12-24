@@ -23,6 +23,7 @@ class MainViewController: UIViewController, TunerDelegate {
     @IBOutlet weak var stdDevLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var pitchPipeButton: UIButton!
+    @IBOutlet weak var analyticsButton: UIButton!
     
     // MARK: - Pitch Pipe Outlets
     

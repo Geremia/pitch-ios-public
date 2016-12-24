@@ -136,4 +136,18 @@ enum MainViewState {
             }
         }
     }
+    
+    var analyticsImage: UIImage {
+        switch self {
+        case .inTune:
+            return #imageLiteral(resourceName: "thick_analytics")
+        default:
+            if darkModeOn {
+                return #imageLiteral(resourceName: "white_analytics")
+            } else {
+                return #imageLiteral(resourceName: "analytics")
+            }
+        }
+    }
+    
 }

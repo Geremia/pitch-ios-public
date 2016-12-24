@@ -89,6 +89,10 @@ extension MainViewController {
             self.pitchPipeButton.setImage(image, for: .normal)
         }, completion: { _ in })
         
+        UIView.transition(with: self.analyticsButton, duration: 0.2, options: options, animations: {
+            self.analyticsButton.setImage(newState.analyticsImage, for: .normal)
+        }, completion: { _ in })
+        
         UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
             self.view.backgroundColor = newState.viewBackgroundColor
             for line in self.lines {

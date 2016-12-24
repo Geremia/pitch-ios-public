@@ -27,6 +27,14 @@ extension UserDefaults {
         set(data, forKey: "today")
     }
     
+    func hasSeenAnalyticsAnimation() -> Bool {
+        return bool(forKey: "hasSeenAnalyticsAnimation")
+    }
+    
+    func setHasSeenAnalyticsAnimation(_ newValue: Bool) {
+        set(newValue, forKey: "hasSeenAnalyticsAnimation")
+    }
+    
     func micSensitivity() -> MicSensitivity {
         if let rawValue = object(forKey: "micSensitivity") as? Int {
             return MicSensitivity(rawValue: rawValue)!
@@ -35,7 +43,7 @@ extension UserDefaults {
         return MicSensitivity.normal
     }
     
-    func setMicSensitivity(newValue: MicSensitivity) {
+    func setMicSensitivity(_ newValue: MicSensitivity) {
         set(newValue.rawValue, forKey: "micSensitivity")
     }
     
@@ -47,7 +55,7 @@ extension UserDefaults {
         return DisplayMode.sharps
     }
     
-    func setDisplayMode(newValue: DisplayMode) {
+    func setDisplayMode(_ newValue: DisplayMode) {
         set(newValue.rawValue, forKey: "displayMode")
     }
     
@@ -83,7 +91,7 @@ extension UserDefaults {
         return Key.c
     }
     
-    func setKey(newValue: Key) {
+    func setKey(_ newValue: Key) {
         set(newValue.rawValue, forKey: "key")
     }
     
