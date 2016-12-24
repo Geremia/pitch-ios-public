@@ -41,7 +41,7 @@ class MainViewController: UIViewController, TunerDelegate {
     
     // MARK: - Analytics Variables
     
-    var today: Day = Day()
+    var today: Day = UserDefaults.standard.today()
     var addedCurrentCenterTime: Bool = false
     var pitchStartTime: Date?
     var pitchCenterTimer: Timer?

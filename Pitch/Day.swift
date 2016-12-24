@@ -24,9 +24,9 @@ class Day: NSObject, NSCoding {
     
     override init() {
         date = Date()
-        inTunePercentage = -1
+        inTunePercentage = 1
         inTunePercentageDataCount = 0
-        timeToCenter = -1
+        timeToCenter = 1
         timeToCenterDataCount = 0
     }
     

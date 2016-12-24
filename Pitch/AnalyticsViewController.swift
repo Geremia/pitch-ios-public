@@ -41,7 +41,9 @@ class AnalyticsViewController: UIViewController {
     func setupUI() {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
+        
         updateDarkMode()
+        setupDescriptionLabel()
         
         scoreLabel.format = "%d"
         
@@ -56,8 +58,26 @@ class AnalyticsViewController: UIViewController {
         descriptionLabelTopConstraint.constant += 450
     }
     
+    func setupDescriptionLabel() {
+        let boldFont = UIFont(name: "Lato-Regular", size: 17.0)!
+        let lightFont = UIFont(name: "Lato-Light", size: 17.0)!
+        let percentage = UserDefaults.standard.today().inTunePercentage.roundTo(places: 2) * 100
+        let time = UserDefaults.standard.today().timeToCenter.roundTo(places: 1)
+        
+        let percentageString: NSAttributedString = NSAttributedString(string: "\(Int(percentage))%", attributes: [NSFontAttributeName: boldFont])
+        let timeString: NSAttributedString = NSAttributedString(string: "\(time) seconds", attributes: [NSFontAttributeName: boldFont])
+        
+        let descriptionString: NSMutableAttributedString = NSMutableAttributedString(string: "You were in tune ", attributes: [NSFontAttributeName: lightFont])
+        descriptionString.append(percentageString)
+        descriptionString.append(NSAttributedString(string: " of the time, and you took ", attributes: [NSFontAttributeName: lightFont]))
+        descriptionString.append(timeString)
+        descriptionString.append(NSAttributedString(string: " on average to center the pitch.", attributes: [NSFontAttributeName: lightFont]))
+        
+        descriptionLabel.attributedText = descriptionString
+    }
+    
     func animateIn() {
-        let score = UserDefaults.standard.today().inTunePercentage
+        let score = UserDefaults.standard.today().inTunePercentage.roundTo(places: 2) * 100
         self.scoreLabel.countFromZero(to: CGFloat(score), withDuration: 1.2)
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.01, options: [.curveEaseInOut], animations: {

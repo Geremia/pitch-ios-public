@@ -133,7 +133,6 @@
 				4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */,
 				4CFE12581DECF389005EE1BF /* MainViewController+Animations.swift */,
 				4CFE125A1DECF452005EE1BF /* MainViewController+Analytics.swift */,
-				4C253C351D9FF7E900BD07D6 /* MainViewState.swift */,
 				4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */,
 			);
 			name = Main;
@@ -269,6 +268,7 @@
 		4CFE125C1DECF61E005EE1BF /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				4C253C351D9FF7E900BD07D6 /* MainViewState.swift */,
 				4CFE125F1DECF659005EE1BF /* Instrument.swift */,
 				4CFE125D1DECF63F005EE1BF /* Key.swift */,
 				4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */,
