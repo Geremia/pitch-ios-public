@@ -30,8 +30,8 @@ class PitchPipeView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        darkModeChanged()
         
+        darkModeChanged()
         NotificationCenter.default.addObserver(self, selector: #selector(PitchPipeView.allOff), name: pitchPipeResetNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(PitchPipeView.darkModeChanged), name: darkModeChangedNotification, object: nil)
     }

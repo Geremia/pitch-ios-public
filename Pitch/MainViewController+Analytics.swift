@@ -16,6 +16,7 @@ extension MainViewController {
     func addOutputToAnalytics(output: TunerOutput) {
         if output.isValid {
             today.addDataPoint(tunerOutput: output)
+            saveToUserDefaults()
         }
     }
     
@@ -53,7 +54,13 @@ extension MainViewController {
         if let time = self.pitchStartTime {
             let interval = Date().timeIntervalSince(time)
             today.addDataPoint(timeToCenter: interval)
-            self.stopTimingPitch()
+            stopTimingPitch()
+            saveToUserDefaults()
         }
     }
+    
+    func saveToUserDefaults() {
+        UserDefaults.standard.setToday(today)
+    }
+    
 }

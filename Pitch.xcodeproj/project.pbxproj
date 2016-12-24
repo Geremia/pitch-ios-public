@@ -22,6 +22,7 @@
 		4CDFFFFD1D8B0BFA00BEAD0D /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFF91D8B0BFA00BEAD0D /* Lato-Hairline.ttf */; };
 		4CDFFFFE1D8B0BFA00BEAD0D /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFA1D8B0BFA00BEAD0D /* Lato-Light.ttf */; };
 		4CDFFFFF1D8B0BFA00BEAD0D /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFB1D8B0BFA00BEAD0D /* Lato-Regular.ttf */; };
+		4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */; };
 		4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D31D8A0CFD000492E6 /* AppDelegate.swift */; };
 		4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */; };
 		4CEAD6D91D8A0CFD000492E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D71D8A0CFD000492E6 /* Main.storyboard */; };
@@ -72,6 +73,7 @@
 		4CDFFFFA1D8B0BFA00BEAD0D /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		4CDFFFFB1D8B0BFA00BEAD0D /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		4CDFFFFC1D8B0BFA00BEAD0D /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
+		4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		4CEAD6D01D8A0CFD000492E6 /* Pitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEAD6D31D8A0CFD000492E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,14 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		4CE5F0BD1E0EC74900EF0AB3 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
 		4CEAD6C71D8A0CFD000492E6 = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +250,7 @@
 		4CEAD70A1D8A0D8D000492E6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4CE5F0BD1E0EC74900EF0AB3 /* Analytics */,
 				4C1FD5101DD1178100C1C6B9 /* Main */,
 				4C1FD5111DD1178700C1C6B9 /* Settings */,
 			);
@@ -491,6 +502,7 @@
 			files = (
 				4CFE12601DECF659005EE1BF /* Instrument.swift in Sources */,
 				4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */,
+				4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */,
 				4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */,
 				4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */,
 				4CFC73B91DC646EC00AFD8AC /* SoundGenerator.swift in Sources */,

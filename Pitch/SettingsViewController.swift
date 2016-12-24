@@ -141,5 +141,4 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         }
     }
     
-
 }
