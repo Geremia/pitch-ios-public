@@ -1093,7 +1093,7 @@
                                 <rect key="frame" x="87.5" y="121" width="200" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="44" translatesAutoresizingMaskIntoConstraints="NO" id="K3c-Rt-8uE" customClass="UICountingLabel">
-                                        <rect key="frame" x="24" y="47" width="152" height="106"/>
+                                        <rect key="frame" x="30" y="47" width="140" height="106"/>
                                         <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="88"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1101,8 +1101,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.27450980390000002" green="0.84800379130000003" blue="0.35253106540000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="K3c-Rt-8uE" firstAttribute="leading" secondItem="Bj3-re-8Z9" secondAttribute="leading" constant="24" id="S3F-Qi-x5l"/>
-                                    <constraint firstAttribute="trailing" secondItem="K3c-Rt-8uE" secondAttribute="trailing" constant="24" id="TIu-U5-2s3"/>
+                                    <constraint firstItem="K3c-Rt-8uE" firstAttribute="leading" secondItem="Bj3-re-8Z9" secondAttribute="leading" constant="30" id="S3F-Qi-x5l"/>
+                                    <constraint firstAttribute="trailing" secondItem="K3c-Rt-8uE" secondAttribute="trailing" constant="30" id="TIu-U5-2s3"/>
                                     <constraint firstItem="K3c-Rt-8uE" firstAttribute="centerY" secondItem="Bj3-re-8Z9" secondAttribute="centerY" id="WSa-Dp-whb"/>
                                     <constraint firstAttribute="height" constant="200" id="iXy-a7-nuj"/>
                                     <constraint firstAttribute="width" constant="200" id="upQ-pn-XZL"/>
