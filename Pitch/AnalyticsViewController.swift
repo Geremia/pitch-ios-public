@@ -32,7 +32,6 @@ class AnalyticsViewController: UIViewController {
     func setupUI() {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
-        view.isHidden = true
         
         updateDarkMode()
     }
@@ -47,12 +46,6 @@ class AnalyticsViewController: UIViewController {
             todayLabel.textColor = .white
             todaySeparator.backgroundColor = .white
             descriptionLabel.textColor = .white
-        } else {
-            backButton.setImage(#imageLiteral(resourceName: "back_arrow"), for: .normal)
-            analyticsLabel.textColor = .black
-            todayLabel.textColor = .lightGray
-            todaySeparator.backgroundColor = .lightGray
-            descriptionLabel.textColor = .black
         }
     }
 
