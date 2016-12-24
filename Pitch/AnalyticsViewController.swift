@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UICountingLabel
 
 class AnalyticsViewController: UIViewController {
     
@@ -16,24 +17,64 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var analyticsLabel: UILabel!
     
     @IBOutlet weak var scoreCircle: UIView!
-    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UICountingLabel!
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var todaySeparator: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var todayLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var todaySeparatorTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var descriptionLabelTopConstraint: NSLayoutConstraint!
     
     // MARK: - Setup Views
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateIn()
     }
     
     func setupUI() {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
-        
         updateDarkMode()
+        
+        scoreLabel.format = "%d"
+        
+        scoreCircle.transform = CGAffineTransform(scaleX: 0, y: 0)
+        scoreCircle.alpha = 0.0
+        todayLabel.alpha = 0.0
+        todaySeparator.alpha = 0.0
+        descriptionLabel.alpha = 0.0
+        
+        todayLabelTopConstraint.constant += 250
+        todaySeparatorTopConstraint.constant += 350
+        descriptionLabelTopConstraint.constant += 450
+    }
+    
+    func animateIn() {
+        let score = UserDefaults.standard.today().inTunePercentage
+        self.scoreLabel.countFromZero(to: CGFloat(score), withDuration: 1.2)
+        
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.01, options: [.curveEaseInOut], animations: {
+            self.scoreCircle.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.scoreCircle.alpha = 1.0
+        }, completion: nil)
+        
+        todayLabelTopConstraint.constant -= 250
+        todaySeparatorTopConstraint.constant -= 350
+        descriptionLabelTopConstraint.constant -= 450
+        
+        UIView.animate(withDuration: 1.0, delay: 0.6, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.1, options: [.curveEaseOut], animations: {
+            self.view.layoutIfNeeded()
+            self.todayLabel.alpha = 1.0
+            self.todaySeparator.alpha = 1.0
+            self.descriptionLabel.alpha = 1.0
+        }, completion: nil)
     }
     
     // MARK: - Dark Mode Switching
