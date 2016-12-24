@@ -9,6 +9,19 @@
 import UIKit
 
 class AnalyticsViewController: UIViewController {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var analyticsLabel: UILabel!
+    
+    @IBOutlet weak var scoreCircle: UIView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var todaySeparator: UIView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    // MARK: - Setup Views
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,20 +29,16 @@ class AnalyticsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: - Actions
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Status Bar Style
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
-    */
-
+    
 }

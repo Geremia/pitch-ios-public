@@ -120,10 +120,7 @@ class MainViewController: UIViewController, TunerDelegate {
     // MARK: - Navigation
     
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "mainToSettings" {
-            let destination: SettingsViewController = segue.destination as! SettingsViewController
-            destination.transitioningDelegate = self
-        }
+        segue.destination.transitioningDelegate = self
      }
     
     // MARK: - Status Bar Style
@@ -135,11 +132,19 @@ class MainViewController: UIViewController, TunerDelegate {
 
 extension MainViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return presentAniamtionController
+        if presented is SettingsViewController {
+            return VerticalSlideAnimationController(direction: .left)
+        } else {
+            return VerticalSlideAnimationController(direction: .right)
+        }
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return dismissAnimationController
+        if dismissed is SettingsViewController {
+            return VerticalSlideAnimationController(direction: .right)
+        } else {
+            return VerticalSlideAnimationController(direction: .left)
+        }
     }
 }
 
