@@ -6,5 +6,6 @@ target 'Pitch' do
   pod 'AudioKit', '~> 3.4.3'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'UICountingLabel'
 end
 
