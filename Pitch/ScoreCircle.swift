@@ -38,9 +38,9 @@ class ScoreCircle: UIView {
         
         circleLayer.path = circlePath.cgPath
         switch score {
-        case 0...50:
+        case 0...40:
             circleLayer.strokeColor = UIColor.red.cgColor
-        case 51...70:
+        case 41...70:
             circleLayer.strokeColor = UIColor.yellow.cgColor
         case 71...100:
             let darkModeOn = UserDefaults.standard.darkModeOn()
