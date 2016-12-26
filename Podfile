@@ -7,5 +7,6 @@ target 'Pitch' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'UICountingLabel'
+  pod 'Reveal-SDK', :configurations => ['Debug']
 end
 
