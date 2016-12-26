@@ -16,6 +16,17 @@ class ScoreCircle: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        addBorder()
+        setupCircleLayer()
+    }
+    
+    func setupCircleLayer() {
+        circleLayer.fillColor = UIColor.clear.cgColor
+        circleLayer.lineWidth = 2.0
+        self.layer.addSublayer(circleLayer)
+    }
+    
+    func addBorder() {
         let borderLayer = CAShapeLayer()
         borderLayer.path = UIBezierPath(ovalIn: bounds).cgPath
         borderLayer.fillColor = UIColor.clear.cgColor
@@ -23,10 +34,6 @@ class ScoreCircle: UIView {
         let darkModeOn = UserDefaults.standard.darkModeOn()
         borderLayer.strokeColor = darkModeOn ? UIColor.darkPitchPipeBackground.cgColor : UIColor.separatorColor.cgColor
         self.layer.addSublayer(borderLayer)
-        
-        circleLayer.fillColor = UIColor.clear.cgColor
-        circleLayer.lineWidth = 2.0
-        self.layer.addSublayer(circleLayer)
     }
     
     override func draw(_ rect: CGRect) {
