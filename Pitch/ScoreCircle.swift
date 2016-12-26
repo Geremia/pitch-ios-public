@@ -1,0 +1,53 @@
+//
+//  ScoreCircle.swift
+//  Pitch
+//
+//  Created by Daniel Kuntz on 12/26/16.
+//  Copyright © 2016 Plutonium Apps. All rights reserved.
+//
+
+import UIKit
+
+class ScoreCircle: UIView {
+
+    var score: Double = 0
+    var circleLayer: CAShapeLayer = CAShapeLayer()
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let borderLayer = CAShapeLayer()
+        borderLayer.path = UIBezierPath(ovalIn: bounds).cgPath
+        borderLayer.fillColor = UIColor.clear.cgColor
+        borderLayer.lineWidth = 2.0
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        borderLayer.strokeColor = darkModeOn ? UIColor(white: 0.2, alpha: 1.0).cgColor : UIColor(white: 0.95, alpha: 1.0).cgColor
+        self.layer.addSublayer(borderLayer)
+        
+        circleLayer.fillColor = UIColor.clear.cgColor
+        circleLayer.lineWidth = 2.0
+        self.layer.addSublayer(circleLayer)
+    }
+    
+    override func draw(_ rect: CGRect) {
+        let circleCenter = CGPoint(x: frame.width / 2.0, y: frame.height / 2.0)
+        let circleRadius = frame.width / 2.0
+        let start = CGFloat(3 * M_PI_2)
+        let end = start + CGFloat(2 * M_PI * score/100)
+        let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: start, endAngle: end, clockwise: true)
+        
+        circleLayer.path = circlePath.cgPath
+        switch score {
+        case 0...50:
+            circleLayer.strokeColor = UIColor.red.cgColor
+        case 51...70:
+            circleLayer.strokeColor = UIColor.yellow.cgColor
+        case 71...100:
+            let darkModeOn = UserDefaults.standard.darkModeOn()
+            circleLayer.strokeColor = darkModeOn ? UIColor.darkInTune.cgColor : UIColor.inTune.cgColor
+        default:
+            break
+        }
+    }
+
+}

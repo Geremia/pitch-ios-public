@@ -24,6 +24,7 @@
 		4CDFFFFF1D8B0BFA00BEAD0D /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFB1D8B0BFA00BEAD0D /* Lato-Regular.ttf */; };
 		4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */; };
 		4CE5F0C11E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */; };
+		4CE5F0C31E117C4700EF0AB3 /* ScoreCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0C21E117C4700EF0AB3 /* ScoreCircle.swift */; };
 		4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D31D8A0CFD000492E6 /* AppDelegate.swift */; };
 		4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */; };
 		4CEAD6D91D8A0CFD000492E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D71D8A0CFD000492E6 /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		4CDFFFFC1D8B0BFA00BEAD0D /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Animations.swift"; sourceTree = "<group>"; };
+		4CE5F0C21E117C4700EF0AB3 /* ScoreCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCircle.swift; sourceTree = "<group>"; };
 		4CEAD6D01D8A0CFD000492E6 /* Pitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEAD6D31D8A0CFD000492E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */,
 				4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */,
+				4CE5F0C21E117C4700EF0AB3 /* ScoreCircle.swift */,
 			);
 			name = Analytics;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				4C253C7D1DAEDF0800BD07D6 /* Day.swift in Sources */,
 				4CFE125B1DECF452005EE1BF /* MainViewController+Analytics.swift in Sources */,
 				4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */,
+				4CE5F0C31E117C4700EF0AB3 /* ScoreCircle.swift in Sources */,
 				4C253C361D9FF7E900BD07D6 /* MainViewState.swift in Sources */,
 				4CFC73BE1DC6821400AFD8AC /* TuningFork.swift in Sources */,
 				4CDEB5791DD11B68005301BF /* VerticalSlideAnimationController.swift in Sources */,

@@ -306,7 +306,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syJ-FW-TRB">
-                                        <rect key="frame" x="147.5" y="23" width="81" height="28"/>
+                                        <rect key="frame" x="147" y="23" width="81" height="28"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -536,7 +536,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-78-WqF">
-                                        <rect key="frame" x="139" y="143" width="98" height="132"/>
+                                        <rect key="frame" x="139" y="143.5" width="98" height="132"/>
                                         <fontDescription key="fontDescription" name="Lato-Hairline" family="Lato" pointSize="110"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -553,7 +553,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-ws-Axi">
-                                        <rect key="frame" x="175.5" y="275" width="24" height="20"/>
+                                        <rect key="frame" x="175.5" y="275.5" width="24" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -823,7 +823,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCTAVE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbz-e0-DUB">
-                                                <rect key="frame" x="20" y="44" width="55" height="17"/>
+                                                <rect key="frame" x="20.5" y="44" width="54.5" height="17"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1072,50 +1072,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bj3-re-8Z9">
-                                <rect key="frame" x="87.5" y="121" width="200" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bj3-re-8Z9" customClass="ScoreCircle" customModule="Pitch" customModuleProvider="target">
+                                <rect key="frame" x="102.5" y="101" width="170" height="170"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="44" translatesAutoresizingMaskIntoConstraints="NO" id="K3c-Rt-8uE" customClass="UICountingLabel">
-                                        <rect key="frame" x="30" y="47" width="140" height="106"/>
-                                        <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="88"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="frame" x="30" y="43" width="110" height="84"/>
+                                        <fontDescription key="fontDescription" name="Lato-Thin" family="Lato" pointSize="70"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.27450980390000002" green="0.84800379130000003" blue="0.35253106540000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="K3c-Rt-8uE" firstAttribute="leading" secondItem="Bj3-re-8Z9" secondAttribute="leading" constant="30" id="S3F-Qi-x5l"/>
                                     <constraint firstAttribute="trailing" secondItem="K3c-Rt-8uE" secondAttribute="trailing" constant="30" id="TIu-U5-2s3"/>
                                     <constraint firstItem="K3c-Rt-8uE" firstAttribute="centerY" secondItem="Bj3-re-8Z9" secondAttribute="centerY" id="WSa-Dp-whb"/>
-                                    <constraint firstAttribute="height" constant="200" id="iXy-a7-nuj"/>
-                                    <constraint firstAttribute="width" constant="200" id="upQ-pn-XZL"/>
+                                    <constraint firstAttribute="height" constant="170" id="iXy-a7-nuj"/>
+                                    <constraint firstAttribute="width" constant="170" id="upQ-pn-XZL"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="100"/>
+                                        <integer key="value" value="85"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You were in tune 86% of the time, and you took 2.4 seconds on average to center the pitch." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svw-DF-iBZ">
-                                <rect key="frame" x="32" y="436" width="311" height="61.5"/>
-                                <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVf-Gq-O3n">
-                                <rect key="frame" x="159" y="381" width="57" height="20"/>
+                                <rect key="frame" x="159.5" y="321" width="57" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaT-vT-MkP">
-                                <rect key="frame" x="117.5" y="415" width="140" height="1"/>
+                                <rect key="frame" x="117.5" y="355" width="140" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="0gP-yr-NIz"/>
                                     <constraint firstAttribute="height" constant="1" id="mYv-62-34l"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You were in tune 86% of the time, and you took 2.4 seconds on average to center the pitch." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svw-DF-iBZ">
+                                <rect key="frame" x="32" y="376" width="311" height="61.5"/>
+                                <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IS9-oK-mTM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
@@ -1168,13 +1167,13 @@
                             <constraint firstItem="rVf-Gq-O3n" firstAttribute="centerX" secondItem="n8E-2u-y1c" secondAttribute="centerX" id="8oh-7L-Dk7"/>
                             <constraint firstItem="ghs-zC-ShB" firstAttribute="leading" secondItem="n8E-2u-y1c" secondAttribute="leading" id="8ro-6s-AcI"/>
                             <constraint firstItem="QiS-dX-sKS" firstAttribute="centerX" secondItem="n8E-2u-y1c" secondAttribute="centerX" id="BMR-Bj-Z44"/>
-                            <constraint firstItem="rVf-Gq-O3n" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="60" id="BcA-he-aR6"/>
-                            <constraint firstItem="svw-DF-iBZ" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="115" id="Ex5-5y-iqj"/>
-                            <constraint firstItem="gaT-vT-MkP" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="94" id="Hg0-HN-QqG"/>
+                            <constraint firstItem="rVf-Gq-O3n" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="50" id="BcA-he-aR6"/>
+                            <constraint firstItem="svw-DF-iBZ" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="105" id="Ex5-5y-iqj"/>
+                            <constraint firstItem="gaT-vT-MkP" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="84" id="Hg0-HN-QqG"/>
                             <constraint firstItem="ghs-zC-ShB" firstAttribute="top" secondItem="n8E-2u-y1c" secondAttribute="top" id="Mvv-ij-9qg"/>
                             <constraint firstItem="IS9-oK-mTM" firstAttribute="top" secondItem="kPS-Z8-HFh" secondAttribute="bottom" id="YU9-rM-ZIv"/>
                             <constraint firstItem="IS9-oK-mTM" firstAttribute="leading" secondItem="n8E-2u-y1c" secondAttribute="leading" id="Yen-BU-j09"/>
-                            <constraint firstItem="Bj3-re-8Z9" firstAttribute="top" secondItem="QiS-dX-sKS" secondAttribute="bottom" constant="70" id="mfm-0S-02F"/>
+                            <constraint firstItem="Bj3-re-8Z9" firstAttribute="top" secondItem="QiS-dX-sKS" secondAttribute="bottom" constant="50" id="mfm-0S-02F"/>
                             <constraint firstAttribute="trailing" secondItem="IS9-oK-mTM" secondAttribute="trailing" id="mjD-9j-ayl"/>
                             <constraint firstAttribute="trailing" secondItem="svw-DF-iBZ" secondAttribute="trailing" constant="32" id="n6j-Td-Gt0"/>
                             <constraint firstItem="Bj3-re-8Z9" firstAttribute="centerX" secondItem="n8E-2u-y1c" secondAttribute="centerX" id="qsz-Nl-3p1"/>
@@ -1189,7 +1188,7 @@
                         <outlet property="noDataImageView" destination="i1H-dX-i2N" id="0G2-nc-NoS"/>
                         <outlet property="noDataLabel" destination="6g9-Vp-1Yf" id="UOi-EO-zGB"/>
                         <outlet property="noDataView" destination="IS9-oK-mTM" id="Pka-jA-DVr"/>
-                        <outlet property="scoreCircle" destination="Bj3-re-8Z9" id="HDB-tN-qy8"/>
+                        <outlet property="scoreCircle" destination="Bj3-re-8Z9" id="fs0-5I-lMB"/>
                         <outlet property="scoreLabel" destination="K3c-Rt-8uE" id="Aqi-yn-HbL"/>
                         <outlet property="todayLabel" destination="rVf-Gq-O3n" id="cGx-q4-mkb"/>
                         <outlet property="todayLabelTopConstraint" destination="BcA-he-aR6" id="DiU-Ot-Gux"/>
@@ -1208,7 +1207,7 @@
         <image name="back_arrow" width="25" height="25"/>
         <image name="forward_arrow" width="25" height="25"/>
         <image name="infinity" width="32" height="18"/>
-        <image name="line_chart_lightgray" width="500" height="500"/>
+        <image name="line_chart_lightgray" width="130" height="130"/>
         <image name="menu" width="25" height="25"/>
         <image name="minus" width="22" height="3"/>
         <image name="plus" width="22" height="21"/>

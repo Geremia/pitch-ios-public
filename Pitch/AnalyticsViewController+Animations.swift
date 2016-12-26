@@ -16,7 +16,12 @@ extension AnalyticsViewController {
     func prepareForAnimation() {
         scoreCircle.transform = CGAffineTransform(scaleX: 0, y: 0)
         scoreCircle.alpha = 0.0
-        scoreLabel.format = "%d"
+        
+        scoreLabel.formatBlock = { score -> String! in
+            self.scoreCircle.score = Double(score)
+            self.scoreCircle.setNeedsDisplay()
+            return "\(Int(score))"
+        }
         scoreLabel.text = "0"
         
         todayLabel.alpha = 0.0

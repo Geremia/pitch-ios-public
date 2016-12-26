@@ -20,7 +20,7 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var noDataLabel: UILabel!
     @IBOutlet weak var noDataImageView: UIImageView!
     
-    @IBOutlet weak var scoreCircle: UIView!
+    @IBOutlet weak var scoreCircle: ScoreCircle!
     @IBOutlet weak var scoreLabel: UICountingLabel!
     @IBOutlet weak var todayLabel: UILabel!
     @IBOutlet weak var todaySeparator: UIView!
@@ -54,15 +54,29 @@ class AnalyticsViewController: UIViewController {
         
         let today = UserDefaults.standard.today()
         if today.hasSufficientData {
-            noDataView.isHidden = true
-            
-            let score = today.inTunePercentage.roundTo(places: 2) * 100
-            scoreLabel.text = "\(Int(score))"
-            setupDescriptionLabel()
-            
-            if !UserDefaults.standard.hasSeenAnalyticsAnimation() {
-                prepareForAnimation()
-            }
+            displayData()
+        }
+    }
+    
+    func displayData() {
+        noDataView.isHidden = true
+        
+        setupScoreCircle()
+        setupDescriptionLabel()
+        
+        if !UserDefaults.standard.hasSeenAnalyticsAnimation() {
+            prepareForAnimation()
+        }
+    }
+    
+    func setupScoreCircle() {
+        let today = UserDefaults.standard.today()
+        let score = today.inTunePercentage.roundTo(places: 2) * 100
+        scoreLabel.text = "\(Int(score))"
+        
+        if UserDefaults.standard.hasSeenAnalyticsAnimation() {
+            scoreCircle.score = score
+            scoreCircle.setNeedsDisplay()
         }
     }
     
@@ -96,6 +110,8 @@ class AnalyticsViewController: UIViewController {
             view.backgroundColor = .darkGrayView
             backButton.setImage(#imageLiteral(resourceName: "white_back_arrow"), for: .normal)
             analyticsLabel.textColor = .white
+            scoreCircle.backgroundColor = .darkGrayView
+            scoreLabel.textColor = UIColor.white
             todayLabel.textColor = .white
             todaySeparator.backgroundColor = .white
             descriptionLabel.textColor = .white
