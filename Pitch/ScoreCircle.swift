@@ -21,7 +21,7 @@ class ScoreCircle: UIView {
         borderLayer.fillColor = UIColor.clear.cgColor
         borderLayer.lineWidth = 2.0
         let darkModeOn = UserDefaults.standard.darkModeOn()
-        borderLayer.strokeColor = darkModeOn ? UIColor(white: 0.2, alpha: 1.0).cgColor : UIColor(white: 0.95, alpha: 1.0).cgColor
+        borderLayer.strokeColor = darkModeOn ? UIColor.darkPitchPipeBackground.cgColor : UIColor.separatorColor.cgColor
         self.layer.addSublayer(borderLayer)
         
         circleLayer.fillColor = UIColor.clear.cgColor

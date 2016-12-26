@@ -17,7 +17,7 @@ extension UIColor {
     
     @nonobjc static let grayText: UIColor = UIColor(red: 89/255.0, green: 89/255.0, blue: 89/255.0, alpha: 1.0)
     @nonobjc static let darkGrayView: UIColor = UIColor(white: 0.15, alpha: 1.0)
-    @nonobjc static let separatorColor: UIColor = UIColor(white: 0.78, alpha: 1.0)
+    @nonobjc static let separatorColor: UIColor = UIColor(white: 0.95, alpha: 1.0)
     
     @nonobjc static let pitchPipeBackground: UIColor = UIColor(white: 0.99, alpha: 1.0)
     @nonobjc static let darkPitchPipeBackground: UIColor = UIColor(white: 0.18, alpha: 1.0)
