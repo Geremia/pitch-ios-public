@@ -829,6 +829,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>41A21FD473183E144379EA6F3A38BD9C</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>RevealServer.framework</string>
+			<key>path</key>
+			<string>RevealServer-5/iOS/RevealServer.framework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>42287DDF97330524BA3EF220F0276DA6</key>
 		<dict>
 			<key>buildSettings</key>
@@ -910,19 +923,6 @@
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
 			<string>UICountingLabel.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>444DDC7455A0FE33EB34BD7E5B6421C6</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>6D7583F19D8598778399ED252E8C8437</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1126,6 +1126,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>57A6E6DB39FF55FA0031E63C391F0792</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>41A21FD473183E144379EA6F3A38BD9C</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>58FCB02D0B848458DF49F478429F59A9</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1312,19 +1325,6 @@
 			<string>AKTesterAudioUnit.h</string>
 			<key>path</key>
 			<string>iOS/AudioKit.framework/Headers/AKTesterAudioUnit.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>6D7583F19D8598778399ED252E8C8437</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>RevealServer.framework</string>
-			<key>path</key>
-			<string>RevealServer-2/iOS/RevealServer.framework</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1706,7 +1706,7 @@
 		<dict>
 			<key>children</key>
 			<array>
-				<string>444DDC7455A0FE33EB34BD7E5B6421C6</string>
+				<string>57A6E6DB39FF55FA0031E63C391F0792</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
