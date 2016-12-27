@@ -138,7 +138,7 @@ private let frequencies: [Double] = [
     
     fileprivate let threshold: Double
     fileprivate var smoothing: Float
-    fileprivate let microphone: AKMicrophone
+    let microphone: AKMicrophone
     let analyzer: AKFrequencyTracker
     var silence: AKBooster
     fileprivate var timer: Timer?

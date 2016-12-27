@@ -586,14 +586,23 @@
                                             <segue destination="Lvm-BE-TJq" kind="show" identifier="mainToAnalytics" id="oYh-Fk-8mX"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCu-Ft-MJ8" customClass="EZAudioPlot">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="YwX-rR-5SH"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="eFM-fb-ftt" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" constant="-80" id="0j3-UW-aCF"/>
                                     <constraint firstItem="eFM-fb-ftt" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" id="3dg-Zb-N8j"/>
+                                    <constraint firstItem="VCu-Ft-MJ8" firstAttribute="top" secondItem="XBl-z4-1FC" secondAttribute="top" id="EPW-df-75l"/>
                                     <constraint firstItem="SrA-v6-zUa" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" id="Lp5-UW-fTF"/>
                                     <constraint firstAttribute="trailing" secondItem="0U7-NV-2BZ" secondAttribute="trailing" id="M1R-ef-eoB"/>
                                     <constraint firstItem="Jpl-Qo-b0N" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" constant="80" id="MJM-rE-AOe"/>
                                     <constraint firstItem="2CA-ws-Axi" firstAttribute="top" secondItem="4CE-78-WqF" secondAttribute="bottom" id="Q1l-6n-ii4"/>
+                                    <constraint firstItem="VCu-Ft-MJ8" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" id="VDb-DT-ybF"/>
                                     <constraint firstItem="d4h-6o-O5x" firstAttribute="centerX" secondItem="ScC-vN-a2a" secondAttribute="centerX" constant="-40" id="WDV-6k-UQa"/>
                                     <constraint firstAttribute="bottom" secondItem="hxQ-Xm-BOA" secondAttribute="bottom" id="XHt-Jp-Gv1"/>
                                     <constraint firstItem="Jpl-Qo-b0N" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" id="aqO-uy-1UZ"/>
@@ -602,6 +611,7 @@
                                     <constraint firstAttribute="bottom" secondItem="SrA-v6-zUa" secondAttribute="bottom" id="lL1-qE-NSa"/>
                                     <constraint firstAttribute="trailing" secondItem="Jpl-Qo-b0N" secondAttribute="trailing" id="lOW-8N-En3"/>
                                     <constraint firstItem="ScC-vN-a2a" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" id="mfY-zr-DzS"/>
+                                    <constraint firstAttribute="trailing" secondItem="VCu-Ft-MJ8" secondAttribute="trailing" id="sgA-Ye-IWp"/>
                                     <constraint firstItem="hxQ-Xm-BOA" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" id="tHD-rF-NAU"/>
                                     <constraint firstItem="4CE-78-WqF" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" constant="-9" id="tSg-se-NB4"/>
                                     <constraint firstAttribute="bottom" secondItem="0U7-NV-2BZ" secondAttribute="bottom" id="ubN-af-sM9"/>
@@ -1035,6 +1045,7 @@
                     <connections>
                         <outlet property="amplitudeLabel" destination="QIG-pk-c1y" id="c50-eU-LfF"/>
                         <outlet property="analyticsButton" destination="0U7-NV-2BZ" id="m55-hn-eU2"/>
+                        <outlet property="audioPlot" destination="VCu-Ft-MJ8" id="ol0-la-163"/>
                         <outlet property="centsLabel" destination="2CA-ws-Axi" id="KfM-tk-IDd"/>
                         <outlet property="noteLabel" destination="4CE-78-WqF" id="2pw-wg-JUd"/>
                         <outlet property="octaveLabel" destination="d4h-6o-O5x" id="i8V-98-L97"/>
@@ -1058,7 +1069,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="278" y="36"/>
+            <point key="canvasLocation" x="277.60000000000002" y="35.532233883058474"/>
         </scene>
         <!--Analytics View Controller-->
         <scene sceneID="I1n-4r-qxF">

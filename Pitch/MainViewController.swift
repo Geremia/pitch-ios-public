@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioKit
 
 class MainViewController: UIViewController, TunerDelegate {
     
@@ -25,6 +26,8 @@ class MainViewController: UIViewController, TunerDelegate {
     @IBOutlet weak var pitchPipeButton: UIButton!
     @IBOutlet weak var analyticsButton: UIButton!
     
+    @IBOutlet weak var audioPlot: EZAudioPlot!
+    
     // MARK: - Pitch Pipe Outlets
     
     @IBOutlet weak var pitchPipeView: PitchPipeView!
@@ -40,6 +43,8 @@ class MainViewController: UIViewController, TunerDelegate {
     var isPitchPipeOpen: Bool = false
     var state: MainViewState = .outOfTune
     
+    var plot: AKNodeOutputPlot!
+    
     // MARK: - Analytics Variables
     
     var today: Day = UserDefaults.standard.today()
@@ -54,6 +59,7 @@ class MainViewController: UIViewController, TunerDelegate {
         
         setupTuner()
         setupUI()
+        setupPlot()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +83,24 @@ class MainViewController: UIViewController, TunerDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.darkModeChanged), name: .darkModeChanged, object: nil)
         darkModeChanged()
+    }
+    
+    func setupPlot() {
+        plot = AKNodeOutputPlot((tuner?.microphone)!, frame: audioPlot.bounds)
+        plot.plotType = .rolling
+        plot.shouldFill = false
+        plot.shouldMirror = true
+        plot.color = UIColor.white
+        plot.gain = 3.0
+        plot.backgroundColor = UIColor.clear
+//        audioPlot.addSubview(plot)
+        
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(plotTapped))
+        audioPlot.addGestureRecognizer(tapGR)
+    }
+    
+    func plotTapped() {
+        print("Plot tapped")
     }
     
     // MARK: - Dark Mode Switching
