@@ -60,7 +60,7 @@ extension MainViewController {
     }
     
     func saveToUserDefaults() {
-        UserDefaults.standard.setToday(today)
+        DataManager.setToday(today)
     }
     
 }

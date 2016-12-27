@@ -17,6 +17,7 @@
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
 		4CDA4A031DD2B3FB00D05DAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6DA1D8A0CFD000492E6 /* Assets.xcassets */; };
 		4CDEB5791DD11B68005301BF /* VerticalSlideAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEB5781DD11B68005301BF /* VerticalSlideAnimationController.swift */; };
+		4CDED8771E131354003C4000 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDED8761E131354003C4000 /* DataManager.swift */; };
 		4CDF00001D8B0BFA00BEAD0D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFC1D8B0BFA00BEAD0D /* Lato-Thin.ttf */; };
 		4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */; };
 		4CDFFFFD1D8B0BFA00BEAD0D /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFF91D8B0BFA00BEAD0D /* Lato-Hairline.ttf */; };
@@ -89,6 +90,7 @@
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
 		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4CDEB5781DD11B68005301BF /* VerticalSlideAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalSlideAnimationController.swift; sourceTree = "<group>"; };
+		4CDED8761E131354003C4000 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+PitchColors.swift"; sourceTree = "<group>"; };
 		4CDFFFF91D8B0BFA00BEAD0D /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
 		4CDFFFFA1D8B0BFA00BEAD0D /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				4C253C7C1DAEDF0800BD07D6 /* Day.swift */,
+				4CDED8761E131354003C4000 /* DataManager.swift */,
 			);
 			name = Analytics;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFE12601DECF659005EE1BF /* Instrument.swift in Sources */,
+				4CDED8771E131354003C4000 /* DataManager.swift in Sources */,
 				4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */,
 				4CE5F0C11E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift in Sources */,
 				4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */,

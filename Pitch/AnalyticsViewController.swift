@@ -41,7 +41,7 @@ class AnalyticsViewController: UIViewController {
         super.viewDidAppear(animated)
         
         let defaults = UserDefaults.standard
-        if !defaults.hasSeenAnalyticsAnimation() && defaults.today().hasSufficientData {
+        if !defaults.hasSeenAnalyticsAnimation() && DataManager.today().hasSufficientData {
             animateIn()
             UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
         }
@@ -52,7 +52,7 @@ class AnalyticsViewController: UIViewController {
         view.clipsToBounds = true
         updateDarkMode()
         
-        let today = UserDefaults.standard.today()
+        let today = DataManager.today()
         if today.hasSufficientData {
             displayData()
         }
@@ -70,7 +70,7 @@ class AnalyticsViewController: UIViewController {
     }
     
     func setupScoreCircle() {
-        let today = UserDefaults.standard.today()
+        let today = DataManager.today()
         let score = today.inTunePercentage.roundTo(places: 2) * 100
         scoreLabel.text = "\(Int(score))"
         
@@ -83,8 +83,8 @@ class AnalyticsViewController: UIViewController {
     func setupDescriptionLabel() {
         let boldFont = UIFont(name: "Lato-Regular", size: 17.0)!
         let lightFont = UIFont(name: "Lato-Light", size: 17.0)!
-        let percentage = UserDefaults.standard.today().inTunePercentage.roundTo(places: 2) * 100
-        let time = UserDefaults.standard.today().timeToCenter.roundTo(places: 1)
+        let percentage = DataManager.today().inTunePercentage.roundTo(places: 2) * 100
+        let time = DataManager.today().timeToCenter.roundTo(places: 1)
         
         let percentageString: NSAttributedString = NSAttributedString(string: "\(Int(percentage))%", attributes: [NSFontAttributeName: boldFont])
         let timeString: NSAttributedString = NSAttributedString(string: "\(time) seconds", attributes: [NSFontAttributeName: boldFont])
