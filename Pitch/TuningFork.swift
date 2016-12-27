@@ -286,7 +286,8 @@ private let frequencies: [Double] = [
             }
         }
         
-        output.octave = (i + 5) / 12
+        let concertOffset = UserDefaults.standard.key().concertOffset
+        output.octave = (i - concertOffset) / 12
         output.frequency = frequency
         output.amplitude = amplitude
         output.distance = frequency - frequencies[i]
@@ -294,7 +295,6 @@ private let frequencies: [Double] = [
         output.standardDeviation = standardDeviation
         
         let displayMode = UserDefaults.standard.displayMode()
-        let concertOffset = UserDefaults.standard.key().concertOffset
         switch displayMode {
         case .sharps:
             output.pitch = String(format: "%@", sharps[(i - concertOffset) % sharps.count])

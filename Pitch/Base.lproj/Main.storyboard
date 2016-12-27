@@ -635,7 +635,7 @@
                                             <constraint firstAttribute="height" constant="54" id="sm0-tU-JA6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="A">
+                                        <state key="normal" title="C">
                                             <color key="titleColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -650,7 +650,7 @@
                                             <constraint firstAttribute="height" constant="54" id="blL-wG-jLv"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="A♯">
+                                        <state key="normal" title="C♯">
                                             <color key="titleColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -665,7 +665,7 @@
                                             <constraint firstAttribute="height" constant="54" id="D3H-CC-zdb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="B">
+                                        <state key="normal" title="D">
                                             <color key="titleColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -680,7 +680,7 @@
                                             <constraint firstAttribute="height" constant="54" id="OG6-1u-NEP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="C">
+                                        <state key="normal" title="D♯">
                                             <color key="titleColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -695,7 +695,7 @@
                                             <constraint firstAttribute="height" constant="54" id="fUY-nO-10H"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="C♯">
+                                        <state key="normal" title="E">
                                             <color key="titleColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -710,7 +710,7 @@
                                             <constraint firstAttribute="height" constant="54" id="Itx-Bq-r7n"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="D">
+                                        <state key="normal" title="F">
                                             <color key="titleColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -725,7 +725,7 @@
                                             <constraint firstAttribute="height" constant="54" id="MhK-Sj-GM9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="D♯">
+                                        <state key="normal" title="F♯">
                                             <color key="titleColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -740,7 +740,7 @@
                                             <constraint firstAttribute="height" constant="54" id="Yws-C3-O1h"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="E">
+                                        <state key="normal" title="G">
                                             <color key="titleColor" red="0.34901960784313724" green="0.34901960784313724" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -755,7 +755,7 @@
                                             <constraint firstAttribute="height" constant="54" id="Fb4-rz-ftc"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="F">
+                                        <state key="normal" title="G#">
                                             <color key="titleColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -770,7 +770,7 @@
                                             <constraint firstAttribute="height" constant="54" id="9QC-9G-OuD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="F♯">
+                                        <state key="normal" title="A">
                                             <color key="titleColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -785,7 +785,7 @@
                                             <constraint firstAttribute="height" constant="54" id="cTR-fc-oyw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="G">
+                                        <state key="normal" title="A♯">
                                             <color key="titleColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -800,7 +800,7 @@
                                             <constraint firstAttribute="height" constant="54" id="31B-wY-2R1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="24"/>
-                                        <state key="normal" title="G♯">
+                                        <state key="normal" title="B">
                                             <color key="titleColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
