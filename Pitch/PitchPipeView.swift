@@ -32,8 +32,8 @@ class PitchPipeView: UIView {
         super.awakeFromNib()
         
         darkModeChanged()
-        NotificationCenter.default.addObserver(self, selector: #selector(PitchPipeView.allOff), name: pitchPipeResetNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(PitchPipeView.darkModeChanged), name: darkModeChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PitchPipeView.allOff), name: .pitchPipeReset, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PitchPipeView.darkModeChanged), name: .darkModeChanged, object: nil)
     }
     
     // MARK: - Dark Mode Switching
@@ -97,6 +97,13 @@ class PitchPipeView: UIView {
         }, completion: nil)
     }
     
+    func allOff() {
+        for button in self.pitchButtons {
+            off(pitchButton: button)
+            soundGenerator.playNoteOff(channelNumber: button.tag)
+        }
+    }
+    
     func updateButtonLabels() {
         for button in self.pitchButtons {
             guard let key = Key.fromName((button.titleLabel?.text)!) else { break }
@@ -110,6 +117,24 @@ class PitchPipeView: UIView {
                 button.setTitle(key.name, for: .normal)
             }
         }
+    }
+    
+    func updateSustainButton() {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        let image: UIImage
+        let color: UIColor
+        if darkModeOn {
+            image = sustainOn ? #imageLiteral(resourceName: "thick_infinity") : #imageLiteral(resourceName: "white_infinity")
+            color = sustainOn ? UIColor.darkInTune : UIColor.clear
+        } else {
+            image = sustainOn ? #imageLiteral(resourceName: "thick_infinity") : #imageLiteral(resourceName: "infinity")
+            color = sustainOn ? UIColor.inTune : UIColor.clear
+        }
+        
+        UIView.transition(with: sustainButton, duration: 0.05, options: .transitionCrossDissolve, animations: {
+            self.sustainButton.setImage(image, for: .normal)
+            self.sustainButton.backgroundColor = color
+        }, completion: nil)
     }
     
     // MARK: - Actions
@@ -138,31 +163,6 @@ class PitchPipeView: UIView {
         sustainOn = !sustainOn
         updateSustainButton()
         allOff()
-    }
-    
-    func updateSustainButton() {
-        let darkModeOn = UserDefaults.standard.darkModeOn()
-        let image: UIImage
-        let color: UIColor
-        if darkModeOn {
-            image = sustainOn ? #imageLiteral(resourceName: "thick_infinity") : #imageLiteral(resourceName: "white_infinity")
-            color = sustainOn ? UIColor.darkInTune : UIColor.clear
-        } else {
-            image = sustainOn ? #imageLiteral(resourceName: "thick_infinity") : #imageLiteral(resourceName: "infinity")
-            color = sustainOn ? UIColor.inTune : UIColor.clear
-        }
-        
-        UIView.transition(with: sustainButton, duration: 0.05, options: .transitionCrossDissolve, animations: {
-            self.sustainButton.setImage(image, for: .normal)
-            self.sustainButton.backgroundColor = color
-        }, completion: nil)
-    }
-    
-    func allOff() {
-        for button in self.pitchButtons {
-            off(pitchButton: button)
-            soundGenerator.playNoteOff(channelNumber: button.tag)
-        }
     }
     
     @IBAction func minusButtonPressed(_ sender: AnyObject) {

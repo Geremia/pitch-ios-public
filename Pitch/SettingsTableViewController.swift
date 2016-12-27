@@ -30,7 +30,7 @@ class SettingsTableViewController: UITableViewController {
         didSet {
             UserDefaults.standard.setDarkModeOn(darkModeOn)
             darkModeChanged()
-            NotificationCenter.default.post(name: darkModeChangedNotification, object: nil)
+            NotificationCenter.default.post(name: .darkModeChanged, object: nil)
         }
     }
     

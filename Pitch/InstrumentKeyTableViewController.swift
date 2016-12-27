@@ -40,7 +40,7 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         setupPickerView()
         tableView.isScrollEnabled = false
         darkModeChanged()
-        NotificationCenter.default.addObserver(self, selector: #selector(InstrumentKeyTableViewController.darkModeChanged), name: darkModeChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(InstrumentKeyTableViewController.darkModeChanged), name: .darkModeChanged, object: nil)
     }
     
     // MARK: - Setup Picker View

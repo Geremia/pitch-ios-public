@@ -30,6 +30,11 @@ extension UILabel {
     }
 }
 
+extension Notification.Name {
+    static let pitchPipeReset = Notification.Name(rawValue: "pitchPipeResetNotification")
+    static let darkModeChanged = Notification.Name(rawValue: "darkModeChangedNotification")
+}
+
 func log2(val: Double) -> Double {
     return log(val)/log(2.0)
 }

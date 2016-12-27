@@ -42,7 +42,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         feedbackButton.layer.cornerRadius = 8.0
         darkModeChanged()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.darkModeChanged), name: darkModeChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.darkModeChanged), name: .darkModeChanged, object: nil)
     }
     
     // MARK: - Actions
@@ -79,7 +79,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         touchBlockingView.isHidden = false
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SettingsViewController.closeInstrumentKeyView(_:)))
         settingsView.addGestureRecognizer(tapGestureRecognizer)
-        NotificationCenter.default.post(name: darkModeChangedNotification, object: nil)
+        NotificationCenter.default.post(name: .darkModeChanged, object: nil)
         
         instrumentKeyBottomConstraint.constant = 0
         settingsViewBottomConstraint.constant = instrumentKeyView.frame.height + 8

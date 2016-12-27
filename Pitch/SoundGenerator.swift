@@ -13,7 +13,11 @@ class SoundGenerator : NSObject {
     private var bank: AKOscillatorBank!
     private var mixer: AKMixer!
     private var octaveConstant: Int = 81
-    private var channelsOn: [Int] = []
+    private var channelsOn: [Int] = [] {
+        didSet {
+            Constants.pitchPipeIsPlayingSound = channelsOn.count > 0
+        }
+    }
     
     var tuner: Tuner!
     

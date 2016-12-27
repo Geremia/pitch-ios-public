@@ -8,5 +8,6 @@
 
 import Foundation
 
-let pitchPipeResetNotification = NSNotification.Name(rawValue: "pitchPipeResetNotification")
-let darkModeChangedNotification = NSNotification.Name(rawValue: "darkModeChangedNotification")
+class Constants {
+    static var pitchPipeIsPlayingSound: Bool = false
+}

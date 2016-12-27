@@ -162,15 +162,12 @@ private let frequencies: [Double] = [
         microphone = AKMicrophone()
         analyzer = AKFrequencyTracker.init(microphone)
         silence = AKBooster(analyzer, gain: 0.0)
-//        AudioKit.output = silence
     }
     
     /**
      Starts the tuner.
      */
     open func start() {
-//        AudioKit.start()
-//        AKSettings.audioInputEnabled = true
         microphone.start()
         analyzer.start()
         

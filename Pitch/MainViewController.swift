@@ -75,7 +75,7 @@ class MainViewController: UIViewController, TunerDelegate {
         view.clipsToBounds = true
         view.isHidden = true
         
-        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.darkModeChanged), name: darkModeChangedNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.darkModeChanged), name: .darkModeChanged, object: nil)
         darkModeChanged()
     }
     
