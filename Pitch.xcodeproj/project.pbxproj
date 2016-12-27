@@ -25,6 +25,10 @@
 		4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */; };
 		4CE5F0C11E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */; };
 		4CE5F0C31E117C4700EF0AB3 /* ScoreCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0C21E117C4700EF0AB3 /* ScoreCircle.swift */; };
+		4CE5F0C61E130FBF00EF0AB3 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE5F0C41E130FBF00EF0AB3 /* Realm.framework */; };
+		4CE5F0C71E130FBF00EF0AB3 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE5F0C41E130FBF00EF0AB3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4CE5F0C81E130FBF00EF0AB3 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE5F0C51E130FBF00EF0AB3 /* RealmSwift.framework */; };
+		4CE5F0C91E130FBF00EF0AB3 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE5F0C51E130FBF00EF0AB3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D31D8A0CFD000492E6 /* AppDelegate.swift */; };
 		4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */; };
 		4CEAD6D91D8A0CFD000492E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D71D8A0CFD000492E6 /* Main.storyboard */; };
@@ -60,6 +64,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4CE5F0CA1E130FBF00EF0AB3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4CE5F0C91E130FBF00EF0AB3 /* RealmSwift.framework in Embed Frameworks */,
+				4CE5F0C71E130FBF00EF0AB3 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4C1FD5121DD117A700C1C6B9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4C253C351D9FF7E900BD07D6 /* MainViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
@@ -78,6 +97,8 @@
 		4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Animations.swift"; sourceTree = "<group>"; };
 		4CE5F0C21E117C4700EF0AB3 /* ScoreCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCircle.swift; sourceTree = "<group>"; };
+		4CE5F0C41E130FBF00EF0AB3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		4CE5F0C51E130FBF00EF0AB3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		4CEAD6D01D8A0CFD000492E6 /* Pitch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pitch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CEAD6D31D8A0CFD000492E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +131,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE5F0C61E130FBF00EF0AB3 /* Realm.framework in Frameworks */,
 				ED97DF447623C3DFD64041F0 /* Pods_Pitch.framework in Frameworks */,
+				4CE5F0C81E130FBF00EF0AB3 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +208,8 @@
 		4CEAD6C71D8A0CFD000492E6 = {
 			isa = PBXGroup;
 			children = (
+				4CE5F0C41E130FBF00EF0AB3 /* Realm.framework */,
+				4CE5F0C51E130FBF00EF0AB3 /* RealmSwift.framework */,
 				4CEAD6D21D8A0CFD000492E6 /* Pitch */,
 				4CEAD6E71D8A0CFD000492E6 /* PitchTests */,
 				4CEAD6F21D8A0CFD000492E6 /* PitchUITests */,
@@ -312,6 +337,7 @@
 				4CEAD6CE1D8A0CFD000492E6 /* Resources */,
 				511BD80BD1D32E3CEAE32B92 /* [CP] Embed Pods Frameworks */,
 				10D799CFC05FD106B827988B /* [CP] Copy Pods Resources */,
+				4CE5F0CA1E130FBF00EF0AB3 /* Embed Frameworks */,
 				4C89C1241DC8E91300AE841F /* ShellScript */,
 			);
 			buildRules = (
@@ -482,7 +508,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/AudioKit.framework/fix-framework.sh\"\n\"${PODS_ROOT}/Fabric/run\" caa158d830db55c4ba2b1dc1fc2d678689e6e673 93698f30a213fa180439d6c3041df2864041f95854e11505e05f66405df33143";
+			shellScript = "\"$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/AudioKit.framework/fix-framework.sh\"\n\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\n\"${PODS_ROOT}/Fabric/run\" caa158d830db55c4ba2b1dc1fc2d678689e6e673 93698f30a213fa180439d6c3041df2864041f95854e11505e05f66405df33143";
 		};
 		511BD80BD1D32E3CEAE32B92 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -688,6 +714,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/AudioKit/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Pitch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -713,6 +740,7 @@
 					"\"$PODS_CONFIGURATION_BUILD_DIR/TuningFork\"",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/AudioKit\"",
 					"$(PROJECT_DIR)/Pods/AudioKit/iOS",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Pitch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

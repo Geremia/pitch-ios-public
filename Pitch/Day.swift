@@ -7,33 +7,34 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Day: NSObject, NSCoding {
+class Day: Object, NSCoding {
     
     // MARK: - Variables
     
     let tuningThreshold: Double = 0.4 // The threshold in cents for being 'in-tune'
     
-    var date: Date
-    var inTunePercentage: Double
-    var inTunePercentageDataCount: Int // The number of data points added for inTunePercentage
-    var timeToCenter: TimeInterval
-    var timeToCenterDataCount: Int // The number of data points added for timeToCenter
+    var date: Date = Date()
+    var inTunePercentage: Double = 1
+    var inTunePercentageDataCount: Int = 0 // The number of data points added for inTunePercentage
+    var timeToCenter: TimeInterval = 1
+    var timeToCenterDataCount: Int = 0 // The number of data points added for timeToCenter
     
     var hasSufficientData: Bool { // Boolean indicating whether enough data has been collected
         return inTunePercentageDataCount >= 100 && timeToCenterDataCount >= 3
     }
     
-    // MARK: - Initialization
-    
-    override init() {
-        date = Date()
-        inTunePercentage = 1
-        inTunePercentageDataCount = 0
-        timeToCenter = 1
-        timeToCenterDataCount = 0
-    }
-    
+//    // MARK: - Initialization
+//    
+//    required init() {
+//        date = Date()
+//        inTunePercentage = 1
+//        inTunePercentageDataCount = 0
+//        timeToCenter = 1
+//        timeToCenterDataCount = 0
+//    }
+//    
     // MARK: - NSCoding
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,7 +44,7 @@ class Day: NSObject, NSCoding {
         self.timeToCenter = aDecoder.decodeDouble(forKey: "timeToCenter")
         self.timeToCenterDataCount = aDecoder.decodeInteger(forKey: "timeToCenterDataCount")
     }
-    
+
     func encode(with aCoder: NSCoder) {
         aCoder.encode(date, forKey: "date")
         aCoder.encode(inTunePercentage, forKey: "inTunePercentage")
