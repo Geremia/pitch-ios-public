@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UICountingLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>373F7B79C1E6205E043AAA27FFCB273F</key>
+		<key>4C87D86F066E217DA583625CA3D7E5DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA0C584A93A53BE91B61DD1385E187BB</key>
+		<key>567619F24A3D1EFC21242E124C67A00F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9443F18D3CB23BF8414A4839BB058315</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9C6B7EC039FBDA1DC8F009D8307C271</key>
 		<dict>
 			<key>primary</key>
 			<true/>
