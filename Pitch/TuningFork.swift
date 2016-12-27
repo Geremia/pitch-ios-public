@@ -160,7 +160,7 @@ private let frequencies: [Double] = [
         self.previousAmplitude = 0.0
         self.previousFrequency = 0.0
         microphone = AKMicrophone()
-        analyzer = AKFrequencyTracker.init(microphone, hopSize: 512, peakCount: 40)
+        analyzer = AKFrequencyTracker.init(microphone, hopSize: 512, peakCount: 100)
         silence = AKBooster(analyzer, gain: 0.0)
     }
     
@@ -181,7 +181,6 @@ private let frequencies: [Double] = [
         if let d = self.delegate {
             let amplitude = self.analyzer.amplitude
             var frequency = self.analyzer.frequency
-            print(frequency)
             
             if amplitude - previousAmplitude > 0.05 || abs(frequency - previousFrequency) > (distanceBetweenNotes(frequency: frequency) / 2) {
                 self.smoothing = 1.0
