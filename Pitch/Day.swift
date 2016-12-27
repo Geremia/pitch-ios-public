@@ -35,7 +35,7 @@ class Day: Object {
     
     // MARK: - Functions
     
-    func addDataPoint(tunerOutput: TunerOutput) {
+    func add(tunerOutput: TunerOutput) {
         let realm = try! Realm()
         try! realm.write {
             inTunePercentageDataCount += 1
@@ -48,7 +48,7 @@ class Day: Object {
         }
     }
     
-    func addDataPoint(timeToCenter time: Double) {
+    func add(timeToCenter time: Double) {
         let realm = try! Realm()
         try! realm.write {
             timeToCenterDataCount += 1
