@@ -12,7 +12,7 @@ import AudioKit
 class SoundGenerator : NSObject {
     private var bank: AKOscillatorBank!
     private var mixer: AKMixer!
-    private var octaveConstant: Int = 84
+    private var octaveConstant: Int = 60
     private var channelsOn: [Int] = [] {
         didSet {
             Constants.pitchPipeIsPlayingSound = channelsOn.count > 0
