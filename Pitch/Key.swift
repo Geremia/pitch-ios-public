@@ -9,6 +9,9 @@
 import Foundation
 
 enum Key: Int {
+    case fsharp
+    case g
+    case gsharp
     case a
     case asharp
     case b
@@ -18,11 +21,8 @@ enum Key: Int {
     case dsharp
     case e
     case f
-    case fsharp
-    case g
-    case gsharp
     
-    static let allCases: [Key] = [.a, .asharp, .b, .c, .csharp, .d, .dsharp, .e, .f, .fsharp, .g, .gsharp]
+    static let allCases: [Key] = [.fsharp, .g, .gsharp, .a, .asharp, .b, .c, .csharp, .d, .dsharp, .e, .f]
     
     static func fromName(_ name: String) -> Key? {
         for key in allCases {
@@ -35,7 +35,7 @@ enum Key: Int {
     }
     
     var concertOffset: Int {
-        return self.rawValue - 3
+        return self.rawValue - 6
     }
     
     var concertOffsetString: String {
