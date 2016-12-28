@@ -39,7 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         
-        if !Constants.pitchPipeIsPlayingSound {
+        print("app will enter foreground")
+        let recordPermissionGranted = AVAudioSession.sharedInstance().recordPermission() == AVAudioSessionRecordPermission.granted
+        if !Constants.pitchPipeIsPlayingSound && recordPermissionGranted {
             AudioKit.start()
             do {
                 try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)

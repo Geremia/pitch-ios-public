@@ -57,9 +57,8 @@ class MainViewController: UIViewController, TunerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTuner()
         setupUI()
-        setupPlot()
+//        setupPlot()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,11 +66,35 @@ class MainViewController: UIViewController, TunerDelegate {
         pitchPipeView.updateButtonLabels()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkRecordPermission()
+    }
+    
+    func checkRecordPermission() {
+        let recordPermissionGranted = AVAudioSession.sharedInstance().recordPermission() == AVAudioSessionRecordPermission.granted
+        if recordPermissionGranted {
+            setupTuner()
+        } else {
+            requestRecordPermission()
+        }
+    }
+    
+    func requestRecordPermission() {
+        AVAudioSession.sharedInstance().requestRecordPermission() { granted in
+            if granted {
+                DispatchQueue.main.async {
+                    self.setupTuner()
+                }
+            }
+        }
+    }
+    
     func setupTuner() {
         tuner = Tuner()
         tuner?.delegate = self
-        self.pitchPipeView.soundGenerator.tuner = tuner
-        self.pitchPipeView.soundGenerator.setUp()
+        pitchPipeView.soundGenerator.tuner = self.tuner
+        pitchPipeView.soundGenerator.setUp()
         tuner?.start()
     }
     
@@ -93,7 +116,7 @@ class MainViewController: UIViewController, TunerDelegate {
         plot.color = UIColor.white
         plot.gain = 3.0
         plot.backgroundColor = UIColor.clear
-//        audioPlot.addSubview(plot)
+        audioPlot.addSubview(plot)
         
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(plotTapped))
         audioPlot.addGestureRecognizer(tapGR)

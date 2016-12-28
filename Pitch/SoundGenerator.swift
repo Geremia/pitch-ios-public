@@ -29,6 +29,12 @@ class SoundGenerator : NSObject {
         
         AudioKit.output = mixer
         AudioKit.start()
+        
+        do {
+            try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
+        } catch {
+            print("Error setting category.")
+        }
     }
     
     final func playNoteOn(channelNumber: Int) {
