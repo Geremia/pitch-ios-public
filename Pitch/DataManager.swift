@@ -11,32 +11,35 @@ import RealmSwift
 
 class DataManager {
     static func today() -> Day {
-        let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
+        let startOfToday = Calendar.current.startOfDay(for: Date())
         let realm = try! Realm()
-        let days = realm.objects(Day.self).filter("day == %@ AND month == %@ and year == %@", components.day!, components.month!, components.year!)
+        let days = realm.objects(Day.self).filter("date >= %@", startOfToday)
+        
+        print(lastSevenDays())
+        
         if days.count > 0 {
             return days[0]
         } else {
-            let day = newDay()
+            let day = Day.newDay()
             setToday(day)
             return day
         }
     }
     
-    fileprivate static func newDay() -> Day {
-        let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
-        let day = Day()
-        day.day = components.day!
-        day.month = components.month!
-        day.year = components.year!
-        day.id = "\(day.year)\(day.month)\(day.day)"
-        return day
-    }
-    
-    static func setToday(_ newValue: Day) {
+    fileprivate static func setToday(_ newValue: Day) {
         let realm = try! Realm()
         try! realm.write {
             realm.add(newValue, update: true)
         }
+    }
+    
+    static func lastSevenDays() -> Results<Day> {
+        let today = Calendar.current.startOfDay(for: Date())
+        let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: today)!
+        
+        let realm = try! Realm()
+        let days = realm.objects(Day.self).filter("date >= %@", sevenDaysAgo)
+        print(days)
+        return days
     }
 }

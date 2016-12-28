@@ -14,10 +14,8 @@ class Day: Object {
     
     // MARK: - Variables
     
-    var day: Int = 0
-    var month: Int = 0
-    var year: Int = 0
-    var id: String = "0"
+    dynamic var date: Date = Date()
+    dynamic var id: String = "0"
     
     let tuningThreshold: Double = 0.4 // The threshold in cents for being 'in-tune'
     dynamic var inTunePercentage: Double = 1
@@ -29,11 +27,20 @@ class Day: Object {
         return inTunePercentageDataCount >= 100 && timeToCenterDataCount >= 3
     }
     
+    // MARK: - Functions
+    
+    static func newDay() -> Day {
+        let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
+        let day = Day()
+        day.id = "\(components.year!)\(components.month!)\(components.day!)"
+        return day
+    }
+    
     override static func primaryKey() -> String? {
         return "id"
     }
     
-    // MARK: - Functions
+    // MARK: - Data Point Adding 
     
     func add(tunerOutput: TunerOutput) {
         let realm = try! Realm()
