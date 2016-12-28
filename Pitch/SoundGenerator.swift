@@ -31,7 +31,9 @@ class SoundGenerator : NSObject {
         AudioKit.start()
         
         do {
-            try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
+//            try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
+            print("do")
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
         } catch {
             print("Error setting category.")
         }

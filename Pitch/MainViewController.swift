@@ -36,6 +36,7 @@ class MainViewController: UIViewController, TunerDelegate {
     // MARK: - Tuner Variables
     
     private var tuner: Tuner?
+    var tunerSetup: Bool = false
     
     var presentAniamtionController = VerticalSlideAnimationController(direction: .left)
     var dismissAnimationController = VerticalSlideAnimationController(direction: .right)
@@ -57,6 +58,7 @@ class MainViewController: UIViewController, TunerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTuner()
         setupUI()
 //        setupPlot()
     }
@@ -68,11 +70,13 @@ class MainViewController: UIViewController, TunerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        checkRecordPermission()
+//        if !tunerSetup {
+//            checkRecordPermission()
+//        }
     }
     
     func checkRecordPermission() {
-        let recordPermissionGranted = AVAudioSession.sharedInstance().recordPermission() == AVAudioSessionRecordPermission.granted
+        let recordPermissionGranted = UserDefaults.standard.recordPermission()
         if recordPermissionGranted {
             setupTuner()
         } else {
@@ -81,16 +85,16 @@ class MainViewController: UIViewController, TunerDelegate {
     }
     
     func requestRecordPermission() {
-        AVAudioSession.sharedInstance().requestRecordPermission() { granted in
+        AKSettings.session.requestRecordPermission() { (granted: Bool) -> Void in
             if granted {
-                DispatchQueue.main.async {
-                    self.setupTuner()
-                }
+                UserDefaults.standard.setRecordPermission(true)
+                self.setupTuner()
             }
         }
     }
     
     func setupTuner() {
+        tunerSetup = true
         tuner = Tuner()
         tuner?.delegate = self
         pitchPipeView.soundGenerator.tuner = self.tuner

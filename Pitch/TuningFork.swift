@@ -160,7 +160,7 @@ private let frequencies: [Double] = [
         self.previousAmplitude = 0.0
         self.previousFrequency = 0.0
         microphone = AKMicrophone()
-        analyzer = AKFrequencyTracker.init(microphone, hopSize: 512, peakCount: 100)
+        analyzer = AKFrequencyTracker(microphone, hopSize: 512, peakCount: 100)
         silence = AKBooster(analyzer, gain: 0.0)
     }
     
@@ -168,6 +168,8 @@ private let frequencies: [Double] = [
      Starts the tuner.
      */
     open func start() {
+        microphone.start()
+        analyzer.start()
         timer = Timer.scheduledTimer(timeInterval: updateInterval, target: self, selector: #selector(Tuner.timerAction), userInfo: nil, repeats: true)
     }
     

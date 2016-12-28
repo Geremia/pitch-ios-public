@@ -9,6 +9,14 @@
 import Foundation
 
 extension UserDefaults {
+    func recordPermission() -> Bool {
+        return bool(forKey: "recordPermission")
+    }
+    
+    func setRecordPermission(_ newValue: Bool) {
+        set(newValue, forKey: "recordPermission")
+    }
+    
     func hasSeenAnalyticsAnimation() -> Bool {
         return bool(forKey: "hasSeenAnalyticsAnimation")
     }
