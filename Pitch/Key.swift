@@ -25,13 +25,9 @@ enum Key: Int {
     static let allCases: [Key] = [.fsharp, .g, .gsharp, .a, .asharp, .b, .c, .csharp, .d, .dsharp, .e, .f]
     
     static func fromName(_ name: String) -> Key? {
-        for key in allCases {
-            if name == key.sharpName || name == key.flatName {
-                return key
-            }
-        }
-        
-        return nil
+        return allCases.filter { key in
+            return name == key.sharpName || name == key.flatName
+        }.first
     }
     
     var concertOffset: Int {
