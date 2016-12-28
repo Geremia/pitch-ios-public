@@ -11,35 +11,34 @@ import RealmSwift
 
 class DataManager {
     static func today() -> Day {
-        let startOfToday = Calendar.current.startOfDay(for: Date())
-        let realm = try! Realm()
-        let days = realm.objects(Day.self).filter("date >= %@", startOfToday)
-        
-        print(lastSevenDays())
-        
+        let days = data(forPastDays: 1)
         if days.count > 0 {
             return days[0]
         } else {
             let day = Day.newDay()
-            setToday(day)
+            add(day: day)
             return day
         }
     }
     
-    fileprivate static func setToday(_ newValue: Day) {
+    fileprivate static func add(day: Day) {
         let realm = try! Realm()
         try! realm.write {
-            realm.add(newValue, update: true)
+            realm.add(day, update: true)
         }
     }
     
-    static func lastSevenDays() -> Results<Day> {
+    static func data(forPastDays days: Int) -> Results<Day> {
+        var numberOfDays = days
+        if numberOfDays < 1 {
+            numberOfDays = 1
+        }
+        
         let today = Calendar.current.startOfDay(for: Date())
-        let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -7, to: today)!
+        let startDate = Calendar.current.date(byAdding: .day, value: -(numberOfDays - 1), to: today)!
         
         let realm = try! Realm()
-        let days = realm.objects(Day.self).filter("date >= %@", sevenDaysAgo)
-        print(days)
+        let days = realm.objects(Day.self).filter("date >= %@", startDate)
         return days
     }
 }
