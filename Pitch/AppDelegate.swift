@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !Constants.pitchPipeIsPlayingSound && recordPermissionGranted {
             AudioKit.start()
             do {
-                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord, with: .defaultToSpeaker)
+                try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
             } catch {
                 print("Error setting category.")
             }

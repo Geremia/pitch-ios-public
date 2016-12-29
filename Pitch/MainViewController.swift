@@ -58,7 +58,7 @@ class MainViewController: UIViewController, TunerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTuner()
+        checkRecordPermission()
         setupUI()
 //        setupPlot()
     }
@@ -87,8 +87,10 @@ class MainViewController: UIViewController, TunerDelegate {
     func requestRecordPermission() {
         AKSettings.session.requestRecordPermission() { (granted: Bool) -> Void in
             if granted {
-                UserDefaults.standard.setRecordPermission(true)
-                self.setupTuner()
+                DispatchQueue.main.async {
+                    UserDefaults.standard.setRecordPermission(true)
+                    self.setupTuner()
+                }
             }
         }
     }
