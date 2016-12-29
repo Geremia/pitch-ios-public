@@ -122,6 +122,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import Foundation;
 @import CoreMIDI;
 @import Accelerate;
+@import AudioToolbox;
 #endif
 
 #import <AudioKit/AudioKit.h>
@@ -598,6 +599,10 @@ SWIFT_CLASS("_TtC8AudioKit13AKAudioPlayer")
 */
 @property (nonatomic) double endTime;
 /**
+  Sets the time in the future when playback will commence. For immediately playback, leave it 0.
+*/
+@property (nonatomic) double scheduledTime;
+/**
   Initialize the audio player
   Notice that completionCallBack will be triggered from a
   background thread. Any UI update should be made using:
@@ -637,7 +642,6 @@ SWIFT_CLASS("_TtC8AudioKit13AKAudioPlayer")
   Replace player’s file with a new AKAudioFile file
 */
 - (BOOL)replaceWithFile:(AKAudioFile * _Nonnull)file error:(NSError * _Nullable * _Nullable)error;
-- (void)play;
 /**
   Play the file back from a certain time, to an end time (if set). You can optionally set a scheduled time to play (in seconds).
   \param time Time into the file at which to start playing back
@@ -1171,6 +1175,66 @@ SWIFT_CLASS("_TtC8AudioKit16AKChowningReverb")
 */
 - (void)stop;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+/**
+  STK Clarinet
+  \param frequency Variable frequency. Values less than the initial frequency will be doubled until it is greater than that.
+
+  \param amplitude Amplitude
+
+*/
+SWIFT_CLASS("_TtC8AudioKit10AKClarinet")
+@interface AKClarinet : AKNode
+/**
+  Ramp Time represents the speed at which parameters are allowed to change
+*/
+@property (nonatomic) double rampTime;
+/**
+  Variable frequency. Values less than the initial frequency will be doubled until it is greater than that.
+*/
+@property (nonatomic) double frequency;
+/**
+  Amplitude
+*/
+@property (nonatomic) double amplitude;
+/**
+  Tells whether the node is processing (ie. started, playing, or active)
+*/
+@property (nonatomic, readonly) BOOL isStarted;
+/**
+  Initialize the mandolin with defaults
+*/
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+/**
+  Initialize the STK Clarinet model
+  \param frequency Variable frequency. Values less than the initial frequency will be doubled until it is greater than that.
+
+  \param amplitude Amplitude
+
+*/
+- (nonnull instancetype)initWithFrequency:(double)frequency amplitude:(double)amplitude OBJC_DESIGNATED_INITIALIZER;
+/**
+  Trigger the sound with an optional set of parameters
+  <ul>
+    <li>
+      frequency: Frequency in Hz
+    </li>
+    <li>
+      amplitude amplitude: Volume
+    </li>
+  </ul>
+*/
+- (void)triggerWithFrequency:(double)frequency amplitude:(double)amplitude;
+/**
+  Function to start, play, or activate the node, all do the same thing
+*/
+- (void)start;
+/**
+  Function to stop or bypass the node, both are equivalent
+*/
+- (void)stop;
 @end
 
 
@@ -3157,6 +3221,9 @@ SWIFT_CLASS("_TtC8AudioKit10AKMIDINode")
 */
 SWIFT_CLASS("_TtC8AudioKit9AKSampler")
 @interface AKSampler : AKNode
+/**
+  Internal audio unit
+*/
 @property (nonatomic, strong) AUAudioUnit * _Nullable internalAU;
 /**
   Sampler AV Audio Unit
@@ -3511,6 +3578,10 @@ SWIFT_CLASS("_TtC8AudioKit12AKMicrophone")
   Output Volume (Default 1)
 */
 @property (nonatomic) double volume;
+/**
+  Set the actual microphone device
+*/
+- (BOOL)setDevice:(AKDevice * _Nonnull)device error:(NSError * _Nullable * _Nullable)error;
 /**
   Determine if the microphone is currently on.
 */
@@ -3990,6 +4061,9 @@ SWIFT_CLASS("_TtC8AudioKit20AKOperationGenerator")
   Tells whether the node is processing (ie. started, playing, or active)
 */
 @property (nonatomic, readonly) BOOL isStarted;
+/**
+  Sporth language snippet
+*/
 @property (nonatomic, copy) NSString * _Nonnull sporth;
 /**
   Parameters for changing internal operations
@@ -4819,6 +4893,31 @@ SWIFT_CLASS("_TtC8AudioKit14AKPitchShifter")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
+
+/**
+  Class to handle updating via CADisplayLink
+*/
+SWIFT_CLASS("_TtC8AudioKit16AKPlaygroundLoop")
+@interface AKPlaygroundLoop : NSObject
+/**
+  Repeat this loop at a given period with a code block
+  \param every Period, or interval between block executions
+
+  \param handler Code block to execute
+
+*/
+- (nonnull instancetype)initWithEvery:(double)dur handler:(void (^ _Nonnull)(void))handler OBJC_DESIGNATED_INITIALIZER;
+/**
+  Repeat this loop at a given frequency with a code block
+  \param frequency Frequency of block executions in Hz
+
+  \param handler Code block to execute
+
+*/
+- (nonnull instancetype)initWithFrequency:(double)frequency handler:(void (^ _Nonnull)(void))handler OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
 @class UILabel;
 
 SWIFT_CLASS("_TtC8AudioKit16AKPlaygroundView")
@@ -5260,6 +5359,10 @@ SWIFT_CLASS("_TtC8AudioKit19AKRolandTB303Filter")
 SWIFT_CLASS("_TtC8AudioKit19AKRollingOutputPlot")
 @interface AKRollingOutputPlot : EZAudioPlot
 /**
+  Useful to reconnect after connecting to Audiobus or IAA
+*/
+- (void)reconnect;
+/**
   Initialize the plot in a frame
   \param frame CGRect in which to draw the plot
 
@@ -5372,6 +5475,34 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AVAudioSessi
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL headPhonesPlugged;)
 + (BOOL)headPhonesPlugged;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/**
+  Audio from a standard stereo input (very useful for making filters that use Audiobus or IAA as their input source)
+*/
+SWIFT_CLASS("_TtC8AudioKit13AKStereoInput")
+@interface AKStereoInput : AKNode
+/**
+  Output Volume (Default 1)
+*/
+@property (nonatomic) double volume;
+/**
+  Determine if the microphone is currently on.
+*/
+@property (nonatomic, readonly) BOOL isStarted;
+/**
+  Initialize the microphone
+*/
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+/**
+  Function to start, play, or activate the node, all do the same thing
+*/
+- (void)start;
+/**
+  Function to stop or bypass the node, both are equivalent
+*/
+- (void)stop;
 @end
 
 
@@ -5941,7 +6072,15 @@ SWIFT_CLASS("_TtC8AudioKit12AKWhiteNoise")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
-@class AVAudioEngine;
+
+@interface AUParameterTree (SWIFT_EXTENSION(AudioKit))
+@end
+
+
+@interface AVAudioEngine (SWIFT_EXTENSION(AudioKit))
+- (void)connect:(AVAudioNode * _Nonnull)node1 to:(AVAudioNode * _Nonnull)node2;
+@end
+
 
 /**
   Top level AudioKit managing class
