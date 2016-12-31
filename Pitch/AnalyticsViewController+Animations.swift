@@ -31,6 +31,9 @@ extension AnalyticsViewController {
         todayLabelTopConstraint.constant += 250
         todaySeparatorTopConstraint.constant += 350
         descriptionLabelTopConstraint.constant += 450
+        
+        feedbackLabel.alpha = 0.0
+        feedbackButton.alpha = 0.0
     }
     
     func animateIn() {
@@ -51,6 +54,11 @@ extension AnalyticsViewController {
             self.todayLabel.alpha = 1.0
             self.todaySeparator.alpha = 1.0
             self.descriptionLabel.alpha = 1.0
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.5, delay: 1.4, options: [], animations: {
+            self.feedbackLabel.alpha = 1.0
+            self.feedbackButton.alpha = 1.0
         }, completion: nil)
     }
     

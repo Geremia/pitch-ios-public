@@ -8,6 +8,7 @@
 
 import UIKit
 import UICountingLabel
+import MessageUI
 
 class AnalyticsViewController: UIViewController {
     
@@ -30,6 +31,9 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var todaySeparatorTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var descriptionLabelTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var feedbackLabel: UILabel!
+    @IBOutlet weak var feedbackButton: UIButton!
+    
     // MARK: - Setup Views
 
     override func viewDidLoad() {
@@ -51,6 +55,8 @@ class AnalyticsViewController: UIViewController {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
         updateDarkMode()
+        
+        feedbackButton.layer.cornerRadius = 8.0
         
         let today = DataManager.today()
         if today.hasSufficientData {
@@ -115,6 +121,9 @@ class AnalyticsViewController: UIViewController {
             todayLabel.textColor = .white
             todaySeparator.backgroundColor = .white
             descriptionLabel.textColor = .white
+            
+            feedbackLabel.textColor = .white
+            feedbackButton.layer.backgroundColor = UIColor.darkInTune.cgColor
         }
     }
 
@@ -124,10 +133,30 @@ class AnalyticsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func feedbackButtonPressed(_ sender: Any) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["dkuntz0@gmail.com"])
+            mail.setSubject("Pitch Tuner Feedback")
+            mail.setMessageBody("Hi Daniel,\n This is how I think you can improve the Pitch tuner app: \n\n\n\n\n\n ", isHTML: true)
+            
+            present(mail, animated: true, completion: nil)
+        }
+    }
+    
     // MARK: - Status Bar Style
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
+}
+
+extension AnalyticsViewController: MFMailComposeViewControllerDelegate {
     
+    // MARK: - MFMailComposeViewControllerDelegate
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }
