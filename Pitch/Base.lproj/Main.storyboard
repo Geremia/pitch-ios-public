@@ -31,7 +31,7 @@
             <objects>
                 <tableViewController id="XGh-dx-vJk" customClass="SettingsTableViewController" customModule="Pitch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZN9-dX-P7o">
-                        <rect key="frame" x="0.0" y="0.0" width="355" height="464.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="355" height="466.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.78431372549019607" green="0.78431372549019607" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,7 +74,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Display Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrJ-A5-5sh">
-                                                    <rect key="frame" x="16" y="16.5" width="113" height="23"/>
+                                                    <rect key="frame" x="16" y="16.5" width="116.5" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -113,13 +113,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Instrument" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuD-Qw-Nty">
-                                                    <rect key="frame" x="16" y="16.5" width="89.5" height="23"/>
+                                                    <rect key="frame" x="16" y="16.5" width="91" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYt-Ct-WFT">
-                                                    <rect key="frame" x="236" y="17.5" width="104" height="23"/>
+                                                    <rect key="frame" x="235" y="17.5" width="105" height="23"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Clarinet (Bb)">
                                                             <attributes>
@@ -152,7 +152,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGF-Da-11n">
-                                                    <rect key="frame" x="16" y="16.5" width="92.5" height="23"/>
+                                                    <rect key="frame" x="16" y="16.5" width="94" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -221,7 +221,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Auto-Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBm-c2-3KC">
-                                                    <rect key="frame" x="16" y="16.5" width="78" height="23"/>
+                                                    <rect key="frame" x="16" y="17" width="78" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -254,7 +254,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDt-UU-6qD">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="222.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="223"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <connections>
                                                         <outlet property="dataSource" destination="IaY-yC-ccq" id="gvr-Lq-IHd"/>
@@ -306,7 +306,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syJ-FW-TRB">
-                                        <rect key="frame" x="147" y="23" width="81" height="28"/>
+                                        <rect key="frame" x="145.5" y="23" width="84.5" height="27"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -323,13 +323,13 @@
                                         </connections>
                                     </button>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HgG-IX-2xp">
-                                        <rect key="frame" x="10" y="75" width="355" height="464.5"/>
+                                        <rect key="frame" x="10" y="74" width="355" height="466.5"/>
                                         <connections>
                                             <segue destination="XGh-dx-vJk" kind="embed" identifier="settingsTableEmbed" id="Bve-gR-Bew"/>
                                         </connections>
                                     </containerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How can we improve?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYQ-c3-sou">
-                                        <rect key="frame" x="87.5" y="559.5" width="199.5" height="25.5"/>
+                                        <rect key="frame" x="82.5" y="560.5" width="209.5" height="24.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="21"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -536,7 +536,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-78-WqF">
-                                        <rect key="frame" x="147" y="143.5" width="81.5" height="132"/>
+                                        <rect key="frame" x="145" y="145.5" width="86" height="128.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Hairline" family="Lato" pointSize="110"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -553,7 +553,7 @@
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-ws-Axi">
-                                        <rect key="frame" x="175.5" y="275.5" width="24" height="20"/>
+                                        <rect key="frame" x="175.5" y="274" width="24" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -570,7 +570,7 @@
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4h-6o-O5x">
-                                        <rect key="frame" x="218" y="220.5" width="19" height="38.5"/>
+                                        <rect key="frame" x="218.5" y="221" width="18" height="37.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -827,13 +827,13 @@
                                         <rect key="frame" x="187.5" y="162" width="94" height="69"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFI-AI-stZ">
-                                                <rect key="frame" x="38.5" y="4" width="17" height="36"/>
+                                                <rect key="frame" x="38.5" y="4" width="17" height="35"/>
                                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="30"/>
                                                 <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCTAVE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbz-e0-DUB">
-                                                <rect key="frame" x="20.5" y="44" width="54.5" height="17"/>
+                                                <rect key="frame" x="21" y="44" width="53.5" height="17"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1083,34 +1083,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IS9-oK-mTM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not enough data yet. Come back when you've practiced a little more!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g9-Vp-1Yf">
-                                        <rect key="frame" x="40" y="384.5" width="295" height="41"/>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_chart_lightgray" translatesAutoresizingMaskIntoConstraints="NO" id="i1H-dX-i2N">
-                                        <rect key="frame" x="122.5" y="214.5" width="130" height="130"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="130" id="MSg-gd-9pL"/>
-                                            <constraint firstAttribute="width" constant="130" id="Syv-7H-2Jt"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="6g9-Vp-1Yf" secondAttribute="trailing" constant="40" id="Bc8-xA-GvE"/>
-                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerY" secondItem="IS9-oK-mTM" secondAttribute="centerY" constant="-54" id="HQK-2H-MQ9"/>
-                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerX" secondItem="IS9-oK-mTM" secondAttribute="centerX" id="ZrO-uf-lYr"/>
-                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="top" secondItem="i1H-dX-i2N" secondAttribute="bottom" constant="40" id="aFF-hh-shJ"/>
-                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="leading" secondItem="IS9-oK-mTM" secondAttribute="leading" constant="40" id="l30-id-wU4"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you like this feature?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiH-D2-a3a">
-                                <rect key="frame" x="78" y="559.5" width="219" height="26"/>
+                                <rect key="frame" x="78.5" y="560" width="218.5" height="25.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -1154,7 +1128,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVf-Gq-O3n">
-                                <rect key="frame" x="159.5" y="321" width="57" height="20"/>
+                                <rect key="frame" x="160" y="321" width="57" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1173,6 +1147,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IS9-oK-mTM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not enough data yet. Come back when you've practiced a little more!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g9-Vp-1Yf">
+                                        <rect key="frame" x="40" y="384.5" width="295" height="41"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_chart_lightgray" translatesAutoresizingMaskIntoConstraints="NO" id="i1H-dX-i2N">
+                                        <rect key="frame" x="122.5" y="214.5" width="130" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="MSg-gd-9pL"/>
+                                            <constraint firstAttribute="width" constant="130" id="Syv-7H-2Jt"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6g9-Vp-1Yf" secondAttribute="trailing" constant="40" id="Bc8-xA-GvE"/>
+                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerY" secondItem="IS9-oK-mTM" secondAttribute="centerY" constant="-54" id="HQK-2H-MQ9"/>
+                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerX" secondItem="IS9-oK-mTM" secondAttribute="centerX" id="ZrO-uf-lYr"/>
+                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="top" secondItem="i1H-dX-i2N" secondAttribute="bottom" constant="40" id="aFF-hh-shJ"/>
+                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="leading" secondItem="IS9-oK-mTM" secondAttribute="leading" constant="40" id="l30-id-wU4"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Analytics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiS-dX-sKS">
                                 <rect key="frame" x="141" y="23" width="93" height="28"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
