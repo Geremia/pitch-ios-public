@@ -9,58 +9,6 @@
 import Foundation
 import RealmSwift
 
-class OffsetData: Object {
-    
-    /**
-     * The pitch as a Pitch object. The Pitch type cannot be stored as a
-     * Realm object, so it must be computed from pitchString and octave.
-     */
-    var pitch: Pitch {
-        let note = Note.fromName(pitchString)
-        return Pitch(note: note!, octave: octave)
-    }
-    
-    /**
-     * The name of the pitch.
-     */
-    fileprivate dynamic var pitchString: String = ""
-    
-    /**
-     * The octave of the pitch.
-     */
-    fileprivate dynamic var octave: Int = 0
-    
-    /**
-     * The pitch's average offset in cents.
-     */
-    dynamic var averageOffset: Double = 0
-    
-    /**
-     * The number of data points added.
-     */
-    dynamic var dataCount: Double = 0
-    
-    static func new(pitch: Pitch, offset: Double) -> OffsetData {
-        let offsetData = OffsetData()
-        offsetData.pitchString = pitch.description
-        offsetData.octave = pitch.octave
-        offsetData.averageOffset = offset
-        return offsetData
-    }
-    
-    /**
-     * Add a new data point and recalculate average offset.
-     */
-    func add(offset: Double) {
-        dataCount += 1
-        
-        let newDataPointWeight = 1 / Double(dataCount)
-        let oldWeight = 1 - newDataPointWeight
-        
-        averageOffset = (averageOffset * oldWeight) + (offset * newDataPointWeight)
-    }
-}
-
 class Day: Object {
     
     // MARK: - Variables
@@ -94,7 +42,9 @@ class Day: Object {
     dynamic var timeToCenterDataCount: Int = 0
     
     /**
-     * A dictionary containing each pitch played along with that pitch's average offset in cents.
+     * An array of OffsetData. Each OffsetData contains a pitch, octave,
+     * and its average offset. Array is in descending order of the absolute
+     * value of every pitch's average offset.
      */
     var pitchOffsets: List<OffsetData> = List<OffsetData>()
     
@@ -118,7 +68,7 @@ class Day: Object {
         return "id"
     }
     
-    // MARK: - Data Point Adding 
+    // MARK: - Data Point Adding
     
     func add(tunerOutput: TunerOutput) {
         let realm = try! Realm()
@@ -141,22 +91,20 @@ class Day: Object {
             let pitch = tunerOutput.pitch
             let offset = tunerOutput.centsDistace
             
-            /* Check if the pitch is already present in pitchOffsets. */
+            // Check if the pitch is already present in pitchOffsets.
             if let index = pitchOffsets.index(where: { $0.pitch == pitch }) {
-                /* Pitch is present. Update its averageOffset. */
+                // Pitch is present. Update its averageOffset.
                 pitchOffsets[index].add(offset: offset)
             } else {
-                /* Pitch is not present. Add it to pitchOffsets */
+                // Pitch is not present. Add it to pitchOffsets.
                 let offsetData = OffsetData.new(pitch: pitch, offset: offset)
                 pitchOffsets.append(offsetData)
             }
             
-            /* Sort pitchOffsets in descending order by averageOffset. */
+            // Sort pitchOffsets in descending order by the absolute value of their averageOffset.
             let sortedOffsets = Array(pitchOffsets.sorted(by: { abs($0.averageOffset) > abs($1.averageOffset) }))
             pitchOffsets.removeAll()
             pitchOffsets.append(contentsOf: sortedOffsets)
-            
-            print(pitchOffsets)
         }
     }
     
