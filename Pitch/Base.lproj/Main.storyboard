@@ -1152,20 +1152,20 @@
                                                     <constraint firstAttribute="height" constant="1" id="mYv-62-34l"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You were in tune 86% of the time, and you took 2.4 seconds on average to center the pitch." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svw-DF-iBZ">
-                                                <rect key="frame" x="32" y="301" width="311" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="You were in tune 86% of the time, and you took 2.4 seconds on average to center the pitch." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svw-DF-iBZ">
+                                                <rect key="frame" x="32" y="301" width="311" height="61.5"/>
                                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you like this feature?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiH-D2-a3a">
-                                                <rect key="frame" x="78.5" y="563.5" width="218.5" height="25.5"/>
+                                                <rect key="frame" x="78.5" y="614.5" width="218.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="21"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVW-6L-EwS">
-                                                <rect key="frame" x="67.5" y="605" width="240" height="46"/>
+                                                <rect key="frame" x="67.5" y="656" width="240" height="46"/>
                                                 <color key="backgroundColor" red="0.0" green="0.94999999999999996" blue="0.4591666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="m6I-JR-bSf"/>
@@ -1180,7 +1180,7 @@
                                                 </connections>
                                             </button>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9W-pK-BcY">
-                                                <rect key="frame" x="30" y="371.5" width="315" height="132"/>
+                                                <rect key="frame" x="30" y="422.5" width="315" height="132"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="132" id="m3V-JD-P3K"/>
                                                 </constraints>
@@ -1194,10 +1194,10 @@
                                             <constraint firstItem="GiH-D2-a3a" firstAttribute="top" secondItem="R9W-pK-BcY" secondAttribute="bottom" constant="60" id="1cD-IM-EEE"/>
                                             <constraint firstItem="R9W-pK-BcY" firstAttribute="leading" secondItem="Qry-X9-IK3" secondAttribute="leading" constant="30" id="D9i-Vs-KvV"/>
                                             <constraint firstAttribute="trailing" secondItem="svw-DF-iBZ" secondAttribute="trailing" constant="32" id="Maq-56-tEw"/>
-                                            <constraint firstItem="R9W-pK-BcY" firstAttribute="top" secondItem="svw-DF-iBZ" secondAttribute="bottom" constant="50" id="P9d-SI-vzR"/>
                                             <constraint firstItem="GiH-D2-a3a" firstAttribute="centerX" secondItem="Qry-X9-IK3" secondAttribute="centerX" id="PeN-Sl-TiR"/>
                                             <constraint firstItem="rVf-Gq-O3n" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="50" id="Pzq-JB-FGr"/>
                                             <constraint firstItem="rVf-Gq-O3n" firstAttribute="centerX" secondItem="Qry-X9-IK3" secondAttribute="centerX" id="QGh-EI-sa8"/>
+                                            <constraint firstItem="R9W-pK-BcY" firstAttribute="top" secondItem="svw-DF-iBZ" secondAttribute="bottom" constant="60" id="Ri1-2P-S7m"/>
                                             <constraint firstItem="Bj3-re-8Z9" firstAttribute="centerX" secondItem="Qry-X9-IK3" secondAttribute="centerX" id="Tf5-JG-odj"/>
                                             <constraint firstItem="svw-DF-iBZ" firstAttribute="leading" secondItem="Qry-X9-IK3" secondAttribute="leading" constant="32" id="Vpe-RP-9Ra"/>
                                             <constraint firstItem="gaT-vT-MkP" firstAttribute="centerX" secondItem="Qry-X9-IK3" secondAttribute="centerX" id="XuP-Zq-4V6"/>
@@ -1276,7 +1276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfe-DO-wdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1239" y="140"/>
+            <point key="canvasLocation" x="1237.5999999999999" y="139.43028485757122"/>
         </scene>
         <!--Pitches Table View Controller-->
         <scene sceneID="bZl-To-02f">

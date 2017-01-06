@@ -26,8 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func updateRealmSchema() {
-        print(Realm.Configuration.defaultConfiguration.schemaVersion)
-        
         let config = Realm.Configuration(
             // Set the new schema version. This must be greater than the previously used
             // version (if you've never set a schema version before, the version is 0).

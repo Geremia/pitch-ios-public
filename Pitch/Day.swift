@@ -49,6 +49,17 @@ class Day: Object {
     var pitchOffsets: List<OffsetData> = List<OffsetData>()
     
     /**
+     * Returns offset datas that only have more than 1000 data points.
+     */
+    var filteredPitchOffsets: [OffsetData] {
+        var offsets: [OffsetData] = []
+        offsets.append(contentsOf: pitchOffsets)
+        return offsets.filter { data in
+            return data.dataCount >= 1000
+        }
+    }
+    
+    /**
      * Boolean indicating whether enough data has been collected to be displayed to the user.
      */
     var hasSufficientData: Bool {

@@ -12,7 +12,7 @@ class PitchesTableViewController: UITableViewController {
     
     // MARK: - Variables
     
-    let pitchOffsets = DataManager.today().pitchOffsets
+    let pitchOffsets = DataManager.today().filteredPitchOffsets
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class PitchesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return min(pitchOffsets.count, 3)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
