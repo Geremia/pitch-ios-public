@@ -172,6 +172,9 @@ class Tuner: NSObject {
         timer = Timer.scheduledTimer(timeInterval: updateInterval, target: self, selector: #selector(Tuner.timerAction), userInfo: nil, repeats: true)
     }
     
+    /**
+     Called every time the timer refreshes.
+     */
     func timerAction() {
         if let d = self.delegate {
             let amplitude = self.analyzer.amplitude
@@ -199,36 +202,19 @@ class Tuner: NSObject {
         }
     }
     
+    /**
+     The distance between the two pitches closest to a given frequency.
+     */
     func distanceBetweenNotes(frequency: Double) -> Double {
-        if frequency <= 0 {
-            return Double(Int.max)
-        }
-        
-        var norm = frequency
-        while norm > frequencies[frequencies.count - 1] {
-            norm = norm / 2.0
-        }
-        while norm < frequencies[0] {
-            norm = norm * 2.0
-        }
-        
-        var i = -1
-        var min = Double.infinity
-        for n in 0...frequencies.count-1 {
-            let diff = frequencies[n] - norm
-            if abs(diff) < abs(min) {
-                min = diff
-                i = n
-            }
-        }
-        
-        return frequencies[i] - frequencies[i - 1]
+        let pitch = Pitch.nearest(frequency: frequency)
+        let lowerPitch = pitch - 1
+        return pitch.frequency - lowerPitch.frequency
     }
     
     
-        /**
-         Stops the tuner.
-         */
+    /**
+     Stops the tuner.
+    */
     open func stop() {
         microphone.stop()
         analyzer.stop()

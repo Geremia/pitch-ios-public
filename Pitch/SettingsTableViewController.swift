@@ -91,17 +91,17 @@ class SettingsTableViewController: UITableViewController {
     func updateKeyLabel() {
         let currentKey = UserDefaults.standard.key()
         let currentInstrument = UserDefaults.standard.instrument()
-        if currentKey.name.characters.count > 1 {
+        if currentKey.description.characters.count > 1 {
             let font = keyLabel.font
             let fontSuper:UIFont? = keyLabel.font.withSize(14.0)
-            let attString:NSMutableAttributedString = NSMutableAttributedString(string: "\(currentInstrument.name) (\(currentKey.name))", attributes: [NSFontAttributeName:font!])
+            let attString:NSMutableAttributedString = NSMutableAttributedString(string: "\(currentInstrument.name) (\(currentKey.description))", attributes: [NSFontAttributeName:font!])
             attString.setAttributes([NSFontAttributeName: fontSuper!, NSBaselineOffsetAttributeName: 6], range: NSRange(location: attString.length - 2, length: 1))
             if currentInstrument == .bFlatClarinet || currentInstrument == .eFlatClarinet {
                 attString.addAttributes([NSFontAttributeName: fontSuper!, NSBaselineOffsetAttributeName: 6], range: NSRange(location: 1, length: 1))
             }
             keyLabel.attributedText = attString
         } else {
-            keyLabel.attributedText = NSMutableAttributedString(string: "\(currentInstrument.name) (\(currentKey.name))", attributes: nil)
+            keyLabel.attributedText = NSMutableAttributedString(string: "\(currentInstrument.name) (\(currentKey.description))", attributes: nil)
         }
     }
     

@@ -23,15 +23,11 @@
 import Foundation
 
 /**
- * Accidentals increase the pitch of a note. Note that e.g. A♯ and B♭ are
- * essentially the same frequency but have a different meaning based on context.
+ * A key is essentially just a note, so we can use one class for Key and Note types.
  */
-enum Accidental: String {
-    case Sharp = "♯"
-    case Flat  = "♭"
-}
+typealias Key = Note
 
-enum Note: CustomStringConvertible {
+enum Note: Int, CustomStringConvertible {
     case fsharp
     case g
     case gsharp
@@ -49,6 +45,29 @@ enum Note: CustomStringConvertible {
      * This array contains all notes.
      */
     static let all: [Note] = [.c, .csharp, .d, .dsharp, .e, .f, .fsharp, .g, .gsharp, .a, .asharp, .b]
+    
+    /**
+     * Initializes a new Note from a given name.
+     */
+    static func fromName(_ name: String) -> Note? {
+        return all.filter { note in
+            return name == note.sharpName || name == note.flatName
+        }.first
+    }
+    
+    /**
+     * How far a particular note or key is from C.
+     */
+    var concertOffset: Int {
+        return self.rawValue - 6
+    }
+    
+    /**
+     * concertOffset formatted as a string (i.e "+2" or "-5")
+     */
+    var concertOffsetString: String {
+        return concertOffset < 0 ? "\(concertOffset)" : "+\(concertOffset)"
+    }
 
     /**
      * This function returns the frequency of this note in the 4th octave.
@@ -74,7 +93,7 @@ enum Note: CustomStringConvertible {
         }
     }
     
-    var sharpName: String {
+    fileprivate var sharpName: String {
         switch self {
         case .a:
             return "A"
@@ -102,8 +121,8 @@ enum Note: CustomStringConvertible {
             return "G♯"
         }
     }
-    
-    var flatName: String {
+
+    fileprivate var flatName: String {
         switch self {
         case .a, .b, .c, .d, .e, .f, .g:
             return sharpName

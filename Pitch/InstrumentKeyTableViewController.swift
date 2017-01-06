@@ -24,7 +24,7 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     }
     
     let instruments: [Instrument] = Instrument.allCases
-    let keys: [Key] = Key.allCases
+    let keys: [Key] = Key.all
     
     // MARK: - Outlets
     
@@ -81,7 +81,7 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         case 0:
             return instruments[row].name
         default:
-            return keys[row].name
+            return keys[row].description
         }
     }
     
@@ -91,7 +91,7 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         case 0:
             string = NSMutableAttributedString(string: instruments[row].name)
         default:
-            string = NSMutableAttributedString(string: "\(keys[row].name) (\(keys[row].concertOffsetString))")
+            string = NSMutableAttributedString(string: "\(keys[row].description) (\(keys[row].concertOffsetString))")
         }
         
         let darkModeOn = UserDefaults.standard.darkModeOn()

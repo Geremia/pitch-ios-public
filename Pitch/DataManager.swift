@@ -29,11 +29,7 @@ class DataManager {
     }
     
     static func data(forPastDays days: Int) -> Results<Day> {
-        var numberOfDays = days
-        if numberOfDays < 1 {
-            numberOfDays = 1
-        }
-        
+        let numberOfDays = max(days, 1)
         let today = Calendar.current.startOfDay(for: Date())
         let startDate = Calendar.current.date(byAdding: .day, value: -(numberOfDays - 1), to: today)!
         
