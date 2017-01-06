@@ -17,13 +17,35 @@ class Day: Object {
     dynamic var date: Date = Date()
     dynamic var id: String = "0"
     
-    let tuningThreshold: Double = 0.4 // The threshold in cents for being 'in-tune'
-    dynamic var inTunePercentage: Double = 1
-    dynamic var inTunePercentageDataCount: Int = 0 // The number of data points added for inTunePercentage
-    dynamic var timeToCenter: TimeInterval = 1
-    dynamic var timeToCenterDataCount: Int = 0 // The number of data points added for timeToCenter
+    /**
+     The threshold in cents for being 'in-tune'
+     */
+    let tuningThreshold: Double = 0.4
     
-    var hasSufficientData: Bool { // Boolean indicating whether enough data has been collected
+    /**
+     How often the user was 'in-tune', expressed as a percentage.
+     */
+    dynamic var inTunePercentage: Double = 1
+    
+    /**
+     The number of data points added for inTunePercentage.
+     */
+    dynamic var inTunePercentageDataCount: Int = 0
+    
+    /**
+     The average time taken to center the pitch.
+     */
+    dynamic var timeToCenter: TimeInterval = 1
+    
+    /**
+     The number of data points added for timeToCenter.
+     */
+    dynamic var timeToCenterDataCount: Int = 0
+    
+    /**
+     Boolean indicating whether enough data has been collected to be displayed to the user.
+     */
+    var hasSufficientData: Bool {
         return inTunePercentageDataCount >= 100 && timeToCenterDataCount >= 3
     }
     
