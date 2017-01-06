@@ -28,9 +28,9 @@ enum Instrument: Int {
     case euphonium
     case tuba
     
-    static let allCases: [Instrument] = [.piccolo, .flute, .oboe, .englishHorn, .bassoon, .eFlatClarinet, .bFlatClarinet, .bassClarinet, .sopranoSax, .altoSax, .tenorSax, .bariSax, .frenchHorn, .trumpet, .trombone, .bassTrombone, .euphonium, .tuba]
+    static let all: [Instrument] = [.piccolo, .flute, .oboe, .englishHorn, .bassoon, .eFlatClarinet, .bFlatClarinet, .bassClarinet, .sopranoSax, .altoSax, .tenorSax, .bariSax, .frenchHorn, .trumpet, .trombone, .bassTrombone, .euphonium, .tuba]
     
-    var name: String {
+    var description: String {
         switch self {
         case .piccolo:
             return "Piccolo"

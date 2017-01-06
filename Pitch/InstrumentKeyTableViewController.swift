@@ -23,8 +23,8 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         }
     }
     
-    let instruments: [Instrument] = Instrument.allCases
-    let keys: [Key] = Key.all
+    let instruments: [Instrument] = Instrument.all
+    let keys: [Key] = [.c, .csharp, .d, .dsharp, .e, .f, .fsharp, .g, .gsharp, .a, .asharp, .b]
     
     // MARK: - Outlets
     
@@ -79,7 +79,7 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch component {
         case 0:
-            return instruments[row].name
+            return instruments[row].description
         default:
             return keys[row].description
         }
@@ -89,7 +89,7 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         let string: NSMutableAttributedString
         switch component {
         case 0:
-            string = NSMutableAttributedString(string: instruments[row].name)
+            string = NSMutableAttributedString(string: instruments[row].description)
         default:
             string = NSMutableAttributedString(string: "\(keys[row].description) (\(keys[row].concertOffsetString))")
         }

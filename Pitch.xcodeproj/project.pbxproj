@@ -42,7 +42,6 @@
 		4CFC73BE1DC6821400AFD8AC /* Tuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC73BD1DC6821400AFD8AC /* Tuner.swift */; };
 		4CFE12591DECF389005EE1BF /* MainViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFE12581DECF389005EE1BF /* MainViewController+Animations.swift */; };
 		4CFE125B1DECF452005EE1BF /* MainViewController+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFE125A1DECF452005EE1BF /* MainViewController+Analytics.swift */; };
-		4CFE125E1DECF63F005EE1BF /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFE125D1DECF63F005EE1BF /* Key.swift */; };
 		4CFE12601DECF659005EE1BF /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFE125F1DECF659005EE1BF /* Instrument.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +104,6 @@
 		4CFC73BD1DC6821400AFD8AC /* Tuner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuner.swift; sourceTree = "<group>"; };
 		4CFE12581DECF389005EE1BF /* MainViewController+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+Animations.swift"; sourceTree = "<group>"; };
 		4CFE125A1DECF452005EE1BF /* MainViewController+Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+Analytics.swift"; sourceTree = "<group>"; };
-		4CFE125D1DECF63F005EE1BF /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		4CFE125F1DECF659005EE1BF /* Instrument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
 		698D02607C449A4BA48ACC73 /* Pods-Pitch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pitch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pitch/Pods-Pitch.release.xcconfig"; sourceTree = "<group>"; };
 		AB0F971E2A4F5406DEC1FB69 /* Pods_Pitch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pitch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -285,7 +283,6 @@
 			children = (
 				4C253C351D9FF7E900BD07D6 /* MainViewState.swift */,
 				4CFE125F1DECF659005EE1BF /* Instrument.swift */,
-				4CFE125D1DECF63F005EE1BF /* Key.swift */,
 				4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */,
 			);
 			name = Enums;
@@ -537,7 +534,6 @@
 				4CFC73BE1DC6821400AFD8AC /* Tuner.swift in Sources */,
 				4CDEB5791DD11B68005301BF /* VerticalSlideAnimationController.swift in Sources */,
 				4CFE12591DECF389005EE1BF /* MainViewController+Animations.swift in Sources */,
-				4CFE125E1DECF63F005EE1BF /* Key.swift in Sources */,
 				4CF25E911DE8BA07009D109F /* InstrumentKeyTableViewController.swift in Sources */,
 				4CFC73B31DC59B3700AFD8AC /* PitchPipeView.swift in Sources */,
 				4C1FD5131DD117A700C1C6B9 /* SettingsViewController.swift in Sources */,
