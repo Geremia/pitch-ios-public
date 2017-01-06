@@ -22,7 +22,8 @@
 
 import Foundation
 
-class Pitch: CustomStringConvertible {
+class Pitch: NSObject {
+    
     /**
      * The note is one of C, C#, D, Em, E, F, F#, G, Am, A, Bm, B.
      */
@@ -77,7 +78,7 @@ class Pitch: CustomStringConvertible {
      * This property is used in the User Interface to show the "name" of this
      * pitch.
      */
-    var description: String {
+    override var description: String {
         return "\(note)"
     }
 }
