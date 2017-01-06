@@ -40,7 +40,7 @@ class Pitch: NSObject {
      */
     let frequency: Double
 
-    private init(note: Note, octave: Int) {
+    init(note: Note, octave: Int) {
         self.note      = note
         self.octave    = octave
         self.frequency = note.frequency * pow(2, Double(octave) - 4)

@@ -8,14 +8,27 @@
 
 import Foundation
 import RealmSwift
-import Realm
 
 class OffsetData: Object {
     
     /**
-     * The pitch (including octave).
+     * The pitch as a Pitch object. The Pitch type cannot be stored as a
+     * Realm object, so it must be computed from pitchString and octave.
      */
-    dynamic var pitch: Pitch = Pitch.all.first!
+    var pitch: Pitch {
+        let note = Note.fromName(pitchString)
+        return Pitch(note: note!, octave: octave)
+    }
+    
+    /**
+     * The name of the pitch.
+     */
+    fileprivate dynamic var pitchString: String = ""
+    
+    /**
+     * The octave of the pitch.
+     */
+    fileprivate dynamic var octave: Int = 0
     
     /**
      * The pitch's average offset in cents.
@@ -29,7 +42,8 @@ class OffsetData: Object {
     
     static func new(pitch: Pitch, offset: Double) -> OffsetData {
         let offsetData = OffsetData()
-        offsetData.pitch = pitch
+        offsetData.pitchString = pitch.description
+        offsetData.octave = pitch.octave
         offsetData.averageOffset = offset
         return offsetData
     }
@@ -38,15 +52,12 @@ class OffsetData: Object {
      * Add a new data point and recalculate average offset.
      */
     func add(offset: Double) {
-        let realm = try! Realm()
-        try! realm.write {
-            dataCount += 1
-            
-            let newDataPointWeight = 1 / Double(dataCount)
-            let oldWeight = 1 - newDataPointWeight
-            
-            averageOffset = (averageOffset * oldWeight) + (offset * newDataPointWeight)
-        }
+        dataCount += 1
+        
+        let newDataPointWeight = 1 / Double(dataCount)
+        let oldWeight = 1 - newDataPointWeight
+        
+        averageOffset = (averageOffset * oldWeight) + (offset * newDataPointWeight)
     }
 }
 
@@ -141,7 +152,7 @@ class Day: Object {
             }
             
             /* Sort pitchOffsets in descending order by averageOffset. */
-            let sortedOffsets = Array(pitchOffsets.sorted(byProperty: "averageOffset", ascending: false))
+            let sortedOffsets = Array(pitchOffsets.sorted(by: { abs($0.averageOffset) > abs($1.averageOffset) }))
             pitchOffsets.removeAll()
             pitchOffsets.append(contentsOf: sortedOffsets)
             
