@@ -16,6 +16,8 @@
 		4C5076041E1FEDD400DBD02C /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076021E1FEDD400DBD02C /* Pitch.swift */; };
 		4C5076051E1FEDD400DBD02C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076031E1FEDD400DBD02C /* Note.swift */; };
 		4C5076071E20461200DBD02C /* OffsetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076061E20461200DBD02C /* OffsetData.swift */; };
+		4C5076091E205DB300DBD02C /* PitchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076081E205DB300DBD02C /* PitchesTableViewController.swift */; };
+		4C50760B1E205DC300DBD02C /* PitchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */; };
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
@@ -73,6 +75,8 @@
 		4C5076021E1FEDD400DBD02C /* Pitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pitch.swift; sourceTree = "<group>"; };
 		4C5076031E1FEDD400DBD02C /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		4C5076061E20461200DBD02C /* OffsetData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffsetData.swift; sourceTree = "<group>"; };
+		4C5076081E205DB300DBD02C /* PitchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchesTableViewController.swift; sourceTree = "<group>"; };
+		4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchesTableViewCell.swift; sourceTree = "<group>"; };
 		4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
 		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 			children = (
 				4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */,
 				4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */,
+				4C5076081E205DB300DBD02C /* PitchesTableViewController.swift */,
+				4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */,
 				4CE5F0C21E117C4700EF0AB3 /* ScoreCircle.swift */,
 			);
 			name = Analytics;
@@ -515,6 +521,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C50760B1E205DC300DBD02C /* PitchesTableViewCell.swift in Sources */,
 				4C5076071E20461200DBD02C /* OffsetData.swift in Sources */,
 				4CFE12601DECF659005EE1BF /* Instrument.swift in Sources */,
 				4CDED8771E131354003C4000 /* DataManager.swift in Sources */,
@@ -527,6 +534,7 @@
 				4CFC73B91DC646EC00AFD8AC /* SoundGenerator.swift in Sources */,
 				4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */,
 				4C5076041E1FEDD400DBD02C /* Pitch.swift in Sources */,
+				4C5076091E205DB300DBD02C /* PitchesTableViewController.swift in Sources */,
 				4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */,
 				4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */,
 				4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */,

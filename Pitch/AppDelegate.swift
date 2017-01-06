@@ -36,10 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Set the block which will be called automatically when opening a Realm with
             // a schema version lower than the one set above
             migrationBlock: { migration, oldSchemaVersion in
-                // We haven’t migrated anything yet, so oldSchemaVersion == 0
                 if (oldSchemaVersion < 1) {
                     migration.enumerateObjects(ofType: Day.className()) { oldObject, newObject in
-                        // combine name fields into a single field
+                        // add new field 'pitchOffsets'
                         newObject!["pitchOffsets"] = List<OffsetData>()
                     }
                 }
