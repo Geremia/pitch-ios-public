@@ -21,14 +21,14 @@ extension MainViewController {
             octaveLabel.isHidden = true
             setViewTo(newState: .outOfTune)
         } else {
-            if noteLabel.text != output.pitch {
-                displayPitch(pitch: output.pitch)
+            if noteLabel.text != output.pitch.description {
+                displayPitch(pitch: output.pitch.description)
             }
             
             centsLabel.isHidden = false
             updateCentsLabel(offset: output.centsDistace)
             octaveLabel.isHidden = false
-            octaveLabel.text = String(output.octave)
+            octaveLabel.text = String(output.pitch.octave)
             
             let isPortrait = UIApplication.shared.statusBarOrientation.isPortrait
             portraitMovingLineCenterConstraint.constant = CGFloat(isPortrait ? -output.distance * 30.0 : output.distance * 30.0)

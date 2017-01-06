@@ -52,7 +52,7 @@ private let frequencies: [Double] = [
  the mechanism by which you may receive and respond to new information decoded
  by a Tuner.
  */
-@objc public protocol TunerDelegate {
+protocol TunerDelegate {
     
     /**
      Called by a Tuner on each update.
@@ -68,17 +68,12 @@ private let frequencies: [Double] = [
 /**
  Contains information decoded by a Tuner, such as frequency, octave, pitch, etc.
  */
-@objc open class TunerOutput: NSObject {
+class TunerOutput: NSObject {
     
     /**
      The octave of the interpreted pitch.
      */
-    open fileprivate(set) var octave: Int = 0
-    
-    /**
-     The interpreted pitch of the microphone audio.
-     */
-    open fileprivate(set) var pitch: String = ""
+    open fileprivate(set) var pitch: Pitch = Pitch.all.first!
     
     /**
      The difference between the frequency of the interpreted pitch and the actual
@@ -124,7 +119,7 @@ private let frequencies: [Double] = [
 /**
  A Tuner uses the devices microphone and interprets the frequency, pitch, etc.
  */
-@objc open class Tuner: NSObject {
+class Tuner: NSObject {
     
     fileprivate let updateInterval: TimeInterval = 0.01
     fileprivate let smoothingBufferCount = 30
@@ -134,7 +129,7 @@ private let frequencies: [Double] = [
      Object adopting the TunerDelegate protocol that should receive callbacks
      from this tuner.
      */
-    open var delegate: TunerDelegate?
+    var delegate: TunerDelegate?
     
     fileprivate let threshold: Double
     fileprivate var smoothing: Float
@@ -268,40 +263,17 @@ private let frequencies: [Double] = [
     static func newOutput(_ frequency: Double, _ amplitude: Double, _ standardDeviation: Double) -> TunerOutput {
         let output = TunerOutput()
         
-        var norm = frequency <= 0.0 ? 1.0 : frequency
-        while norm > frequencies[frequencies.count - 1] {
-            norm = norm / 2.0
-        }
-        while norm < frequencies[0] {
-            norm = norm * 2.0
-        }
+        let pitch = Pitch.nearest(frequency: frequency)
+        output.distance = frequency - pitch.frequency
+        output.centsDistace = 1200 * log2(frequency/pitch.frequency)
         
-        var i = -1
-        var min = Double.infinity
-        for n in 0...frequencies.count-1 {
-            let diff = frequencies[n] - norm
-            if abs(diff) < abs(min) {
-                min = diff
-                i = n
-            }
-        }
-        
-        let concertOffset = UserDefaults.standard.key().concertOffset
-        output.octave = (i - concertOffset) / 12
         output.frequency = frequency
         output.amplitude = amplitude
-        output.distance = frequency - frequencies[i]
-        output.centsDistace = 1200 * log2(frequency/frequencies[i])
         output.standardDeviation = standardDeviation
         
-        let displayMode = UserDefaults.standard.displayMode()
-        switch displayMode {
-        case .sharps:
-            output.pitch = String(format: "%@", sharps[(i - concertOffset) % sharps.count])
-        case .flats:
-            output.pitch = String(format: "%@", flats[(i - concertOffset) % flats.count])
-        }
-        
+        let concertOffset = UserDefaults.standard.key().concertOffset
+        output.pitch = pitch - concertOffset
+
         let amplitudeThreshold = UserDefaults.standard.micSensitivity().amplitudeThreshold
         output.isValid = standardDeviation < 10.0 && amplitude > amplitudeThreshold
         

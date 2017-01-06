@@ -13,6 +13,8 @@
 		4C253C7D1DAEDF0800BD07D6 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C7C1DAEDF0800BD07D6 /* Day.swift */; };
 		4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C7E1DAEE98900BD07D6 /* Extensions.swift */; };
 		4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C801DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift */; };
+		4C5076041E1FEDD400DBD02C /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076021E1FEDD400DBD02C /* Pitch.swift */; };
+		4C5076051E1FEDD400DBD02C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076031E1FEDD400DBD02C /* Note.swift */; };
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
@@ -37,7 +39,7 @@
 		4CFC73B31DC59B3700AFD8AC /* PitchPipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */; };
 		4CFC73B51DC59B9800AFD8AC /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CFC73B41DC59B9800AFD8AC /* Lato-Semibold.ttf */; };
 		4CFC73B91DC646EC00AFD8AC /* SoundGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC73B81DC646EC00AFD8AC /* SoundGenerator.swift */; };
-		4CFC73BE1DC6821400AFD8AC /* TuningFork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC73BD1DC6821400AFD8AC /* TuningFork.swift */; };
+		4CFC73BE1DC6821400AFD8AC /* Tuner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC73BD1DC6821400AFD8AC /* Tuner.swift */; };
 		4CFE12591DECF389005EE1BF /* MainViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFE12581DECF389005EE1BF /* MainViewController+Animations.swift */; };
 		4CFE125B1DECF452005EE1BF /* MainViewController+Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFE125A1DECF452005EE1BF /* MainViewController+Analytics.swift */; };
 		4CFE125E1DECF63F005EE1BF /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFE125D1DECF63F005EE1BF /* Key.swift */; };
@@ -68,6 +70,8 @@
 		4C253C7C1DAEDF0800BD07D6 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		4C253C7E1DAEE98900BD07D6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4C253C801DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PitchUserDefaults.swift"; sourceTree = "<group>"; };
+		4C5076021E1FEDD400DBD02C /* Pitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pitch.swift; sourceTree = "<group>"; };
+		4C5076031E1FEDD400DBD02C /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
 		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -98,7 +102,7 @@
 		4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchPipeView.swift; sourceTree = "<group>"; };
 		4CFC73B41DC59B9800AFD8AC /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
 		4CFC73B81DC646EC00AFD8AC /* SoundGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundGenerator.swift; sourceTree = "<group>"; };
-		4CFC73BD1DC6821400AFD8AC /* TuningFork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TuningFork.swift; sourceTree = "<group>"; };
+		4CFC73BD1DC6821400AFD8AC /* Tuner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuner.swift; sourceTree = "<group>"; };
 		4CFE12581DECF389005EE1BF /* MainViewController+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+Animations.swift"; sourceTree = "<group>"; };
 		4CFE125A1DECF452005EE1BF /* MainViewController+Analytics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+Analytics.swift"; sourceTree = "<group>"; };
 		4CFE125D1DECF63F005EE1BF /* Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
@@ -269,7 +273,9 @@
 			isa = PBXGroup;
 			children = (
 				4CFC73B81DC646EC00AFD8AC /* SoundGenerator.swift */,
-				4CFC73BD1DC6821400AFD8AC /* TuningFork.swift */,
+				4CFC73BD1DC6821400AFD8AC /* Tuner.swift */,
+				4C5076021E1FEDD400DBD02C /* Pitch.swift */,
+				4C5076031E1FEDD400DBD02C /* Note.swift */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -514,10 +520,12 @@
 				4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */,
 				4CE5F0C11E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift in Sources */,
 				4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */,
+				4C5076051E1FEDD400DBD02C /* Note.swift in Sources */,
 				4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */,
 				4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */,
 				4CFC73B91DC646EC00AFD8AC /* SoundGenerator.swift in Sources */,
 				4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */,
+				4C5076041E1FEDD400DBD02C /* Pitch.swift in Sources */,
 				4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */,
 				4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */,
 				4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */,
@@ -526,7 +534,7 @@
 				4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */,
 				4CE5F0C31E117C4700EF0AB3 /* ScoreCircle.swift in Sources */,
 				4C253C361D9FF7E900BD07D6 /* MainViewState.swift in Sources */,
-				4CFC73BE1DC6821400AFD8AC /* TuningFork.swift in Sources */,
+				4CFC73BE1DC6821400AFD8AC /* Tuner.swift in Sources */,
 				4CDEB5791DD11B68005301BF /* VerticalSlideAnimationController.swift in Sources */,
 				4CFE12591DECF389005EE1BF /* MainViewController+Animations.swift in Sources */,
 				4CFE125E1DECF63F005EE1BF /* Key.swift in Sources */,
