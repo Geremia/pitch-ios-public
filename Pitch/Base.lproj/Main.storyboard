@@ -1083,32 +1083,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IS9-oK-mTM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not enough data yet. Come back when you've practiced a little more!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g9-Vp-1Yf">
-                                        <rect key="frame" x="40" y="501" width="295" height="41"/>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_chart_lightgray" translatesAutoresizingMaskIntoConstraints="NO" id="i1H-dX-i2N">
-                                        <rect key="frame" x="122.5" y="331" width="130" height="130"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="130" id="MSg-gd-9pL"/>
-                                            <constraint firstAttribute="width" constant="130" id="Syv-7H-2Jt"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="6g9-Vp-1Yf" secondAttribute="trailing" constant="40" id="Bc8-xA-GvE"/>
-                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerY" secondItem="IS9-oK-mTM" secondAttribute="centerY" constant="-54" id="HQK-2H-MQ9"/>
-                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerX" secondItem="IS9-oK-mTM" secondAttribute="centerX" id="ZrO-uf-lYr"/>
-                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="top" secondItem="i1H-dX-i2N" secondAttribute="bottom" constant="40" id="aFF-hh-shJ"/>
-                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="leading" secondItem="IS9-oK-mTM" secondAttribute="leading" constant="40" id="l30-id-wU4"/>
-                                </constraints>
-                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-jY-GvI">
                                 <rect key="frame" x="0.0" y="75" width="375" height="825"/>
                                 <subviews>
@@ -1236,6 +1210,32 @@
                                     <constraint firstItem="Qry-X9-IK3" firstAttribute="leading" secondItem="QfP-jY-GvI" secondAttribute="leading" id="cgK-9I-8cv"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IS9-oK-mTM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not enough data yet. Come back when you've practiced a little more!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g9-Vp-1Yf">
+                                        <rect key="frame" x="40" y="501" width="295" height="41"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_chart_lightgray" translatesAutoresizingMaskIntoConstraints="NO" id="i1H-dX-i2N">
+                                        <rect key="frame" x="122.5" y="331" width="130" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="MSg-gd-9pL"/>
+                                            <constraint firstAttribute="width" constant="130" id="Syv-7H-2Jt"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6g9-Vp-1Yf" secondAttribute="trailing" constant="40" id="Bc8-xA-GvE"/>
+                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerY" secondItem="IS9-oK-mTM" secondAttribute="centerY" constant="-54" id="HQK-2H-MQ9"/>
+                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerX" secondItem="IS9-oK-mTM" secondAttribute="centerX" id="ZrO-uf-lYr"/>
+                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="top" secondItem="i1H-dX-i2N" secondAttribute="bottom" constant="40" id="aFF-hh-shJ"/>
+                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="leading" secondItem="IS9-oK-mTM" secondAttribute="leading" constant="40" id="l30-id-wU4"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Analytics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiS-dX-sKS">
                                 <rect key="frame" x="141" y="23" width="93" height="28"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
