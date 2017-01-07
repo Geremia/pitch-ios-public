@@ -16,6 +16,14 @@ class PitchesTableViewCell: UITableViewCell {
     @IBOutlet weak var pitchLabel: UILabel!
     @IBOutlet weak var centsLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        numberLabel.textColor = darkModeOn ? UIColor.white : UIColor.black
+        pitchLabel.textColor = darkModeOn ? UIColor.white : UIColor.black
+    }
+    
     // MARK: - Update Cents Label
 
     func updateCentsLabel(cents: Double) {

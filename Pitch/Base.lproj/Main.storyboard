@@ -1181,6 +1181,7 @@
                                             </button>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9W-pK-BcY">
                                                 <rect key="frame" x="30" y="422.5" width="315" height="132"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="132" id="m3V-JD-P3K"/>
                                                 </constraints>
@@ -1202,6 +1203,7 @@
                                             <constraint firstItem="svw-DF-iBZ" firstAttribute="leading" secondItem="Qry-X9-IK3" secondAttribute="leading" constant="32" id="Vpe-RP-9Ra"/>
                                             <constraint firstItem="gaT-vT-MkP" firstAttribute="centerX" secondItem="Qry-X9-IK3" secondAttribute="centerX" id="XuP-Zq-4V6"/>
                                             <constraint firstItem="Bj3-re-8Z9" firstAttribute="top" secondItem="Qry-X9-IK3" secondAttribute="top" constant="26" id="d4t-m7-aiC"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kVW-6L-EwS" secondAttribute="bottom" constant="30" id="jb6-zj-yz9"/>
                                             <constraint firstAttribute="trailing" secondItem="R9W-pK-BcY" secondAttribute="trailing" constant="30" id="nwI-MF-1Ln"/>
                                             <constraint firstItem="gaT-vT-MkP" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="84" id="pzr-Fe-iFk"/>
                                             <constraint firstItem="svw-DF-iBZ" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="105" id="uII-k1-fir"/>
@@ -1285,7 +1287,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="o3O-7t-alX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pitchCell" id="Yfq-4b-709" customClass="PitchesTableViewCell" customModule="Pitch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -1313,6 +1315,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="CVr-WI-Tzf" firstAttribute="centerY" secondItem="AuJ-ol-hK4" secondAttribute="centerY" id="BeF-7n-wnJ"/>
                                         <constraint firstItem="RWV-TJ-qSk" firstAttribute="centerY" secondItem="AuJ-ol-hK4" secondAttribute="centerY" id="Dcn-My-k2q"/>
@@ -1322,6 +1325,7 @@
                                         <constraint firstAttribute="trailing" secondItem="RWV-TJ-qSk" secondAttribute="trailing" constant="16" id="oh5-Jb-vNE"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="centsLabel" destination="RWV-TJ-qSk" id="XSK-TJ-p69"/>
                                     <outlet property="numberLabel" destination="RvA-Xc-Nmc" id="38k-af-et8"/>
