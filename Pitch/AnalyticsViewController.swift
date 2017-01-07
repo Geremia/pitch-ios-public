@@ -33,6 +33,11 @@ class AnalyticsViewController: UIViewController {
     
     @IBOutlet weak var outOfTuneLabel: UILabel!
     @IBOutlet weak var outOfTuneSeparator: UIView!
+    @IBOutlet weak var outOfTuneTable: UIView!
+    
+    @IBOutlet weak var outOfTuneLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var outOfTuneSeparatorTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var outOfTuneTableTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!

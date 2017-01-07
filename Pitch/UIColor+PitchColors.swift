@@ -21,4 +21,6 @@ extension UIColor {
     
     @nonobjc static let pitchPipeBackground: UIColor = UIColor(white: 0.99, alpha: 1.0)
     @nonobjc static let darkPitchPipeBackground: UIColor = UIColor(white: 0.18, alpha: 1.0)
+    
+    @nonobjc static let lighterPurple: UIColor = UIColor(red: 196/255.0, green: 76/255.0, blue: 255/255.0, alpha: 1.0)
 }

@@ -1205,6 +1205,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="GiH-D2-a3a" firstAttribute="top" secondItem="R9W-pK-BcY" secondAttribute="bottom" constant="60" id="1cD-IM-EEE"/>
+                                            <constraint firstItem="R9W-pK-BcY" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="276" id="4dM-39-UV0"/>
                                             <constraint firstItem="R9W-pK-BcY" firstAttribute="leading" secondItem="Qry-X9-IK3" secondAttribute="leading" constant="20" id="D9i-Vs-KvV"/>
                                             <constraint firstAttribute="trailing" secondItem="svw-DF-iBZ" secondAttribute="trailing" constant="32" id="Maq-56-tEw"/>
                                             <constraint firstItem="GiH-D2-a3a" firstAttribute="centerX" secondItem="Qry-X9-IK3" secondAttribute="centerX" id="PeN-Sl-TiR"/>
@@ -1214,13 +1215,12 @@
                                             <constraint firstItem="Bj3-re-8Z9" firstAttribute="centerX" secondItem="Qry-X9-IK3" secondAttribute="centerX" id="Tf5-JG-odj"/>
                                             <constraint firstItem="svw-DF-iBZ" firstAttribute="leading" secondItem="Qry-X9-IK3" secondAttribute="leading" constant="32" id="Vpe-RP-9Ra"/>
                                             <constraint firstItem="gaT-vT-MkP" firstAttribute="centerX" secondItem="Qry-X9-IK3" secondAttribute="centerX" id="XuP-Zq-4V6"/>
-                                            <constraint firstItem="AVI-7F-AUG" firstAttribute="top" secondItem="svw-DF-iBZ" secondAttribute="bottom" constant="50" id="aIs-OZ-97p"/>
                                             <constraint firstItem="Bj3-re-8Z9" firstAttribute="top" secondItem="Qry-X9-IK3" secondAttribute="top" constant="26" id="d4t-m7-aiC"/>
+                                            <constraint firstItem="qay-Pw-oQC" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="251" id="gBW-8M-Oge"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="kVW-6L-EwS" secondAttribute="bottom" constant="30" id="jb6-zj-yz9"/>
                                             <constraint firstAttribute="trailing" secondItem="R9W-pK-BcY" secondAttribute="trailing" constant="20" id="nwI-MF-1Ln"/>
                                             <constraint firstItem="gaT-vT-MkP" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="84" id="pzr-Fe-iFk"/>
-                                            <constraint firstItem="R9W-pK-BcY" firstAttribute="top" secondItem="qay-Pw-oQC" secondAttribute="bottom" constant="24" id="r6a-Ea-gTd"/>
-                                            <constraint firstItem="qay-Pw-oQC" firstAttribute="top" secondItem="AVI-7F-AUG" secondAttribute="bottom" constant="14" id="tTT-bo-TjS"/>
+                                            <constraint firstItem="AVI-7F-AUG" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="216" id="ryE-Eb-LKW"/>
                                             <constraint firstItem="svw-DF-iBZ" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="105" id="uII-k1-fir"/>
                                             <constraint firstItem="kVW-6L-EwS" firstAttribute="centerX" secondItem="Qry-X9-IK3" secondAttribute="centerX" id="uc8-Gj-16n"/>
                                             <constraint firstItem="kVW-6L-EwS" firstAttribute="top" secondItem="GiH-D2-a3a" secondAttribute="bottom" constant="16" id="v1g-VL-B36"/>
@@ -1285,7 +1285,11 @@
                         <outlet property="noDataLabel" destination="6g9-Vp-1Yf" id="UOi-EO-zGB"/>
                         <outlet property="noDataView" destination="IS9-oK-mTM" id="Pka-jA-DVr"/>
                         <outlet property="outOfTuneLabel" destination="AVI-7F-AUG" id="N7g-eV-uiz"/>
+                        <outlet property="outOfTuneLabelTopConstraint" destination="ryE-Eb-LKW" id="cLS-98-Rfu"/>
                         <outlet property="outOfTuneSeparator" destination="qay-Pw-oQC" id="80E-JO-ciA"/>
+                        <outlet property="outOfTuneSeparatorTopConstraint" destination="gBW-8M-Oge" id="Sfu-IB-gnm"/>
+                        <outlet property="outOfTuneTable" destination="R9W-pK-BcY" id="NrF-pJ-vaj"/>
+                        <outlet property="outOfTuneTableTopConstraint" destination="4dM-39-UV0" id="v8L-EH-yqx"/>
                         <outlet property="scoreCircle" destination="Bj3-re-8Z9" id="fs0-5I-lMB"/>
                         <outlet property="scoreLabel" destination="K3c-Rt-8uE" id="Aqi-yn-HbL"/>
                         <outlet property="todayLabel" destination="rVf-Gq-O3n" id="cGx-q4-mkb"/>

@@ -49,13 +49,13 @@ class Day: Object {
     var pitchOffsets: List<OffsetData> = List<OffsetData>()
     
     /**
-     * Returns offset datas that only have more than 500 data points.
+     * Returns offset datas that only have more than 300 data points.
      */
     var filteredPitchOffsets: [OffsetData] {
         var offsets: [OffsetData] = []
         offsets.append(contentsOf: pitchOffsets)
         return offsets.filter { data in
-            return data.dataCount >= 500
+            return data.dataCount >= 300
         }
     }
     

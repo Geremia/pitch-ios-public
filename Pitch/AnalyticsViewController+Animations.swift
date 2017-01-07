@@ -27,10 +27,16 @@ extension AnalyticsViewController {
         todayLabel.alpha = 0.0
         todaySeparator.alpha = 0.0
         descriptionLabel.alpha = 0.0
+        outOfTuneLabel.alpha = 0.0
+        outOfTuneSeparator.alpha = 0.0
+        outOfTuneTable.alpha = 0.0
         
-        todayLabelTopConstraint.constant += 250
-        todaySeparatorTopConstraint.constant += 350
-        descriptionLabelTopConstraint.constant += 450
+        let constraints = [todayLabelTopConstraint, todaySeparatorTopConstraint, descriptionLabelTopConstraint, outOfTuneLabelTopConstraint, outOfTuneSeparatorTopConstraint, outOfTuneTableTopConstraint]
+        let increment = 100
+        for i in 0..<constraints.count {
+            let constraint = constraints[i]
+            constraint?.constant += 250.0 + CGFloat(i * increment)
+        }
         
         feedbackLabel.alpha = 0.0
         feedbackButton.alpha = 0.0
@@ -45,15 +51,21 @@ extension AnalyticsViewController {
             self.scoreCircle.alpha = 1.0
         }, completion: nil)
         
-        todayLabelTopConstraint.constant -= 250
-        todaySeparatorTopConstraint.constant -= 350
-        descriptionLabelTopConstraint.constant -= 450
+        let constraints = [todayLabelTopConstraint, todaySeparatorTopConstraint, descriptionLabelTopConstraint, outOfTuneLabelTopConstraint, outOfTuneSeparatorTopConstraint, outOfTuneTableTopConstraint]
+        let increment = 100
+        for i in 0..<constraints.count {
+            let constraint = constraints[i]
+            constraint?.constant -= 250.0 + CGFloat(i * increment)
+        }
         
         UIView.animate(withDuration: 1.0, delay: 0.6, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.1, options: [.curveEaseOut], animations: {
             self.view.layoutIfNeeded()
             self.todayLabel.alpha = 1.0
             self.todaySeparator.alpha = 1.0
             self.descriptionLabel.alpha = 1.0
+            self.outOfTuneLabel.alpha = 1.0
+            self.outOfTuneSeparator.alpha = 1.0
+            self.outOfTuneTable.alpha = 1.0
         }, completion: nil)
         
         UIView.animate(withDuration: 0.5, delay: 1.4, options: [], animations: {
