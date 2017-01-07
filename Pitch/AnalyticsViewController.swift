@@ -31,6 +31,9 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var todaySeparatorTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var descriptionLabelTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var outOfTuneLabel: UILabel!
+    @IBOutlet weak var outOfTuneSeparator: UIView!
+    
     @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
     
@@ -121,6 +124,9 @@ class AnalyticsViewController: UIViewController {
             todayLabel.textColor = .white
             todaySeparator.backgroundColor = .white
             descriptionLabel.textColor = .white
+            
+            outOfTuneLabel.textColor = .white
+            outOfTuneSeparator.backgroundColor = .white
             
             feedbackLabel.textColor = .white
             feedbackButton.layer.backgroundColor = UIColor.darkInTune.cgColor
