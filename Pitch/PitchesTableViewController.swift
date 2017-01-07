@@ -17,6 +17,8 @@ class PitchesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
         tableView.tableFooterView = UIView()
     }
 

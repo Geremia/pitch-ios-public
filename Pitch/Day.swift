@@ -103,7 +103,7 @@ class Day: Object {
             let offset = tunerOutput.centsDistace
             
             // If the offset is greater than 50 cents, this data point is not valid.
-            if offset > 50.0 { return }
+            if abs(offset) > 50.0 { return }
             
             // Check if the pitch is already present in pitchOffsets.
             if let index = pitchOffsets.index(where: { $0.pitch == pitch }) {

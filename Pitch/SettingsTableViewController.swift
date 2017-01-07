@@ -107,7 +107,7 @@ class SettingsTableViewController: UITableViewController {
     
     func darkModeChanged() {
         view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
-        tableView.separatorColor = darkModeOn ? UIColor.darkGray : UIColor.separatorColor
+        tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
         displayModeControl.tintColor = darkModeOn ? UIColor.white : UIColor.black
         for label in allLabels {
             label.textColor = darkModeOn ? UIColor.white : UIColor.black
