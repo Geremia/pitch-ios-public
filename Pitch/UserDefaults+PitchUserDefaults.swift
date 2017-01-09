@@ -42,7 +42,7 @@ extension UserDefaults {
             return DisplayMode(rawValue: rawValue)!
         }
         
-        return DisplayMode.sharps
+        return DisplayMode.flats
     }
     
     func setDisplayMode(_ newValue: DisplayMode) {
