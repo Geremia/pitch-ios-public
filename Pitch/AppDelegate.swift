@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         updateRealmSchema()
         Fabric.with([Crashlytics.self])
         UserDefaults.standard.setHasSeenAnalyticsAnimation(false)
+        UIApplication.shared.isIdleTimerDisabled = true
         
         return true
     }
