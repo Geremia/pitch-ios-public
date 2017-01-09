@@ -9,6 +9,13 @@
 import Foundation
 
 enum Instrument: Int {
+    case none
+    case guitar
+    case violin
+    case viola
+    case cello
+    case stringbass
+    case piano
     case piccolo
     case flute
     case oboe
@@ -28,10 +35,24 @@ enum Instrument: Int {
     case euphonium
     case tuba
     
-    static let all: [Instrument] = [.piccolo, .flute, .oboe, .englishHorn, .bassoon, .eFlatClarinet, .bFlatClarinet, .bassClarinet, .sopranoSax, .altoSax, .tenorSax, .bariSax, .frenchHorn, .trumpet, .trombone, .bassTrombone, .euphonium, .tuba]
+    static let all: [Instrument] = [.none, .guitar, .violin, .viola, .cello, .stringbass, .piano, .piccolo, .flute, .oboe, .englishHorn, .bassoon, .eFlatClarinet, .bFlatClarinet, .bassClarinet, .sopranoSax, .altoSax, .tenorSax, .bariSax, .frenchHorn, .trumpet, .trombone, .bassTrombone, .euphonium, .tuba]
     
     var description: String {
         switch self {
+        case .none:
+            return "None"
+        case .guitar:
+            return "Guitar"
+        case .violin:
+            return "Violin"
+        case .viola:
+            return "Viola"
+        case .cello:
+            return "Cello"
+        case .stringbass:
+            return "String Bass"
+        case .piano:
+            return "Piano"
         case .piccolo:
             return "Piccolo"
         case .flute:
@@ -73,7 +94,7 @@ enum Instrument: Int {
     
     var key: Key {
         switch self {
-        case .piccolo, .flute, .oboe, .bassoon, .trombone, .bassTrombone, .euphonium, .tuba:
+        case .none, .guitar, .violin, .viola, .cello, .stringbass, .piano, .piccolo, .flute, .oboe, .bassoon, .trombone, .bassTrombone, .euphonium, .tuba:
             return .c
         case .bFlatClarinet, .bassClarinet, .sopranoSax, .tenorSax, .trumpet:
             return .asharp
