@@ -15,10 +15,13 @@ class OffsetData: Object {
     /**
      * The pitch as a Pitch object. The Pitch type cannot be stored as a
      * Realm object, so it must be computed from pitchString and octave.
+     * NOTE: Can be nil if pitchString is not valid.
      */
-    var pitch: Pitch {
-        let note = Note.fromName(pitchString)
-        return Pitch(note: note!, octave: octave)
+    var pitch: Pitch? {
+        if let note = Note.fromName(pitchString) {
+            return Pitch(note: note, octave: octave)
+        }
+        return nil
     }
     
     /**

@@ -37,7 +37,7 @@ class PitchesTableViewController: UITableViewController {
         cell.numberLabel.text = "\(indexPath.row + 1)."
         
         let offsetData = pitchOffsets[indexPath.row]
-        cell.pitchLabel.text = "\(offsetData.pitch.description)\(offsetData.pitch.octave)"
+        cell.pitchLabel.text = "\(offsetData.pitch?.description)\(offsetData.pitch?.octave)"
         cell.updateCentsLabel(cents: offsetData.averageOffset.roundTo(places: 1))
         
         return cell
