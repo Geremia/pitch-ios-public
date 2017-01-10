@@ -47,11 +47,11 @@ class Pitch: NSObject {
     }
 
     /**
-     * This array contains all pitches for all notes in the 2nd to 6th octaves.
+     * This array contains all pitches for all notes in the 0 to 7 octaves.
      * First, the octaves are mapped to arrays of pitches for each note within
      * each octave.
      */
-    static let all = Array((2 ... 6).map { octave -> [Pitch] in
+    static let all = Array((0 ... 7).map { octave -> [Pitch] in
         Note.all.map { note -> Pitch in
             Pitch(note: note, octave: octave)
         }

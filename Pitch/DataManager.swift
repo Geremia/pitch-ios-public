@@ -12,7 +12,6 @@ import RealmSwift
 class DataManager {
     static func today() -> Day {
         let days = data(forPastDays: 1)
-        print(days)
         if days.count > 0 {
             return days[0]
         } else {
