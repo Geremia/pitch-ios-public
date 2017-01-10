@@ -31,7 +31,8 @@ class DataManager {
     
     static func data(forPastDays days: Int) -> Results<Day> {
         let numberOfDays = max(days, 1)
-        let startDate = Date.byAdding(numberOfDays: -numberOfDays)
+        let today = Date()
+        let startDate = today.adding(numberOfDays: -numberOfDays)
         
         let realm = try! Realm()
         let days = realm.objects(Day.self).filter("date >= %@", startDate)

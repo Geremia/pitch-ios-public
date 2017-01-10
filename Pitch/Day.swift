@@ -70,7 +70,7 @@ class Day: Object {
     
     static func newDay() -> Day {
         let day = Day()
-        day.id = Date.id(for: Date())
+        day.id = day.date.id
         return day
     }
     
