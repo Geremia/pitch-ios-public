@@ -30,11 +30,17 @@ class DataManager {
     
     static func data(forPastDays days: Int) -> Results<Day> {
         let numberOfDays = max(days, 1)
-        let today = Calendar.current.startOfDay(for: Date())
-        let startDate = Calendar.current.date(byAdding: .day, value: -(numberOfDays - 1), to: today)!
+        let startDate = Date.byAdding(numberOfDays: -numberOfDays)
         
         let realm = try! Realm()
         let days = realm.objects(Day.self).filter("date >= %@", startDate)
         return days
+    }
+}
+
+extension Date {
+    static func byAdding(numberOfDays: Int) -> Date {
+        let today = Calendar.current.startOfDay(for: Date())
+        return Calendar.current.date(byAdding: .day, value: -(numberOfDays - 1), to: today)!
     }
 }
