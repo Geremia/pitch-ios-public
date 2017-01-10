@@ -38,17 +38,3 @@ class DataManager {
         return days
     }
 }
-
-extension Date {
-    static func byAdding(numberOfDays: Int) -> Date {
-        let today = Calendar.current.startOfDay(for: Date())
-        let date = Calendar.current.date(byAdding: .day, value: (numberOfDays - 1), to: today)!
-        return date
-    }
-    
-    static func id(for date: Date) -> String {
-        let components = Calendar.current.dateComponents([.day, .month, .year], from: date)
-        let id = String(format: "%04d%02d%02d", components.year!, components.month!, components.day!)
-        return id
-    }
-}
