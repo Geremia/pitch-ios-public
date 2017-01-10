@@ -69,9 +69,8 @@ class Day: Object {
     // MARK: - Functions
     
     static func newDay() -> Day {
-        let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
         let day = Day()
-        day.id = String(format: "%04d%02d%02d", components.year!, components.month!, components.day!)
+        day.id = Date.id(for: Date())
         return day
     }
     
