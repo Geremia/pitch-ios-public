@@ -11,7 +11,8 @@ import RealmSwift
 
 class DataManager {
     static func today() -> Day {
-        let days = data(forPastDays: 1)
+        let days = data(forPastDays: 2)
+        print(days)
         if days.count > 0 {
             return days[0]
         } else {
@@ -41,6 +42,6 @@ class DataManager {
 extension Date {
     static func byAdding(numberOfDays: Int) -> Date {
         let today = Calendar.current.startOfDay(for: Date())
-        return Calendar.current.date(byAdding: .day, value: -(numberOfDays - 1), to: today)!
+        return Calendar.current.date(byAdding: .day, value: (numberOfDays - 1), to: today)!
     }
 }

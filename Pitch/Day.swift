@@ -71,7 +71,7 @@ class Day: Object {
     static func newDay() -> Day {
         let components = Calendar.current.dateComponents([.day, .month, .year], from: Date())
         let day = Day()
-        day.id = "\(components.year!)\(components.month!)\(components.day!)"
+        day.id = String(format: "%04d%02d%02d", components.year!, components.month!, components.day!)
         return day
     }
     
