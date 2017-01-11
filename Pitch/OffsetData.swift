@@ -45,7 +45,7 @@ class OffsetData: Object {
     dynamic var dataCount: Double = 0
     
     /**
-     * Initializes a new pitch from a given Pitch object and offset.
+     * Initializes a new OffsetData from a given Pitch and offset.
      */
     static func new(pitch: Pitch, offset: Double) -> OffsetData {
         let offsetData = OffsetData()
