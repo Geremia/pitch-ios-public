@@ -18,6 +18,7 @@
 		4C5076071E20461200DBD02C /* OffsetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076061E20461200DBD02C /* OffsetData.swift */; };
 		4C5076091E205DB300DBD02C /* PitchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076081E205DB300DBD02C /* PitchesTableViewController.swift */; };
 		4C50760B1E205DC300DBD02C /* PitchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */; };
+		4CB3A2EF1E2D865600DE48AF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3A2EE1E2D865600DE48AF /* ShareViewController.swift */; };
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
@@ -77,6 +78,7 @@
 		4C5076061E20461200DBD02C /* OffsetData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffsetData.swift; sourceTree = "<group>"; };
 		4C5076081E205DB300DBD02C /* PitchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchesTableViewController.swift; sourceTree = "<group>"; };
 		4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchesTableViewCell.swift; sourceTree = "<group>"; };
+		4CB3A2EE1E2D865600DE48AF /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
 		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				4C5076081E205DB300DBD02C /* PitchesTableViewController.swift */,
 				4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */,
 				4CE5F0C21E117C4700EF0AB3 /* ScoreCircle.swift */,
+				4CB3A2EE1E2D865600DE48AF /* ShareViewController.swift */,
 			);
 			name = Analytics;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */,
 				4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */,
 				4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */,
+				4CB3A2EF1E2D865600DE48AF /* ShareViewController.swift in Sources */,
 				4C253C7D1DAEDF0800BD07D6 /* Day.swift in Sources */,
 				4CFE125B1DECF452005EE1BF /* MainViewController+Analytics.swift in Sources */,
 				4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */,
