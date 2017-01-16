@@ -246,8 +246,6 @@ class Tuner: NSObject {
         let amplitudeThreshold = UserDefaults.standard.micSensitivity().amplitudeThreshold
         output.isValid = standardDeviation < 10.0 && amplitude > amplitudeThreshold && frequency > 80.0
         
-        print(output.frequency)
-        
         return output
     }
     

@@ -19,11 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         updateRealmSchema()
+        updateAnalyticsSharing()
         Fabric.with([Crashlytics.self])
         UserDefaults.standard.setHasSeenAnalyticsAnimation(false)
         UIApplication.shared.isIdleTimerDisabled = true
         
         return true
+    }
+    
+    func updateAnalyticsSharing() {
+        if UserDefaults.standard.object(forKey: "userBeforeAnalyticsSharing") == nil {
+            _ = DataManager.today()
+            if DataManager.data(forPastDaysIncludingToday: 2).count == 2 {
+                UserDefaults.standard.setUserBeforeAnalyticsSharing(true)
+            }
+        }
     }
     
     func updateRealmSchema() {

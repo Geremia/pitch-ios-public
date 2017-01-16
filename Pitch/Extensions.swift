@@ -32,7 +32,7 @@ extension UILabel {
 extension Date {
     func adding(numberOfDays: Int) -> Date {
         let currentDate = Calendar.current.startOfDay(for: self)
-        let date = Calendar.current.date(byAdding: .day, value: (numberOfDays - 1), to: currentDate)!
+        let date = Calendar.current.date(byAdding: .day, value: numberOfDays, to: currentDate)!
         return date
     }
     

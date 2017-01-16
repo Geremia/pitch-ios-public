@@ -35,31 +35,34 @@ extension UserDefaults {
     }
     
     /**
-     * The last day the analytics screen was viewed with sufficient data.
-     * Returns nil if the analytics screen has never been viewed.
-     */
-    func lastAnalyticsViewDate() -> Date? {
-        return object(forKey: "lastAnalyticsViewDate") as? Date
-    }
-    
-    func setLastAnalyticsViewDate(_ newValue: Date) {
-        set(newValue, forKey: "lastAnalyticsViewDate")
-    }
-    
-    /**
      * Whether the sharing prompt should be shown when the user opens the
      * Analytics screen.
      */
     func shouldShowAnalyticsSharePrompt() -> Bool {
-        if let object = object(forKey: "shouldShowAnalyticsSharePrompt") {
-            return object as! Bool
+        _ = DataManager.today()
+        let pastTwoDays = DataManager.data(forPastDaysIncludingToday: 2)
+        
+        if pastTwoDays.count == 2 && !userBeforeAnalyticsSharing() {
+            // User already had the app for more than two days and they were
+            // not a user before I added the Analytics sharing requirement,
+            // so don't show them the sharing prompt.
+            return true
         }
         
-        return true
+        // This is their first day using the app or they have already shared.
+        return false
     }
     
-    func setShouldShowAnalyticsSharePrompt(_ newValue: Bool) {
-        set(newValue, forKey: "shouldShowAnalyticsSharePrompt")
+    func userDidShareFromAnalytics() {
+        setUserBeforeAnalyticsSharing(true)
+    }
+    
+    func userBeforeAnalyticsSharing() -> Bool {
+        return bool(forKey: "userBeforeAnalyticsSharing")
+    }
+    
+    func setUserBeforeAnalyticsSharing(_ newValue: Bool) {
+        set(newValue, forKey: "userBeforeAnalyticsSharing")
     }
     
     /**

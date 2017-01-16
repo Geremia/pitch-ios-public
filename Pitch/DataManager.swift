@@ -11,7 +11,7 @@ import RealmSwift
 
 class DataManager {
     static func today() -> Day {
-        let days = data(forPastDays: 1)
+        let days = data(forPastDaysIncludingToday: 1)
         if days.count > 0 {
             return days[0]
         } else {
@@ -28,10 +28,10 @@ class DataManager {
         }
     }
     
-    static func data(forPastDays days: Int) -> Results<Day> {
+    static func data(forPastDaysIncludingToday days: Int) -> Results<Day> {
         let numberOfDays = max(days, 1)
-        let today = Date()
-        let startDate = today.adding(numberOfDays: -numberOfDays)
+        let today = NSCalendar.current.startOfDay(for: Date())
+        let startDate = today.adding(numberOfDays: -(numberOfDays - 1))
         
         let realm = try! Realm()
         let days = realm.objects(Day.self).filter("date >= %@", startDate)

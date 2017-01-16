@@ -77,6 +77,8 @@ class MainViewController: UIViewController, TunerDelegate {
 //        if !tunerSetup {
 //            checkRecordPermission()
 //        }
+        
+        print(UserDefaults.standard.shouldShowAnalyticsSharePrompt())
     }
     
     func checkRecordPermission() {
@@ -92,7 +94,7 @@ class MainViewController: UIViewController, TunerDelegate {
         AKSettings.session.requestRecordPermission() { (granted: Bool) -> Void in
             if granted {
                 DispatchQueue.main.async {
-                    UserDefaults.standard.setRecordPermission(true)
+                    UserDefaults.standard.setRecordPermission(granted)
                     self.setupTuner()
                 }
             }
