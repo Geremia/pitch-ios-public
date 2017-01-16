@@ -61,6 +61,8 @@ class MainViewController: UIViewController, TunerDelegate {
         checkRecordPermission()
         setupUI()
         
+        print(UserDefaults.standard.shouldShowAnalyticsSharePrompt())
+        
         today = DataManager.today()
 //        setupPlot()
     }

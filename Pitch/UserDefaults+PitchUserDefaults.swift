@@ -24,7 +24,7 @@ extension UserDefaults {
     
     /**
      * Bool indicating whether the user has seen the analytics 
-     * animation today.
+     * animation since they last opened the app.
      */
     func hasSeenAnalyticsAnimation() -> Bool {
         return bool(forKey: "hasSeenAnalyticsAnimation")
