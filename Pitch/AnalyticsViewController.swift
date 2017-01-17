@@ -10,7 +10,7 @@ import UIKit
 import UICountingLabel
 import MessageUI
 
-class AnalyticsViewController: UIViewController, ShareViewControllerDelegate {
+class AnalyticsViewController: UIViewController {
     
     // MARK: - Outlets
     
@@ -147,12 +147,6 @@ class AnalyticsViewController: UIViewController, ShareViewControllerDelegate {
             feedbackButton.layer.backgroundColor = UIColor.darkInTune.cgColor
         }
     }
-    
-    // MARK: - ShareViewControllerDelegate Methods
-    
-    func userDidShare() {
-        displayData()
-    }
 
     // MARK: - Actions
     
@@ -194,5 +188,14 @@ extension AnalyticsViewController: MFMailComposeViewControllerDelegate {
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension AnalyticsViewController: ShareViewControllerDelegate {
+    
+    // MARK: - ShareViewControllerDelegate Methods
+    
+    func userDidShare() {
+        displayData()
     }
 }
