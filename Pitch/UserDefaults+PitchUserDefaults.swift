@@ -43,13 +43,13 @@ extension UserDefaults {
         let pastTwoDays = DataManager.data(forPastDaysIncludingToday: 2)
         
         if pastTwoDays.count == 2 && !userBeforeAnalyticsSharing() {
-            // User already had the app for more than two days and they were
+            // User has been using the app for two days and they were
             // not a user before I added the Analytics sharing requirement,
-            // so don't show them the sharing prompt.
+            // so show them the sharing prompt.
             return true
         }
         
-        // This is their first day using the app or they have already shared.
+        // User has already shared OR this is their first day using the app.
         return false
     }
     
