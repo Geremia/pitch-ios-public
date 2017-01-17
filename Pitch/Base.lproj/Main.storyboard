@@ -827,13 +827,13 @@
                                         <rect key="frame" x="187.5" y="162" width="94" height="69"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFI-AI-stZ">
-                                                <rect key="frame" x="38.5" y="4" width="17" height="36"/>
+                                                <rect key="frame" x="38" y="4" width="17" height="36"/>
                                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="30"/>
                                                 <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCTAVE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbz-e0-DUB">
-                                                <rect key="frame" x="20.5" y="44" width="55" height="17"/>
+                                                <rect key="frame" x="20" y="44" width="55" height="17"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1296,6 +1296,7 @@
                         <outlet property="todayLabelTopConstraint" destination="Pzq-JB-FGr" id="ufh-Sl-uAK"/>
                         <outlet property="todaySeparator" destination="gaT-vT-MkP" id="X13-6N-vkB"/>
                         <outlet property="todaySeparatorTopConstraint" destination="pzr-Fe-iFk" id="KV4-8S-MsL"/>
+                        <segue destination="koB-Ds-blE" kind="show" identifier="analyticsToShare" id="ftT-pK-DWq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfe-DO-wdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1315,26 +1316,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" translatesAutoresizingMaskIntoConstraints="NO" id="eNf-IR-tlO">
-                                <rect key="frame" x="122.5" y="88.5" width="130" height="130"/>
+                                <rect key="frame" x="122.5" y="78.5" width="130" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="aU0-IQ-ybK"/>
                                     <constraint firstAttribute="height" constant="130" id="uzO-RO-iCU"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sharing is caring" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix5-L3-1mD">
-                                <rect key="frame" x="89.5" y="268.5" width="196" height="34"/>
+                                <rect key="frame" x="89.5" y="258.5" width="196" height="34"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We know you love Pitch, and we want others to love it too! Share Pitch with your friends to view your Analytics." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRQ-KB-CnX">
-                                <rect key="frame" x="30" y="327.5" width="315" height="65"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We know you love Pitch, and we want others to love it too! Share Pitch with three friends to view your Analytics." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRQ-KB-CnX">
+                                <rect key="frame" x="30" y="317.5" width="315" height="65"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUh-Ns-Hhf">
-                                <rect key="frame" x="67.5" y="447.5" width="240" height="46"/>
+                                <rect key="frame" x="67.5" y="432.5" width="240" height="46"/>
                                 <color key="backgroundColor" red="0.0" green="0.94999999999999996" blue="0.4591666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="ReA-eX-5bH"/>
@@ -1344,44 +1345,67 @@
                                 <state key="normal" title="Do it!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="feedbackPressed:" destination="FFt-kb-reG" eventType="touchUpInside" id="Zgy-HA-rxC"/>
                                     <action selector="shareButtonPressed:" destination="koB-Ds-blE" eventType="touchUpInside" id="c8m-cV-K4D"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once you share, you won't be asked to again." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LQ-U4-lIy">
-                                <rect key="frame" x="30" y="510" width="315" height="19.5"/>
+                                <rect key="frame" x="30" y="495" width="315" height="19.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2y-f2-m35">
+                                <rect key="frame" x="136.5" y="617" width="102" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="UY0-lw-3dC"/>
+                                    <constraint firstAttribute="width" constant="102" id="uaG-Pa-sF7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                <state key="normal" title="No thanks">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="koB-Ds-blE" eventType="touchUpInside" id="luf-hy-j6S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yUh-Ns-Hhf" firstAttribute="top" secondItem="XRQ-KB-CnX" secondAttribute="bottom" constant="55" id="1DO-WT-GfA"/>
+                            <constraint firstItem="yUh-Ns-Hhf" firstAttribute="top" secondItem="XRQ-KB-CnX" secondAttribute="bottom" constant="50" id="1DO-WT-GfA"/>
                             <constraint firstAttribute="trailing" secondItem="XRQ-KB-CnX" secondAttribute="trailing" constant="30" id="658-OS-jCc"/>
                             <constraint firstItem="8LQ-U4-lIy" firstAttribute="top" secondItem="yUh-Ns-Hhf" secondAttribute="bottom" constant="16" id="CYx-Na-eHN"/>
                             <constraint firstItem="XRQ-KB-CnX" firstAttribute="top" secondItem="ix5-L3-1mD" secondAttribute="bottom" constant="25" id="EAE-cW-hhh"/>
+                            <constraint firstItem="QT2-Iz-tI4" firstAttribute="top" secondItem="O2y-f2-m35" secondAttribute="bottom" constant="20" id="Epf-Q1-Tbi"/>
                             <constraint firstItem="ix5-L3-1mD" firstAttribute="centerX" secondItem="89k-rD-D9b" secondAttribute="centerX" id="Ht9-2l-DXX"/>
-                            <constraint firstItem="eNf-IR-tlO" firstAttribute="centerY" secondItem="89k-rD-D9b" secondAttribute="centerY" constant="-180" id="WYs-cn-o4H"/>
+                            <constraint firstItem="eNf-IR-tlO" firstAttribute="centerY" secondItem="89k-rD-D9b" secondAttribute="centerY" constant="-190" id="WYs-cn-o4H"/>
                             <constraint firstAttribute="trailing" secondItem="8LQ-U4-lIy" secondAttribute="trailing" constant="30" id="XXz-AA-OMS"/>
                             <constraint firstItem="eNf-IR-tlO" firstAttribute="centerX" secondItem="89k-rD-D9b" secondAttribute="centerX" id="XZL-FC-YDl"/>
                             <constraint firstItem="XRQ-KB-CnX" firstAttribute="leading" secondItem="89k-rD-D9b" secondAttribute="leading" constant="30" id="dvP-81-xTd"/>
                             <constraint firstItem="yUh-Ns-Hhf" firstAttribute="centerX" secondItem="89k-rD-D9b" secondAttribute="centerX" id="iro-22-3B0"/>
                             <constraint firstItem="8LQ-U4-lIy" firstAttribute="leading" secondItem="89k-rD-D9b" secondAttribute="leading" constant="30" id="riv-6N-WxU"/>
+                            <constraint firstItem="O2y-f2-m35" firstAttribute="centerX" secondItem="89k-rD-D9b" secondAttribute="centerX" id="sEH-wR-OHX"/>
                             <constraint firstItem="ix5-L3-1mD" firstAttribute="top" secondItem="eNf-IR-tlO" secondAttribute="bottom" constant="50" id="whH-X7-0mg"/>
                         </constraints>
                     </view>
+                    <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="cancelButton" destination="O2y-f2-m35" id="Qcf-y0-iCx"/>
                         <outlet property="shareButton" destination="yUh-Ns-Hhf" id="G2A-zZ-JWK"/>
-                        <outletCollection property="labels" destination="ix5-L3-1mD" id="jEI-pm-pRI"/>
-                        <outletCollection property="labels" destination="XRQ-KB-CnX" id="HeT-9A-EP3"/>
-                        <outletCollection property="labels" destination="8LQ-U4-lIy" id="AHd-fa-c4E"/>
+                        <outletCollection property="labels" destination="ix5-L3-1mD" collectionClass="NSMutableArray" id="jEI-pm-pRI"/>
+                        <outletCollection property="labels" destination="XRQ-KB-CnX" collectionClass="NSMutableArray" id="HeT-9A-EP3"/>
+                        <outletCollection property="labels" destination="8LQ-U4-lIy" collectionClass="NSMutableArray" id="AHd-fa-c4E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4E-bL-hsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2860" y="34.632683658170919"/>
+            <point key="canvasLocation" x="2853.75" y="34.859154929577464"/>
         </scene>
         <!--Pitches Table View Controller-->
         <scene sceneID="bZl-To-02f">

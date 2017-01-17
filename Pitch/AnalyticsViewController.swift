@@ -10,7 +10,7 @@ import UIKit
 import UICountingLabel
 import MessageUI
 
-class AnalyticsViewController: UIViewController {
+class AnalyticsViewController: UIViewController, ShareViewControllerDelegate {
     
     // MARK: - Outlets
     
@@ -42,6 +42,10 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
     
+    // MARK: - Variables
+    
+    var hasShownShareView: Bool = false
+    
     // MARK: - Setup Views
 
     override func viewDidLoad() {
@@ -52,10 +56,15 @@ class AnalyticsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let defaults = UserDefaults.standard
-        if !defaults.hasSeenAnalyticsAnimation() && DataManager.today().hasSufficientData {
-            animateIn()
-            UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
+        if DataManager.today().hasSufficientData {
+            let defaults = UserDefaults.standard
+            if defaults.shouldShowAnalyticsSharePrompt() && !hasShownShareView {
+                hasShownShareView = true
+                performSegue(withIdentifier: "analyticsToShare", sender: nil)
+            } else if !defaults.hasSeenAnalyticsAnimation() {
+                animateIn()
+                UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
+            }
         }
     }
     
@@ -67,7 +76,8 @@ class AnalyticsViewController: UIViewController {
         feedbackButton.layer.cornerRadius = 8.0
         
         let today = DataManager.today()
-        if today.hasSufficientData {
+        let showingSharePrompt = UserDefaults.standard.shouldShowAnalyticsSharePrompt()
+        if today.hasSufficientData && !showingSharePrompt {
             displayData()
         }
     }
@@ -137,6 +147,12 @@ class AnalyticsViewController: UIViewController {
             feedbackButton.layer.backgroundColor = UIColor.darkInTune.cgColor
         }
     }
+    
+    // MARK: - ShareViewControllerDelegate Methods
+    
+    func userDidShare() {
+        displayData()
+    }
 
     // MARK: - Actions
     
@@ -160,6 +176,15 @@ class AnalyticsViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "analyticsToShare" {
+            let shareVC: ShareViewController = segue.destination as! ShareViewController
+            shareVC.delegate = self
+        }
     }
 }
 
