@@ -30,7 +30,12 @@ class ShareViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupUI()
+    }
+    
+    func setupUI() {
+        view.layer.cornerRadius = 8.0
+        view.clipsToBounds = true
         updateForDarkMode()
     }
     
@@ -42,6 +47,7 @@ class ShareViewController: UIViewController {
                 label.textColor = .white
             }
             shareButton.backgroundColor = UIColor.darkInTune
+            cancelButton.setTitleColor(UIColor.white, for: .normal)
         }
     }
 
@@ -58,7 +64,7 @@ class ShareViewController: UIViewController {
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: { _ in
-            self.delegate?.dismiss(animated: false, completion: nil)
+            self.delegate?.dismiss(animated: true, completion: nil)
         })
     }
     

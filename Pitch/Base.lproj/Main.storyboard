@@ -1328,7 +1328,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We know you love Pitch, and we want others to love it too! Share Pitch with three friends to view your Analytics." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRQ-KB-CnX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We know you love Pitch, and we want others to love it too! Share Pitch with three friends to see your analytics." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRQ-KB-CnX">
                                 <rect key="frame" x="30" y="317.5" width="315" height="65"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="18"/>
                                 <nil key="textColor"/>
