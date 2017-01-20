@@ -32,9 +32,13 @@ class SoundGenerator : NSObject {
     }
     
     final func playNoteOn(channelNumber: Int) {
-        let concertOffset = UserDefaults.standard.key().concertOffset
-        bank.play(noteNumber: channelNumber + octaveConstant + concertOffset, velocity: 127)
-        channelsOn.append(channelNumber)
+        if AKSettings.session.category == AKSettings.SessionCategory.playAndRecord.rawValue {
+            let concertOffset = UserDefaults.standard.key().concertOffset
+            bank.play(noteNumber: channelNumber + octaveConstant + concertOffset, velocity: 127)
+            channelsOn.append(channelNumber)
+        } else {
+            print(AKSettings.session.category)
+        }
     }
     
     final func playNoteOff(channelNumber: Int) {

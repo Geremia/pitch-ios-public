@@ -24,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.setHasSeenAnalyticsAnimation(false)
         UIApplication.shared.isIdleTimerDisabled = true
         
+        do {
+            try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
+        } catch {
+            print("Error setting category.")
+        }
+        
         return true
     }
     

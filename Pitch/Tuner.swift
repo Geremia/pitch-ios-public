@@ -145,13 +145,7 @@ class Tuner: NSObject {
     /**
      Starts the tuner.
      */
-    open func start() {
-        do {
-            try AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
-        } catch {
-            print("Error setting category.")
-        }
-        
+    open func start() {        
         timer = Timer.scheduledTimer(timeInterval: updateInterval, target: self, selector: #selector(Tuner.timerAction), userInfo: nil, repeats: true)
     }
     
