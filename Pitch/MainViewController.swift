@@ -9,7 +9,7 @@
 import UIKit
 import AudioKit
 
-class MainViewController: UIViewController, TunerDelegate {
+class MainViewController: UIViewController {
     
     // MARK: - Tuner Outlets
     
@@ -36,7 +36,7 @@ class MainViewController: UIViewController, TunerDelegate {
     
     // MARK: - Tuner Variables
     
-    private var tuner: Tuner?
+    var tuner: Tuner?
     var tunerSetup: Bool = false
     
     var presentAniamtionController = VerticalSlideAnimationController(direction: .left)
@@ -79,62 +79,8 @@ class MainViewController: UIViewController, TunerDelegate {
 //            checkRecordPermission()
 //        }
     }
-    
-    func checkRecordPermission() {
-        let recordPermissionGranted = UserDefaults.standard.recordPermission()
-        if recordPermissionGranted {
-            setupTuner()
-        } else {
-            requestRecordPermission()
-        }
-    }
-    
-    func requestRecordPermission() {
-        AKSettings.session.requestRecordPermission() { (granted: Bool) -> Void in
-            if granted {
-                DispatchQueue.main.async {
-                    UserDefaults.standard.setRecordPermission(granted)
-                    self.setupTuner()
-                }
-            }
-        }
-    }
-    
-    func setupTuner() {
-        tunerSetup = true
-        tuner = Tuner()
-        tuner?.delegate = self
-        pitchPipeView.soundGenerator.tuner = self.tuner
-        pitchPipeView.soundGenerator.setUp()
-        tuner?.start()
-    }
-    
-    func setupUI() {
-        self.pitchPipeBottomConstraint.constant = -231
-        view.layer.cornerRadius = 8.0
-        view.clipsToBounds = true
-        
-        analyticsCircle.colorful = false
-        analyticsCircle.circleLayer.lineWidth = 1.0
-        analyticsCircle.removeBorder()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.darkModeChanged), name: .darkModeChanged, object: nil)
-        darkModeChanged()
-    }
-    
-    func setupPlot() {
-        plot = AKNodeOutputPlot((tuner?.microphone)!, frame: audioPlot.bounds)
-        plot.plotType = .rolling
-        plot.shouldFill = false
-        plot.shouldMirror = true
-        plot.color = UIColor.white
-        plot.gain = 3.0
-        plot.backgroundColor = UIColor.clear
-        audioPlot.addSubview(plot)
-        
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(plotTapped))
-        audioPlot.addGestureRecognizer(tapGR)
-    }
+
+    // MARK: - Audio Plot Action
     
     func plotTapped() {
         print("Plot tapped")
@@ -151,18 +97,7 @@ class MainViewController: UIViewController, TunerDelegate {
         state = .outOfTune
         animateViewTo(newState: .outOfTune)
     }
-    
-    // MARK: TunerDelegate Methods
-    
-    func tunerDidUpdate(_ tuner: Tuner, output: TunerOutput) {
-        amplitudeLabel.text = "Amplitude: \(output.amplitude)"
-        stdDevLabel.text = "Std. Dev: \(output.standardDeviation)"
-        
-        updateUI(output: output)
-        addOutputToAnalytics(output: output)
-        updatePitchCenterTimer(output: output)
-    }
-    
+
     // MARK: - Actions
     
     @IBAction func pitchPipePressed(_ sender: AnyObject) {
@@ -190,7 +125,24 @@ class MainViewController: UIViewController, TunerDelegate {
     }
 }
 
+extension MainViewController: TunerDelegate {
+    
+    // MARK: TunerDelegate Methods
+    
+    func tunerDidUpdate(_ tuner: Tuner, output: TunerOutput) {
+        amplitudeLabel.text = "Amplitude: \(output.amplitude)"
+        stdDevLabel.text = "Std. Dev: \(output.standardDeviation)"
+        
+        updateUI(output: output)
+        addOutputToAnalytics(output: output)
+        updatePitchCenterTimer(output: output)
+    }
+}
+
 extension MainViewController: UIViewControllerTransitioningDelegate {
+    
+    // MARK: - UIViewControllerTransitioningDelegate Methods
+    
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if presented is SettingsViewController {
             return VerticalSlideAnimationController(direction: .left)
