@@ -12,7 +12,7 @@ import UICountingLabel
 
 extension MainViewController {
     
-    // MARK: - UI
+    // MARK: - Animations
     
     func updateUI(output: TunerOutput) {
         if !output.isValid {

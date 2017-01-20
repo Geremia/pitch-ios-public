@@ -61,10 +61,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        today = DataManager.today()
+        
         checkRecordPermission()
         setupUI()
         
-        today = DataManager.today()
 //        setupPlot()
     }
     
