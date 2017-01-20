@@ -10,7 +10,11 @@ import UIKit
 
 class ScoreCircle: UIView {
 
-    var score: Double = 0
+    var score: Double = 0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     var circleLayer: CAShapeLayer = CAShapeLayer()
     
     override func awakeFromNib() {

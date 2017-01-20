@@ -19,7 +19,6 @@ extension AnalyticsViewController {
         
         scoreLabel.formatBlock = { score -> String! in
             self.scoreCircle.score = Double(score)
-            self.scoreCircle.setNeedsDisplay()
             return "\(Int(score))"
         }
         scoreLabel.text = "0"
