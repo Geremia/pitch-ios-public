@@ -88,7 +88,7 @@ enum MainViewState {
     var analyticsCircleThickness: CGFloat {
         switch self {
         case .inTune:
-            return 2.0
+            return 3.0
         default:
             return 1.0
         }

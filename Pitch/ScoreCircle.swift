@@ -31,6 +31,7 @@ class ScoreCircle: UIView {
         circleLayer.fillColor = UIColor.clear.cgColor
         circleLayer.lineWidth = 2.0
         circleLayer.strokeColor = UIColor.black.cgColor
+        circleLayer.lineCap = kCALineCapRound
         self.layer.addSublayer(circleLayer)
     }
     
