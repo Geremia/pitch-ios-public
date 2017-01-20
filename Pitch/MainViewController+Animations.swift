@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UICountingLabel
 
 extension MainViewController {
     
@@ -134,18 +135,28 @@ extension MainViewController {
     }
     
     func updateAnalyticsCircle() {
+        let label = UICountingLabel()
+        label.formatBlock = { score -> String! in
+            self.analyticsCircle.score = Double(score)
+            return "\(Int(score))"
+        }
+        
         let percentage = DataManager.today().dataPercentage * 100
         if percentage < 100 {
-            analyticsCircle.score = percentage
             UIView.animate(withDuration: 0.3, animations: {
                 self.analyticsButton.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
             })
         } else {
-            analyticsCircle.isHidden = true
             shouldUpdateAnalyticsCircle = false
-            UIView.animate(withDuration: 0.3, animations: {
-                self.analyticsButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            })
+            
+            label.completionBlock = { _ in
+                self.analyticsCircle.isHidden = true
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.analyticsButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                })
+            }
         }
+        
+        label.count(from: CGFloat(analyticsCircle.score), to: CGFloat(percentage), withDuration: 1.0)
     }
 }

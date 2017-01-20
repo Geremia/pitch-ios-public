@@ -29,6 +29,7 @@ extension MainViewController {
                 pitchCenterTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false, block: { _ in
                     if !self.addedCurrentCenterTime {
                         self.addPitchCenterTimeToAnalytics()
+                        self.updateAnalyticsCircle()
                     }
                 })
             }

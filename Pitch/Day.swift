@@ -72,8 +72,8 @@ class Day: Object {
      * having sufficient data.
      */
     var dataPercentage: Double {
-        let inTune = min(0.6 * Double(inTunePercentageDataCount) / 100, 0.6)
-        let timeToCenter = min(0.4 * Double(timeToCenterDataCount) / 3, 0.4)
+        let inTune = min(0.2 * Double(inTunePercentageDataCount) / 100, 0.2)
+        let timeToCenter = min(0.8 * Double(timeToCenterDataCount) / 3, 0.8)
         return inTune + timeToCenter
     }
     

@@ -161,10 +161,6 @@ class MainViewController: UIViewController, TunerDelegate {
         updateUI(output: output)
         addOutputToAnalytics(output: output)
         updatePitchCenterTimer(output: output)
-        
-        if shouldUpdateAnalyticsCircle {
-            updateAnalyticsCircle()
-        }
     }
     
     // MARK: - Actions
