@@ -10,12 +10,15 @@ import UIKit
 
 class ScoreCircle: UIView {
 
+    var circleLayer: CAShapeLayer = CAShapeLayer()
+    var borderLayer: CAShapeLayer = CAShapeLayer()
+    
     var score: Double = 0 {
         didSet {
             setNeedsDisplay()
         }
     }
-    var circleLayer: CAShapeLayer = CAShapeLayer()
+    var colorful: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,17 +30,21 @@ class ScoreCircle: UIView {
     func setupCircleLayer() {
         circleLayer.fillColor = UIColor.clear.cgColor
         circleLayer.lineWidth = 2.0
+        circleLayer.strokeColor = UIColor.black.cgColor
         self.layer.addSublayer(circleLayer)
     }
     
     func addBorder() {
-        let borderLayer = CAShapeLayer()
         borderLayer.path = UIBezierPath(ovalIn: bounds).cgPath
         borderLayer.fillColor = UIColor.clear.cgColor
         borderLayer.lineWidth = 2.0
         let darkModeOn = UserDefaults.standard.darkModeOn()
         borderLayer.strokeColor = darkModeOn ? UIColor.darkPitchPipeBackground.cgColor : UIColor.separatorColor.cgColor
         self.layer.addSublayer(borderLayer)
+    }
+    
+    func removeBorder() {
+        borderLayer.removeFromSuperlayer()
     }
     
     override func draw(_ rect: CGRect) {
@@ -48,16 +55,18 @@ class ScoreCircle: UIView {
         let circlePath = UIBezierPath(arcCenter: circleCenter, radius: circleRadius, startAngle: start, endAngle: end, clockwise: true)
         
         circleLayer.path = circlePath.cgPath
-        switch score {
-        case 0...40:
-            circleLayer.strokeColor = UIColor.red.cgColor
-        case 41...70:
-            circleLayer.strokeColor = UIColor.yellow.cgColor
-        case 71...100:
-            let darkModeOn = UserDefaults.standard.darkModeOn()
-            circleLayer.strokeColor = darkModeOn ? UIColor.darkInTune.cgColor : UIColor.inTune.cgColor
-        default:
-            break
+        if colorful {
+            switch score {
+            case 0...40:
+                circleLayer.strokeColor = UIColor.red.cgColor
+            case 41...70:
+                circleLayer.strokeColor = UIColor.yellow.cgColor
+            case 71...100:
+                let darkModeOn = UserDefaults.standard.darkModeOn()
+                circleLayer.strokeColor = darkModeOn ? UIColor.darkInTune.cgColor : UIColor.inTune.cgColor
+            default:
+                break
+            }
         }
     }
 

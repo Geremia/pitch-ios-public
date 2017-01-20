@@ -132,4 +132,20 @@ extension MainViewController {
     func updateCentsLabel(offset: Double) {
         centsLabel.text = offset > 0 ? "+\(offset.roundTo(places: 1))" : "\(offset.roundTo(places: 1))"
     }
+    
+    func updateAnalyticsCircle() {
+        let percentage = DataManager.today().dataPercentage * 100
+        if percentage < 100 {
+            analyticsCircle.score = percentage
+            UIView.animate(withDuration: 0.3, animations: {
+                self.analyticsButton.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+            })
+        } else {
+            analyticsCircle.isHidden = true
+            shouldUpdateAnalyticsCircle = false
+            UIView.animate(withDuration: 0.3, animations: {
+                self.analyticsButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            })
+        }
+    }
 }

@@ -25,6 +25,7 @@ class MainViewController: UIViewController, TunerDelegate {
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var pitchPipeButton: UIButton!
     @IBOutlet weak var analyticsButton: UIButton!
+    @IBOutlet weak var analyticsCircle: ScoreCircle!
     
     @IBOutlet weak var audioPlot: EZAudioPlot!
     
@@ -43,6 +44,8 @@ class MainViewController: UIViewController, TunerDelegate {
     
     var isPitchPipeOpen: Bool = false
     var state: MainViewState = .outOfTune
+    
+    var shouldUpdateAnalyticsCircle = true
     
     var plot: AKNodeOutputPlot!
     
@@ -111,6 +114,10 @@ class MainViewController: UIViewController, TunerDelegate {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
         
+        analyticsCircle.colorful = false
+        analyticsCircle.circleLayer.lineWidth = 1.0
+        analyticsCircle.removeBorder()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.darkModeChanged), name: .darkModeChanged, object: nil)
         darkModeChanged()
     }
@@ -154,6 +161,10 @@ class MainViewController: UIViewController, TunerDelegate {
         updateUI(output: output)
         addOutputToAnalytics(output: output)
         updatePitchCenterTimer(output: output)
+        
+        if shouldUpdateAnalyticsCircle {
+            updateAnalyticsCircle()
+        }
     }
     
     // MARK: - Actions

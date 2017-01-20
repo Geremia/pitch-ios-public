@@ -60,10 +60,21 @@ class Day: Object {
     }
     
     /**
-     * Boolean indicating whether enough data has been collected to be displayed to the user.
+     * Boolean indicating whether enough data has been collected to be 
+     * displayed to the user.
      */
     var hasSufficientData: Bool {
         return inTunePercentageDataCount >= 100 && timeToCenterDataCount >= 3
+    }
+    
+    /**
+     * Double on a 0 - 1 scale representing how close this Day is to
+     * having sufficient data.
+     */
+    var dataPercentage: Double {
+        let inTune = min(0.6 * Double(inTunePercentageDataCount) / 100, 0.6)
+        let timeToCenter = min(0.4 * Double(timeToCenterDataCount) / 3, 0.4)
+        return inTune + timeToCenter
     }
     
     // MARK: - Functions
