@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import Crashlytics
 
 protocol ShareViewControllerDelegate {
     func dismiss(animated: Bool, completion: (() -> Void)?)
@@ -79,6 +80,7 @@ extension ShareViewController: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: { _ in
             if result == .sent {
+                Answers.logShare(withMethod: "iMessage", contentName: "Shared Pitch via iMessage", contentType: "messaging", contentId: "601072000245858305", customAttributes: [:])
                 UserDefaults.standard.userDidShareFromAnalytics()
                 self.delegate?.userDidShare()
                 self.dismiss(animated: true, completion: nil)
