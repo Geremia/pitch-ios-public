@@ -110,12 +110,12 @@ enum MainViewState {
     var menuImage: UIImage {
         switch self {
         case .inTune:
-            return #imageLiteral(resourceName: "thick_menu")
+            return #imageLiteral(resourceName: "thick_settings")
         default:
             if darkModeOn {
-                return #imageLiteral(resourceName: "white_menu")
+                return #imageLiteral(resourceName: "white_settings")
             } else {
-                return #imageLiteral(resourceName: "menu")
+                return #imageLiteral(resourceName: "settings")
             }
         }
     }
@@ -136,12 +136,12 @@ enum MainViewState {
     var audioWaveImage: UIImage {
         switch self {
         case .inTune:
-            return #imageLiteral(resourceName: "thick_audio_wave")
+            return #imageLiteral(resourceName: "thick_piano")
         default:
             if darkModeOn {
-                return #imageLiteral(resourceName: "white_audio_wave")
+                return #imageLiteral(resourceName: "white_piano")
             } else {
-                return #imageLiteral(resourceName: "audio_wave")
+                return #imageLiteral(resourceName: "piano")
             }
         }
     }
