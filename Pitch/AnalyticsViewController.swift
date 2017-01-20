@@ -97,6 +97,7 @@ class AnalyticsViewController: UIViewController {
         let today = DataManager.today()
         let score = today.inTunePercentage.roundTo(places: 2) * 100
         scoreLabel.text = "\(Int(score))"
+        scoreCircle.colorful = true
         
         if UserDefaults.standard.hasSeenAnalyticsAnimation() {
             scoreCircle.score = score

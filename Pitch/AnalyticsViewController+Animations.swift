@@ -16,7 +16,6 @@ extension AnalyticsViewController {
     func prepareForAnimation() {
         scoreCircle.transform = CGAffineTransform(scaleX: 0, y: 0)
         scoreCircle.alpha = 0.0
-        scoreCircle.colorful = true
         
         scoreLabel.formatBlock = { score -> String! in
             self.scoreCircle.score = Double(score)
