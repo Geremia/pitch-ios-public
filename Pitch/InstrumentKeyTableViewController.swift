@@ -24,7 +24,7 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
     }
     
     let instruments: [Instrument] = Instrument.all
-    let keys: [Key] = [.c, .csharp, .d, .dsharp, .e, .f, .fsharp, .g, .gsharp, .a, .asharp, .b]
+    let keys: [Key] = [.fsharp, .g, .gsharp, .a, .asharp, .b, .c, .csharp, .d, .dsharp, .e, .f]
     
     // MARK: - Outlets
     
