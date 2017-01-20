@@ -24,8 +24,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var stdDevLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var pitchPipeButton: UIButton!
+    
     @IBOutlet weak var analyticsButton: UIButton!
     @IBOutlet weak var analyticsCircle: ScoreCircle!
+    @IBOutlet weak var analyticsMessage: UIImageView!
     
     @IBOutlet weak var audioPlot: EZAudioPlot!
     
@@ -71,7 +73,11 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         pitchPipeView.updateButtonLabels()
+        if today.hasSufficientData {
+            analyticsMessage.alpha = 0.0
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

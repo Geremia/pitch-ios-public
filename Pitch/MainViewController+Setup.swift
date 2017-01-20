@@ -54,11 +54,11 @@ extension MainViewController {
     }
     
     func setupAnalyticsCircle() {
+        analyticsCircle.colorful = false
+        analyticsCircle.circleLayer.lineWidth = 1.0
+        analyticsCircle.removeBorder()
+        
         if today.hasSufficientData {
-            analyticsCircle.colorful = false
-            analyticsCircle.circleLayer.lineWidth = 1.0
-            analyticsCircle.removeBorder()
-        } else {
             shouldUpdateAnalyticsCircle = false
         }
     }

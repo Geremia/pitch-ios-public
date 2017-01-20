@@ -151,11 +151,16 @@ extension MainViewController {
         } else {
             shouldUpdateAnalyticsCircle = false
             
+            analyticsMessage.layer.anchorPoint = CGPoint(x: 0.8, y: 1.0)
+            analyticsMessage.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
+            
             label.completionBlock = { _ in
                 self.analyticsCircle.isHidden = true
-                UIView.animate(withDuration: 0.3, animations: {
+                UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut, .allowUserInteraction], animations: {
                     self.analyticsButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                })
+                    self.analyticsMessage.alpha = 1.0
+                    self.analyticsMessage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                }, completion: nil)
             }
         }
         
