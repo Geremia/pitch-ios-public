@@ -28,10 +28,13 @@ class SoundGenerator : NSObject {
         mixer.connect(bank)
         
         AudioKit.output = mixer
+        try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
         AudioKit.start()
     }
     
     final func playNoteOn(channelNumber: Int) {
+        print(AKSettings.defaultToSpeaker)
+        
         if AKSettings.session.category == AKSettings.SessionCategory.playAndRecord.rawValue {
             let concertOffset = UserDefaults.standard.key().concertOffset
             bank.play(noteNumber: channelNumber + octaveConstant + concertOffset, velocity: 127)
