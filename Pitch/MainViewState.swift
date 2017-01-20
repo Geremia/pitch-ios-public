@@ -85,6 +85,15 @@ enum MainViewState {
         }
     }
     
+    var analyticsCircleThickness: CGFloat {
+        switch self {
+        case .inTune:
+            return 2.0
+        default:
+            return 1.0
+        }
+    }
+    
     var feedbackImage: UIImage {
         switch self {
         case .inTune:

@@ -78,6 +78,8 @@ extension MainViewController {
             self.centsLabel.font = newState.centsLabelFont
             self.octaveLabel.textColor = newState.lineTextColor
             self.octaveLabel.font = newState.octaveLabelFont
+            self.analyticsCircle.circleLayer.strokeColor = newState.lineTextColor.cgColor
+            self.analyticsCircle.circleLayer.lineWidth = newState.analyticsCircleThickness
             self.displayPitch(pitch: self.noteLabel.text!)
         }, completion: { _ in })
         
