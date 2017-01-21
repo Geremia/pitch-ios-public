@@ -16,10 +16,10 @@ extension MainViewController {
     
     func updateUI(output: TunerOutput) {
         if !output.isValid {
-            noteLabel.attributedText = NSMutableAttributedString(string: "--", attributes: nil)
-            portraitMovingLineCenterConstraint.constant = 0.0
-            centsLabel.isHidden = true
-            octaveLabel.isHidden = true
+//            noteLabel.attributedText = NSMutableAttributedString(string: "--", attributes: nil)
+//            portraitMovingLineCenterConstraint.constant = 0.0
+//            centsLabel.isHidden = true
+//            octaveLabel.isHidden = true
             setViewTo(newState: .outOfTune)
         } else {
             if noteLabel.text != output.pitch.description {
@@ -80,7 +80,7 @@ extension MainViewController {
             self.octaveLabel.font = newState.octaveLabelFont
             self.analyticsCircle.circleLayer.strokeColor = newState.lineTextColor.cgColor
             self.analyticsCircle.circleLayer.lineWidth = newState.analyticsCircleThickness
-            self.displayPitch(pitch: self.noteLabel.text!)
+            self.displayPitch(pitch: (self.noteLabel.text?.trimmingCharacters(in: .whitespaces))!)
         }, completion: { _ in })
         
         UIView.transition(with: self.settingsButton, duration: 0.2, options: options, animations: {
