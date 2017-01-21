@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioKit
+import Crashlytics
 
 class MainViewController: UIViewController {
     
@@ -123,6 +124,10 @@ class MainViewController: UIViewController {
     
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         segue.destination.transitioningDelegate = self
+        
+        if segue.identifier == "mainToAnalytics" {
+            Answers.logCustomEvent(withName: "Opened Analytics", customAttributes: ["afterPopup" : today.hasSufficientData])
+        }
      }
     
     // MARK: - Status Bar Style
