@@ -64,16 +64,16 @@ class Day: Object {
      * displayed to the user.
      */
     var hasSufficientData: Bool {
-        return inTunePercentageDataCount >= 100 && timeToCenterDataCount >= 3
+        return inTunePercentageDataCount >= 2000 && timeToCenterDataCount >= 3
     }
     
     /**
-     * Double on a 0 - 1 scale representing how close this Day is to
+     * Double, 0 - 1 scale representing how close this Day is to
      * having sufficient data.
      */
     var dataPercentage: Double {
-        let inTune = min(0.2 * Double(inTunePercentageDataCount) / 100, 0.2)
-        let timeToCenter = min(0.8 * Double(timeToCenterDataCount) / 3, 0.8)
+        let inTune = min(0.4 * Double(inTunePercentageDataCount) / 2000, 0.4)
+        let timeToCenter = min(0.6 * Double(timeToCenterDataCount) / 3, 0.6)
         return inTune + timeToCenter
     }
     
