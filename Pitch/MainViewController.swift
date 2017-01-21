@@ -126,7 +126,7 @@ class MainViewController: UIViewController {
         segue.destination.transitioningDelegate = self
         
         if segue.identifier == "mainToAnalytics" {
-            Answers.logCustomEvent(withName: "Opened Analytics", customAttributes: ["afterPopup" : today.hasSufficientData])
+            Answers.logCustomEvent(withName: "Opened Analytics", customAttributes: ["afterPopup" : String(today.hasSufficientData)])
         }
      }
     
