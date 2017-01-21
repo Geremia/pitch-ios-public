@@ -42,7 +42,7 @@ extension AnalyticsViewController {
     }
     
     func animateIn() {
-        let score = DataManager.today().inTunePercentage.roundTo(places: 2) * 100
+        let score = DataManager.today().tuningScore
         self.scoreLabel.countFromZero(to: CGFloat(score), withDuration: 1.2)
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.01, options: [.curveEaseInOut], animations: {

@@ -95,12 +95,12 @@ class AnalyticsViewController: UIViewController {
     
     func setupScoreCircle() {
         let today = DataManager.today()
-        let score = today.inTunePercentage.roundTo(places: 2) * 100
+        let score = today.tuningScore
         scoreLabel.text = "\(Int(score))"
         scoreCircle.colorful = true
         
         if UserDefaults.standard.hasSeenAnalyticsAnimation() {
-            scoreCircle.score = score
+            scoreCircle.score = Double(score)
             scoreCircle.setNeedsDisplay()
         }
     }

@@ -42,6 +42,26 @@ class Day: Object {
     dynamic var timeToCenterDataCount: Int = 0
     
     /**
+     * The user's 'tuning score'. Takes into account timeToCenter
+     * and inTunePercentage to form a score from 0 - 100.
+     */
+    var tuningScore: Int {
+        /* Exponential decay for center time weight. We want to
+        penalize the user less as their time to center the pitch
+        increases. Example: Going from 2 seconds to 3 seconds
+        would lower the overall score more than going from 6 seconds 
+        to 7 seconds. Accounts for 40% of the overall score. */
+        let centerTimeWeight = 40 * 2 / (timeToCenter + 1.5)
+        
+        // In-tune percentage accounts for 60% of the overall score.
+        let inTunePercentageWeight = 60 * inTunePercentage
+        
+        // Sum the two weights and round to get a score.
+        let combinedWeights = centerTimeWeight + inTunePercentageWeight
+        return Int(combinedWeights)
+    }
+    
+    /**
      * An array of OffsetData. Each OffsetData contains a pitch, octave,
      * and its average offset. Array is in descending order of the absolute
      * value of every pitch's average offset.
