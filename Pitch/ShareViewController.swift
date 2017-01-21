@@ -64,6 +64,7 @@ class ShareViewController: UIViewController {
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
+        Answers.logShare(withMethod: "Cancel", contentName: "Cancelled Share", contentType: "messaging", contentId: "002", customAttributes: [:])
         self.dismiss(animated: true, completion: { _ in
             self.delegate?.dismiss(animated: true, completion: nil)
         })
@@ -80,7 +81,7 @@ extension ShareViewController: MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: { _ in
             if result == .sent {
-                Answers.logShare(withMethod: "iMessage", contentName: "Shared Pitch via iMessage", contentType: "messaging", contentId: "601072000245858305", customAttributes: [:])
+                Answers.logShare(withMethod: "iMessage", contentName: "Shared Pitch via iMessage", contentType: "messaging", contentId: "001", customAttributes: [:])
                 UserDefaults.standard.userDidShareFromAnalytics()
                 self.delegate?.userDidShare()
                 self.dismiss(animated: true, completion: nil)
