@@ -17,8 +17,9 @@ class OffsetData: Object {
      * Realm object, so it must be computed from pitchString and octave.
      */
     var pitch: Pitch {
+        let concertOffset = UserDefaults.standard.key().concertOffset
         if let note = Note.fromName(pitchString) {
-            return Pitch(note: note, octave: octave)
+            return Pitch(note: note, octave: octave) - concertOffset
         }
         return Pitch(note: Note.c, octave: -1)
     }
