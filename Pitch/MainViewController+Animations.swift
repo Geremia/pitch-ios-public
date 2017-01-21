@@ -80,7 +80,10 @@ extension MainViewController {
             self.octaveLabel.font = newState.octaveLabelFont
             self.analyticsCircle.circleLayer.strokeColor = newState.lineTextColor.cgColor
             self.analyticsCircle.circleLayer.lineWidth = newState.analyticsCircleThickness
-            self.displayPitch(pitch: (self.noteLabel.text?.trimmingCharacters(in: .whitespaces))!)
+            
+            if self.noteLabel.text != "--" {
+                self.displayPitch(pitch: (self.noteLabel.text?.trimmingCharacters(in: .whitespaces))!)
+            }
         }, completion: { _ in })
         
         UIView.transition(with: self.settingsButton, duration: 0.2, options: options, animations: {
