@@ -16,7 +16,8 @@ extension AnalyticsViewController {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tutorialTapped(_:)))
         view.addGestureRecognizer(tapGestureRecognizer)
         
-        scrollView.scrollToTop()
+        let top = CGRect(x: 0, y: 0, width: 1, height: 1)
+        scrollView.scrollRectToVisible(top, animated: false)
         
         UIView.transition(with: view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
             self.tutorial1.isHidden = false
