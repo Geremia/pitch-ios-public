@@ -48,6 +48,13 @@ extension Notification.Name {
     static let darkModeChanged = Notification.Name(rawValue: "darkModeChangedNotification")
 }
 
+extension UIScrollView {
+    func scrollToTop() {
+        let desiredOffset = CGPoint(x: 0, y: -contentInset.top)
+        setContentOffset(desiredOffset, animated: true)
+    }
+}
+
 func log2(val: Double) -> Double {
     return log(val)/log(2.0)
 }
