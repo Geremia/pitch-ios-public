@@ -70,6 +70,8 @@ extension AnalyticsViewController {
         UIView.animate(withDuration: 0.5, delay: 1.4, options: [], animations: {
             self.feedbackLabel.alpha = 1.0
             self.feedbackButton.alpha = 1.0
-        }, completion: nil)
+        }, completion: { _ in
+            self.startTutorial()
+        })
     }
 }

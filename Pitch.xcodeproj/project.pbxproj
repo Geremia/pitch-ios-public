@@ -31,6 +31,7 @@
 		4CDFFFFE1D8B0BFA00BEAD0D /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFA1D8B0BFA00BEAD0D /* Lato-Light.ttf */; };
 		4CDFFFFF1D8B0BFA00BEAD0D /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFB1D8B0BFA00BEAD0D /* Lato-Regular.ttf */; };
 		4CE28F351E329CCF00027F04 /* MainViewController+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE28F341E329CCF00027F04 /* MainViewController+Setup.swift */; };
+		4CE28F371E34516000027F04 /* AnalyticsViewController+Tutorial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE28F361E34516000027F04 /* AnalyticsViewController+Tutorial.swift */; };
 		4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */; };
 		4CE5F0C11E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */; };
 		4CE5F0C31E117C4700EF0AB3 /* ScoreCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5F0C21E117C4700EF0AB3 /* ScoreCircle.swift */; };
@@ -91,6 +92,7 @@
 		4CDFFFFB1D8B0BFA00BEAD0D /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		4CDFFFFC1D8B0BFA00BEAD0D /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Thin.ttf"; sourceTree = "<group>"; };
 		4CE28F341E329CCF00027F04 /* MainViewController+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+Setup.swift"; sourceTree = "<group>"; };
+		4CE28F361E34516000027F04 /* AnalyticsViewController+Tutorial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Tutorial.swift"; sourceTree = "<group>"; };
 		4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Animations.swift"; sourceTree = "<group>"; };
 		4CE5F0C21E117C4700EF0AB3 /* ScoreCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCircle.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			children = (
 				4CE5F0BE1E0EC77200EF0AB3 /* AnalyticsViewController.swift */,
 				4CE5F0C01E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift */,
+				4CE28F361E34516000027F04 /* AnalyticsViewController+Tutorial.swift */,
 				4C5076081E205DB300DBD02C /* PitchesTableViewController.swift */,
 				4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */,
 				4CE5F0C21E117C4700EF0AB3 /* ScoreCircle.swift */,
@@ -537,6 +540,7 @@
 				4C5076051E1FEDD400DBD02C /* Note.swift in Sources */,
 				4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */,
 				4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */,
+				4CE28F371E34516000027F04 /* AnalyticsViewController+Tutorial.swift in Sources */,
 				4CFC73B91DC646EC00AFD8AC /* SoundGenerator.swift in Sources */,
 				4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */,
 				4C5076041E1FEDD400DBD02C /* Pitch.swift in Sources */,

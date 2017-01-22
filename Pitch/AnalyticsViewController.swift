@@ -14,6 +14,8 @@ class AnalyticsViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var analyticsLabel: UILabel!
     
@@ -42,9 +44,14 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
     
+    @IBOutlet weak var tutorial1: UIView!
+    @IBOutlet weak var tutorial2: UIView!
+    @IBOutlet weak var tutorial3: UIView!
+    
     // MARK: - Variables
     
     var hasShownShareView: Bool = false
+    var tutorialState: Int = 1
     
     // MARK: - Setup Views
 

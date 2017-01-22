@@ -84,7 +84,7 @@ class Day: Object {
      * displayed to the user.
      */
     var hasSufficientData: Bool {
-        return inTunePercentageDataCount >= 2000 && timeToCenterDataCount >= 3
+        return inTunePercentageDataCount >= 1200 && timeToCenterDataCount >= 3
     }
     
     /**
@@ -92,7 +92,7 @@ class Day: Object {
      * having sufficient data.
      */
     var dataPercentage: Double {
-        let inTune = min(0.4 * Double(inTunePercentageDataCount) / 2000, 0.4)
+        let inTune = min(0.4 * Double(inTunePercentageDataCount) / 1200, 0.4)
         let timeToCenter = min(0.6 * Double(timeToCenterDataCount) / 3, 0.6)
         return inTune + timeToCenter
     }
