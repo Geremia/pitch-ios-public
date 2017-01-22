@@ -18,6 +18,7 @@ class AnalyticsViewController: UIViewController {
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var analyticsLabel: UILabel!
+    @IBOutlet weak var helpButton: UIButton!
     
     @IBOutlet weak var noDataView: UIView!
     @IBOutlet weak var noDataLabel: UILabel!
@@ -142,6 +143,8 @@ class AnalyticsViewController: UIViewController {
             view.backgroundColor = .darkGrayView
             backButton.setImage(#imageLiteral(resourceName: "white_back_arrow"), for: .normal)
             analyticsLabel.textColor = .white
+            helpButton.setImage(#imageLiteral(resourceName: "white_question_mark"), for: .normal)
+            
             scoreCircle.backgroundColor = .darkGrayView
             scoreLabel.textColor = UIColor.white
             todayLabel.textColor = .white
@@ -160,6 +163,11 @@ class AnalyticsViewController: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func helpButtonPressed(_ sender: Any) {
+        tutorialState = 1
+        startTutorial()
     }
     
     @IBAction func feedbackButtonPressed(_ sender: Any) {

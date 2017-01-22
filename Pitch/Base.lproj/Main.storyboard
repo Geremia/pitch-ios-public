@@ -306,7 +306,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syJ-FW-TRB">
-                                        <rect key="frame" x="147" y="23" width="81" height="28"/>
+                                        <rect key="frame" x="147.5" y="23" width="81" height="28"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -536,7 +536,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-78-WqF">
-                                        <rect key="frame" x="147.5" y="143.5" width="81.5" height="132"/>
+                                        <rect key="frame" x="147" y="143" width="81.5" height="132"/>
                                         <fontDescription key="fontDescription" name="Lato-Hairline" family="Lato" pointSize="110"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -553,7 +553,7 @@
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-ws-Axi">
-                                        <rect key="frame" x="176" y="275.5" width="24" height="20"/>
+                                        <rect key="frame" x="176" y="275" width="24" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1134,7 +1134,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVf-Gq-O3n">
-                                                <rect key="frame" x="159.5" y="246" width="57" height="20"/>
+                                                <rect key="frame" x="159" y="246" width="57" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1274,17 +1274,29 @@
                                     <action selector="backButtonPressed:" destination="Lvm-BE-TJq" eventType="touchUpInside" id="z4y-g0-PpL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an5-yt-l3F">
+                                <rect key="frame" x="299" y="0.0" width="76" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="8mc-tj-405"/>
+                                    <constraint firstAttribute="width" constant="76" id="lPU-tH-YuG"/>
+                                </constraints>
+                                <state key="normal" image="question_mark"/>
+                                <connections>
+                                    <action selector="helpButtonPressed:" destination="Lvm-BE-TJq" eventType="touchUpInside" id="NkO-Om-Vxg"/>
+                                </connections>
+                            </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i58-bQ-mFP" userLabel="Tutorial 1">
                                 <rect key="frame" x="-562" y="-564" width="1500" height="1500"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="7GY-aw-hpb">
                                         <rect key="frame" x="0.0" y="0.0" width="1500" height="1500"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is your score for the day. It tells you how good your tuning was overall." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viF-BB-HpV">
-                                        <rect key="frame" x="620" y="898" width="260" height="65"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viF-BB-HpV">
+                                        <rect key="frame" x="620" y="876" width="260" height="108"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="wF9-Au-mPp"/>
                                         </constraints>
+                                        <string key="text">This is your score for the day. It tells you how good your tuning was overall. The longer you play with app open, the more accurate it gets!</string>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -1337,7 +1349,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="2000" height="1500"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your most out-of-tune pitches appear here. Use this to learn your instrument's tendencies and adjust while you play." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-3J-GZs">
-                                        <rect key="frame" x="870" y="467.5" width="260" height="86.5"/>
+                                        <rect key="frame" x="870" y="467" width="260" height="86.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="3J0-8l-J19"/>
                                         </constraints>
@@ -1361,25 +1373,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Vpu-tR-Uuh" firstAttribute="top" secondItem="QfP-jY-GvI" secondAttribute="bottom" id="3Hn-oI-euA"/>
                             <constraint firstItem="Qry-X9-IK3" firstAttribute="height" secondItem="n8E-2u-y1c" secondAttribute="height" priority="250" id="4hn-ax-bKN"/>
                             <constraint firstItem="vWE-ut-Vi7" firstAttribute="centerY" secondItem="R9W-pK-BcY" secondAttribute="centerY" constant="-26" id="4u3-kM-Opy"/>
-                            <constraint firstItem="Vpu-tR-Uuh" firstAttribute="top" secondItem="IS9-oK-mTM" secondAttribute="bottom" id="5Ic-DN-afA"/>
-                            <constraint firstItem="QiS-dX-sKS" firstAttribute="top" secondItem="kPS-Z8-HFh" secondAttribute="bottom" constant="23" id="7cV-jT-3NO"/>
                             <constraint firstItem="ghs-zC-ShB" firstAttribute="leading" secondItem="n8E-2u-y1c" secondAttribute="leading" id="8ro-6s-AcI"/>
                             <constraint firstItem="QiS-dX-sKS" firstAttribute="centerX" secondItem="n8E-2u-y1c" secondAttribute="centerX" id="BMR-Bj-Z44"/>
                             <constraint firstItem="9pm-v4-ifL" firstAttribute="centerY" secondItem="svw-DF-iBZ" secondAttribute="centerY" constant="-26" id="DP2-e0-xI0"/>
                             <constraint firstItem="QfP-jY-GvI" firstAttribute="top" secondItem="QiS-dX-sKS" secondAttribute="bottom" constant="24" id="Fit-jZ-P6G"/>
                             <constraint firstItem="9pm-v4-ifL" firstAttribute="centerX" secondItem="svw-DF-iBZ" secondAttribute="centerX" id="IsB-C1-tqc"/>
                             <constraint firstItem="Qry-X9-IK3" firstAttribute="width" secondItem="n8E-2u-y1c" secondAttribute="width" id="JRw-2e-PWu"/>
+                            <constraint firstItem="IS9-oK-mTM" firstAttribute="top" secondItem="kPS-Z8-HFh" secondAttribute="bottom" id="LO5-G2-ErP"/>
                             <constraint firstItem="ghs-zC-ShB" firstAttribute="top" secondItem="n8E-2u-y1c" secondAttribute="top" id="Mvv-ij-9qg"/>
+                            <constraint firstItem="an5-yt-l3F" firstAttribute="top" secondItem="n8E-2u-y1c" secondAttribute="top" id="Sge-ss-ApC"/>
                             <constraint firstItem="i58-bQ-mFP" firstAttribute="centerX" secondItem="Bj3-re-8Z9" secondAttribute="centerX" id="Y7n-Dm-nWY"/>
-                            <constraint firstItem="IS9-oK-mTM" firstAttribute="top" secondItem="kPS-Z8-HFh" secondAttribute="bottom" id="YU9-rM-ZIv"/>
                             <constraint firstItem="IS9-oK-mTM" firstAttribute="leading" secondItem="n8E-2u-y1c" secondAttribute="leading" id="Yen-BU-j09"/>
+                            <constraint firstItem="Vpu-tR-Uuh" firstAttribute="top" secondItem="IS9-oK-mTM" secondAttribute="bottom" id="ZCR-cP-cBM"/>
                             <constraint firstItem="QfP-jY-GvI" firstAttribute="leading" secondItem="n8E-2u-y1c" secondAttribute="leading" id="b6F-5N-0w7"/>
                             <constraint firstAttribute="trailing" secondItem="QfP-jY-GvI" secondAttribute="trailing" id="hZy-NS-waH"/>
                             <constraint firstItem="vWE-ut-Vi7" firstAttribute="centerX" secondItem="R9W-pK-BcY" secondAttribute="centerX" id="jCV-13-14I"/>
+                            <constraint firstItem="QiS-dX-sKS" firstAttribute="top" secondItem="kPS-Z8-HFh" secondAttribute="bottom" constant="23" id="l3H-DI-3eB"/>
                             <constraint firstAttribute="trailing" secondItem="IS9-oK-mTM" secondAttribute="trailing" id="mjD-9j-ayl"/>
-                            <constraint firstItem="Vpu-tR-Uuh" firstAttribute="top" secondItem="QfP-jY-GvI" secondAttribute="bottom" id="nrx-Fu-hkU"/>
+                            <constraint firstAttribute="trailing" secondItem="an5-yt-l3F" secondAttribute="trailing" id="v1c-af-jxc"/>
                             <constraint firstItem="i58-bQ-mFP" firstAttribute="centerY" secondItem="Bj3-re-8Z9" secondAttribute="centerY" id="z22-gy-mPx"/>
                         </constraints>
                     </view>
@@ -1392,6 +1406,7 @@
                         <outlet property="descriptionLabelTopConstraint" destination="uII-k1-fir" id="CDw-Gv-T7L"/>
                         <outlet property="feedbackButton" destination="kVW-6L-EwS" id="1ws-px-KLA"/>
                         <outlet property="feedbackLabel" destination="GiH-D2-a3a" id="S4J-TR-Gva"/>
+                        <outlet property="helpButton" destination="an5-yt-l3F" id="exG-gM-lIK"/>
                         <outlet property="noDataImageView" destination="i1H-dX-i2N" id="0G2-nc-NoS"/>
                         <outlet property="noDataLabel" destination="6g9-Vp-1Yf" id="UOi-EO-zGB"/>
                         <outlet property="noDataView" destination="IS9-oK-mTM" id="Pka-jA-DVr"/>
@@ -1438,7 +1453,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sharing is caring" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix5-L3-1mD">
-                                <rect key="frame" x="90.5" y="249" width="195.5" height="34"/>
+                                <rect key="frame" x="90" y="249" width="195.5" height="34"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1625,6 +1640,7 @@
         <image name="minus" width="22" height="3"/>
         <image name="out_of_tune_cutout" width="1500" height="1500"/>
         <image name="plus" width="22" height="21"/>
+        <image name="question_mark" width="25" height="25"/>
         <image name="score_cutout" width="1500" height="1500"/>
     </resources>
 </document>
