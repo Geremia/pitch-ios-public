@@ -1134,7 +1134,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODAY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVf-Gq-O3n">
-                                                <rect key="frame" x="159" y="246" width="57" height="20"/>
+                                                <rect key="frame" x="159.5" y="246" width="57" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1303,17 +1303,13 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9pm-v4-ifL" userLabel="Tutorial 2">
-                                <rect key="frame" x="-563" y="-370" width="1500" height="1500.5"/>
+                                <rect key="frame" x="-813" y="-370" width="2000" height="1500.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="gdf-j1-jha">
-                                        <rect key="frame" x="0.0" y="-0.5" width="1500" height="1500.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1500" id="CHb-YZ-LZJ"/>
-                                            <constraint firstAttribute="width" constant="1500" id="qU5-7f-0ZB"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="-0.5" width="2000" height="1500.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here's some more information about your playing. You can see how in-tune you were and how long you took to center the pitch." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rK6-SX-bne">
-                                        <rect key="frame" x="620" y="516.5" width="260" height="108"/>
+                                        <rect key="frame" x="870" y="516.5" width="260" height="108"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="ueb-rl-GET"/>
                                         </constraints>
@@ -1326,7 +1322,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="gdf-j1-jha" secondAttribute="trailing" id="7oR-Pt-DPh"/>
                                     <constraint firstItem="rK6-SX-bne" firstAttribute="centerX" secondItem="9pm-v4-ifL" secondAttribute="centerX" id="Eiu-EV-zB6"/>
-                                    <constraint firstAttribute="width" constant="1500" id="GOd-P9-3hU"/>
+                                    <constraint firstAttribute="width" constant="2000" id="GOd-P9-3hU"/>
                                     <constraint firstAttribute="bottom" secondItem="gdf-j1-jha" secondAttribute="bottom" id="KoX-78-ICH"/>
                                     <constraint firstAttribute="height" constant="1500" id="NQR-m9-eDl"/>
                                     <constraint firstItem="gdf-j1-jha" firstAttribute="top" secondItem="9pm-v4-ifL" secondAttribute="top" id="Pdg-Wv-pRg"/>
@@ -1335,13 +1331,13 @@
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWE-ut-Vi7" userLabel="Tutorial 3">
-                                <rect key="frame" x="-563" y="-163" width="1500" height="1500"/>
+                                <rect key="frame" x="-813" y="-163" width="2000" height="1500"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="out_of_tune_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="jwV-Jh-G1L">
-                                        <rect key="frame" x="0.0" y="0.0" width="1500" height="1500"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="2000" height="1500"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your most out-of-tune pitches appear here. Use this to learn your instrument's tendencies and adjust while you play." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-3J-GZs">
-                                        <rect key="frame" x="620" y="467" width="260" height="86.5"/>
+                                        <rect key="frame" x="870" y="467.5" width="260" height="86.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="3J0-8l-J19"/>
                                         </constraints>
@@ -1352,7 +1348,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="1500" id="0I8-B0-3hg"/>
+                                    <constraint firstAttribute="width" constant="2000" id="0I8-B0-3hg"/>
                                     <constraint firstAttribute="bottom" secondItem="jwV-Jh-G1L" secondAttribute="bottom" id="UIx-6n-3fc"/>
                                     <constraint firstItem="jwV-Jh-G1L" firstAttribute="leading" secondItem="vWE-ut-Vi7" secondAttribute="leading" id="ahu-q8-huS"/>
                                     <constraint firstItem="qKR-3J-GZs" firstAttribute="centerY" secondItem="vWE-ut-Vi7" secondAttribute="centerY" constant="-240" id="dGs-Jp-KxP"/>
