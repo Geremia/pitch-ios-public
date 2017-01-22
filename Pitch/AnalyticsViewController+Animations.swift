@@ -71,7 +71,11 @@ extension AnalyticsViewController {
             self.feedbackLabel.alpha = 1.0
             self.feedbackButton.alpha = 1.0
         }, completion: { _ in
-            self.startTutorial()
+            let shouldBypassTutorial = UserDefaults.standard.shouldBypassAnalyticsTutorial()
+            if !shouldBypassTutorial {
+                UserDefaults.standard.setShouldBypassAnalyticsTutorial(true)
+                self.startTutorial()
+            }
         })
     }
 }

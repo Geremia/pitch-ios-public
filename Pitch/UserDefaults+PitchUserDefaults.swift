@@ -57,12 +57,28 @@ extension UserDefaults {
         setUserBeforeAnalyticsSharing(true)
     }
     
+    /**
+     * Whether the user had the app before the Analytics sharing feature
+     * was added.
+     */
     func userBeforeAnalyticsSharing() -> Bool {
         return bool(forKey: "userBeforeAnalyticsSharing")
     }
     
     func setUserBeforeAnalyticsSharing(_ newValue: Bool) {
         set(newValue, forKey: "userBeforeAnalyticsSharing")
+    }
+    
+    /**
+     * Whether the tutorial should be shown when the user opens the Analytics
+     * screen.
+     */
+    func shouldBypassAnalyticsTutorial() -> Bool {
+        return bool(forKey: "shouldBypassAnalyticsTutorial")
+    }
+    
+    func setShouldBypassAnalyticsTutorial(_ newValue: Bool) {
+        set(newValue, forKey: "shouldBypassAnalyticsTutorial")
     }
     
     /**
