@@ -92,6 +92,7 @@ class AnalyticsViewController: UIViewController {
     
     func displayData() {
         noDataView.isHidden = true
+        helpButton.isHidden = false
         
         setupScoreCircle()
         setupDescriptionLabel()
