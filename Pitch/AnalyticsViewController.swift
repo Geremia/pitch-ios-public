@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import UICountingLabel
 import MessageUI
+import UICountingLabel
+import ScrollableGraphView
 
 class AnalyticsViewController: UIViewController {
     
@@ -41,6 +42,8 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var outOfTuneLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var outOfTuneSeparatorTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var outOfTuneTableTopConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var graphView: ScrollableGraphView!
     
     @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
@@ -96,6 +99,7 @@ class AnalyticsViewController: UIViewController {
         
         setupScoreCircle()
         setupDescriptionLabel()
+        setupGraphView()
         
         if !UserDefaults.standard.hasSeenAnalyticsAnimation() {
             prepareForAnimation()
@@ -130,6 +134,17 @@ class AnalyticsViewController: UIViewController {
         descriptionString.append(NSAttributedString(string: " on average to center the pitch.", attributes: [NSFontAttributeName: lightFont]))
         
         descriptionLabel.attributedText = descriptionString
+    }
+    
+    func setupGraphView() {
+        let pastSevenDays = DataManager.data(forPastDaysIncludingToday: 7)
+        let data: [Double] = pastSevenDays.map({ Double($0.tuningScore) })
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d"
+        let labels: [String] = pastSevenDays.map({ dateFormatter.string(from: $0.date) })
+        
+        graphView.set(data: data, withLabels: labels)
     }
     
     // MARK: - Dark Mode Switching
