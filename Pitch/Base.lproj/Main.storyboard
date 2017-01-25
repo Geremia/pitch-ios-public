@@ -1556,8 +1556,10 @@
                         <outlet property="descriptionLabelTopConstraint" destination="uII-k1-fir" id="CDw-Gv-T7L"/>
                         <outlet property="feedbackButton" destination="kVW-6L-EwS" id="1ws-px-KLA"/>
                         <outlet property="feedbackLabel" destination="GiH-D2-a3a" id="S4J-TR-Gva"/>
+                        <outlet property="graphTopReferenceLine" destination="7a3-98-bhj" id="xRr-bZ-tHR"/>
                         <outlet property="graphView" destination="PzX-jL-pwt" id="Yk8-ha-gOj"/>
                         <outlet property="helpButton" destination="an5-yt-l3F" id="exG-gM-lIK"/>
+                        <outlet property="hundredLabel" destination="qs9-oR-0EH" id="EbT-HO-P9y"/>
                         <outlet property="noDataImageView" destination="i1H-dX-i2N" id="0G2-nc-NoS"/>
                         <outlet property="noDataLabel" destination="6g9-Vp-1Yf" id="UOi-EO-zGB"/>
                         <outlet property="noDataView" destination="IS9-oK-mTM" id="Pka-jA-DVr"/>
@@ -1574,6 +1576,8 @@
                         <outlet property="todayLabelTopConstraint" destination="Pzq-JB-FGr" id="ufh-Sl-uAK"/>
                         <outlet property="todaySeparator" destination="gaT-vT-MkP" id="X13-6N-vkB"/>
                         <outlet property="todaySeparatorTopConstraint" destination="pzr-Fe-iFk" id="KV4-8S-MsL"/>
+                        <outlet property="tuningScoreLabel" destination="KFs-qz-IRR" id="gEw-OO-sYf"/>
+                        <outlet property="tuningScoreSeparator" destination="AkE-gd-45d" id="1Db-5W-j1Q"/>
                         <outlet property="tutorial1" destination="i58-bQ-mFP" id="R0e-DV-Nbq"/>
                         <outlet property="tutorial2" destination="9pm-v4-ifL" id="zg1-nM-2Rr"/>
                         <outlet property="tutorial3" destination="vWE-ut-Vi7" id="1Gk-S8-dbc"/>
