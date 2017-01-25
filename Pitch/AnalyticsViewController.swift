@@ -142,7 +142,9 @@ class AnalyticsViewController: UIViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d"
-        let labels: [String] = pastSevenDays.map({ dateFormatter.string(from: $0.date) })
+        var labels: [String] = pastSevenDays.map({ dateFormatter.string(from: $0.date) })
+        labels.removeLast()
+        labels.append("Today")
         
         graphView.set(data: data, withLabels: labels)
         
