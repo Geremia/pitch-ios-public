@@ -150,6 +150,8 @@ class AnalyticsViewController: UIViewController {
         
         graphView.dataPointSpacing = view.frame.width / min(CGFloat(data.count), 5)
         graphView.dataPointLabelFont = UIFont(name: "Lato-Regular", size: 15.0)!
+        
+
     }
     
     // MARK: - Dark Mode Switching
