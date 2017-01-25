@@ -145,6 +145,9 @@ class AnalyticsViewController: UIViewController {
         let labels: [String] = pastSevenDays.map({ dateFormatter.string(from: $0.date) })
         
         graphView.set(data: data, withLabels: labels)
+        
+        graphView.dataPointSpacing = view.frame.width / min(CGFloat(data.count), 5)
+        graphView.dataPointLabelFont = UIFont(name: "Lato-Regular", size: 15.0)!
     }
     
     // MARK: - Dark Mode Switching
