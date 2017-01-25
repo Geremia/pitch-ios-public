@@ -40,10 +40,10 @@ extension UserDefaults {
      */
     func shouldShowAnalyticsSharePrompt() -> Bool {
         _ = DataManager.today()
-        let pastTwoDays = DataManager.data(forPastDaysIncludingToday: 2)
+        let pastTwoDays = DataManager.data(forPastDaysIncludingToday: 4)
         
-        if pastTwoDays.count == 2 && !userBeforeAnalyticsSharing() {
-            // User has been using the app for two days and they were
+        if pastTwoDays.count == 4 && !userBeforeAnalyticsSharing() {
+            // User has been using the app for four days and they were
             // not a user before I added the Analytics sharing requirement,
             // so show them the sharing prompt.
             return true

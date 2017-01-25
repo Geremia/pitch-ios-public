@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func updateAnalyticsSharing() {
         if UserDefaults.standard.object(forKey: "userBeforeAnalyticsSharing") == nil {
             _ = DataManager.today()
-            let isPastUser = DataManager.data(forPastDaysIncludingToday: 2).count == 2
+            let isPastUser = DataManager.data(forPastDaysIncludingToday: 10).count > 1
             UserDefaults.standard.setUserBeforeAnalyticsSharing(isPastUser)
         }
     }
