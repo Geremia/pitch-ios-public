@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ScrollableGraphView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UICountingLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4C87D86F066E217DA583625CA3D7E5DD</key>
+		<key>11CDCF7FBD22E14F04244B4C952DDA9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>567619F24A3D1EFC21242E124C67A00F</key>
+		<key>31BA7BB575AC81960080A267BE90EB9F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9443F18D3CB23BF8414A4839BB058315</key>
+		<key>74424B4CA9189F6DD0B94821D3180ED8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9C6B7EC039FBDA1DC8F009D8307C271</key>
+		<key>81A6F57C8BF09F3E761759CF88C36209</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E85ED2F62C14D75F3C58A16672CBD3FA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

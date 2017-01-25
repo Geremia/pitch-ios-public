@@ -8,6 +8,7 @@ target 'Pitch' do
   pod 'Crashlytics'
   pod 'UICountingLabel'
   pod 'RealmSwift'
+  pod 'ScrollableGraphView'
 end
 
 post_install do |installer|
