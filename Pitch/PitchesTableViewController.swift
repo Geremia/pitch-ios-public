@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol PitchesTableViewControllerDelegate {
+    func setNumberOfRows(_ rows: Int)
+}
+
 class PitchesTableViewController: UITableViewController {
     
     // MARK: - Variables
     
+    var delegate: PitchesTableViewControllerDelegate?
     let pitchOffsets = DataManager.today().filteredPitchOffsets
 
     override func viewDidLoad() {
@@ -29,7 +34,9 @@ class PitchesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return min(pitchOffsets.count, 3)
+        let rows = min(pitchOffsets.count, 5)
+        delegate?.setNumberOfRows(rows)
+        return rows
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

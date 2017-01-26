@@ -38,6 +38,7 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var outOfTuneLabel: UILabel!
     @IBOutlet weak var outOfTuneSeparator: UIView!
     @IBOutlet weak var outOfTuneTable: UIView!
+    @IBOutlet weak var outOfTuneTableHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var outOfTuneLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var outOfTuneSeparatorTopConstraint: NSLayoutConstraint!
@@ -234,6 +235,9 @@ class AnalyticsViewController: UIViewController {
         if segue.identifier == "analyticsToShare" {
             let shareVC: ShareViewController = segue.destination as! ShareViewController
             shareVC.delegate = self
+        } else if segue.identifier == "pitchesTableEmbed" {
+            let pitchesVC: PitchesTableViewController = segue.destination as! PitchesTableViewController
+            pitchesVC.delegate = self
         }
     }
 }
@@ -253,5 +257,15 @@ extension AnalyticsViewController: ShareViewControllerDelegate {
     
     func userDidShare() {
         displayData()
+    }
+}
+
+extension AnalyticsViewController: PitchesTableViewControllerDelegate {
+    
+    // MARK: - PitchesTableViewControllerDelegate Methods
+    
+    func setNumberOfRows(_ rows: Int) {
+        outOfTuneTableHeightConstraint.constant = 44.0 * CGFloat(rows)
+        view.layoutIfNeeded()
     }
 }
