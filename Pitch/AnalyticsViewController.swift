@@ -49,6 +49,7 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var graphView: ScrollableGraphView!
     @IBOutlet var graphReferenceLines: [UIView]!
     @IBOutlet var graphLabels: [UILabel]!
+    @IBOutlet var graphSideMargins: [UIView]!
     
     @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
@@ -112,6 +113,10 @@ class AnalyticsViewController: UIViewController {
             
             graphView.dataPointLabelColor = .white
             graphView.lineColor = .darkInTune
+            
+            for view in graphSideMargins {
+                view.backgroundColor = .darkGrayView
+            }
             
             for line in graphReferenceLines {
                 line.backgroundColor = .darkPitchPipeBackground
