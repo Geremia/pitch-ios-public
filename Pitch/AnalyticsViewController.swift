@@ -45,9 +45,9 @@ class AnalyticsViewController: UIViewController {
     
     @IBOutlet weak var tuningScoreLabel: UILabel!
     @IBOutlet weak var tuningScoreSeparator: UIView!
-    @IBOutlet weak var hundredLabel: UILabel!
-    @IBOutlet weak var graphTopReferenceLine: UIView!
     @IBOutlet weak var graphView: ScrollableGraphView!
+    @IBOutlet var graphReferenceLines: [UIView]!
+    @IBOutlet var graphLabels: [UILabel]!
     
     @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
@@ -154,6 +154,7 @@ class AnalyticsViewController: UIViewController {
         
         graphView.dataPointSpacing = view.frame.width / min(CGFloat(data.count), 5)
         graphView.dataPointLabelFont = UIFont(name: "Lato-Regular", size: 15.0)!
+        graphView.backgroundFillColor = UIColor.clear
     }
     
     // MARK: - Dark Mode Switching
@@ -181,9 +182,20 @@ class AnalyticsViewController: UIViewController {
             
             tuningScoreLabel.textColor = .white
             tuningScoreSeparator.backgroundColor = .white
-            graphView.backgroundFillColor = .darkGrayView
-            graphTopReferenceLine.backgroundColor = .darkPitchPipeBackground
-            hundredLabel.textColor = .white
+            
+            graphView.dataPointLabelColor = .white
+            graphView.lineColor = .darkInTune
+            
+            for line in graphReferenceLines {
+                line.backgroundColor = .darkPitchPipeBackground
+            }
+            
+            for label in graphLabels {
+                label.textColor = .white
+            }
+            
+            feedbackLabel.textColor = .white
+            feedbackButton.backgroundColor = .darkInTune
         }
     }
 

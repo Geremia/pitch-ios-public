@@ -51,7 +51,7 @@ class Day: Object {
         increases. Example: Going from 2 seconds to 3 seconds
         would lower the overall score more than going from 6 seconds 
         to 7 seconds. Accounts for 40% of the overall score. */
-        let centerTimeWeight = 40 * 2 / (timeToCenter + 1.5)
+        let centerTimeWeight = min(40 * 2 / (timeToCenter + 1.5), 40)
         
         // In-tune percentage accounts for 60% of the overall score.
         let inTunePercentageWeight = 60 * inTunePercentage
