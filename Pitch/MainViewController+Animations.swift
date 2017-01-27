@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import UICountingLabel
+import Crashlytics
 
 extension MainViewController {
     
@@ -16,10 +17,6 @@ extension MainViewController {
     
     func updateUI(output: TunerOutput) {
         if !output.isValid {
-//            noteLabel.attributedText = NSMutableAttributedString(string: "--", attributes: nil)
-//            portraitMovingLineCenterConstraint.constant = 0.0
-//            centsLabel.isHidden = true
-//            octaveLabel.isHidden = true
             setViewTo(newState: .outOfTune)
         } else {
             if noteLabel.text != output.pitch.description {
@@ -159,6 +156,7 @@ extension MainViewController {
             
             label.completionBlock = { _ in
                 self.analyticsCircle.isHidden = true
+                Answers.logCustomEvent(withName: "Popup Appeared", customAttributes: nil)
                 UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut, .allowUserInteraction], animations: {
                     self.analyticsButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                     self.analyticsMessage.alpha = 1.0
