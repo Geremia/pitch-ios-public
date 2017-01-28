@@ -42,7 +42,17 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         feedbackButton.layer.cornerRadius = 8.0
         darkModeChanged()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.darkModeChanged), name: .darkModeChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openAnalytics), name: NSNotification.Name(rawValue: ShortcutIdentifier.Analytics.rawValue), object: nil)
+    }
+    
+    // MARK: - Notifications
+    
+    func openAnalytics() {
+        dismiss(animated: false, completion: {
+            // Post the notification again so MainViewController can present AnalyticsViewController
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: ShortcutIdentifier.Analytics.rawValue), object: nil)
+        })
     }
     
     // MARK: - Actions

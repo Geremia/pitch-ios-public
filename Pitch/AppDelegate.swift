@@ -24,6 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
         UserDefaults.standard.setHasSeenAnalyticsAnimation(false)
         UIApplication.shared.isIdleTimerDisabled = true
+        
+        if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
+            handleShortcut(shortcutItem)
+            return false
+        }
 
         return true
     }
@@ -66,7 +71,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        //
+        
+        completionHandler(handleShortcut(shortcutItem))
+    }
+    
+    private func handleShortcut(_ shortcutItem: UIApplicationShortcutItem) -> Bool {
+        let shortcutType = shortcutItem.type
+        guard let shortcutIdentifier = ShortcutIdentifier(fullIdentifier: shortcutType) else {
+            return false
+        }
+        
+        switch shortcutIdentifier {
+        case .Analytics:
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: ShortcutIdentifier.Analytics.rawValue), object: nil)
+        case .ToneGenerator:
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: ShortcutIdentifier.ToneGenerator.rawValue), object: nil)
+        }
+        
+        return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -100,7 +122,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 

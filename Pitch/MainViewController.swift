@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
     var presentAniamtionController = VerticalSlideAnimationController(direction: .left)
     var dismissAnimationController = VerticalSlideAnimationController(direction: .right)
     
-    var isPitchPipeOpen: Bool = false
+    var pitchPipeOpen: Bool = false
     var state: MainViewState = .outOfTune
     
     var shouldUpdateAnalyticsCircle = true
@@ -66,6 +66,7 @@ class MainViewController: UIViewController {
         
         today = DataManager.today()
         
+        setupNotifications()
         checkRecordPermission()
         setupUI()
         
@@ -86,6 +87,20 @@ class MainViewController: UIViewController {
 //        if !tunerSetup {
 //            checkRecordPermission()
 //        }
+    }
+    
+    // MARK: - Notifications
+    
+    func openToneGenerator() {
+        if !pitchPipeOpen {
+            openPitchPipe()
+        }
+    }
+    
+    func openAnalytics() {
+        if presentedViewController == nil {
+            performSegue(withIdentifier: "mainToAnalytics", sender: self)
+        }
     }
 
     // MARK: - Audio Plot Action
@@ -109,15 +124,27 @@ class MainViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func pitchPipePressed(_ sender: AnyObject) {
-        let image = isPitchPipeOpen ? state.audioWaveImage : state.downArrowImage
-        pitchPipeButton.setImage(image, for: .normal)
-        pitchPipeBottomConstraint.constant = isPitchPipeOpen ? -231 : 0
-        
-        isPitchPipeOpen = !isPitchPipeOpen
+        pitchPipeOpen ? closePitchPipe() : openPitchPipe()
+    }
+    
+    func openPitchPipe() {
+        pitchPipeOpen = true
+        pitchPipeButton.setImage(state.downArrowImage, for: .normal)
+        pitchPipeBottomConstraint.constant = 0
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
             self.view.layoutIfNeeded()
-            }, completion: nil)
+        }, completion: nil)
+    }
+    
+    func closePitchPipe() {
+        pitchPipeOpen = false
+        pitchPipeButton.setImage(state.audioWaveImage, for: .normal)
+        pitchPipeBottomConstraint.constant = -231
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     // MARK: - Navigation

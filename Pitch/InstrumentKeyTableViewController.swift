@@ -41,6 +41,16 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         tableView.isScrollEnabled = false
         darkModeChanged()
         NotificationCenter.default.addObserver(self, selector: #selector(InstrumentKeyTableViewController.darkModeChanged), name: .darkModeChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openAnalytics), name: NSNotification.Name(rawValue: ShortcutIdentifier.Analytics.rawValue), object: nil)
+    }
+    
+    // MARK: - Notifications
+    
+    func openAnalytics() {
+        dismiss(animated: false, completion: {
+            // Post the notification again so SettingsViewController can dismiss
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: ShortcutIdentifier.Analytics.rawValue), object: nil)
+        })
     }
     
     // MARK: - Setup Picker View
