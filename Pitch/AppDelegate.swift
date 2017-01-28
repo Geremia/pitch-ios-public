@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         updateRealmSchema()
         updateAnalyticsSharing()
+        addShortcutItems(application: application)
         Fabric.with([Crashlytics.self])
         UserDefaults.standard.setHasSeenAnalyticsAnimation(false)
         UIApplication.shared.isIdleTimerDisabled = true
@@ -54,6 +55,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Tell Realm to use this new configuration object for the default Realm
         Realm.Configuration.defaultConfiguration = config
+    }
+    
+    func addShortcutItems(application: UIApplication) {
+        let analytics = UIMutableApplicationShortcutItem(type: "Analytics", localizedTitle: "Analytics", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(templateImageName: "shortcut_analytics"), userInfo: nil)
+        
+        let toneGenerator = UIMutableApplicationShortcutItem(type: "ToneGenerator", localizedTitle: "Tone Generator", localizedSubtitle: nil, icon: UIApplicationShortcutIcon(templateImageName: "shortcut_piano"), userInfo: nil)
+
+        application.shortcutItems = [analytics, toneGenerator]
+    }
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        //
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
