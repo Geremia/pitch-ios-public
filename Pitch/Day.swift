@@ -19,7 +19,7 @@ class Day: Object {
     /**
      * The threshold in cents for being 'in-tune'
      */
-    let tuningThreshold: Double = 0.4
+    let tuningThreshold: Double = 4.0
     
     /**
      * How often the user was 'in-tune', expressed as a percentage.
