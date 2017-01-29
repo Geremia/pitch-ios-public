@@ -47,6 +47,8 @@ extension Notification.Name {
     static let pitchPipeReset = Notification.Name(rawValue: "pitchPipeResetNotification")
     static let darkModeChanged = Notification.Name(rawValue: "darkModeChangedNotification")
     static let pitchStandardChanged = Notification.Name(rawValue: "pitchStandardChangedNotification")
+    static let openAnalytics = Notification.Name(rawValue: ShortcutIdentifier.Analytics.rawValue)
+    static let openToneGenerator = Notification.Name(rawValue: ShortcutIdentifier.ToneGenerator.rawValue)
 }
 
 func log2(val: Double) -> Double {

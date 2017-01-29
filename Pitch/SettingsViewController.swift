@@ -43,7 +43,8 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         darkModeChanged()
         
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(openAnalytics), name: NSNotification.Name(rawValue: ShortcutIdentifier.Analytics.rawValue), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openAnalytics), name: .openAnalytics, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openToneGenerator), name: .openToneGenerator, object: nil)
     }
     
     // MARK: - Notifications
@@ -51,8 +52,12 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     func openAnalytics() {
         dismiss(animated: false, completion: {
             // Post the notification again so MainViewController can present AnalyticsViewController
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: ShortcutIdentifier.Analytics.rawValue), object: nil)
+            NotificationCenter.default.post(name: .openAnalytics, object: nil)
         })
+    }
+    
+    func openToneGenerator() {
+        dismiss(animated: false, completion: nil)
     }
     
     // MARK: - Actions

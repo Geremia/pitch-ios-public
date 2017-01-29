@@ -82,9 +82,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         switch shortcutIdentifier {
         case .Analytics:
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: ShortcutIdentifier.Analytics.rawValue), object: nil)
+            NotificationCenter.default.post(name: .openAnalytics, object: nil)
         case .ToneGenerator:
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: ShortcutIdentifier.ToneGenerator.rawValue), object: nil)
+            NotificationCenter.default.post(name: .openToneGenerator, object: nil)
         }
         
         return true

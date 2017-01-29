@@ -70,6 +70,7 @@ class AnalyticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupNotifications()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,6 +86,12 @@ class AnalyticsViewController: UIViewController {
                 UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
             }
         }
+    }
+    
+    // MARK: - Notifications
+    
+    func openToneGenerator() {
+        dismiss(animated: false, completion: nil)
     }
         
     // MARK: - Dark Mode Switching

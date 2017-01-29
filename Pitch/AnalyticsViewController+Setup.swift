@@ -12,6 +12,10 @@ extension AnalyticsViewController {
     
     // MARK: - Setup
     
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(openToneGenerator), name: .openToneGenerator, object: nil)
+    }
+    
     func setupUI() {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
