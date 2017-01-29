@@ -33,6 +33,11 @@ class SettingsTableViewController: UITableViewController {
             NotificationCenter.default.post(name: .darkModeChanged, object: nil)
         }
     }
+    var currentPitchStandard: Double = UserDefaults.standard.pitchStandard() {
+        didSet {
+            UserDefaults.standard.setPitchStandard(currentPitchStandard)
+        }
+    }
     
     var delegate: SettingsTableViewControllerDelegate?
     
@@ -42,6 +47,9 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var displayModeControl: UISegmentedControl!
     @IBOutlet weak var keyLabel: UILabel!
     @IBOutlet weak var darkModeSwitch: UISwitch!
+    @IBOutlet weak var pitchStandardLabel: UILabel!
+    @IBOutlet weak var minusPitchStandardButton: UIButton!
+    @IBOutlet weak var plusPitchStandardButton: UIButton!
     
     @IBOutlet var allLabels: [UILabel]!
     
@@ -55,6 +63,8 @@ class SettingsTableViewController: UITableViewController {
         micSensitivityLabel.text = currentMicSensitivity.name
         displayModeControl.selectedSegmentIndex = currentDisplayMode == .sharps ? 0 : 1
         darkModeSwitch.setOn(darkModeOn, animated: false)
+        
+        updatePitchStandardLabel()
         updateKeyLabel()
         darkModeChanged()
     }
@@ -105,10 +115,18 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    func updatePitchStandardLabel() {
+        pitchStandardLabel.text = "A\(Int(currentPitchStandard))"
+    }
+    
     func darkModeChanged() {
         view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
         tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
         displayModeControl.tintColor = darkModeOn ? UIColor.white : UIColor.black
+        
+        plusPitchStandardButton.setImage(darkModeOn ? #imageLiteral(resourceName: "white_small_plus") : #imageLiteral(resourceName: "small_plus"), for: .normal)
+        minusPitchStandardButton.setImage(darkModeOn ? #imageLiteral(resourceName: "white_small_minus") : #imageLiteral(resourceName: "small_minus"), for: .normal)
+        
         for label in allLabels {
             label.textColor = darkModeOn ? UIColor.white : UIColor.black
         }
@@ -124,5 +142,15 @@ class SettingsTableViewController: UITableViewController {
         let selectedSegment = (sender as! UISegmentedControl).selectedSegmentIndex
         currentDisplayMode = selectedSegment == 0 ? .sharps : .flats
         updateKeyLabel()
+    }
+    
+    @IBAction func pitchStandardDecrement(_ sender: Any) {
+        currentPitchStandard -= 1
+        updatePitchStandardLabel()
+    }
+    
+    @IBAction func pitchStandardIncrement(_ sender: Any) {
+        currentPitchStandard += 1
+        updatePitchStandardLabel()
     }
 }

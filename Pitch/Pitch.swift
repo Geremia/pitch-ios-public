@@ -38,12 +38,13 @@ class Pitch: NSObject {
      * The frequency is a floating point integer according to the International
      * Scientific Pitch Notation table.
      */
-    let frequency: Double
+    var frequency: Double {
+        return note.frequency * pow(2, Double(octave) - 4)
+    }
 
     init(note: Note, octave: Int) {
         self.note      = note
         self.octave    = octave
-        self.frequency = note.frequency * pow(2, Double(octave) - 4)
     }
 
     /**

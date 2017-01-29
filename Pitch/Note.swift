@@ -75,8 +75,9 @@ enum Note: Int, CustomStringConvertible {
     var frequency: Double {
         let index = Note.all.index(where: { $0 == self })! -
                     Note.all.index(where: { $0 == Note.a })!
-
-        return 440 * pow(2, Double(index) / 12.0)
+        let pitchStandard = UserDefaults.standard.pitchStandard()
+        
+        return pitchStandard * pow(2, Double(index) / 12.0)
     }
 
     /**
