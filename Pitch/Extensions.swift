@@ -52,3 +52,7 @@ extension Notification.Name {
 func log2(val: Double) -> Double {
     return log(val)/log(2.0)
 }
+
+func clamp<T: Comparable>(value: T, lower: T, upper: T) -> T {
+    return min(max(value, lower), upper)
+}

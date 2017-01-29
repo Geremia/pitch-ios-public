@@ -70,7 +70,7 @@ extension AnalyticsViewController {
     }
     
     func setupGraphView() {
-        let pastSevenDays = DataManager.data(forPastDaysIncludingToday: 7)
+        let pastSevenDays = DataManager.data(forPastDaysIncludingToday: 14)
         let data: [Double] = pastSevenDays.map({ Double($0.tuningScore) })
         
         let dateFormatter = DateFormatter()
@@ -81,10 +81,15 @@ extension AnalyticsViewController {
         
         graphView.set(data: data, withLabels: labels)
         
-        graphView.dataPointSpacing = (view.frame.width - 50) / min(CGFloat(data.count), 7)
+        graphView.dataPointSpacing = (view.frame.width - 50) / clamp(value: CGFloat(data.count), lower: 2, upper: 7)
         graphView.dataPointLabelFont = UIFont(name: "Lato-Regular", size: 15.0)!
         graphView.backgroundFillColor = UIColor.clear
         graphView.dataPointLabelsSparsity = data.count > 3 ? 2 : 1
+        graphView.shouldDrawDataPoint = data.count == 1
+        
+        if data.count <= 2 {
+            graphView.rightmostPointPadding = view.frame.width / CGFloat(data.count + 1)
+        }
     }
 
     
