@@ -369,7 +369,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syJ-FW-TRB">
-                                        <rect key="frame" x="119.5" y="23" width="81" height="28"/>
+                                        <rect key="frame" x="120" y="23" width="81" height="28"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -599,7 +599,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-78-WqF">
-                                        <rect key="frame" x="119.5" y="93.5" width="81.5" height="132"/>
+                                        <rect key="frame" x="120" y="94" width="81.5" height="132"/>
                                         <fontDescription key="fontDescription" name="Lato-Hairline" family="Lato" pointSize="110"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -616,7 +616,7 @@
                                         </connections>
                                     </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-ws-Axi">
-                                        <rect key="frame" x="148.5" y="225.5" width="24" height="20"/>
+                                        <rect key="frame" x="148.5" y="226" width="24" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1607,6 +1607,34 @@
                                     <constraint firstItem="jwV-Jh-G1L" firstAttribute="top" secondItem="vWE-ut-Vi7" secondAttribute="top" id="uMz-uT-OQ7"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqr-JS-P8F" userLabel="Tutorial 4">
+                                <rect key="frame" x="-63" y="-731" width="500" height="3200"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="out_of_tune_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="sDQ-C0-GmN">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="3200"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use this graph to keep track of your progress over time. If there's not much here yet, come back in a few days!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3o-Gy-EXT">
+                                        <rect key="frame" x="120" y="1317.5" width="260" height="86.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="O1q-zG-zFx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Q3o-Gy-EXT" firstAttribute="centerX" secondItem="wqr-JS-P8F" secondAttribute="centerX" id="1sh-bB-5ti"/>
+                                    <constraint firstAttribute="bottom" secondItem="sDQ-C0-GmN" secondAttribute="bottom" id="8mD-SU-x3A"/>
+                                    <constraint firstItem="sDQ-C0-GmN" firstAttribute="top" secondItem="wqr-JS-P8F" secondAttribute="top" id="DLM-Q4-8NY"/>
+                                    <constraint firstAttribute="trailing" secondItem="sDQ-C0-GmN" secondAttribute="trailing" id="Eg3-gG-wYt"/>
+                                    <constraint firstItem="sDQ-C0-GmN" firstAttribute="leading" secondItem="wqr-JS-P8F" secondAttribute="leading" id="JHp-mS-NgJ"/>
+                                    <constraint firstAttribute="height" constant="3200" id="VHL-ua-8V2"/>
+                                    <constraint firstItem="Q3o-Gy-EXT" firstAttribute="centerY" secondItem="wqr-JS-P8F" secondAttribute="centerY" constant="-240" id="qwt-gi-wKK"/>
+                                    <constraint firstAttribute="width" constant="500" id="uX5-81-odO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1617,6 +1645,7 @@
                             <constraint firstItem="QiS-dX-sKS" firstAttribute="centerX" secondItem="n8E-2u-y1c" secondAttribute="centerX" id="BMR-Bj-Z44"/>
                             <constraint firstItem="9pm-v4-ifL" firstAttribute="centerY" secondItem="svw-DF-iBZ" secondAttribute="centerY" constant="-26" id="DP2-e0-xI0"/>
                             <constraint firstItem="QfP-jY-GvI" firstAttribute="top" secondItem="QiS-dX-sKS" secondAttribute="bottom" constant="24" id="Fit-jZ-P6G"/>
+                            <constraint firstItem="wqr-JS-P8F" firstAttribute="centerX" secondItem="n8E-2u-y1c" secondAttribute="centerX" id="Iau-4X-w7O"/>
                             <constraint firstItem="9pm-v4-ifL" firstAttribute="centerX" secondItem="svw-DF-iBZ" secondAttribute="centerX" id="IsB-C1-tqc"/>
                             <constraint firstItem="Qry-X9-IK3" firstAttribute="width" secondItem="n8E-2u-y1c" secondAttribute="width" id="JRw-2e-PWu"/>
                             <constraint firstItem="IS9-oK-mTM" firstAttribute="top" secondItem="kPS-Z8-HFh" secondAttribute="bottom" id="LO5-G2-ErP"/>
@@ -1626,6 +1655,7 @@
                             <constraint firstItem="IS9-oK-mTM" firstAttribute="leading" secondItem="n8E-2u-y1c" secondAttribute="leading" id="Yen-BU-j09"/>
                             <constraint firstItem="Vpu-tR-Uuh" firstAttribute="top" secondItem="IS9-oK-mTM" secondAttribute="bottom" id="ZCR-cP-cBM"/>
                             <constraint firstItem="QfP-jY-GvI" firstAttribute="leading" secondItem="n8E-2u-y1c" secondAttribute="leading" id="b6F-5N-0w7"/>
+                            <constraint firstItem="wqr-JS-P8F" firstAttribute="centerY" secondItem="PzX-jL-pwt" secondAttribute="centerY" constant="-110" id="gtP-zU-lYu"/>
                             <constraint firstAttribute="trailing" secondItem="QfP-jY-GvI" secondAttribute="trailing" id="hZy-NS-waH"/>
                             <constraint firstItem="vWE-ut-Vi7" firstAttribute="centerX" secondItem="R9W-pK-BcY" secondAttribute="centerX" id="jCV-13-14I"/>
                             <constraint firstItem="QiS-dX-sKS" firstAttribute="top" secondItem="kPS-Z8-HFh" secondAttribute="bottom" constant="23" id="l3H-DI-3eB"/>
@@ -1667,6 +1697,8 @@
                         <outlet property="tutorial1" destination="i58-bQ-mFP" id="R0e-DV-Nbq"/>
                         <outlet property="tutorial2" destination="9pm-v4-ifL" id="zg1-nM-2Rr"/>
                         <outlet property="tutorial3" destination="vWE-ut-Vi7" id="1Gk-S8-dbc"/>
+                        <outlet property="tutorial3HeightConstraint" destination="i1w-SK-q1N" id="NQD-Dp-BlP"/>
+                        <outlet property="tutorial4" destination="wqr-JS-P8F" id="Zd0-gS-bI7"/>
                         <outletCollection property="graphLabels" destination="qs9-oR-0EH" collectionClass="NSMutableArray" id="q7r-NA-U3v"/>
                         <outletCollection property="graphLabels" destination="vhY-NI-Ja4" collectionClass="NSMutableArray" id="0HS-UF-fNY"/>
                         <outletCollection property="graphLabels" destination="es3-84-zbZ" collectionClass="NSMutableArray" id="RUh-NG-0d2"/>
@@ -1680,7 +1712,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfe-DO-wdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1237.5999999999999" y="139.43028485757122"/>
+            <point key="canvasLocation" x="1148" y="164"/>
         </scene>
         <!--Share View Controller-->
         <scene sceneID="9Pa-xF-dMP">
@@ -1702,7 +1734,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sharing is caring" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix5-L3-1mD">
-                                <rect key="frame" x="62.5" y="199" width="195.5" height="34"/>
+                                <rect key="frame" x="63" y="199" width="195.5" height="34"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1714,7 +1746,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUh-Ns-Hhf">
-                                <rect key="frame" x="40" y="426.5" width="240" height="46"/>
+                                <rect key="frame" x="40" y="407.5" width="240" height="46"/>
                                 <color key="backgroundColor" red="0.0" green="0.94999999999999996" blue="0.4591666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="ReA-eX-5bH"/>
@@ -1735,7 +1767,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once you share, you won't be asked to again." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LQ-U4-lIy">
-                                <rect key="frame" x="30" y="488.5" width="260" height="19.5"/>
+                                <rect key="frame" x="30" y="469.5" width="260" height="38.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1755,10 +1787,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nrg-Ub-41e">
-                                <rect key="frame" x="0.0" y="344.5" width="320" height="82"/>
+                                <rect key="frame" x="0.0" y="344.5" width="320" height="63"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_hand" translatesAutoresizingMaskIntoConstraints="NO" id="UPy-fd-DUn">
-                                        <rect key="frame" x="137.5" y="19" width="45" height="45"/>
+                                        <rect key="frame" x="137.5" y="9" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="ZW6-hq-cTz"/>
                                             <constraint firstAttribute="height" constant="45" id="xOF-G8-v1O"/>
@@ -1887,7 +1919,7 @@
         <image name="line_chart_lightgray" width="130" height="130"/>
         <image name="menu" width="25" height="25"/>
         <image name="minus" width="22" height="3"/>
-        <image name="out_of_tune_cutout" width="500" height="1500"/>
+        <image name="out_of_tune_cutout" width="500" height="2400"/>
         <image name="plus" width="22" height="21"/>
         <image name="question_mark" width="25" height="25"/>
         <image name="score_cutout" width="500" height="1500"/>

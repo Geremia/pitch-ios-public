@@ -32,6 +32,8 @@ extension AnalyticsViewController {
             showTutorial2()
         case 3:
             showTutorial3()
+        case 4:
+            showTutorial4()
         default:
             endTutorial()
         }
@@ -49,15 +51,32 @@ extension AnalyticsViewController {
         outOfTuneFrame.origin.y += 60
         scrollView.scrollRectToVisible(outOfTuneFrame, animated: false)
         
+        // Adjust size of overlay based on out-of-tune table view cell count
+        let tableHeight = outOfTuneTable.frame.height
+        let desiredCutoutHeight = tableHeight + 120
+        tutorial3HeightConstraint.constant = CGFloat((2400 * desiredCutoutHeight) / 236)
+        tutorial3.layoutIfNeeded()
+        
         UIView.transition(with: view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
             self.tutorial2.isHidden = true
             self.tutorial3.isHidden = false
         }, completion: nil)
     }
     
-    func endTutorial() {
+    func showTutorial4() {
+        var graphFrame = graphView.frame
+        graphFrame.origin.y -= 60
+        scrollView.scrollRectToVisible(graphFrame, animated: false)
+        
         UIView.transition(with: view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
             self.tutorial3.isHidden = true
+            self.tutorial4.isHidden = false
+        }, completion: nil)
+    }
+    
+    func endTutorial() {
+        UIView.transition(with: view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
+            self.tutorial4.isHidden = true
         }, completion: nil)
     }
 }

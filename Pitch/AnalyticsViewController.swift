@@ -57,6 +57,8 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var tutorial1: UIView!
     @IBOutlet weak var tutorial2: UIView!
     @IBOutlet weak var tutorial3: UIView!
+    @IBOutlet weak var tutorial3HeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var tutorial4: UIView!
     
     // MARK: - Variables
     
