@@ -54,6 +54,7 @@ extension AnalyticsViewController {
         // Adjust size of overlay based on out-of-tune table view cell count
         let tableHeight = outOfTuneTable.frame.height
         let desiredCutoutHeight = tableHeight + 120
+        // Don't you just love magic numbers?
         tutorial3HeightConstraint.constant = CGFloat((2400 * desiredCutoutHeight) / 236)
         tutorial3.layoutIfNeeded()
         
