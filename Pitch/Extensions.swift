@@ -46,6 +46,7 @@ extension Date {
 extension Notification.Name {
     static let pitchPipeReset = Notification.Name(rawValue: "pitchPipeResetNotification")
     static let darkModeChanged = Notification.Name(rawValue: "darkModeChangedNotification")
+    static let pitchStandardChanged = Notification.Name(rawValue: "pitchStandardChangedNotification")
 }
 
 func log2(val: Double) -> Double {

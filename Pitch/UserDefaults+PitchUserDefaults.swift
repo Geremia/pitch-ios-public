@@ -156,12 +156,20 @@ extension UserDefaults {
         set(newValue.rawValue, forKey: "key")
     }
     
-    func tuningOffset() -> Int {
-        return integer(forKey: "tuningOffset")
+    /**
+     * The pitch standard. A = 440Hz by default.
+     */
+    func pitchStandard() -> Double {
+        if let pitchStandard = object(forKey: "pitchStandard") {
+            return pitchStandard as! Double
+        }
+        
+        return 440.0
     }
     
-    func setTuningOffset(_ newValue: Int) {
-        set(newValue, forKey: "tuningOffset")
+    func setPitchStandard(_ newValue: Double) {
+        set(newValue, forKey: "pitchStandard")
+        NotificationCenter.default.post(name: .pitchStandardChanged, object: nil)
     }
     
     /**

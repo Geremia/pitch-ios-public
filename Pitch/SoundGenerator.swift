@@ -30,22 +30,13 @@ class SoundGenerator : NSObject {
         AudioKit.output = mixer
         try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
         AudioKit.start()
+        
+        setPitchStandard()
+        NotificationCenter.default.addObserver(self, selector: #selector(setPitchStandard), name: .pitchStandardChanged, object: nil)
     }
     
     final func playNoteOn(channelNumber: Int) {
-        
         let concertOffset = UserDefaults.standard.key().concertOffset
-        let tuningOffset = UserDefaults.standard.tuningOffset()
-        
-        print(tuningOffset)
-        let note = channelNumber + octaveConstant + concertOffset
-        let intendedFrequency = (440 + tuningOffset) * 2^((note - 69) / 12)
-        let realFrequency = 440 * 2^((note - 69) / 12)
-        
-//        let bankOffset = intendedFrequency - realFrequency
-        
-        bank.detuningMultiplier = 442 / 440
-        
         bank.play(noteNumber: channelNumber + octaveConstant + concertOffset, velocity: 127)
         channelsOn.append(channelNumber)
     }
@@ -90,5 +81,10 @@ class SoundGenerator : NSObject {
     private func resetAttackReleaseDuration() {
         bank.attackDuration = 0.06
         bank.releaseDuration = 0.06
+    }
+    
+    func setPitchStandard() {
+        let pitchStandard = UserDefaults.standard.pitchStandard()
+        bank.detuningMultiplier = pitchStandard / 440
     }
 }
