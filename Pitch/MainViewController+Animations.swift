@@ -29,7 +29,7 @@ extension MainViewController {
             octaveLabel.text = String(output.pitch.octave)
             
             let isPortrait = UIApplication.shared.statusBarOrientation.isPortrait
-            portraitMovingLineCenterConstraint.constant = CGFloat(isPortrait ? -output.distance * 30.0 : output.distance * 30.0)
+            portraitMovingLineCenterConstraint.constant = CGFloat(isPortrait ? -output.centsDistace * 30.0 : output.centsDistace * 30.0)
             
             switch abs(output.distance) {
             case 0...0.4:

@@ -33,7 +33,19 @@ class SoundGenerator : NSObject {
     }
     
     final func playNoteOn(channelNumber: Int) {
+        
         let concertOffset = UserDefaults.standard.key().concertOffset
+        let tuningOffset = UserDefaults.standard.tuningOffset()
+        
+        print(tuningOffset)
+        let note = channelNumber + octaveConstant + concertOffset
+        let intendedFrequency = (440 + tuningOffset) * 2^((note - 69) / 12)
+        let realFrequency = 440 * 2^((note - 69) / 12)
+        
+//        let bankOffset = intendedFrequency - realFrequency
+        
+        bank.detuningMultiplier = 442 / 440
+        
         bank.play(noteNumber: channelNumber + octaveConstant + concertOffset, velocity: 127)
         channelsOn.append(channelNumber)
     }

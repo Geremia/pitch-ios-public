@@ -156,6 +156,14 @@ extension UserDefaults {
         set(newValue.rawValue, forKey: "key")
     }
     
+    func tuningOffset() -> Int {
+        return integer(forKey: "tuningOffset")
+    }
+    
+    func setTuningOffset(_ newValue: Int) {
+        set(newValue, forKey: "tuningOffset")
+    }
+    
     /**
      * Bool indicating whether 'dark mode' is on.
      */
