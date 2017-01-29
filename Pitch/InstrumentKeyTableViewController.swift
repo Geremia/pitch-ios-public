@@ -127,7 +127,7 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
             }
         default:
             autoKeySwitch.setOn(false, animated: true)
-            UserDefaults.standard.setAutoKey(false)
+            autoKeyOn = false
             UserDefaults.standard.setKey(keys[row])
         }
     }
