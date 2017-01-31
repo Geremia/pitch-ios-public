@@ -142,11 +142,76 @@ class Tuner: NSObject {
         silence = AKBooster(analyzer, gain: 0.0)
     }
     
+    func audioRouteChanged(_ notification: Notification) {
+        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
+        
+        switch audioRouteChangeReason {
+        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
+            DispatchQueue.main.async {
+                self.checkForExternalMic(askPermission: true)
+            }
+        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
+            DispatchQueue.main.async {
+                self.switchToInternalMic()
+            }
+        default:
+            break
+        }
+    }
+    
+    func checkForExternalMic(askPermission: Bool) {
+        for input in AKSettings.session.availableInputs! {
+            if input.portType == "MicrophoneWired" {
+                askPermission ? askForExternalMicPermission() : switchToExternalMic()
+            }
+        }
+    }
+    
+    func askForExternalMicPermission() {
+        let alert = UIAlertController(title: "External Microphone Detected", message: "Pitch has detected an external microphone. Want to use it for tuning?", preferredStyle: .alert)
+        let noAction = UIAlertAction(title: "No", style: .default, handler: nil)
+        let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { action in
+            self.switchToExternalMic()
+        })
+        alert.addAction(noAction)
+        alert.addAction(yesAction)
+        
+        UIApplication.topViewController()?.present(alert, animated: true, completion: nil)
+    }
+    
+    func switchToExternalMic() {
+        AudioKit.stop()
+        try! microphone.setDevice(AKDevice(name: "Headset Microphone", deviceID: "Wired Microphone"))
+        AudioKit.start()
+    }
+    
+    func switchToInternalMic() {
+        AudioKit.stop()
+        try! microphone.setDevice(AKDevice(name: "iPhone Microphone", deviceID: "Built-In Microphone"))
+        try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
+        AudioKit.start()
+    }
+    
     /**
      Starts the tuner.
      */
-    open func start() {        
+    open func start() {
+        checkForExternalMic(askPermission: false)
+        NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
         timer = Timer.scheduledTimer(timeInterval: updateInterval, target: self, selector: #selector(Tuner.timerAction), userInfo: nil, repeats: true)
+    }
+    
+    /**
+     Stops the tuner.
+     */
+    open func stop() {
+        print("stop tuner")
+        microphone.stop()
+        analyzer.stop()
+        timer?.invalidate()
+        timer = nil
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     /**
@@ -186,17 +251,6 @@ class Tuner: NSObject {
         let pitch = Pitch.nearest(frequency: frequency)
         let lowerPitch = pitch - 1
         return pitch.frequency - lowerPitch.frequency
-    }
-    
-    
-    /**
-     Stops the tuner.
-    */
-    open func stop() {
-        microphone.stop()
-        analyzer.stop()
-        timer?.invalidate()
-        timer = nil
     }
     
     fileprivate func addFrequencyToBuffer(_ value: Double) {
