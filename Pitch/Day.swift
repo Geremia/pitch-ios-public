@@ -136,6 +136,8 @@ class Day: Object {
             // If the offset is greater than 50 cents, this data point is not valid.
             if abs(offset) > 50.0 { return }
             
+            /* Here, we could use the 'pitch' property but since it's computed, it uses 
+             LOTS of CPU. So we just compare pitchString and octave instead. */
             if let index = pitchOffsets.index(where: { $0.pitchString == pitch.description && $0.octave == pitch.octave }) {
                 // Pitch is present. Update its averageOffset.
                 pitchOffsets[index].add(offset: offset)
