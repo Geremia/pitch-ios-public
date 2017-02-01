@@ -63,20 +63,21 @@ class Day: Object {
     
     /**
      * An array of OffsetData. Each OffsetData contains a pitch, octave,
-     * and its average offset. Array is in descending order of the absolute
-     * value of every pitch's average offset.
+     * and its average offset.
      */
     var pitchOffsets: List<OffsetData> = List<OffsetData>()
     
     /**
-     * Returns offset datas that only have more than 300 data points.
+     * Returns offset datas that only have more than 300 data points, 
+     * sorted in descending order of the absolute value of every pitch's 
+     * average offset.
      */
     var filteredPitchOffsets: [OffsetData] {
         var offsets: [OffsetData] = []
         offsets.append(contentsOf: pitchOffsets)
         return offsets.filter { data in
             return data.dataCount >= 300
-        }
+        }.sorted(by: { abs($0.averageOffset) > abs($1.averageOffset) })
     }
     
     /**
@@ -135,8 +136,7 @@ class Day: Object {
             // If the offset is greater than 50 cents, this data point is not valid.
             if abs(offset) > 50.0 { return }
             
-            // Check if the pitch is already present in pitchOffsets.
-            if let index = pitchOffsets.index(where: { $0.pitch == pitch }) {
+            if let index = pitchOffsets.index(where: { $0.pitchString == pitch.description && $0.octave == pitch.octave }) {
                 // Pitch is present. Update its averageOffset.
                 pitchOffsets[index].add(offset: offset)
             } else {
@@ -144,11 +144,6 @@ class Day: Object {
                 let offsetData = OffsetData.new(pitch: pitch, offset: offset)
                 pitchOffsets.append(offsetData)
             }
-            
-            // Sort pitchOffsets in descending order by the absolute value of their averageOffset.
-            let sortedOffsets = Array(pitchOffsets.sorted(by: { abs($0.averageOffset) > abs($1.averageOffset) }))
-            pitchOffsets.removeAll()
-            pitchOffsets.append(contentsOf: sortedOffsets)
         }
     }
     

@@ -27,12 +27,12 @@ class OffsetData: Object {
     /**
      * The name of the pitch.
      */
-    fileprivate dynamic var pitchString: String = ""
+    dynamic var pitchString: String = ""
     
     /**
      * The octave of the pitch.
      */
-    fileprivate dynamic var octave: Int = 0
+    dynamic var octave: Int = 0
     
     /**
      * The pitch's average offset in cents.
