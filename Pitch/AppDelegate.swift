@@ -11,6 +11,7 @@ import Fabric
 import Crashlytics
 import AudioKit
 import RealmSwift
+import Siren
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             handleShortcut(shortcutItem)
+        } else {
+            Siren.sharedInstance.checkVersion(checkType: .daily)
         }
 
         return true

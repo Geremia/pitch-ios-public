@@ -9,6 +9,7 @@ target 'Pitch' do
   pod 'UICountingLabel'
   pod 'RealmSwift'
   pod 'ScrollableGraphView'
+  pod 'Siren'
 end
 
 post_install do |installer|

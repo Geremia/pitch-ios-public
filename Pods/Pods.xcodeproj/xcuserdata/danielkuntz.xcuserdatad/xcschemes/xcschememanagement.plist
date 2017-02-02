@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Siren.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UICountingLabel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>11CDCF7FBD22E14F04244B4C952DDA9A</key>
+		<key>32F12777D1C82608B634B3477073E377</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>31BA7BB575AC81960080A267BE90EB9F</key>
+		<key>37436EA4BF7B7E9481721123C212C8B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74424B4CA9189F6DD0B94821D3180ED8</key>
+		<key>5F4DA00FA5485C3D72C3220EBF4FE083</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>81A6F57C8BF09F3E761759CF88C36209</key>
+		<key>A2640415402C4C54EE03185275B59368</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E85ED2F62C14D75F3C58A16672CBD3FA</key>
+		<key>BC52E4934E187CB543019FDB76DC0D29</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3BC47B5E34FA7105EE91908C431AF90</key>
 		<dict>
 			<key>primary</key>
 			<true/>

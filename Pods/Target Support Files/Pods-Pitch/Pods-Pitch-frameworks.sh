@@ -88,6 +88,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ScrollableGraphView/ScrollableGraphView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Siren/Siren.framework"
   install_framework "$BUILT_PRODUCTS_DIR/UICountingLabel/UICountingLabel.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -95,5 +96,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Realm/Realm.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RealmSwift/RealmSwift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/ScrollableGraphView/ScrollableGraphView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Siren/Siren.framework"
   install_framework "$BUILT_PRODUCTS_DIR/UICountingLabel/UICountingLabel.framework"
 fi
