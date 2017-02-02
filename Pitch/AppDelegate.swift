@@ -32,6 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Siren.sharedInstance.checkVersion(checkType: .daily)
         }
 
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let settings = storyboard.instantiateViewController(withIdentifier: "settings")
+        let main: MainViewController = storyboard.instantiateViewController(withIdentifier: "main") as! MainViewController
+        let analytics = storyboard.instantiateViewController(withIdentifier: "analytics")
+        
+        let container = SnapContainerViewController.containerViewWith(settings, middleVC: main, rightVC: analytics)
+        main.snapContainer = container
+        
+        self.window?.rootViewController = container
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
     

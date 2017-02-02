@@ -59,6 +59,10 @@ class MainViewController: UIViewController {
     var pitchStartTime: Date?
     var pitchCenterTimer: Timer?
     
+    // MARK: - Other Variables
+    
+    var snapContainer: SnapContainerViewController?
+    
     // MARK: - Setup Views
 
     override func viewDidLoad() {
