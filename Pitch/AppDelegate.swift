@@ -33,12 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let settings = storyboard.instantiateViewController(withIdentifier: "settings")
+        
+        let settings: SettingsViewController = storyboard.instantiateViewController(withIdentifier: "settings") as! SettingsViewController
         let main: MainViewController = storyboard.instantiateViewController(withIdentifier: "main") as! MainViewController
-        let analytics = storyboard.instantiateViewController(withIdentifier: "analytics")
+        let analytics: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
         
         let container = SnapContainerViewController.containerViewWith(settings, middleVC: main, rightVC: analytics)
+        
+        settings.snapContainer = container
         main.snapContainer = container
+        analytics.snapContainer = container
         
         self.window?.rootViewController = container
         self.window?.makeKeyAndVisible()

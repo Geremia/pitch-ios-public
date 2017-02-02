@@ -65,7 +65,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     @IBAction func backPressed(_ sender: Any) {
         if let container = snapContainer {
-            container.transitionLeft()
+            container.transitionRight()
         }
     }
     
