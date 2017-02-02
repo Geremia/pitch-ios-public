@@ -127,9 +127,23 @@ class MainViewController: UIViewController {
 
     // MARK: - Actions
     
+    @IBAction func settingsPressed(_ sender: Any) {
+        if let container = snapContainer {
+            container.transitionLeft()
+        }
+    }
+    
     @IBAction func pitchPipePressed(_ sender: AnyObject) {
         pitchPipeOpen ? closePitchPipe() : openPitchPipe()
     }
+    
+    @IBAction func analyticsPressed(_ sender: Any) {
+        if let container = snapContainer {
+            container.transitionRight()
+        }
+    }
+    
+    // MARK: - Pitch Pipe
     
     func openPitchPipe() {
         pitchPipeOpen = true

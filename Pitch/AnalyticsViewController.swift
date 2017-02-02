@@ -65,6 +65,8 @@ class AnalyticsViewController: UIViewController {
     var hasShownShareView: Bool = false
     var tutorialState: Int = 1
     
+    var snapContainer: SnapContainerViewController?
+    
     // MARK: - Setup Views
 
     override func viewDidLoad() {
@@ -143,7 +145,9 @@ class AnalyticsViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if let container = snapContainer {
+            container.transitionLeft()
+        }
     }
     
     @IBAction func helpButtonPressed(_ sender: Any) {

@@ -28,6 +28,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     // MARK: - Variables
     
     var settingsTableViewController: SettingsTableViewController?
+    var snapContainer: SnapContainerViewController?
     
     // MARK: - Setup Views
 
@@ -63,7 +64,9 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     // MARK: - Actions
     
     @IBAction func backPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if let container = snapContainer {
+            container.transitionLeft()
+        }
     }
     
     @IBAction func feedbackPressed(_ sender: Any) {

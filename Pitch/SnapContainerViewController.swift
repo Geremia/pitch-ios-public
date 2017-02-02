@@ -138,11 +138,21 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - Actions
     
     func transitionLeft() {
-        
+        scrollView.bounces = true
+        UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
+            self.scrollView.contentOffset.x -= self.view.frame.width + 16
+        }, completion: { finished in
+            self.scrollView.bounces = false
+        })
     }
     
     func transitionRight() {
-        
+        scrollView.bounces = true
+        UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
+            self.scrollView.contentOffset.x += self.view.frame.width + 16
+        }, completion: { finished in
+            self.scrollView.bounces = false
+        })
     }
     
     // MARK: - Status Bar Style
