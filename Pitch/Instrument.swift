@@ -9,7 +9,7 @@
 import Foundation
 
 enum Instrument: Int {
-    case none
+    case other
     case guitar
     case ukelele
     case violin
@@ -22,6 +22,7 @@ enum Instrument: Int {
     case oboe
     case englishHorn
     case bassoon
+    case bagpipes
     case eFlatClarinet
     case bFlatClarinet
     case bassClarinet
@@ -37,12 +38,12 @@ enum Instrument: Int {
     case tuba
     case timpani
     
-    static let all: [Instrument] = [.none, .guitar, .ukelele, .violin, .viola, .cello, .stringbass, .piano, .piccolo, .flute, .oboe, .englishHorn, .bassoon, .eFlatClarinet, .bFlatClarinet, .bassClarinet, .sopranoSax, .altoSax, .tenorSax, .bariSax, .frenchHorn, .trumpet, .trombone, .bassTrombone, .euphonium, .tuba, .timpani]
+    static let all: [Instrument] = [.other, .guitar, .ukelele, .violin, .viola, .cello, .stringbass, .piano, .bagpipes, .piccolo, .flute, .oboe, .englishHorn, .bassoon, .bagpipes, .eFlatClarinet, .bFlatClarinet, .bassClarinet, .sopranoSax, .altoSax, .tenorSax, .bariSax, .frenchHorn, .trumpet, .trombone, .bassTrombone, .euphonium, .tuba, .timpani]
     
     var description: String {
         switch self {
-        case .none:
-            return "None"
+        case .other:
+            return "None/Other"
         case .guitar:
             return "Guitar"
         case .ukelele:
@@ -67,6 +68,8 @@ enum Instrument: Int {
             return "English Horn"
         case .bassoon:
             return "Bassoon"
+        case .bagpipes:
+            return "Bagpipes"
         case .eFlatClarinet:
             return "E♭ Clarinet"
         case .bFlatClarinet:
@@ -100,7 +103,7 @@ enum Instrument: Int {
     
     var key: Key {
         switch self {
-        case .none, .guitar, .ukelele, .violin, .viola, .cello, .stringbass, .piano, .piccolo, .flute, .oboe, .bassoon, .trombone, .bassTrombone, .euphonium, .tuba, .timpani:
+        case .other, .guitar, .ukelele, .violin, .viola, .cello, .stringbass, .piano, .piccolo, .flute, .oboe, .bassoon, .bagpipes, .trombone, .bassTrombone, .euphonium, .tuba, .timpani:
             return .c
         case .bFlatClarinet, .bassClarinet, .sopranoSax, .tenorSax, .trumpet:
             return .asharp
