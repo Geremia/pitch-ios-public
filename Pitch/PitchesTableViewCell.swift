@@ -19,6 +19,12 @@ class PitchesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
+    }
+    
+    // MARK: - Dark Mode Switching
+    
+    func darkModeChanged() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
         numberLabel.textColor = darkModeOn ? UIColor.white : UIColor.black
         pitchLabel.textColor = darkModeOn ? UIColor.white : UIColor.black

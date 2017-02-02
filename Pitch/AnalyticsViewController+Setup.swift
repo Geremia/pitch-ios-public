@@ -12,10 +12,14 @@ extension AnalyticsViewController {
     
     // MARK: - Setup
     
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
+    }
+    
     func setupUI() {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
-        updateDarkMode()
+        darkModeChanged()
         
         feedbackButton.layer.cornerRadius = 8.0
         
@@ -92,5 +96,52 @@ extension AnalyticsViewController {
         }
     }
 
+    // MARK: - Dark Mode Switching
     
+    func darkModeChanged() {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        
+        noDataView.backgroundColor = darkModeOn ? .darkGrayView : .white
+        noDataImageView.image = darkModeOn ? #imageLiteral(resourceName: "line_chart_darkgray") : #imageLiteral(resourceName: "line_chart_lightgray")
+        noDataLabel.textColor = darkModeOn ? .darkGray : .lightGray
+        
+        view.backgroundColor = darkModeOn ? .darkGrayView : .white
+        backButton.setImage(darkModeOn ? #imageLiteral(resourceName: "white_back_arrow") : #imageLiteral(resourceName: "back_arrow"), for: .normal)
+        analyticsLabel.textColor = darkModeOn ? .white : .black
+        helpButton.setImage(darkModeOn ? #imageLiteral(resourceName: "white_question_mark") : #imageLiteral(resourceName: "question_mark"), for: .normal)
+        
+        scoreCircle.backgroundColor = darkModeOn ? .darkGrayView : .white
+        scoreCircle.setNeedsDisplay()
+        
+        let lineTextColor: UIColor = darkModeOn ? .white : .black
+        
+        scoreLabel.textColor = lineTextColor
+        todayLabel.textColor = lineTextColor
+        todaySeparator.backgroundColor = lineTextColor
+        descriptionLabel.textColor = lineTextColor
+        
+        outOfTuneLabel.textColor = lineTextColor
+        outOfTuneSeparator.backgroundColor = lineTextColor
+        
+        tuningScoreLabel.textColor = lineTextColor
+        tuningScoreSeparator.backgroundColor = lineTextColor
+        
+        graphView.dataPointLabelColor = lineTextColor
+        graphView.lineColor = darkModeOn ? .darkInTune : .inTune
+        
+        for view in graphSideMargins {
+            view.backgroundColor = darkModeOn ? .darkGrayView : .white
+        }
+        
+        for line in graphReferenceLines {
+            line.backgroundColor = darkModeOn ? .darkPitchPipeBackground : .separatorColor
+        }
+        
+        for label in graphLabels {
+            label.textColor = lineTextColor
+        }
+        
+        feedbackLabel.textColor = lineTextColor
+        feedbackButton.backgroundColor = darkModeOn ? .darkInTune : .inTune
+    }
 }

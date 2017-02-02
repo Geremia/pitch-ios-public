@@ -71,6 +71,8 @@ class AnalyticsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNotifications()
         setupUI()
     }
     
@@ -88,52 +90,6 @@ class AnalyticsViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Dark Mode Switching
-    
-    func updateDarkMode() {
-        let darkModeOn = UserDefaults.standard.darkModeOn()
-        if darkModeOn {
-            noDataView.backgroundColor = .darkGrayView
-            noDataImageView.image = #imageLiteral(resourceName: "line_chart_darkgray")
-            noDataLabel.textColor = .darkGray
-            
-            view.backgroundColor = .darkGrayView
-            backButton.setImage(#imageLiteral(resourceName: "white_back_arrow"), for: .normal)
-            analyticsLabel.textColor = .white
-            helpButton.setImage(#imageLiteral(resourceName: "white_question_mark"), for: .normal)
-            
-            scoreCircle.backgroundColor = .darkGrayView
-            scoreLabel.textColor = UIColor.white
-            todayLabel.textColor = .white
-            todaySeparator.backgroundColor = .white
-            descriptionLabel.textColor = .white
-            
-            outOfTuneLabel.textColor = .white
-            outOfTuneSeparator.backgroundColor = .white
-            
-            tuningScoreLabel.textColor = .white
-            tuningScoreSeparator.backgroundColor = .white
-            
-            graphView.dataPointLabelColor = .white
-            graphView.lineColor = .darkInTune
-            
-            for view in graphSideMargins {
-                view.backgroundColor = .darkGrayView
-            }
-            
-            for line in graphReferenceLines {
-                line.backgroundColor = .darkPitchPipeBackground
-            }
-            
-            for label in graphLabels {
-                label.textColor = .white
-            }
-            
-            feedbackLabel.textColor = .white
-            feedbackButton.backgroundColor = .darkInTune
-        }
-    }
 
     // MARK: - Actions
     
@@ -144,7 +100,6 @@ class AnalyticsViewController: UIViewController {
     }
     
     @IBAction func helpButtonPressed(_ sender: Any) {
-        tutorialState = 1
         startTutorial()
     }
     

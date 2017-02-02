@@ -22,9 +22,15 @@ class PitchesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.tableFooterView = UIView()
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
+    }
+    
+    // MARK: - Dark Mode Switching
+    
+    func darkModeChanged() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
         tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
-        tableView.tableFooterView = UIView()
     }
 
     // MARK: - Table view data source
