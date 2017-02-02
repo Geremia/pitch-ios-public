@@ -100,12 +100,6 @@ class MainViewController: UIViewController {
             openPitchPipe()
         }
     }
-    
-    func openAnalytics() {
-        if presentedViewController == nil {
-            performSegue(withIdentifier: "mainToAnalytics", sender: self)
-        }
-    }
 
     // MARK: - Audio Plot Action
     
@@ -129,7 +123,7 @@ class MainViewController: UIViewController {
     
     @IBAction func settingsPressed(_ sender: Any) {
         if let container = snapContainer {
-            container.transitionLeft()
+            container.transitionLeft(animated: true)
         }
     }
     
@@ -139,7 +133,7 @@ class MainViewController: UIViewController {
     
     @IBAction func analyticsPressed(_ sender: Any) {
         if let container = snapContainer {
-            container.transitionRight()
+            container.transitionRight(animated: true)
         }
     }
     

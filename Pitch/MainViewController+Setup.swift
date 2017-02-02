@@ -15,7 +15,6 @@ extension MainViewController {
     
     func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(openToneGenerator), name: .openToneGenerator, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(openAnalytics), name: .openAnalytics, object: nil)
     }
     
     func checkRecordPermission() {

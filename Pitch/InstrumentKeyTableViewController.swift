@@ -42,24 +42,6 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         darkModeChanged()
         
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(openAnalytics), name: .openAnalytics, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(openToneGenerator), name: .openToneGenerator, object: nil)
-    }
-    
-    // MARK: - Notifications
-    
-    func openAnalytics() {
-        dismiss(animated: false, completion: {
-            // Post the notification again so SettingsViewController can dismiss
-            NotificationCenter.default.post(name: .openAnalytics, object: nil)
-        })
-    }
-    
-    func openToneGenerator() {
-        dismiss(animated: false, completion: {
-            // Post the notification again so SettingsViewController can dismiss
-            NotificationCenter.default.post(name: .openToneGenerator, object: nil)
-        })
     }
     
     // MARK: - Setup Picker View

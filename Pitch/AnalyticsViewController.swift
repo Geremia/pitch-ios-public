@@ -72,7 +72,6 @@ class AnalyticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupNotifications()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,12 +89,6 @@ class AnalyticsViewController: UIViewController {
         }
     }
     
-    // MARK: - Notifications
-    
-    func openToneGenerator() {
-        dismiss(animated: false, completion: nil)
-    }
-        
     // MARK: - Dark Mode Switching
     
     func updateDarkMode() {
@@ -146,7 +139,7 @@ class AnalyticsViewController: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         if let container = snapContainer {
-            container.transitionLeft()
+            container.transitionLeft(animated: true)
         }
     }
     

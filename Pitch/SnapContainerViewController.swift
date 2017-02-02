@@ -12,6 +12,12 @@ protocol SnapContainerViewControllerDelegate {
     func outerScrollViewShouldScroll() -> Bool
 }
 
+enum SnapContainerViewControllerType {
+    case left
+    case middle
+    case right
+}
+
 class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
     var topVc: UIViewController?
@@ -50,8 +56,15 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupNotifications()
         setupVerticalScrollView()
         setupHorizontalScrollView()
+    }
+    
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(shortcutOpenToneGenerator(_:)), name: .openToneGenerator, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(shortcutOpenAnalytics(_:)), name: .openAnalytics, object: nil)
     }
     
     func setupVerticalScrollView() {
@@ -135,24 +148,53 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    // MARK: - Actions
+    // MARK: - Notifications
     
-    func transitionLeft() {
-        scrollView.bounces = true
-        UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
-            self.scrollView.contentOffset.x -= self.view.frame.width + 16
-        }, completion: { finished in
-            self.scrollView.bounces = false
-        })
+    func shortcutOpenAnalytics(_ notification: Notification) {
+        go(toViewController: .right)
     }
     
-    func transitionRight() {
-        scrollView.bounces = true
-        UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
+    func shortcutOpenToneGenerator(_ notification: NSNotification) {
+        go(toViewController: .middle)
+    }
+    
+    // MARK: - Actions
+    
+    func transitionLeft(animated: Bool) {
+        if animated {
+            scrollView.bounces = true
+            UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
+                self.scrollView.contentOffset.x -= self.view.frame.width + 16
+            }, completion: { finished in
+                self.scrollView.bounces = false
+            })
+        } else {
+            self.scrollView.contentOffset.x -= self.view.frame.width + 16
+        }
+    }
+    
+    func transitionRight(animated: Bool) {
+        if animated {
+            scrollView.bounces = true
+            UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
+                self.scrollView.contentOffset.x += self.view.frame.width + 16
+            }, completion: { finished in
+                self.scrollView.bounces = false
+            })
+        } else {
             self.scrollView.contentOffset.x += self.view.frame.width + 16
-        }, completion: { finished in
-            self.scrollView.bounces = false
-        })
+        }
+    }
+    
+    func go(toViewController viewControllerType: SnapContainerViewControllerType) {
+        switch viewControllerType {
+        case .left:
+            scrollView.contentOffset.x = 0
+        case .middle:
+            scrollView.contentOffset.x = scrollView.frame.width
+        case .right:
+            scrollView.contentOffset.x = scrollView.frame.width * 2
+        }
     }
     
     // MARK: - Status Bar Style

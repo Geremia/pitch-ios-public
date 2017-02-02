@@ -44,28 +44,13 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         darkModeChanged()
         
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(openAnalytics), name: .openAnalytics, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(openToneGenerator), name: .openToneGenerator, object: nil)
-    }
-    
-    // MARK: - Notifications
-    
-    func openAnalytics() {
-        dismiss(animated: false, completion: {
-            // Post the notification again so MainViewController can present AnalyticsViewController
-            NotificationCenter.default.post(name: .openAnalytics, object: nil)
-        })
-    }
-    
-    func openToneGenerator() {
-        dismiss(animated: false, completion: nil)
     }
     
     // MARK: - Actions
     
     @IBAction func backPressed(_ sender: Any) {
         if let container = snapContainer {
-            container.transitionRight()
+            container.transitionRight(animated: true)
         }
     }
     
