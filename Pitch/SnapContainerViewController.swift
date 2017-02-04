@@ -149,10 +149,17 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let analytics: AnalyticsViewController = rightVc as! AnalyticsViewController
+        analytics.checkForShareAndAnimation()
+    }
+    
     // MARK: - Notifications
     
     func shortcutOpenAnalytics(_ notification: Notification) {
         go(toViewController: .right)
+        let analytics: AnalyticsViewController = rightVc as! AnalyticsViewController
+        analytics.checkForShareAndAnimation()
     }
     
     func shortcutOpenToneGenerator(_ notification: NSNotification) {

@@ -75,9 +75,7 @@ class AnalyticsViewController: UIViewController {
         setupUI()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    func checkForShareAndAnimation() {
         if DataManager.today().hasSufficientData {
             let defaults = UserDefaults.standard
             if defaults.shouldShowAnalyticsSharePrompt() && !hasShownShareView {
