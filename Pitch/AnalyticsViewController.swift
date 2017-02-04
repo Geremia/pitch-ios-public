@@ -72,7 +72,6 @@ class AnalyticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupNotifications()
         setupUI()
     }
     

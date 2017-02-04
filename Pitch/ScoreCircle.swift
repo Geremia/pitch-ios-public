@@ -27,6 +27,18 @@ class ScoreCircle: UIView {
         setupCircleLayer()
     }
     
+    override func setNeedsDisplay() {
+        super.setNeedsDisplay()
+        resetForDarkMode()
+    }
+    
+    func resetForDarkMode() {
+        removeBorder()
+        addBorder()
+        circleLayer.removeFromSuperlayer()
+        setupCircleLayer()
+    }
+    
     func setupCircleLayer() {
         circleLayer.fillColor = UIColor.clear.cgColor
         circleLayer.lineWidth = 2.0

@@ -7,14 +7,11 @@
 //
 
 import UIKit
+import ScrollableGraphView
 
 extension AnalyticsViewController {
     
     // MARK: - Setup
-    
-    func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
-    }
     
     func setupUI() {
         view.layer.cornerRadius = 8.0

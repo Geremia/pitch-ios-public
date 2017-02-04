@@ -23,6 +23,7 @@ class PitchesTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
+        darkModeChanged()
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
     }
     

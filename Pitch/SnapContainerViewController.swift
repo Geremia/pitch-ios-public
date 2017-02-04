@@ -65,6 +65,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(shortcutOpenToneGenerator(_:)), name: .openToneGenerator, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(shortcutOpenAnalytics(_:)), name: .openAnalytics, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged(_:)), name: .darkModeChanged, object: nil)
     }
     
     func setupVerticalScrollView() {
@@ -156,6 +157,32 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
     func shortcutOpenToneGenerator(_ notification: NSNotification) {
         go(toViewController: .middle)
+    }
+    
+    func darkModeChanged(_ notification: Notification) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let analytics: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
+        
+        rightVc.removeFromParentViewController()
+        rightVc.view.removeFromSuperview()
+        
+        rightVc = analytics
+        let view = (
+            x: self.view.bounds.origin.x,
+            y: self.view.bounds.origin.y,
+            width: self.view.bounds.width,
+            height: self.view.bounds.height
+        )
+        rightVc.view.frame = CGRect(x: (2 * view.width) + 32,
+                                    y: 0,
+                                    width: view.width,
+                                    height: view.height
+        )
+        
+        addChildViewController(rightVc)
+        scrollView.addSubview(rightVc.view)
+        
+        analytics.snapContainer = self
     }
     
     // MARK: - Actions
