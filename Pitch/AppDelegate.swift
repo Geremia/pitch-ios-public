@@ -32,6 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Siren.sharedInstance.checkVersion(checkType: .daily)
         }
 
+        setupSnapContainer()
+        
+        return true
+    }
+    
+    func setupSnapContainer() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let settings: SettingsViewController = storyboard.instantiateViewController(withIdentifier: "settings") as! SettingsViewController
@@ -46,8 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.rootViewController = container
         self.window?.makeKeyAndVisible()
-        
-        return true
     }
     
     func updateAnalyticsSharing() {
