@@ -76,7 +76,7 @@ class Day: Object {
         var offsets: [OffsetData] = []
         offsets.append(contentsOf: pitchOffsets)
         return offsets.filter { data in
-            return data.dataCount >= 300
+            return data.dataCount >= 200
         }.sorted(by: { abs($0.averageOffset) > abs($1.averageOffset) })
     }
     
@@ -85,7 +85,7 @@ class Day: Object {
      * displayed to the user.
      */
     var hasSufficientData: Bool {
-        return inTunePercentageDataCount >= 1200 && timeToCenterDataCount >= 3
+        return inTunePercentageDataCount >= 800 && timeToCenterDataCount >= 3
     }
     
     /**
@@ -93,7 +93,7 @@ class Day: Object {
      * having sufficient data.
      */
     var dataPercentage: Double {
-        let inTune = min(0.4 * Double(inTunePercentageDataCount) / 1200, 0.4)
+        let inTune = min(0.4 * Double(inTunePercentageDataCount) / 800, 0.4)
         let timeToCenter = min(0.6 * Double(timeToCenterDataCount) / 3, 0.6)
         return inTune + timeToCenter
     }
