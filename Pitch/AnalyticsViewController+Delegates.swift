@@ -22,6 +22,11 @@ extension AnalyticsViewController: ShareViewControllerDelegate {
     
     // MARK: - ShareViewControllerDelegate Methods
     
+    func userCancelledShare() {
+        hasShownShareView = false
+        snapContainer?.transitionLeft(animated: true)
+    }
+    
     func userDidShare() {
         displayData()
     }

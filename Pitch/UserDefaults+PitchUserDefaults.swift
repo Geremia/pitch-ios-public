@@ -49,7 +49,7 @@ extension UserDefaults {
             return true
         }
         
-        // User has already shared OR this is their first day using the app.
+        // User has already shared OR this is their first three days using the app.
         return false
     }
     

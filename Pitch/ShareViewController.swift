@@ -11,7 +11,7 @@ import MessageUI
 import Crashlytics
 
 protocol ShareViewControllerDelegate {
-    func dismiss(animated: Bool, completion: (() -> Void)?)
+    func userCancelledShare()
     func userDidShare()
 }
 
@@ -66,7 +66,7 @@ class ShareViewController: UIViewController {
     @IBAction func cancelButtonPressed(_ sender: Any) {
         Answers.logShare(withMethod: "Cancel", contentName: "Cancelled Share", contentType: "messaging", contentId: "002", customAttributes: [:])
         self.dismiss(animated: true, completion: { _ in
-            self.delegate?.dismiss(animated: true, completion: nil)
+            self.delegate?.userCancelledShare()
         })
     }
     

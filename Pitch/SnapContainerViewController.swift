@@ -147,11 +147,12 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             // directional lock, that allows you to scroll in only one direction at any given time
             self.scrollView!.setContentOffset(newOffset, animated:  false)
         }
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let analytics: AnalyticsViewController = rightVc as! AnalyticsViewController
-        analytics.checkForShareAndAnimation()
+        
+        let page = scrollView.contentOffset.x / scrollView.frame.width
+        if page == 2 {
+            let analytics: AnalyticsViewController = rightVc as! AnalyticsViewController
+            analytics.checkForShareAndAnimation()
+        }
     }
     
     // MARK: - Notifications
