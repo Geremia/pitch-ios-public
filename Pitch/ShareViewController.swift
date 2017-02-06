@@ -55,16 +55,20 @@ class ShareViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction func shareButtonPressed(_ sender: Any) {
-        if MFMessageComposeViewController.canSendText() {
-            let controller = MFMessageComposeViewController()
-            controller.body = "Hey, I just downloaded this awesome tuner app called Pitch! You should check it out 👉 appstore.com/pitchtunerappforiphone"
-            controller.messageComposeDelegate = self
-            self.present(controller, animated: true, completion: nil)
-        }
+        let appStoreUrl = URL(string: "appstore.com/pitchtunerappforiphone")
+        
+        UIApplication.shared.open(appStoreUrl!, options: [:], completionHandler: { _ in
+            self.dismiss(animated: true, completion: { _ in
+                Answers.logCustomEvent(withName: "App Store Review", customAttributes: nil)
+                UserDefaults.standard.userDidShareFromAnalytics()
+                self.delegate?.userDidShare()
+                self.dismiss(animated: true, completion: nil)
+            })
+        })
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
-        Answers.logShare(withMethod: "Cancel", contentName: "Cancelled Share", contentType: "messaging", contentId: "002", customAttributes: [:])
+        Answers.logCustomEvent(withName: "Cancel App Store Review", customAttributes: nil)
         self.dismiss(animated: true, completion: { _ in
             self.delegate?.userCancelledShare()
         })
@@ -74,18 +78,5 @@ class ShareViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return true
-    }
-}
-
-extension ShareViewController: MFMessageComposeViewControllerDelegate {
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        controller.dismiss(animated: true, completion: { _ in
-            if result == .sent {
-                Answers.logShare(withMethod: "iMessage", contentName: "Shared Pitch via iMessage", contentType: "messaging", contentId: "001", customAttributes: [:])
-                UserDefaults.standard.userDidShareFromAnalytics()
-                self.delegate?.userDidShare()
-                self.dismiss(animated: true, completion: nil)
-            }
-        })
     }
 }

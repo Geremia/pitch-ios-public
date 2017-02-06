@@ -16,9 +16,10 @@ extension AnalyticsViewController {
     func setupUI() {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
-        darkModeChanged()
-        
         feedbackButton.layer.cornerRadius = 8.0
+        
+        darkModeChanged()
+        setupGraphView()
         
         let today = DataManager.today()
         let showingSharePrompt = UserDefaults.standard.shouldShowAnalyticsSharePrompt()
@@ -33,7 +34,6 @@ extension AnalyticsViewController {
         
         setupScoreCircle()
         setupDescriptionLabel()
-        setupGraphView()
         
         if !UserDefaults.standard.hasSeenAnalyticsAnimation() {
             prepareForAnimation()
