@@ -53,7 +53,7 @@ extension MainViewController {
     func setViewTo(newState: MainViewState) {
         if newState != state {
             state = newState
-            let delay = newState == .inTune ? 1.0 : 0.0
+            let delay = newState == .inTune ? 0.5 : 0.0
             
             let when = DispatchTime.now() + delay
             let stateBeforeDelay = state
@@ -133,7 +133,11 @@ extension MainViewController {
     }
     
     func updateCentsLabel(offset: Double) {
-        centsLabel.text = offset > 0 ? "+\(offset.roundTo(places: 1))" : "\(offset.roundTo(places: 1))"
+        if abs(offset) < 2.0 {
+            centsLabel.text = addedCurrentCenterTime ? "You got it!" : "Hold it..."
+        } else {
+            centsLabel.text = "You are \(offset.roundTo(places: 1)) cents " + (offset > 0 ? "sharp" : "flat")
+        }
     }
     
     func updateAnalyticsCircle() {

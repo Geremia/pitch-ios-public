@@ -55,7 +55,9 @@ class MainViewController: UIViewController {
     // MARK: - Analytics Variables
     
     var today: Day!
+    
     var addedCurrentCenterTime: Bool = false
+    var previousPitchWasInTune: Bool = false
     var pitchStartTime: Date?
     var pitchCenterTimer: Timer?
     
