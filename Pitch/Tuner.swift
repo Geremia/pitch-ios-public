@@ -228,7 +228,7 @@ class Tuner: NSObject {
             } else if smoothingBuffer.count < smoothingBufferCount {
                 self.smoothing = 0.3
             } else {
-                self.smoothing = 0.02
+                self.smoothing = 0.017
             }
             previousAmplitude = amplitude
             previousFrequency = frequency
