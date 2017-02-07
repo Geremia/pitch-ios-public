@@ -39,6 +39,9 @@ extension UserDefaults {
      * Analytics screen.
      */
     func shouldShowAnalyticsSharePrompt() -> Bool {
+        
+        return true
+        
         _ = DataManager.today()
         let pastTwoDays = DataManager.data(forPastDaysIncludingToday: 4)
         

@@ -55,7 +55,7 @@ class ShareViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction func shareButtonPressed(_ sender: Any) {
-        let appStoreUrl = URL(string: "appstore.com/pitchtunerappforiphone")
+        let appStoreUrl = URL(string: "itms-apps://itunes.apple.com/app/pitch-tuner-app-for-iphone/id1169667039?ls=1&mt=8")
         
         UIApplication.shared.open(appStoreUrl!, options: [:], completionHandler: { _ in
             self.dismiss(animated: true, completion: { _ in
