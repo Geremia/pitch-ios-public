@@ -136,7 +136,7 @@ extension MainViewController {
         if abs(offset) < 2.0 {
             centsLabel.text = addedCurrentCenterTime ? "You got it!" : "Hold it..."
         } else {
-            centsLabel.text = "You are \(offset.roundTo(places: 1)) cents " + (offset > 0 ? "sharp" : "flat")
+            centsLabel.text = "\(abs(offset.roundTo(places: 1))) cents " + (offset > 0 ? "sharp" : "flat")
         }
     }
     
