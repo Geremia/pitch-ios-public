@@ -37,6 +37,7 @@ class VerticalScrollViewController: UIViewController, SnapContainerViewControlle
         scrollView.isPagingEnabled = true
         scrollView.showsVerticalScrollIndicator = false
         scrollView.bounces = false
+        scrollView.delaysContentTouches = false
         
         let view = (
             x: self.view.bounds.origin.x,
