@@ -34,7 +34,7 @@ extension MainViewController {
     func updateCentsLabel(offset: Double) {
         centsLabel.isHidden = false
         if abs(offset) < 2.0 {
-            centsLabel.text = addedCurrentCenterTime ? "You got it!" : "Hold it..."
+            centsLabel.text = state == .inTune ? "You got it!" : "Hold it..."
         } else {
             centsLabel.text = "\(abs(offset.roundTo(places: 1))) cents " + (offset > 0 ? "sharp" : "flat")
         }
@@ -45,7 +45,7 @@ extension MainViewController {
         octaveLabel.text = String(octave)
     }
     
-    func updateMovingLine(centsDistance: Double) {
+    func updateMovingLine(centsDistance: Double, updateBackgroundColor: Bool = true) {
         portraitMovingLineCenterConstraint.constant = abs(centsDistance) > 1 ? CGFloat(-centsDistance * 5.0) : 0.0
         movingLineHeight.constant = CGFloat(max(1, abs(centsDistance)))
         
@@ -66,7 +66,9 @@ extension MainViewController {
     func setViewToNewState(basedOnCentsDistance centsDistance: Double) {
         switch abs(centsDistance) {
         case 0...2.0:
-            setViewTo(newState: .inTune)
+            if state != .inTune {
+                setViewTo(newState: .holding)
+            }
         case 2.0...6.0:
             setViewTo(newState: .almostInTune)
         default:
@@ -75,17 +77,14 @@ extension MainViewController {
     }
     
     func setViewTo(newState: MainViewState) {
+        
+        if state == .inTune {
+            print("SET TO IN TUNE")
+        }
+        
         if newState != state {
             state = newState
-            let delay = newState == .inTune ? 0.5 : 0.0
-            
-            let when = DispatchTime.now() + delay
-            let stateBeforeDelay = state
-            DispatchQueue.main.asyncAfter(deadline: when) {
-                if stateBeforeDelay == self.state {
-                    self.animateViewTo(newState: newState)
-                }
-            }
+            animateViewTo(newState: newState)
         }
     }
     

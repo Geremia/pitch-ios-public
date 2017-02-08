@@ -24,6 +24,7 @@
 		4C5076091E205DB300DBD02C /* PitchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076081E205DB300DBD02C /* PitchesTableViewController.swift */; };
 		4C50760B1E205DC300DBD02C /* PitchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */; };
 		4CB3A2EF1E2D865600DE48AF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3A2EE1E2D865600DE48AF /* ShareViewController.swift */; };
+		4CD743C21E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD743C11E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift */; };
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
@@ -91,6 +92,7 @@
 		4C5076081E205DB300DBD02C /* PitchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchesTableViewController.swift; sourceTree = "<group>"; };
 		4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchesTableViewCell.swift; sourceTree = "<group>"; };
 		4CB3A2EE1E2D865600DE48AF /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		4CD743C11E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+PitchCenterTiming.swift"; sourceTree = "<group>"; };
 		4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
 		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			children = (
 				4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */,
 				4CE28F341E329CCF00027F04 /* MainViewController+Setup.swift */,
+				4CD743C11E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift */,
 				4CFE12581DECF389005EE1BF /* MainViewController+Animations.swift */,
 				4CFE125A1DECF452005EE1BF /* MainViewController+Analytics.swift */,
 				4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */,
@@ -587,6 +590,7 @@
 				4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */,
 				4C5076051E1FEDD400DBD02C /* Note.swift in Sources */,
 				4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */,
+				4CD743C21E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift in Sources */,
 				4C1642D71E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift in Sources */,
 				4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */,
 				4CE28F371E34516000027F04 /* AnalyticsViewController+Tutorial.swift in Sources */,

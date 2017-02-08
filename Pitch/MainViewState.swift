@@ -12,7 +12,12 @@ import UIKit
 enum MainViewState {
     case outOfTune
     case almostInTune
+    case holding
     case inTune
+    
+    var isWithinTuningThreshold: Bool {
+        return self == MainViewState.holding || self == MainViewState.inTune
+    }
     
     private var darkModeOn: Bool {
         return UserDefaults.standard.darkModeOn()
@@ -48,7 +53,7 @@ enum MainViewState {
             } else {
                 return UIColor.white
             }
-        case .almostInTune:
+        case .almostInTune, .holding:
             if darkModeOn {
                 return UIColor.darkAlmostInTune
             } else {
