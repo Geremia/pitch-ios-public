@@ -27,11 +27,6 @@ class ScoreCircle: UIView {
         setupCircleLayer()
     }
     
-    override func setNeedsDisplay() {
-        super.setNeedsDisplay()
-        resetForDarkMode()
-    }
-    
     func resetForDarkMode() {
         removeBorder()
         addBorder()

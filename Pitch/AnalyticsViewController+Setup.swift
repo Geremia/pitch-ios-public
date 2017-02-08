@@ -107,8 +107,7 @@ extension AnalyticsViewController {
         analyticsLabel.textColor = darkModeOn ? .white : .black
         helpButton.setImage(darkModeOn ? #imageLiteral(resourceName: "white_question_mark") : #imageLiteral(resourceName: "question_mark"), for: .normal)
         
-        scoreCircle.backgroundColor = darkModeOn ? .darkGrayView : .white
-        scoreCircle.setNeedsDisplay()
+        scoreCircle.resetForDarkMode()
         
         let lineTextColor: UIColor = darkModeOn ? .white : .black
         
