@@ -124,6 +124,7 @@ class MainViewController: UIViewController {
         
         state = .outOfTune
         animateViewTo(newState: .outOfTune)
+        resetMovingLine()
     }
 
     // MARK: - Actions

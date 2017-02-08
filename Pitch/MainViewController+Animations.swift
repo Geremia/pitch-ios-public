@@ -59,6 +59,10 @@ extension MainViewController {
         }
     }
     
+    func resetMovingLine() {
+        updateMovingLine(centsDistance: 0.0)
+    }
+    
     func setViewToNewState(basedOnCentsDistance centsDistance: Double) {
         switch abs(centsDistance) {
         case 0...2.0:
