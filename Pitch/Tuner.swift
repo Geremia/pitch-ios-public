@@ -71,7 +71,7 @@ class TunerOutput: NSObject {
      The difference between the frequency of the interpreted pitch and the actual
      frequency of the microphone audio in cents
      */
-    open fileprivate(set) var centsDistace: Double = 0.0
+    open fileprivate(set) var centsDistance: Double = 0.0
     
     /**
      The amplitude of the microphone audio.
@@ -282,7 +282,7 @@ class Tuner: NSObject {
         
         let pitch = Pitch.nearest(frequency: frequency)
         output.distance = frequency - pitch.frequency
-        output.centsDistace = 1200 * log2(frequency/pitch.frequency)
+        output.centsDistance = 1200 * log2(frequency/pitch.frequency)
         
         output.frequency = frequency
         output.amplitude = amplitude

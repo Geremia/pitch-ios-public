@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var octaveLabel: UILabel!
     @IBOutlet var lines: [UIView]!
     @IBOutlet var lineHeights: [NSLayoutConstraint]!
+    @IBOutlet weak var movingLineHeight: NSLayoutConstraint!
     @IBOutlet var portraitElements: [UIView]!
     @IBOutlet weak var portraitMovingLineCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var amplitudeLabel: UILabel!

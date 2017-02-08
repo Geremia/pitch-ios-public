@@ -131,7 +131,7 @@ class Day: Object {
         let realm = try! Realm()
         try! realm.write {
             let pitch = tunerOutput.pitch
-            let offset = tunerOutput.centsDistace
+            let offset = tunerOutput.centsDistance
             
             // If the offset is greater than 50 cents, this data point is not valid.
             if abs(offset) > 50.0 { return }

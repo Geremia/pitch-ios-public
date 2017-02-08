@@ -19,35 +19,46 @@ extension MainViewController {
         if !output.isValid {
             setViewTo(newState: .outOfTune)
         } else {
-            if noteLabel.text != output.pitch.description {
-                displayPitch(pitch: output.pitch.description)
-            }
-            
-            centsLabel.isHidden = false
-            updateCentsLabel(offset: output.centsDistace)
-            octaveLabel.isHidden = false
-            octaveLabel.text = String(output.pitch.octave)
-            
-            let isPortrait = UIApplication.shared.statusBarOrientation.isPortrait
-            portraitMovingLineCenterConstraint.constant = CGFloat(isPortrait ? -output.centsDistace * 5.0 : output.centsDistace * 5.0)
-            
-            switch abs(output.centsDistace) {
-            case 0...2.0:
-                setViewTo(newState: .inTune)
-            case 2.0...6.0:
-                setViewTo(newState: .almostInTune)
-            default:
-                setViewTo(newState: .outOfTune)
-            }
-        }
-        
-        if abs(portraitMovingLineCenterConstraint.constant) < 2.0 {
-            portraitMovingLineCenterConstraint.constant = 0.0
+            displayPitch(pitch: output.pitch.description)
+            updateCentsLabel(offset: output.centsDistance)
+            updateOctaveLabel(octave: output.pitch.octave)
+            updateMovingLine(centsDistance: output.centsDistance)
+            setViewToNewState(basedOnCentsDistance: output.centsDistance)
         }
         
         UIView.animate(withDuration: 0.08, delay: 0, options: [.allowUserInteraction], animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
+    }
+    
+    func updateCentsLabel(offset: Double) {
+        centsLabel.isHidden = false
+        if abs(offset) < 2.0 {
+            centsLabel.text = addedCurrentCenterTime ? "You got it!" : "Hold it..."
+        } else {
+            centsLabel.text = "\(abs(offset.roundTo(places: 1))) cents " + (offset > 0 ? "sharp" : "flat")
+        }
+    }
+    
+    func updateOctaveLabel(octave: Int) {
+        octaveLabel.isHidden = false
+        octaveLabel.text = String(octave)
+    }
+    
+    func updateMovingLine(centsDistance: Double) {
+        portraitMovingLineCenterConstraint.constant = abs(centsDistance) > 1 ? CGFloat(-centsDistance * 5.0) : 0.0
+        movingLineHeight.constant = CGFloat(max(1, abs(centsDistance)))
+    }
+    
+    func setViewToNewState(basedOnCentsDistance centsDistance: Double) {
+        switch abs(centsDistance) {
+        case 0...2.0:
+            setViewTo(newState: .inTune)
+        case 2.0...6.0:
+            setViewTo(newState: .almostInTune)
+        default:
+            setViewTo(newState: .outOfTune)
+        }
     }
     
     func setViewTo(newState: MainViewState) {
@@ -129,14 +140,6 @@ extension MainViewController {
             }
         } else {
             noteLabel.attributedText = NSMutableAttributedString(string: pitch + " ", attributes: nil)
-        }
-    }
-    
-    func updateCentsLabel(offset: Double) {
-        if abs(offset) < 2.0 {
-            centsLabel.text = addedCurrentCenterTime ? "You got it!" : "Hold it..."
-        } else {
-            centsLabel.text = "\(abs(offset.roundTo(places: 1))) cents " + (offset > 0 ? "sharp" : "flat")
         }
     }
     
