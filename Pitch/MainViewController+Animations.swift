@@ -45,17 +45,20 @@ extension MainViewController {
         octaveLabel.text = String(octave)
     }
     
-    func updateMovingLine(centsDistance: Double, updateBackgroundColor: Bool = true) {
+    func updateMovingLine(centsDistance: Double) {
         portraitMovingLineCenterConstraint.constant = abs(centsDistance) > 1 ? CGFloat(-centsDistance * 5.0) : 0.0
-        movingLineHeight.constant = CGFloat(max(1, abs(centsDistance)))
         
-        let mainLineColor: UIColor = UserDefaults.standard.darkModeOn() ? .white : .black
-        let mainColorIntensity = CGFloat(50.0 - abs(centsDistance))
-        let outOfTuneColor = UIColor.red
-        let outOfTuneColorIntensity = abs(CGFloat(centsDistance))
-        
-        for component in movingLineComponents {
-            component.backgroundColor = UIColor.blend(color1: mainLineColor, intensity1: mainColorIntensity, color2: outOfTuneColor, intensity2: outOfTuneColorIntensity)
+        if state != .inTune {
+            movingLineHeight.constant = CGFloat(max(1, abs(centsDistance)))
+            
+            let mainLineColor: UIColor = UserDefaults.standard.darkModeOn() ? .white : .black
+            let mainColorIntensity = CGFloat(50.0 - abs(centsDistance))
+            let outOfTuneColor = UIColor.red
+            let outOfTuneColorIntensity = abs(CGFloat(centsDistance))
+            
+            for component in movingLineComponents {
+                component.backgroundColor = UIColor.blend(color1: mainLineColor, intensity1: mainColorIntensity, color2: outOfTuneColor, intensity2: outOfTuneColorIntensity)
+            }
         }
     }
     
@@ -77,11 +80,6 @@ extension MainViewController {
     }
     
     func setViewTo(newState: MainViewState) {
-        
-        if state == .inTune {
-            print("SET TO IN TUNE")
-        }
-        
         if newState != state {
             state = newState
             animateViewTo(newState: newState)
@@ -124,13 +122,21 @@ extension MainViewController {
             for line in self.tickmarks {
                 line.backgroundColor = newState.lineTextColor
             }
+            for component in self.movingLineComponents {
+                component.backgroundColor = newState.lineTextColor
+            }
         }, completion: { finished in
             if finished {
                 for height in self.tickmarkHeights {
                     height.constant = newState.lineThickness
                 }
+                self.movingLineHeight.constant = newState.lineThickness
+                
                 for line in self.tickmarks {
                     line.layoutIfNeeded()
+                }
+                for component in self.movingLineComponents {
+                    component.layoutIfNeeded()
                 }
             }
         })
