@@ -48,6 +48,15 @@ extension MainViewController {
     func updateMovingLine(centsDistance: Double) {
         portraitMovingLineCenterConstraint.constant = abs(centsDistance) > 1 ? CGFloat(-centsDistance * 5.0) : 0.0
         movingLineHeight.constant = CGFloat(max(1, abs(centsDistance)))
+        
+        let mainLineColor: UIColor = UserDefaults.standard.darkModeOn() ? .white : .black
+        let mainColorIntensity = CGFloat(50.0 - abs(centsDistance))
+        let outOfTuneColor = UIColor.red
+        let outOfTuneColorIntensity = abs(CGFloat(centsDistance))
+        
+        for component in movingLineComponents {
+            component.backgroundColor = UIColor.blend(color1: mainLineColor, intensity1: mainColorIntensity, color2: outOfTuneColor, intensity2: outOfTuneColorIntensity)
+        }
     }
     
     func setViewToNewState(basedOnCentsDistance centsDistance: Double) {
@@ -109,15 +118,15 @@ extension MainViewController {
         
         UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
             self.view.backgroundColor = newState.viewBackgroundColor
-            for line in self.lines {
+            for line in self.tickmarks {
                 line.backgroundColor = newState.lineTextColor
             }
         }, completion: { finished in
             if finished {
-                for height in self.lineHeights {
+                for height in self.tickmarkHeights {
                     height.constant = newState.lineThickness
                 }
-                for line in self.lines {
+                for line in self.tickmarks {
                     line.layoutIfNeeded()
                 }
             }

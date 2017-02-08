@@ -17,13 +17,17 @@ class MainViewController: UIViewController {
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var centsLabel: UILabel!
     @IBOutlet weak var octaveLabel: UILabel!
-    @IBOutlet var lines: [UIView]!
-    @IBOutlet var lineHeights: [NSLayoutConstraint]!
+    
+    @IBOutlet var tickmarks: [UIView]!
+    @IBOutlet var tickmarkHeights: [NSLayoutConstraint]!
+    
     @IBOutlet weak var movingLineHeight: NSLayoutConstraint!
-    @IBOutlet var portraitElements: [UIView]!
     @IBOutlet weak var portraitMovingLineCenterConstraint: NSLayoutConstraint!
+    @IBOutlet var movingLineComponents: [UIView]!
+    
     @IBOutlet weak var amplitudeLabel: UILabel!
     @IBOutlet weak var stdDevLabel: UILabel!
+    
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var pitchPipeButton: UIButton!
     

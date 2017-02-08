@@ -1140,16 +1140,12 @@
                         <outlet property="portraitMovingLineCenterConstraint" destination="MJM-rE-AOe" id="1tX-M1-qEh"/>
                         <outlet property="settingsButton" destination="SrA-v6-zUa" id="jhH-tp-LH8"/>
                         <outlet property="stdDevLabel" destination="H9O-L8-opE" id="Y4m-o2-eZu"/>
-                        <outletCollection property="lines" destination="ZSu-7s-5FP" collectionClass="NSMutableArray" id="eKJ-h4-71u"/>
-                        <outletCollection property="lineHeights" destination="IK5-7G-sUk" collectionClass="NSMutableArray" id="vlX-ct-ksP"/>
-                        <outletCollection property="lines" destination="VLu-TF-oPS" collectionClass="NSMutableArray" id="14J-EO-ndu"/>
-                        <outletCollection property="portraitElements" destination="Jpl-Qo-b0N" collectionClass="NSMutableArray" id="zxD-nT-xWS"/>
-                        <outletCollection property="portraitElements" destination="ScC-vN-a2a" collectionClass="NSMutableArray" id="tfk-1G-lHR"/>
-                        <outletCollection property="lineHeights" destination="xcy-xC-2cq" collectionClass="NSMutableArray" id="Wei-f9-jmE"/>
-                        <outletCollection property="lines" destination="ScC-vN-a2a" collectionClass="NSMutableArray" id="Opc-JO-dkI"/>
-                        <outletCollection property="lineHeights" destination="8km-9m-kzg" collectionClass="NSMutableArray" id="3x1-HF-te5"/>
-                        <outletCollection property="lines" destination="eFM-fb-ftt" collectionClass="NSMutableArray" id="wau-m9-77U"/>
-                        <outletCollection property="portraitElements" destination="eFM-fb-ftt" collectionClass="NSMutableArray" id="Plq-3o-H4l"/>
+                        <outletCollection property="movingLineComponents" destination="VLu-TF-oPS" collectionClass="NSMutableArray" id="Tt4-nC-A9o"/>
+                        <outletCollection property="movingLineComponents" destination="ZSu-7s-5FP" collectionClass="NSMutableArray" id="04Z-dT-XDg"/>
+                        <outletCollection property="tickmarks" destination="ScC-vN-a2a" collectionClass="NSMutableArray" id="FKV-Jf-Dja"/>
+                        <outletCollection property="tickmarks" destination="eFM-fb-ftt" collectionClass="NSMutableArray" id="lDC-M8-82W"/>
+                        <outletCollection property="tickmarkHeights" destination="xcy-xC-2cq" collectionClass="NSMutableArray" id="Ac1-3H-f97"/>
+                        <outletCollection property="tickmarkHeights" destination="8km-9m-kzg" collectionClass="NSMutableArray" id="qAV-zU-NXc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
