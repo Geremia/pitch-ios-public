@@ -8,7 +8,6 @@
 
 import UIKit
 import AudioKit
-import Crashlytics
 
 class MainViewController: UIViewController {
     
@@ -46,9 +45,6 @@ class MainViewController: UIViewController {
     
     var tuner: Tuner?
     var tunerSetup: Bool = false
-    
-    var presentAniamtionController = VerticalSlideAnimationController(direction: .left)
-    var dismissAnimationController = VerticalSlideAnimationController(direction: .right)
     
     var pitchPipeOpen: Bool = false
     var state: MainViewState = .outOfTune
@@ -167,16 +163,6 @@ class MainViewController: UIViewController {
         }, completion: nil)
     }
     
-    // MARK: - Navigation
-    
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        segue.destination.transitioningDelegate = self
-        
-        if segue.identifier == "mainToAnalytics" {
-            Answers.logCustomEvent(withName: "Opened Analytics", customAttributes: ["afterPopup" : String(today.hasSufficientData)])
-        }
-     }
-    
     // MARK: - Status Bar Style
     
     override var prefersStatusBarHidden: Bool {
@@ -196,27 +182,6 @@ extension MainViewController: TunerDelegate {
             updateUI(output: output)
             addOutputToAnalytics(output: output)
             updatePitchCenterTimer(output: output)
-        }
-    }
-}
-
-extension MainViewController: UIViewControllerTransitioningDelegate {
-    
-    // MARK: - UIViewControllerTransitioningDelegate Methods
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if presented is SettingsViewController {
-            return VerticalSlideAnimationController(direction: .left)
-        } else {
-            return VerticalSlideAnimationController(direction: .right)
-        }
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if dismissed is SettingsViewController {
-            return VerticalSlideAnimationController(direction: .right)
-        } else {
-            return VerticalSlideAnimationController(direction: .left)
         }
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 protocol SnapContainerViewControllerDelegate {
     func outerScrollViewShouldScroll() -> Bool
@@ -165,6 +166,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             main.shouldUpdateUI = false
             let analytics: AnalyticsViewController = self.rightVc as! AnalyticsViewController
             analytics.checkForShareAndAnimation()
+            Answers.logCustomEvent(withName: "Opened Analytics", customAttributes: ["afterPopup" : String(DataManager.today().hasSufficientData)])
         default:
             break
         }
