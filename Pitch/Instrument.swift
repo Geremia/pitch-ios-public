@@ -10,8 +10,10 @@ import Foundation
 
 enum Instrument: Int {
     case other
+    case voice
     case guitar
     case ukelele
+    case mandolin
     case violin
     case viola
     case cello
@@ -38,16 +40,20 @@ enum Instrument: Int {
     case tuba
     case timpani
     
-    static let all: [Instrument] = [.other, .guitar, .ukelele, .violin, .viola, .cello, .stringbass, .piano, .bagpipes, .piccolo, .flute, .oboe, .englishHorn, .bassoon, .bagpipes, .eFlatClarinet, .bFlatClarinet, .bassClarinet, .sopranoSax, .altoSax, .tenorSax, .bariSax, .frenchHorn, .trumpet, .trombone, .bassTrombone, .euphonium, .tuba, .timpani]
+    static let all: [Instrument] = [.other, .voice, .guitar, .ukelele, .mandolin, .violin, .viola, .cello, .stringbass, .piano, .bagpipes, .piccolo, .flute, .oboe, .englishHorn, .bassoon, .bagpipes, .eFlatClarinet, .bFlatClarinet, .bassClarinet, .sopranoSax, .altoSax, .tenorSax, .bariSax, .frenchHorn, .trumpet, .trombone, .bassTrombone, .euphonium, .tuba, .timpani]
     
     var description: String {
         switch self {
         case .other:
-            return "None/Other"
+            return "Other"
+        case .voice:
+            return "Voice"
         case .guitar:
             return "Guitar"
         case .ukelele:
             return "Ukelele"
+        case .mandolin:
+            return "Mandolin"
         case .violin:
             return "Violin"
         case .viola:
@@ -103,7 +109,7 @@ enum Instrument: Int {
     
     var key: Key {
         switch self {
-        case .other, .guitar, .ukelele, .violin, .viola, .cello, .stringbass, .piano, .piccolo, .flute, .oboe, .bassoon, .bagpipes, .trombone, .bassTrombone, .euphonium, .tuba, .timpani:
+        case .voice, .other, .guitar, .ukelele, .mandolin, .violin, .viola, .cello, .stringbass, .piano, .piccolo, .flute, .oboe, .bassoon, .bagpipes, .trombone, .bassTrombone, .euphonium, .tuba, .timpani:
             return .c
         case .bFlatClarinet, .bassClarinet, .sopranoSax, .tenorSax, .trumpet:
             return .asharp
