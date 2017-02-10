@@ -53,7 +53,8 @@ class MainViewController: UIViewController {
     var pitchPipeOpen: Bool = false
     var state: MainViewState = .outOfTune
     
-    var shouldUpdateAnalyticsCircle = true
+    var shouldUpdateAnalyticsCircle: Bool = true
+    var shouldUpdateUI: Bool = true
     
     var plot: AKNodeOutputPlot!
     
@@ -191,9 +192,11 @@ extension MainViewController: TunerDelegate {
         amplitudeLabel.text = "Amplitude: \(output.amplitude)"
         stdDevLabel.text = "Std. Dev: \(output.standardDeviation)"
         
-        updateUI(output: output)
-        addOutputToAnalytics(output: output)
-        updatePitchCenterTimer(output: output)
+        if shouldUpdateUI {
+            updateUI(output: output)
+            addOutputToAnalytics(output: output)
+            updatePitchCenterTimer(output: output)
+        }
     }
 }
 

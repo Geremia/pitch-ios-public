@@ -148,10 +148,25 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             self.scrollView!.setContentOffset(newOffset, animated:  false)
         }
         
+        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.frame.width
-        if page == 2 {
-            let analytics: AnalyticsViewController = rightVc as! AnalyticsViewController
+        switch page {
+        case 0:
+            let main: MainViewController = middleVc as! MainViewController
+            main.shouldUpdateUI = false
+        case 1:
+            let main: MainViewController = middleVc as! MainViewController
+            main.shouldUpdateUI = true
+        case 2:
+            let main: MainViewController = middleVc as! MainViewController
+            main.shouldUpdateUI = false
+            let analytics: AnalyticsViewController = self.rightVc as! AnalyticsViewController
             analytics.checkForShareAndAnimation()
+        default:
+            break
         }
     }
     
@@ -202,9 +217,11 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
                 self.scrollView.contentOffset.x -= self.view.frame.width + 16
             }, completion: { finished in
                 self.scrollView.bounces = false
+                self.scrollViewDidEndDecelerating(self.scrollView)
             })
         } else {
-            self.scrollView.contentOffset.x -= self.view.frame.width + 16
+            scrollView.contentOffset.x -= self.view.frame.width + 16
+            scrollViewDidEndDecelerating(scrollView)
         }
     }
     
@@ -215,9 +232,11 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
                 self.scrollView.contentOffset.x += self.view.frame.width + 16
             }, completion: { finished in
                 self.scrollView.bounces = false
+                self.scrollViewDidEndDecelerating(self.scrollView)
             })
         } else {
-            self.scrollView.contentOffset.x += self.view.frame.width + 16
+            scrollView.contentOffset.x += self.view.frame.width + 16
+            scrollViewDidEndDecelerating(scrollView)
         }
     }
     
@@ -230,6 +249,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         case .right:
             scrollView.contentOffset.x = scrollView.frame.width * 2
         }
+        scrollViewDidEndDecelerating(scrollView)
     }
     
     // MARK: - Status Bar Style
