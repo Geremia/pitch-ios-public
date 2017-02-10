@@ -42,6 +42,7 @@ extension AnalyticsViewController {
     }
     
     func animateIn() {
+        print("animate in")
         let score = DataManager.today().tuningScore
         self.scoreLabel.countFromZero(to: CGFloat(score), withDuration: 1.2)
         

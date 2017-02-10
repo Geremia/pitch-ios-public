@@ -37,13 +37,15 @@ class SoundGenerator : NSObject {
     
     final func playNoteOn(channelNumber: Int) {
         let concertOffset = UserDefaults.standard.key().concertOffset
-        bank.play(noteNumber: channelNumber + octaveConstant + concertOffset, velocity: 127)
+        let note = MIDINoteNumber(channelNumber + octaveConstant + concertOffset)
+        bank.play(noteNumber: note, velocity: 127)
         channelsOn.append(channelNumber)
     }
     
     final func playNoteOff(channelNumber: Int) {
         let concertOffset = UserDefaults.standard.key().concertOffset
-        bank.stop(noteNumber: channelNumber + octaveConstant + concertOffset)
+        let note = MIDINoteNumber(channelNumber + octaveConstant + concertOffset)
+        bank.stop(noteNumber: note)
         if let index = channelsOn.index(of: channelNumber) {
             channelsOn.remove(at: index)
         }
@@ -55,8 +57,10 @@ class SoundGenerator : NSObject {
         octaveConstant += 12
         setAttackReleaseDurationZero()
         for channel in channelsOn {
-            bank.stop(noteNumber: channel + oldOctaveConstant + concertOffset)
-            bank.play(noteNumber: channel + octaveConstant + concertOffset, velocity: 127)
+            let oldNote = MIDINoteNumber(channel + oldOctaveConstant + concertOffset)
+            bank.stop(noteNumber: oldNote)
+            let newNote = MIDINoteNumber(channel + octaveConstant + concertOffset)
+            bank.play(noteNumber: newNote, velocity: 127)
         }
         resetAttackReleaseDuration()
     }
@@ -67,8 +71,10 @@ class SoundGenerator : NSObject {
         octaveConstant -= 12
         setAttackReleaseDurationZero()
         for channel in channelsOn {
-            bank.stop(noteNumber: channel + oldOctaveConstant + concertOffset)
-            bank.play(noteNumber: channel + octaveConstant + concertOffset, velocity: 127)
+            let oldNote = MIDINoteNumber(channel + oldOctaveConstant + concertOffset)
+            bank.stop(noteNumber: oldNote)
+            let newNote = MIDINoteNumber(channel + octaveConstant + concertOffset)
+            bank.play(noteNumber: newNote, velocity: 127)
         }
         resetAttackReleaseDuration()
     }
