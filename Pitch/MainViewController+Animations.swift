@@ -130,13 +130,15 @@ extension MainViewController {
                 for height in self.tickmarkHeights {
                     height.constant = newState.lineThickness
                 }
-                self.movingLineHeight.constant = newState.lineThickness
-                
                 for line in self.tickmarks {
                     line.layoutIfNeeded()
                 }
-                for component in self.movingLineComponents {
-                    component.layoutIfNeeded()
+                
+                if self.state == .inTune {
+                    self.movingLineHeight.constant = newState.lineThickness
+                    for component in self.movingLineComponents {
+                        component.layoutIfNeeded()
+                    }
                 }
             }
         })
