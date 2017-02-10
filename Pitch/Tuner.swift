@@ -292,7 +292,7 @@ class Tuner: NSObject {
         output.pitch = pitch - concertOffset
 
         let amplitudeThreshold = UserDefaults.standard.micSensitivity().amplitudeThreshold
-        output.isValid = standardDeviation < 10.0 && amplitude > amplitudeThreshold && frequency > 80.0
+        output.isValid = standardDeviation < 10.0 && amplitude > amplitudeThreshold && frequency > 20.0
         
         return output
     }
