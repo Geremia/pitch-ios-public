@@ -106,7 +106,7 @@ class Tuner: NSObject {
     
     fileprivate let updateInterval: TimeInterval = 0.01
     fileprivate let smoothingBufferCount = 30
-    fileprivate let frequencyBufferCount = 20
+    fileprivate let frequencyBufferCount = 5
     
     /**
      Object adopting the TunerDelegate protocol that should receive callbacks
