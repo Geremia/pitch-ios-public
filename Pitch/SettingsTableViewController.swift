@@ -44,10 +44,18 @@ class SettingsTableViewController: UITableViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var micSensitivityLabel: UILabel!
-    @IBOutlet weak var displayModeControl: TwicketSegmentedControl!
-    @IBOutlet weak var keyLabel: UILabel!
     @IBOutlet weak var darkModeSwitch: UISwitch!
+    @IBOutlet weak var displayModeControl: TwicketSegmentedControl!
+    @IBOutlet weak var micSensitivityLabel: UILabel!
+    
+    @IBOutlet weak var difficultyLabel: UILabel!
+    @IBOutlet weak var difficultyDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var dampingLabel: UILabel!
+    @IBOutlet weak var dampingDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var keyLabel: UILabel!
+    
     @IBOutlet weak var pitchStandardLabel: UILabel!
     @IBOutlet weak var minusPitchStandardButton: UIButton!
     @IBOutlet weak var plusPitchStandardButton: UIButton!
