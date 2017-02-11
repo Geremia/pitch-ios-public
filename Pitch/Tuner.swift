@@ -105,8 +105,8 @@ class TunerOutput: NSObject {
 class Tuner: NSObject {
     
     fileprivate let updateInterval: TimeInterval = 0.01
-    fileprivate let smoothingBufferCount = 30
-    fileprivate let frequencyBufferCount = 8
+    fileprivate var smoothingBufferCount = UserDefaults.standard.damping().smoothingBufferSize
+    fileprivate var frequencyBufferCount = UserDefaults.standard.damping().frequencyBufferSize
     
     /**
      Object adopting the TunerDelegate protocol that should receive callbacks
@@ -132,7 +132,7 @@ class Tuner: NSObject {
      - parameter smoothing: Exponential smoothing factor, 0 < smoothing < 1
      
      */
-    public init(threshold: Double = 0.0, smoothing: Float = 0.075) {
+    public init(threshold: Double = 0.0, smoothing: Float = 0.0) {
         self.threshold = min(abs(threshold), 1.0)
         self.smoothing = min(abs(smoothing), 1.0)
         self.previousAmplitude = 0.0
@@ -140,6 +140,11 @@ class Tuner: NSObject {
         microphone = AKMicrophone()
         analyzer = AKFrequencyTracker(microphone, hopSize: 512, peakCount: 100)
         silence = AKBooster(analyzer, gain: 0.0)
+    }
+    
+    func registerNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resetBufferSizes), name: .resetBufferSizes, object: nil)
     }
     
     func audioRouteChanged(_ notification: Notification) {
@@ -192,12 +197,21 @@ class Tuner: NSObject {
         AudioKit.start()
     }
     
+    func resetBufferSizes() {
+        smoothingBuffer.removeAll()
+        frequencyBuffer.removeAll()
+        smoothingBufferCount = UserDefaults.standard.damping().smoothingBufferSize
+        frequencyBufferCount = UserDefaults.standard.damping().frequencyBufferSize
+        print(smoothingBufferCount)
+        print(frequencyBufferCount)
+    }
+    
     /**
      Starts the tuner.
      */
     open func start() {
         checkForExternalMic(askPermission: false)
-        NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
+        registerNotifications()
         timer = Timer.scheduledTimer(timeInterval: updateInterval, target: self, selector: #selector(Tuner.timerAction), userInfo: nil, repeats: true)
     }
     
@@ -225,10 +239,8 @@ class Tuner: NSObject {
             if amplitude - previousAmplitude > 0.05 || abs(frequency - previousFrequency) > (distanceBetweenNotes(frequency: frequency) / 2) {
                 self.smoothing = 1.0
                 self.smoothingBuffer.removeAll()
-            } else if smoothingBuffer.count < smoothingBufferCount {
-                self.smoothing = 0.3
             } else {
-                self.smoothing = 0.017
+                self.smoothing = UserDefaults.standard.damping().smoothing
             }
             previousAmplitude = amplitude
             previousFrequency = frequency
@@ -237,9 +249,11 @@ class Tuner: NSObject {
             frequency = self.smooth(frequency)
             let standardDeviation = self.standardDeviation(arr: frequencyBuffer)
             
-            let output = Tuner.newOutput(frequency, amplitude, standardDeviation)
-            DispatchQueue.main.async {
-                d.tunerDidUpdate(self, output: output)
+            if smoothingBuffer.count >= smoothingBufferCount / 2 {
+                let output = Tuner.newOutput(frequency, amplitude, standardDeviation)
+                DispatchQueue.main.async {
+                    d.tunerDidUpdate(self, output: output)
+                }
             }
         }
     }

@@ -42,6 +42,7 @@ class SettingsTableViewController: UITableViewController {
     var currentDamping: Damping = UserDefaults.standard.damping() {
         didSet {
             UserDefaults.standard.setDamping(currentDamping)
+            NotificationCenter.default.post(name: .resetBufferSizes, object: nil)
         }
     }
     var currentPitchStandard: Double = UserDefaults.standard.pitchStandard() {

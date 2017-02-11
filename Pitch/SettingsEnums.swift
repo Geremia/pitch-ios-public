@@ -133,11 +133,22 @@ enum Damping: Int {
     var smoothingBufferSize: Int {
         switch self {
         case .slow:
-            return 90
+            return 180
         case .normal:
-            return 45
+            return 50
         case .fast:
-            return 20
+            return 15
+        }
+    }
+    
+    var smoothing: Float {
+        switch self {
+        case .slow:
+            return 0.008
+        case .normal:
+            return 0.015
+        case .fast:
+            return 0.018
         }
     }
     
@@ -146,9 +157,9 @@ enum Damping: Int {
         case .slow:
             return 60
         case .normal:
-            return 20
+            return 30
         case .fast:
-            return 8
+            return 10
         }
     }
 }
