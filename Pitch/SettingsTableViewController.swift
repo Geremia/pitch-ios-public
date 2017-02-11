@@ -17,9 +17,11 @@ class SettingsTableViewController: UITableViewController {
     
     // MARK: - Variables
     
-    var currentMicSensitivity: MicSensitivity = UserDefaults.standard.micSensitivity() {
+    var darkModeOn: Bool = UserDefaults.standard.darkModeOn() {
         didSet {
-            UserDefaults.standard.setMicSensitivity(currentMicSensitivity)
+            UserDefaults.standard.setDarkModeOn(darkModeOn)
+            darkModeChanged()
+            NotificationCenter.default.post(name: .darkModeChanged, object: nil)
         }
     }
     var currentDisplayMode: DisplayMode = UserDefaults.standard.displayMode() {
@@ -27,11 +29,9 @@ class SettingsTableViewController: UITableViewController {
             UserDefaults.standard.setDisplayMode(currentDisplayMode)
         }
     }
-    var darkModeOn: Bool = UserDefaults.standard.darkModeOn() {
+    var currentMicSensitivity: MicSensitivity = UserDefaults.standard.micSensitivity() {
         didSet {
-            UserDefaults.standard.setDarkModeOn(darkModeOn)
-            darkModeChanged()
-            NotificationCenter.default.post(name: .darkModeChanged, object: nil)
+            UserDefaults.standard.setMicSensitivity(currentMicSensitivity)
         }
     }
     var currentPitchStandard: Double = UserDefaults.standard.pitchStandard() {
@@ -66,13 +66,16 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupDisplayModeControl()
-        
+        setup()
+    }
+    
+    func setup() {
         tableView.tableFooterView = UIView()
-        micSensitivityLabel.text = currentMicSensitivity.name
-        darkModeSwitch.setOn(darkModeOn, animated: false)
         
+        darkModeSwitch.setOn(darkModeOn, animated: false)
+        micSensitivityLabel.text = currentMicSensitivity.name
+        
+        setupDisplayModeControl()
         updatePitchStandardLabel()
         updateKeyLabel()
         darkModeChanged()
@@ -98,9 +101,13 @@ class SettingsTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         switch indexPath.row {
-        case 0:
-            changeMicSensitivity()
         case 2:
+            changeMicSensitivity()
+        case 3:
+            changeDifficulty()
+        case 4:
+            changeDamping()
+        case 5:
             delegate?.instrumentKeySelected()
         default:
             return
@@ -119,6 +126,14 @@ class SettingsTableViewController: UITableViewController {
         UIView.transition(with: micSensitivityLabel, duration: 0.1, options: [.transitionCrossDissolve], animations: {
             self.micSensitivityLabel.text = self.currentMicSensitivity.name
         }, completion: nil)
+    }
+    
+    func changeDifficulty() {
+        
+    }
+    
+    func changeDamping() {
+        
     }
     
     func updateKeyLabel() {
@@ -142,6 +157,8 @@ class SettingsTableViewController: UITableViewController {
         pitchStandardLabel.text = "A\(Int(currentPitchStandard))"
     }
     
+    // MARK: - Dark Mode Switching
+    
     func darkModeChanged() {
         view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
         tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
@@ -159,12 +176,6 @@ class SettingsTableViewController: UITableViewController {
 
     @IBAction func darkModeSwitched(_ sender: Any) {
         darkModeOn = (sender as! UISwitch).isOn
-    }
-    
-    @IBAction func displayModeSelected(_ sender: Any) {
-        let selectedSegment = (sender as! UISegmentedControl).selectedSegmentIndex
-        currentDisplayMode = selectedSegment == 0 ? .sharps : .flats
-        updateKeyLabel()
     }
     
     @IBAction func pitchStandardDecrement(_ sender: Any) {

@@ -82,6 +82,36 @@ extension UserDefaults {
     }
     
     /**
+     * The user's selected difficulty.
+     */
+    func difficulty() -> Difficulty {
+        if let rawValue = object(forKey: "difficulty") as? Int {
+            return Difficulty(rawValue: rawValue)!
+        }
+        
+        return .intermediate
+    }
+    
+    func setDifficulty(_ newValue: Difficulty) {
+        set(newValue.rawValue, forKey: "difficulty")
+    }
+    
+    /**
+     * The user's selected damping.
+     */
+    func damping() -> Damping {
+        if let rawValue = object(forKey: "damping") as? Int {
+            return Damping(rawValue: rawValue)!
+        }
+        
+        return .normal
+    }
+    
+    func setDamping(_ newValue: Damping) {
+        set(newValue.rawValue, forKey: "damping")
+    }
+    
+    /**
      * The user's selected microphone sensitivity.
      */
     func micSensitivity() -> MicSensitivity {
@@ -89,7 +119,7 @@ extension UserDefaults {
             return MicSensitivity(rawValue: rawValue)!
         }
         
-        return MicSensitivity.normal
+        return .normal
     }
     
     func setMicSensitivity(_ newValue: MicSensitivity) {
@@ -104,7 +134,7 @@ extension UserDefaults {
             return DisplayMode(rawValue: rawValue)!
         }
         
-        return DisplayMode.flats
+        return .flats
     }
     
     func setDisplayMode(_ newValue: DisplayMode) {
@@ -134,7 +164,7 @@ extension UserDefaults {
             return Instrument(rawValue: rawValue)!
         }
         
-        return Instrument.flute
+        return .flute
     }
     
     func setInstrument(_ newValue: Instrument) {
@@ -149,7 +179,7 @@ extension UserDefaults {
             return Key(rawValue: rawValue)!
         }
         
-        return Key.c
+        return .c
     }
     
     func setKey(_ newValue: Key) {
