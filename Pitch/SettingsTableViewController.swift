@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TwicketSegmentedControl
 
 protocol SettingsTableViewControllerDelegate {
     func instrumentKeySelected()
@@ -44,7 +45,7 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var micSensitivityLabel: UILabel!
-    @IBOutlet weak var displayModeControl: UISegmentedControl!
+    @IBOutlet weak var displayModeControl: TwicketSegmentedControl!
     @IBOutlet weak var keyLabel: UILabel!
     @IBOutlet weak var darkModeSwitch: UISwitch!
     @IBOutlet weak var pitchStandardLabel: UILabel!
@@ -58,15 +59,25 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        displayModeControl.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Lato-Semibold", size: 19.0)!], for: .normal)
+        setupDisplayModeControl()
+        
         tableView.tableFooterView = UIView()
         micSensitivityLabel.text = currentMicSensitivity.name
-        displayModeControl.selectedSegmentIndex = currentDisplayMode == .sharps ? 0 : 1
         darkModeSwitch.setOn(darkModeOn, animated: false)
         
         updatePitchStandardLabel()
         updateKeyLabel()
         darkModeChanged()
+    }
+    
+    func setupDisplayModeControl() {
+        displayModeControl.setSegmentItems(["♯", "♭"])
+        displayModeControl.segmentsBackgroundColor = UIColor.separatorColor
+        displayModeControl.sliderBackgroundColor = UIColor.inTune
+        displayModeControl.font = UIFont(name: "Lato-Semibold", size: 19.0)!
+        displayModeControl.isSliderShadowHidden = true
+        displayModeControl.move(to: currentDisplayMode == .sharps ? 0 : 1)
+        displayModeControl.delegate = self
     }
 
     // MARK: - Table View Delegate
@@ -122,7 +133,8 @@ class SettingsTableViewController: UITableViewController {
     func darkModeChanged() {
         view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
         tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
-        displayModeControl.tintColor = darkModeOn ? UIColor.white : UIColor.black
+        displayModeControl.segmentsBackgroundColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
+        displayModeControl.sliderBackgroundColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
         
         plusPitchStandardButton.setImage(darkModeOn ? #imageLiteral(resourceName: "white_small_plus") : #imageLiteral(resourceName: "small_plus"), for: .normal)
         minusPitchStandardButton.setImage(darkModeOn ? #imageLiteral(resourceName: "white_small_minus") : #imageLiteral(resourceName: "small_minus"), for: .normal)
@@ -153,4 +165,13 @@ class SettingsTableViewController: UITableViewController {
         currentPitchStandard += 1
         updatePitchStandardLabel()
     }
+}
+
+extension SettingsTableViewController : TwicketSegmentedControlDelegate {
+    
+    func twicketSegmentedControl(_ segmentedControl: TwicketSegmentedControl, didSelect segmentIndex: Int) {
+        currentDisplayMode = segmentIndex == 0 ? .sharps : .flats
+        updateKeyLabel()
+    }
+    
 }

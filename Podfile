@@ -10,6 +10,7 @@ target 'Pitch' do
   pod 'RealmSwift'
   pod 'ScrollableGraphView'
   pod 'Siren'
+  pod 'TwicketSegmentedControl'
 end
 
 post_install do |installer|

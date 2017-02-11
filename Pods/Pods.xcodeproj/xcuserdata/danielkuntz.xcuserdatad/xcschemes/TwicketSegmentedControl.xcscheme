@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E4D1A4C090028F46D1023B0F574B72E8'
-               BlueprintName = 'Siren'
+               BlueprintIdentifier = '75AB92CB5997DBE17D3342A2D7C0180A'
+               BlueprintName = 'TwicketSegmentedControl'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Siren.framework'>
+               BuildableName = 'TwicketSegmentedControl.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
