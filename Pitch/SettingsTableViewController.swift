@@ -72,12 +72,16 @@ class SettingsTableViewController: UITableViewController {
     
     func setupDisplayModeControl() {
         displayModeControl.setSegmentItems(["♯", "♭"])
-        displayModeControl.segmentsBackgroundColor = UIColor.separatorColor
-        displayModeControl.sliderBackgroundColor = UIColor.inTune
-        displayModeControl.font = UIFont(name: "Lato-Semibold", size: 19.0)!
-        displayModeControl.isSliderShadowHidden = true
+        style(twicketSegmetedControl: displayModeControl)
         displayModeControl.move(to: currentDisplayMode == .sharps ? 0 : 1)
         displayModeControl.delegate = self
+    }
+    
+    func style(twicketSegmetedControl control: TwicketSegmentedControl) {
+        control.segmentsBackgroundColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
+        control.sliderBackgroundColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
+        control.font = UIFont(name: "Lato-Semibold", size: 19.0)!
+        control.isSliderShadowHidden = true
     }
 
     // MARK: - Table View Delegate
@@ -133,8 +137,7 @@ class SettingsTableViewController: UITableViewController {
     func darkModeChanged() {
         view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
         tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
-        displayModeControl.segmentsBackgroundColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
-        displayModeControl.sliderBackgroundColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
+        style(twicketSegmetedControl: displayModeControl)
         
         plusPitchStandardButton.setImage(darkModeOn ? #imageLiteral(resourceName: "white_small_plus") : #imageLiteral(resourceName: "small_plus"), for: .normal)
         minusPitchStandardButton.setImage(darkModeOn ? #imageLiteral(resourceName: "white_small_minus") : #imageLiteral(resourceName: "small_minus"), for: .normal)
