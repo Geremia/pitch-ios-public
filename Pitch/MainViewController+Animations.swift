@@ -63,8 +63,6 @@ extension MainViewController {
             let colors = [mainLineColor, intermediateColor, outOfTuneColor]
             let intensities = [mainColorIntensity, intermediateIntensity, outOfTuneColorIntensity]
             
-            print(intensities)
-            
             for component in movingLineComponents {
                 component.backgroundColor = UIColor.blend(colors: colors, withIntensities: intensities)
             }

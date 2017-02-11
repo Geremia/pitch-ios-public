@@ -164,7 +164,7 @@ extension UserDefaults {
             return Instrument(rawValue: rawValue)!
         }
         
-        return .flute
+        return .other
     }
     
     func setInstrument(_ newValue: Instrument) {

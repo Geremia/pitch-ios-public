@@ -139,9 +139,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Hv-Hi-ITJ">
-                                                    <rect key="frame" x="278.5" y="10" width="62.5" height="23"/>
+                                                    <rect key="frame" x="233" y="10" width="108" height="23"/>
                                                     <attributedString key="attributedText">
-                                                        <fragment content="Normal">
+                                                        <fragment content="Intermediate">
                                                             <attributes>
                                                                 <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <font key="NSFont" size="19" name="Lato-Semibold"/>

@@ -45,7 +45,7 @@ enum Instrument: Int {
     var description: String {
         switch self {
         case .other:
-            return "Other"
+            return "None"
         case .voice:
             return "Voice"
         case .guitar:
