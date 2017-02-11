@@ -122,11 +122,11 @@ enum Damping: Int {
     var description: String {
         switch self {
         case .slow:
-            return "Best for plucked strings and wide vibrato"
+            return "Slower response for plucked strings"
         case .normal:
-            return "Appropriate for most situations"
+            return "Default setting for most situations"
         case .fast:
-            return "Best for short notes"
+            return "Faster response for short notes"
         }
     }
     

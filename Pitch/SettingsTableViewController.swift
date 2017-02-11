@@ -34,6 +34,16 @@ class SettingsTableViewController: UITableViewController {
             UserDefaults.standard.setMicSensitivity(currentMicSensitivity)
         }
     }
+    var currentDifficulty: Difficulty = UserDefaults.standard.difficulty() {
+        didSet {
+            UserDefaults.standard.setDifficulty(currentDifficulty)
+        }
+    }
+    var currentDamping: Damping = UserDefaults.standard.damping() {
+        didSet {
+            UserDefaults.standard.setDamping(currentDamping)
+        }
+    }
     var currentPitchStandard: Double = UserDefaults.standard.pitchStandard() {
         didSet {
             UserDefaults.standard.setPitchStandard(currentPitchStandard)
@@ -74,6 +84,10 @@ class SettingsTableViewController: UITableViewController {
         
         darkModeSwitch.setOn(darkModeOn, animated: false)
         micSensitivityLabel.text = currentMicSensitivity.name
+        difficultyLabel.text = currentDifficulty.name
+        difficultyDescriptionLabel.text = currentDifficulty.description
+        dampingLabel.text = currentDamping.name
+        dampingDescriptionLabel.text = currentDamping.description
         
         setupDisplayModeControl()
         updatePitchStandardLabel()
@@ -129,11 +143,29 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func changeDifficulty() {
+        var rawValue = currentDifficulty.rawValue + 1
+        if rawValue > 4 {
+            rawValue = 0
+        }
         
+        currentDifficulty = Difficulty(rawValue: rawValue)!
+        UIView.transition(with: view, duration: 0.1, options: [.transitionCrossDissolve], animations: {
+            self.difficultyLabel.text = self.currentDifficulty.name
+            self.difficultyDescriptionLabel.text = self.currentDifficulty.description
+        }, completion: nil)
     }
     
     func changeDamping() {
+        var rawValue = currentDamping.rawValue + 1
+        if rawValue > 2 {
+            rawValue = 0
+        }
         
+        currentDamping = Damping(rawValue: rawValue)!
+        UIView.transition(with: view, duration: 0.1, options: [.transitionCrossDissolve], animations: {
+            self.dampingLabel.text = self.currentDamping.name
+            self.dampingDescriptionLabel.text = self.currentDamping.description
+        }, completion: nil)
     }
     
     func updateKeyLabel() {
