@@ -43,6 +43,56 @@ extension Date {
     }
 }
 
+extension Dictionary {
+    public init(keys: [Key], values: [Value]) {
+        precondition(keys.count == values.count)
+        
+        self.init()
+        
+        for (index, key) in keys.enumerated() {
+            self[key] = values[index]
+        }
+    }
+}
+
+extension UIColor {
+    var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        let color = CIColor(color: self)
+        return (color.red, color.green, color.blue, color.alpha)
+    }
+    
+    static func blend(colors: [UIColor], withIntensities intensities: [CGFloat]) -> UIColor {
+        if colors.count != intensities.count { return .white }
+        
+        let total = intensities.reduce(0, { accumulator, value in
+            return accumulator + max(value, 0)
+        })
+        let relativeIntensities: [CGFloat] = intensities.map({ value in
+            return max(value, 0) / total
+        })
+        
+        var colorIntensityPairs: [UIColor : CGFloat] = [:]
+        colors.enumerated().forEach({
+            colorIntensityPairs[$0.element] = relativeIntensities[$0.offset]
+        })
+        
+        let initialColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
+        let blendedColor: UIColor = colorIntensityPairs.reduce(initialColor, { accumulator, pair in
+            let color = pair.key
+            let intensity = pair.value
+            
+            let r = accumulator.components.red + color.components.red * intensity
+            let g = accumulator.components.green + color.components.green * intensity
+            let b = accumulator.components.blue + color.components.blue * intensity
+            let a = accumulator.components.alpha + color.components.alpha * intensity
+            
+            return UIColor(red: r, green: g, blue: b, alpha: a)
+        })
+        
+        return blendedColor
+    }
+}
+
 extension Notification.Name {
     static let pitchPipeReset = Notification.Name(rawValue: "pitchPipeResetNotification")
     static let darkModeChanged = Notification.Name(rawValue: "darkModeChangedNotification")

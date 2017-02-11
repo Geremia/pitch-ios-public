@@ -52,12 +52,19 @@ extension MainViewController {
             movingLineHeight.constant = CGFloat(max(1, abs(centsDistance)))
             
             let mainLineColor: UIColor = UserDefaults.standard.darkModeOn() ? .white : .black
-            let mainColorIntensity = CGFloat(50.0 - abs(centsDistance))
+            let mainColorIntensity = CGFloat(-1 * pow(0.5 * abs(centsDistance), 2) + 50)
+            let intermediateColor = UIColor.orange
+            let intermediateIntensity = CGFloat(-1 * pow(0.4 * abs(centsDistance) - 8, 2) + 50)
             let outOfTuneColor = UIColor.red
-            let outOfTuneColorIntensity = abs(CGFloat(centsDistance))
+            let outOfTuneColorIntensity = CGFloat(-1 * pow(0.25 * abs(centsDistance) - 10, 2) + 50)
+            
+            let colors = [mainLineColor, intermediateColor, outOfTuneColor]
+            let intensities = [mainColorIntensity, intermediateIntensity, outOfTuneColorIntensity]
+            
+            print(intensities)
             
             for component in movingLineComponents {
-                component.backgroundColor = UIColor.blend(color1: mainLineColor, intensity1: mainColorIntensity, color2: outOfTuneColor, intensity2: outOfTuneColorIntensity)
+                component.backgroundColor = UIColor.blend(colors: colors, withIntensities: intensities)
             }
         }
     }
