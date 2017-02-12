@@ -144,11 +144,13 @@ class Tuner: NSObject {
     
     func registerNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(audioSessionInterrupted(_:)), name: NSNotification.Name.AVAudioSessionInterruption, object: AVAudioSession.sharedInstance())
         NotificationCenter.default.addObserver(self, selector: #selector(resetBufferSizes), name: .resetBufferSizes, object: nil)
     }
     
     func audioRouteChanged(_ notification: Notification) {
         let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
+        print(audioRouteChangeReason)
         
         switch audioRouteChangeReason {
         case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
@@ -160,7 +162,20 @@ class Tuner: NSObject {
                 self.switchToInternalMic()
             }
         default:
-            break
+            return
+        }
+    }
+    
+    func audioSessionInterrupted(_ notification: NSNotification) {
+        let type = notification.userInfo![AVAudioSessionInterruptionTypeKey] as! UInt
+        
+        switch type {
+        case AVAudioSessionInterruptionType.began.rawValue:
+            print("began")
+        case AVAudioSessionInterruptionType.ended.rawValue:
+            print("ended")
+        default:
+            return
         }
     }
     
@@ -187,14 +202,20 @@ class Tuner: NSObject {
     func switchToExternalMic() {
         AudioKit.stop()
         try! microphone.setDevice(AKDevice(name: "Headset Microphone", deviceID: "Wired Microphone"))
-        AudioKit.start()
+        
+        if !AudioKit.audioInUseByOtherApps() {
+            AudioKit.start()
+        }
     }
     
     func switchToInternalMic() {
         AudioKit.stop()
         try! microphone.setDevice(AKDevice(name: "iPhone Microphone", deviceID: "Built-In Microphone"))
         try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
-        AudioKit.start()
+        
+        if !AudioKit.audioInUseByOtherApps() {
+            AudioKit.start()
+        }
     }
     
     func resetBufferSizes() {

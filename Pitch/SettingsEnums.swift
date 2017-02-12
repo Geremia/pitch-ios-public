@@ -124,7 +124,7 @@ enum Damping: Int {
         case .slow:
             return "Slower response for plucked strings"
         case .normal:
-            return "Default setting for most situations"
+            return "Appropriate for most situations"
         case .fast:
             return "Faster response for short notes"
         }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AudioKit
 
 extension Double {
     func roundTo(places:Int) -> Double {
@@ -116,6 +117,30 @@ extension UIApplication {
             return topViewController(controller: presented)
         }
         return controller
+    }
+}
+
+extension AudioKit {
+    static func audioInUseByOtherApps() -> Bool {
+        var result = false
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError  {
+            print(error)
+            
+            if error.code == 561017449 { //AVAudioSessionErrorInsufficientPriority
+                result = true
+                print("audio is in use by other apps")
+            }
+            
+            if error.code == 1768843583 { // kAudioSessionInitializationError
+                result = true
+                print("audio session initialization error (may be bad or unsupported audio device)")
+            }
+        }
+        try! AVAudioSession.sharedInstance().setActive(false)
+        return result
     }
 }
 

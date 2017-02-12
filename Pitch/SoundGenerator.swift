@@ -21,7 +21,7 @@ class SoundGenerator : NSObject {
     
     var tuner: Tuner!
     
-    final func setUp() {
+    func setUp() {
         self.mixer = AKMixer(tuner.silence)
         
         bank = AKOscillatorBank(waveform: AKTable(.triangle), attackDuration: 0.06, releaseDuration: 0.06)
@@ -29,20 +29,37 @@ class SoundGenerator : NSObject {
         
         AudioKit.output = mixer
         try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
-        AudioKit.start()
+        if !AudioKit.audioInUseByOtherApps() {
+            AudioKit.start()
+        }
         
         setPitchStandard()
         NotificationCenter.default.addObserver(self, selector: #selector(setPitchStandard), name: .pitchStandardChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
     }
     
-    final func playNoteOn(channelNumber: Int) {
+    func audioRouteChanged(_ notification: Notification) {
+        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
+        print(audioRouteChangeReason)
+        
+        switch audioRouteChangeReason {
+        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
+            return
+        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
+            return
+        default:
+            self.setUp()
+        }
+    }
+    
+    func playNoteOn(channelNumber: Int) {
         let concertOffset = UserDefaults.standard.key().concertOffset
         let note = MIDINoteNumber(channelNumber + octaveConstant + concertOffset)
         bank.play(noteNumber: note, velocity: 127)
         channelsOn.append(channelNumber)
     }
     
-    final func playNoteOff(channelNumber: Int) {
+    func playNoteOff(channelNumber: Int) {
         let concertOffset = UserDefaults.standard.key().concertOffset
         let note = MIDINoteNumber(channelNumber + octaveConstant + concertOffset)
         bank.stop(noteNumber: note)
@@ -51,7 +68,7 @@ class SoundGenerator : NSObject {
         }
     }
     
-    final func incrementOctave() {
+    func incrementOctave() {
         let concertOffset = UserDefaults.standard.key().concertOffset
         let oldOctaveConstant = octaveConstant
         octaveConstant += 12
@@ -65,7 +82,7 @@ class SoundGenerator : NSObject {
         resetAttackReleaseDuration()
     }
     
-    final func decrementOctave() {
+    func decrementOctave() {
         let concertOffset = UserDefaults.standard.key().concertOffset
         let oldOctaveConstant = octaveConstant
         octaveConstant -= 12
