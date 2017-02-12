@@ -25,6 +25,16 @@
 		4C50760B1E205DC300DBD02C /* PitchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */; };
 		4CB3A2EF1E2D865600DE48AF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3A2EE1E2D865600DE48AF /* ShareViewController.swift */; };
 		4CD743C21E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD743C11E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift */; };
+		4CD74B471E50D75900F073B5 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B461E50D75900F073B5 /* ConnectionManager.swift */; };
+		4CD74B581E50D77400F073B5 /* PeripheralList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B4E1E50D77400F073B5 /* PeripheralList.swift */; };
+		4CD74B5A1E50D77400F073B5 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B501E50D77400F073B5 /* Preferences.swift */; };
+		4CD74B5B1E50D77400F073B5 /* UartDataChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B511E50D77400F073B5 /* UartDataChunk.swift */; };
+		4CD74B5C1E50D77400F073B5 /* UartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B521E50D77400F073B5 /* UartManager.swift */; };
+		4CD74B5D1E50D77400F073B5 /* UartModuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B531E50D77400F073B5 /* UartModuleManager.swift */; };
+		4CD74B611E50D7BB00F073B5 /* BleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B5E1E50D7BB00F073B5 /* BleManager.swift */; };
+		4CD74B621E50D7BB00F073B5 /* BlePeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B5F1E50D7BB00F073B5 /* BlePeripheral.swift */; };
+		4CD74B631E50D7BB00F073B5 /* BleUUIDNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B601E50D7BB00F073B5 /* BleUUIDNames.swift */; };
+		4CD74B671E50E3AC00F073B5 /* Synchronize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B661E50E3AC00F073B5 /* Synchronize.swift */; };
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
@@ -93,6 +103,16 @@
 		4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchesTableViewCell.swift; sourceTree = "<group>"; };
 		4CB3A2EE1E2D865600DE48AF /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		4CD743C11E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+PitchCenterTiming.swift"; sourceTree = "<group>"; };
+		4CD74B461E50D75900F073B5 /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		4CD74B4E1E50D77400F073B5 /* PeripheralList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeripheralList.swift; path = Common/PeripheralList.swift; sourceTree = "<group>"; };
+		4CD74B501E50D77400F073B5 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = Common/Preferences.swift; sourceTree = "<group>"; };
+		4CD74B511E50D77400F073B5 /* UartDataChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UartDataChunk.swift; path = Common/UartDataChunk.swift; sourceTree = "<group>"; };
+		4CD74B521E50D77400F073B5 /* UartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UartManager.swift; path = Common/UartManager.swift; sourceTree = "<group>"; };
+		4CD74B531E50D77400F073B5 /* UartModuleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UartModuleManager.swift; path = Common/UartModuleManager.swift; sourceTree = "<group>"; };
+		4CD74B5E1E50D7BB00F073B5 /* BleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleManager.swift; sourceTree = "<group>"; };
+		4CD74B5F1E50D7BB00F073B5 /* BlePeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlePeripheral.swift; sourceTree = "<group>"; };
+		4CD74B601E50D7BB00F073B5 /* BleUUIDNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleUUIDNames.swift; sourceTree = "<group>"; };
+		4CD74B661E50E3AC00F073B5 /* Synchronize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronize.swift; sourceTree = "<group>"; };
 		4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
 		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -232,6 +252,47 @@
 			name = Analytics;
 			sourceTree = "<group>";
 		};
+		4CD74B451E50D6DD00F073B5 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				4CD74B461E50D75900F073B5 /* ConnectionManager.swift */,
+				4CD74B481E50D76400F073B5 /* lib */,
+			);
+			name = Bluetooth;
+			sourceTree = "<group>";
+		};
+		4CD74B481E50D76400F073B5 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				4CD74B501E50D77400F073B5 /* Preferences.swift */,
+				4CD74B641E50E26A00F073B5 /* connection */,
+				4CD74B651E50E27B00F073B5 /* data transmission */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		4CD74B641E50E26A00F073B5 /* connection */ = {
+			isa = PBXGroup;
+			children = (
+				4CD74B5E1E50D7BB00F073B5 /* BleManager.swift */,
+				4CD74B5F1E50D7BB00F073B5 /* BlePeripheral.swift */,
+				4CD74B601E50D7BB00F073B5 /* BleUUIDNames.swift */,
+				4CD74B4E1E50D77400F073B5 /* PeripheralList.swift */,
+				4CD74B661E50E3AC00F073B5 /* Synchronize.swift */,
+			);
+			name = connection;
+			sourceTree = "<group>";
+		};
+		4CD74B651E50E27B00F073B5 /* data transmission */ = {
+			isa = PBXGroup;
+			children = (
+				4CD74B511E50D77400F073B5 /* UartDataChunk.swift */,
+				4CD74B521E50D77400F073B5 /* UartManager.swift */,
+				4CD74B531E50D77400F073B5 /* UartModuleManager.swift */,
+			);
+			name = "data transmission";
+			sourceTree = "<group>";
+		};
 		4CDFFFF01D8B016300BEAD0D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +345,7 @@
 				4C253C7B1DAEDEEC00BD07D6 /* Analytics */,
 				4CFC73BC1DC6820200AFD8AC /* Audio */,
 				4CFE125C1DECF61E005EE1BF /* Enums */,
+				4CD74B451E50D6DD00F073B5 /* Bluetooth */,
 				4CEAD70A1D8A0D8D000492E6 /* View Controllers */,
 				4CEAD6D31D8A0CFD000492E6 /* AppDelegate.swift */,
 				4CEAD6D71D8A0CFD000492E6 /* Main.storyboard */,
@@ -583,8 +645,12 @@
 				4C1642DC1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift in Sources */,
 				4C50760B1E205DC300DBD02C /* PitchesTableViewCell.swift in Sources */,
 				4C5076071E20461200DBD02C /* OffsetData.swift in Sources */,
+				4CD74B5C1E50D77400F073B5 /* UartManager.swift in Sources */,
 				4CFE12601DECF659005EE1BF /* Instrument.swift in Sources */,
+				4CD74B5B1E50D77400F073B5 /* UartDataChunk.swift in Sources */,
+				4CD74B621E50D7BB00F073B5 /* BlePeripheral.swift in Sources */,
 				4CDED8771E131354003C4000 /* DataManager.swift in Sources */,
+				4CD74B471E50D75900F073B5 /* ConnectionManager.swift in Sources */,
 				4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */,
 				4CE5F0C11E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift in Sources */,
 				4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */,
@@ -592,9 +658,11 @@
 				4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */,
 				4CD743C21E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift in Sources */,
 				4C1642D71E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift in Sources */,
+				4CD74B631E50D7BB00F073B5 /* BleUUIDNames.swift in Sources */,
 				4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */,
 				4CE28F371E34516000027F04 /* AnalyticsViewController+Tutorial.swift in Sources */,
 				4CFC73B91DC646EC00AFD8AC /* SoundGenerator.swift in Sources */,
+				4CD74B5A1E50D77400F073B5 /* Preferences.swift in Sources */,
 				4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */,
 				4C5076041E1FEDD400DBD02C /* Pitch.swift in Sources */,
 				4C5076091E205DB300DBD02C /* PitchesTableViewController.swift in Sources */,
@@ -612,11 +680,15 @@
 				4C1642DE1E3D3979003F0FB5 /* ShortcutIdentifier.swift in Sources */,
 				4CE28F351E329CCF00027F04 /* MainViewController+Setup.swift in Sources */,
 				4CFC73BE1DC6821400AFD8AC /* Tuner.swift in Sources */,
+				4CD74B611E50D7BB00F073B5 /* BleManager.swift in Sources */,
+				4CD74B581E50D77400F073B5 /* PeripheralList.swift in Sources */,
 				4CDEB5791DD11B68005301BF /* VerticalSlideAnimationController.swift in Sources */,
+				4CD74B671E50E3AC00F073B5 /* Synchronize.swift in Sources */,
 				4CFE12591DECF389005EE1BF /* MainViewController+Animations.swift in Sources */,
 				4CF25E911DE8BA07009D109F /* InstrumentKeyTableViewController.swift in Sources */,
 				4CFC73B31DC59B3700AFD8AC /* PitchPipeView.swift in Sources */,
 				4C1FD5131DD117A700C1C6B9 /* SettingsViewController.swift in Sources */,
+				4CD74B5D1E50D77400F073B5 /* UartModuleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
