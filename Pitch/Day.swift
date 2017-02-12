@@ -76,7 +76,7 @@ class Day: Object {
         var offsets: [OffsetData] = []
         offsets.append(contentsOf: pitchOffsets)
         return offsets.filter { data in
-            return data.dataCount >= 200 && data.averageOffset >= 2.0
+            return data.dataCount >= 200
         }.sorted(by: { abs($0.averageOffset) > abs($1.averageOffset) })
     }
     
