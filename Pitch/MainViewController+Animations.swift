@@ -18,6 +18,7 @@ extension MainViewController {
     func updateUI(output: TunerOutput) {
         if !output.isValid {
             setViewTo(newState: .outOfTune)
+            resetMovingLine()
         } else {
             displayPitch(pitch: output.pitch.description)
             updateCentsLabel(offset: output.centsDistance)
@@ -51,7 +52,11 @@ extension MainViewController {
         portraitMovingLineCenterConstraint.constant = abs(centsDistance) > 1 ? CGFloat(-centsDistance * 5.0) : 0.0
         
         if state != .inTune {
+            print(CGFloat(max(1, abs(centsDistance))))
             movingLineHeight.constant = CGFloat(max(1, abs(centsDistance)))
+            for height in self.tickmarkHeights {
+                height.constant = self.state.lineThickness
+            }
             
             let mainLineColor: UIColor = UserDefaults.standard.darkModeOn() ? .white : .black
             let intermediateColor = UIColor.orange
@@ -72,7 +77,7 @@ extension MainViewController {
     }
     
     func resetMovingLine() {
-        updateMovingLine(centsDistance: 0.0)
+        updateMovingLine(centsDistance: Double(-portraitMovingLineCenterConstraint.constant / 5.0))
     }
     
     func setViewToNewState(basedOnCentsDistance centsDistance: Double) {
@@ -138,17 +143,10 @@ extension MainViewController {
             }
         }, completion: { finished in
             if finished {
-                for height in self.tickmarkHeights {
-                    height.constant = newState.lineThickness
-                }
-                for line in self.tickmarks {
-                    line.layoutIfNeeded()
-                }
-                
                 if self.state == .inTune {
                     self.movingLineHeight.constant = newState.lineThickness
-                    for component in self.movingLineComponents {
-                        component.layoutIfNeeded()
+                    for height in self.tickmarkHeights {
+                        height.constant = newState.lineThickness
                     }
                 }
             }

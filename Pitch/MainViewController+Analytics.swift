@@ -23,7 +23,6 @@ extension MainViewController {
         if let time = self.pitchStartTime {
             let interval = Date().timeIntervalSince(time)
             today.add(timeToCenter: interval - 0.5)
-            print(interval - 0.5)
             resetPitchCenterTimer()
         }
     }

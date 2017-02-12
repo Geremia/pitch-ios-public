@@ -223,8 +223,6 @@ class Tuner: NSObject {
         frequencyBuffer.removeAll()
         smoothingBufferCount = UserDefaults.standard.damping().smoothingBufferSize
         frequencyBufferCount = UserDefaults.standard.damping().frequencyBufferSize
-        print(smoothingBufferCount)
-        print(frequencyBufferCount)
     }
     
     /**
