@@ -174,19 +174,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    // MARK: - Notifications
-    
-    func shortcutOpenAnalytics(_ notification: Notification) {
-        go(toViewController: .right)
-        let analytics: AnalyticsViewController = rightVc as! AnalyticsViewController
-        analytics.checkForShareAndAnimation()
-    }
-    
-    func shortcutOpenToneGenerator(_ notification: NSNotification) {
-        go(toViewController: .middle)
-    }
-    
-    func darkModeChanged(_ notification: Notification) {
+    func resetAnalyticsVC() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let analytics: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
         
@@ -210,6 +198,22 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         scrollView.addSubview(rightVc.view)
         
         analytics.snapContainer = self
+    }
+    
+    // MARK: - Notifications
+    
+    func shortcutOpenAnalytics(_ notification: Notification) {
+        go(toViewController: .right)
+        let analytics: AnalyticsViewController = rightVc as! AnalyticsViewController
+        analytics.checkForShareAndAnimation()
+    }
+    
+    func shortcutOpenToneGenerator(_ notification: NSNotification) {
+        go(toViewController: .middle)
+    }
+    
+    func darkModeChanged(_ notification: Notification) {
+        resetAnalyticsVC()
     }
     
     // MARK: - Actions

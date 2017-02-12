@@ -195,15 +195,18 @@ extension MainViewController {
             label.completionBlock = { _ in
                 self.analyticsCircle.isHidden = true
                 Answers.logCustomEvent(withName: "Popup Appeared", customAttributes: nil)
-                UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut, .allowUserInteraction], animations: {
-                    self.analyticsButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                    self.analyticsMessage.alpha = 1.0
-                    self.analyticsMessage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-                }, completion: nil)
+                self.resetAnalyticsVC()
+                self.showPopup()
             }
         }
         
         label.count(from: CGFloat(analyticsCircle.score), to: CGFloat(percentage), withDuration: 1.0)
+    }
+    
+    func resetAnalyticsVC() {
+        if shouldUpdateUI {
+            snapContainer?.resetAnalyticsVC()
+        }
     }
     
     func showPopup() {
