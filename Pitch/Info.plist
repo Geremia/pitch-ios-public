@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>Pitch uses bluetooth to connect to your tuner.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -21,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>3.3</string>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>3</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -38,6 +36,8 @@
 	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Pitch uses bluetooth to connect to your tuner.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Please allow microphone access so that Pitch can help you tune your instrument.</string>
 	<key>UIBackgroundModes</key>
