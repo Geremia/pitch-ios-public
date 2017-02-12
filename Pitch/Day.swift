@@ -19,7 +19,7 @@ class Day: Object {
     /**
      * The threshold in cents for being 'in-tune'
      */
-    let tuningThreshold: Double = 4.0
+    let tuningThreshold: Double = UserDefaults.standard.difficulty().tuningThreshold
     
     /**
      * How often the user was 'in-tune', expressed as a percentage.
@@ -117,7 +117,7 @@ class Day: Object {
         try! realm.write {
             inTunePercentageDataCount += 1
             
-            let inTune: Double = tunerOutput.distance < tuningThreshold ? 1 : 0
+            let inTune: Double = tunerOutput.distance <= tuningThreshold ? 1 : 0
             let newDataPointWeight = 1 / Double(self.inTunePercentageDataCount)
             let oldAverageWeight = 1 - newDataPointWeight
             

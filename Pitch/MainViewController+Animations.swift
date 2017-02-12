@@ -33,7 +33,9 @@ extension MainViewController {
     
     func updateCentsLabel(offset: Double) {
         centsLabel.isHidden = false
-        if abs(offset) < 2.0 {
+        
+        let threshold = UserDefaults.standard.difficulty().tuningThreshold
+        if abs(offset) < threshold {
             centsLabel.text = state == .inTune ? "You got it!" : "Hold it..."
         } else {
             centsLabel.text = "\(abs(offset.roundTo(places: 1))) cents " + (offset > 0 ? "sharp" : "flat")
@@ -74,12 +76,14 @@ extension MainViewController {
     }
     
     func setViewToNewState(basedOnCentsDistance centsDistance: Double) {
+        let threshold = UserDefaults.standard.difficulty().tuningThreshold
+        
         switch abs(centsDistance) {
-        case 0...2.0:
+        case 0...threshold:
             if state != .inTune {
                 setViewTo(newState: .holding)
             }
-        case 2.0...6.0:
+        case threshold...threshold + 5.0:
             setViewTo(newState: .almostInTune)
         default:
             setViewTo(newState: .outOfTune)
