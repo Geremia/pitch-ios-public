@@ -164,6 +164,8 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         case 2:
             let main: MainViewController = middleVc as! MainViewController
             main.shouldUpdateUI = false
+            main.hidePopup()
+            
             let analytics: AnalyticsViewController = self.rightVc as! AnalyticsViewController
             analytics.checkForShareAndAnimation()
             Answers.logCustomEvent(withName: "Opened Analytics", customAttributes: ["afterPopup" : String(DataManager.today().hasSufficientData)])

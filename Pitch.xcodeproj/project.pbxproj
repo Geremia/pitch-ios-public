@@ -30,7 +30,6 @@
 		4CD74B5A1E50D77400F073B5 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B501E50D77400F073B5 /* Preferences.swift */; };
 		4CD74B5B1E50D77400F073B5 /* UartDataChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B511E50D77400F073B5 /* UartDataChunk.swift */; };
 		4CD74B5C1E50D77400F073B5 /* UartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B521E50D77400F073B5 /* UartManager.swift */; };
-		4CD74B5D1E50D77400F073B5 /* UartModuleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B531E50D77400F073B5 /* UartModuleManager.swift */; };
 		4CD74B611E50D7BB00F073B5 /* BleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B5E1E50D7BB00F073B5 /* BleManager.swift */; };
 		4CD74B621E50D7BB00F073B5 /* BlePeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B5F1E50D7BB00F073B5 /* BlePeripheral.swift */; };
 		4CD74B631E50D7BB00F073B5 /* BleUUIDNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B601E50D7BB00F073B5 /* BleUUIDNames.swift */; };
@@ -108,7 +107,6 @@
 		4CD74B501E50D77400F073B5 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = Common/Preferences.swift; sourceTree = "<group>"; };
 		4CD74B511E50D77400F073B5 /* UartDataChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UartDataChunk.swift; path = Common/UartDataChunk.swift; sourceTree = "<group>"; };
 		4CD74B521E50D77400F073B5 /* UartManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UartManager.swift; path = Common/UartManager.swift; sourceTree = "<group>"; };
-		4CD74B531E50D77400F073B5 /* UartModuleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UartModuleManager.swift; path = Common/UartModuleManager.swift; sourceTree = "<group>"; };
 		4CD74B5E1E50D7BB00F073B5 /* BleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleManager.swift; sourceTree = "<group>"; };
 		4CD74B5F1E50D7BB00F073B5 /* BlePeripheral.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlePeripheral.swift; sourceTree = "<group>"; };
 		4CD74B601E50D7BB00F073B5 /* BleUUIDNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleUUIDNames.swift; sourceTree = "<group>"; };
@@ -288,7 +286,6 @@
 			children = (
 				4CD74B511E50D77400F073B5 /* UartDataChunk.swift */,
 				4CD74B521E50D77400F073B5 /* UartManager.swift */,
-				4CD74B531E50D77400F073B5 /* UartModuleManager.swift */,
 			);
 			name = "data transmission";
 			sourceTree = "<group>";
@@ -688,7 +685,6 @@
 				4CF25E911DE8BA07009D109F /* InstrumentKeyTableViewController.swift in Sources */,
 				4CFC73B31DC59B3700AFD8AC /* PitchPipeView.swift in Sources */,
 				4C1FD5131DD117A700C1C6B9 /* SettingsViewController.swift in Sources */,
-				4CD74B5D1E50D77400F073B5 /* UartModuleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

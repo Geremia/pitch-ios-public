@@ -205,4 +205,18 @@ extension MainViewController {
         
         label.count(from: CGFloat(analyticsCircle.score), to: CGFloat(percentage), withDuration: 1.0)
     }
+    
+    func showPopup() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut, .allowUserInteraction], animations: {
+            self.analyticsButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            self.analyticsMessage.alpha = 1.0
+            self.analyticsMessage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }, completion: nil)
+    }
+    
+    func hidePopup() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut, .allowUserInteraction], animations: {
+            self.analyticsMessage.alpha = 0.0
+        }, completion: nil)
+    }
 }

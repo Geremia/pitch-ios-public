@@ -125,7 +125,6 @@ extension AudioKit {
         var result = false
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-            try AVAudioSession.sharedInstance().setActive(true)
         } catch let error as NSError  {
             print(error)
             
@@ -139,7 +138,6 @@ extension AudioKit {
                 print("audio session initialization error (may be bad or unsupported audio device)")
             }
         }
-        try! AVAudioSession.sharedInstance().setActive(false)
         return result
     }
 }

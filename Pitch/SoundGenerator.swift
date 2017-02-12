@@ -20,6 +20,7 @@ class SoundGenerator : NSObject {
     }
     
     var tuner: Tuner!
+    var isSetup: Bool = false
     
     func setUp() {
         self.mixer = AKMixer(tuner.silence)
@@ -31,6 +32,7 @@ class SoundGenerator : NSObject {
         try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
         if !AudioKit.audioInUseByOtherApps() {
             AudioKit.start()
+            isSetup = true
         }
         
         setPitchStandard()
@@ -48,7 +50,9 @@ class SoundGenerator : NSObject {
         case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
             return
         default:
-            self.setUp()
+            if !isSetup {
+                self.setUp()
+            }
         }
     }
     
