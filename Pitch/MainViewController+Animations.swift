@@ -52,7 +52,6 @@ extension MainViewController {
         portraitMovingLineCenterConstraint.constant = abs(centsDistance) > 1 ? CGFloat(-centsDistance * 5.0) : 0.0
         
         if state != .inTune {
-            print(CGFloat(max(1, abs(centsDistance))))
             movingLineHeight.constant = CGFloat(max(1, abs(centsDistance)))
             for height in self.tickmarkHeights {
                 height.constant = self.state.lineThickness
