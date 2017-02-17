@@ -135,9 +135,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let recordPermissionGranted = UserDefaults.standard.recordPermission()
         if !Constants.pitchPipeIsPlayingSound && recordPermissionGranted {
             if !AudioKit.audioInUseByOtherApps() {
-//                AudioKit.start()
+                AudioKit.start()
             }
-//            try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
+            try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
         }
     }
 
