@@ -17,6 +17,7 @@ import Siren
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var container: SnapContainerViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         updateRealmSchema()
@@ -33,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         setupSnapContainer()
+//        NotificationCenter.default.addObserver(self, selector: #selector(setupSnapContainer), name: .UIDeviceOrientationDidChange, object: nil)
         
         return true
     }
@@ -44,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let main: MainViewController = storyboard.instantiateViewController(withIdentifier: "main") as! MainViewController
         let analytics: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
         
-        let container = SnapContainerViewController.containerViewWith(settings, middleVC: main, rightVC: analytics)
+        container = SnapContainerViewController.containerViewWith(settings, middleVC: main, rightVC: analytics)
         
         settings.snapContainer = container
         main.snapContainer = container

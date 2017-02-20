@@ -24,7 +24,6 @@ class PitchPipeView: UIView {
     // MARK: - Properties
     
     var sustainOn: Bool = false
-    var soundGenerator: SoundGenerator = SoundGenerator()
     
     // MARK: - Awake From Nib
     
@@ -100,7 +99,7 @@ class PitchPipeView: UIView {
     func allOff() {
         for button in self.pitchButtons {
             off(pitchButton: button)
-            soundGenerator.playNoteOff(channelNumber: button.tag)
+            SoundGenerator.sharedInstance.playNoteOff(channelNumber: button.tag)
         }
     }
     
@@ -144,10 +143,10 @@ class PitchPipeView: UIView {
         let isActive = button.backgroundColor == UIColor.inTune || button.backgroundColor == UIColor.darkInTune
         if isActive {
             off(pitchButton: button)
-            soundGenerator.playNoteOff(channelNumber: button.tag)
+            SoundGenerator.sharedInstance.playNoteOff(channelNumber: button.tag)
         } else {
             on(pitchButton: button)
-            soundGenerator.playNoteOn(channelNumber: button.tag)
+            SoundGenerator.sharedInstance.playNoteOn(channelNumber: button.tag)
         }
     }
     
@@ -155,7 +154,7 @@ class PitchPipeView: UIView {
         if !sustainOn {
             let button = sender as! UIButton
             off(pitchButton: button)
-            soundGenerator.playNoteOff(channelNumber: button.tag)
+            SoundGenerator.sharedInstance.playNoteOff(channelNumber: button.tag)
         }
     }
     
@@ -169,7 +168,7 @@ class PitchPipeView: UIView {
         var currentOctave = Int(octaveLabel.text!)!
         if currentOctave > 2 {
             currentOctave -= 1
-            soundGenerator.decrementOctave()
+            SoundGenerator.sharedInstance.decrementOctave()
             octaveLabel.text = String(currentOctave)
         }
     }
@@ -178,7 +177,7 @@ class PitchPipeView: UIView {
         var currentOctave = Int(octaveLabel.text!)!
         if currentOctave < 7 {
             currentOctave += 1
-            soundGenerator.incrementOctave()
+            SoundGenerator.sharedInstance.incrementOctave()
             octaveLabel.text = String(currentOctave)
         }
     }

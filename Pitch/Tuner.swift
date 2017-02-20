@@ -150,7 +150,6 @@ class Tuner: NSObject {
     
     func audioRouteChanged(_ notification: Notification) {
         let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
-        print(audioRouteChangeReason)
         
         switch audioRouteChangeReason {
         case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:

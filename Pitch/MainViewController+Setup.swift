@@ -41,8 +41,8 @@ extension MainViewController {
         tunerSetup = true
         tuner = Tuner()
         tuner?.delegate = self
-        pitchPipeView.soundGenerator.tuner = self.tuner
-        pitchPipeView.soundGenerator.setUp()
+        SoundGenerator.sharedInstance.tuner = self.tuner
+        SoundGenerator.sharedInstance.setUp()
         tuner?.start()
     }
     

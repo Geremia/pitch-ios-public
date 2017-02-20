@@ -10,6 +10,9 @@ import Foundation
 import AudioKit
 
 class SoundGenerator : NSObject {
+    
+    static let sharedInstance: SoundGenerator = SoundGenerator()
+    
     private var bank: AKOscillatorBank!
     private var mixer: AKMixer!
     private var octaveConstant: Int = 60
