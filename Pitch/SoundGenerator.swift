@@ -22,7 +22,7 @@ class SoundGenerator : NSObject {
         }
     }
     
-    var tuner: Tuner!
+    var tuner: Tuner = Tuner.sharedInstance
     var isSetup: Bool = false
     
     func setUp() {

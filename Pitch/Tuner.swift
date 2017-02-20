@@ -108,6 +108,8 @@ class Tuner: NSObject {
     fileprivate var smoothingBufferCount = UserDefaults.standard.damping().smoothingBufferSize
     fileprivate var frequencyBufferCount = UserDefaults.standard.damping().frequencyBufferSize
     
+    static let sharedInstance: Tuner = Tuner()
+    
     /**
      Object adopting the TunerDelegate protocol that should receive callbacks
      from this tuner.
@@ -140,6 +142,8 @@ class Tuner: NSObject {
         microphone = AKMicrophone()
         analyzer = AKFrequencyTracker(microphone, hopSize: 512, peakCount: 100)
         silence = AKBooster(analyzer, gain: 0.0)
+        
+        SoundGenerator.sharedInstance.setUp()
     }
     
     func registerNotifications() {

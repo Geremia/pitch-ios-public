@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         setupSnapContainer()
-//        NotificationCenter.default.addObserver(self, selector: #selector(setupSnapContainer), name: .UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setupSnapContainer), name: .UIDeviceOrientationDidChange, object: nil)
         
         return true
     }
