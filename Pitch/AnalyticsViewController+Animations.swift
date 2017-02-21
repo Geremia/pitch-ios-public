@@ -14,8 +14,10 @@ extension AnalyticsViewController {
     // MARK: - Orientation
     
     func orientationChanged(_ notification: Notification) {
-        let isPortrait = UIDevice.current.orientation == .portrait
+        let orientation = UIDevice.current.orientation
+        if orientation == .faceUp || orientation == .faceDown { return }
         
+        let isPortrait = orientation == .portrait || orientation == .portraitUpsideDown
         UIView.transition(with: helpButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
             self.helpButton.isHidden = !isPortrait
         }, completion: nil)
