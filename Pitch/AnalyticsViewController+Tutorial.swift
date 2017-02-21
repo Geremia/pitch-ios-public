@@ -79,6 +79,9 @@ extension AnalyticsViewController {
     
     func endTutorial() {
         UIView.transition(with: view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
+            self.tutorial1.isHidden = true
+            self.tutorial2.isHidden = true
+            self.tutorial3.isHidden = true
             self.tutorial4.isHidden = true
         }, completion: nil)
     }

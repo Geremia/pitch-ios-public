@@ -73,6 +73,7 @@ class AnalyticsViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        setupNotifications()
     }
     
     func checkForShareAndAnimation() {

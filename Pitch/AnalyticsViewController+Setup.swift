@@ -28,6 +28,10 @@ extension AnalyticsViewController {
         }
     }
     
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged(_:)), name: .UIDeviceOrientationDidChange, object: nil)
+    }
+    
     func displayData() {
         noDataView.isHidden = true
         helpButton.isHidden = false

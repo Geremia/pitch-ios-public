@@ -11,6 +11,18 @@ import UIKit
 
 extension AnalyticsViewController {
     
+    // MARK: - Orientation
+    
+    func orientationChanged(_ notification: Notification) {
+        let isPortrait = UIDevice.current.orientation == .portrait
+        
+        UIView.transition(with: helpButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
+            self.helpButton.isHidden = !isPortrait
+        }, completion: nil)
+        
+        endTutorial()
+    }
+    
     // MARK: - Animation
     
     func prepareForAnimation() {
