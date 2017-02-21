@@ -63,18 +63,4 @@ extension MainViewController {
             shouldUpdateAnalyticsCircle = false
         }
     }
-    
-    func setupPlot() {
-        plot = AKNodeOutputPlot(Tuner.sharedInstance.microphone, frame: audioPlot.bounds)
-        plot.plotType = .rolling
-        plot.shouldFill = false
-        plot.shouldMirror = true
-        plot.color = UIColor.white
-        plot.gain = 3.0
-        plot.backgroundColor = UIColor.clear
-        audioPlot.addSubview(plot)
-        
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(plotTapped))
-        audioPlot.addGestureRecognizer(tapGR)
-    }
 }

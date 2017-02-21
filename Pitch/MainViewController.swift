@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioKit
+import PureLayout
 
 class MainViewController: UIViewController {
     
@@ -36,6 +37,8 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var audioPlot: EZAudioPlot!
     
+    @IBOutlet var orientationDependentConstraints: [NSLayoutConstraint]!
+    
     // MARK: - Pitch Pipe Outlets
     
     @IBOutlet weak var pitchPipeView: PitchPipeView!
@@ -52,6 +55,8 @@ class MainViewController: UIViewController {
     var shouldUpdateUI: Bool = true
     
     var plot: AKNodeOutputPlot!
+    
+    var currentOrientation: MainViewOrientation = .portrait
     
     // MARK: - Analytics Variables
     
@@ -75,8 +80,6 @@ class MainViewController: UIViewController {
         setupNotifications()
         checkRecordPermission()
         setupUI()
-        
-//        setupPlot()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,9 +93,16 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        if !tunerSetup {
-//            checkRecordPermission()
-//        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateConstraints(forSize: view.bounds.size, withTransitionCoordinator: nil)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        updateConstraints(forSize: size, withTransitionCoordinator: coordinator)
     }
     
     // MARK: - Notifications
@@ -101,12 +111,6 @@ class MainViewController: UIViewController {
         if !pitchPipeOpen {
             openPitchPipe()
         }
-    }
-
-    // MARK: - Audio Plot Action
-    
-    func plotTapped() {
-        print("Plot tapped")
     }
     
     // MARK: - Dark Mode Switching
@@ -120,6 +124,53 @@ class MainViewController: UIViewController {
         state = .outOfTune
         animateViewTo(newState: .outOfTune)
         resetMovingLine()
+    }
+    
+    // MARK: - Orientation Switching
+    
+    func updateConstraints(forSize size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator?) {
+        let orientation: MainViewOrientation = size.height > size.width ? .portrait : .landscape
+        
+        if orientation != currentOrientation && orientation != .unspecified {
+            var constraints: NSArray = orientationDependentConstraints as NSArray
+            constraints.autoRemoveConstraints()
+            
+            orientationDependentConstraints = orientation == .portrait ? portraitConstraints() : landscapeConstraints()
+            constraints = orientationDependentConstraints as NSArray
+            currentOrientation = orientation
+            
+            if let coordinator = coordinator {
+                coordinator.animate(alongsideTransition: { context in
+                    constraints.autoInstallConstraints()
+                    self.view.layoutIfNeeded()
+                }, completion: nil)
+            } else {
+                constraints.autoInstallConstraints()
+                view.layoutIfNeeded()
+            }
+        }
+    }
+    
+    func portraitConstraints() -> [NSLayoutConstraint] {
+        return NSLayoutConstraint.autoCreateConstraintsWithoutInstalling {
+            settingsButton.autoPinEdge(toSuperviewMargin: .bottom)
+            settingsButton.autoPinEdge(toSuperviewMargin: .left)
+            pitchPipeButton.autoPinEdge(toSuperviewMargin: .bottom)
+            pitchPipeButton.autoAlignAxis(toSuperviewAxis: .horizontal)
+            analyticsButton.autoPinEdge(toSuperviewMargin: .bottom)
+            analyticsButton.autoPinEdge(toSuperviewMargin: .right)
+        }
+    }
+    
+    func landscapeConstraints() -> [NSLayoutConstraint] {
+        return NSLayoutConstraint.autoCreateConstraintsWithoutInstalling {
+            settingsButton.autoPinEdge(toSuperviewMargin: .bottom)
+            settingsButton.autoPinEdge(toSuperviewMargin: .right)
+            pitchPipeButton.autoPinEdge(toSuperviewMargin: .right)
+            pitchPipeButton.autoAlignAxis(toSuperviewAxis: .vertical)
+            analyticsButton.autoPinEdge(toSuperviewMargin: .top)
+            analyticsButton.autoPinEdge(toSuperviewMargin: .right)
+        }
     }
 
     // MARK: - Actions
@@ -183,5 +234,11 @@ extension MainViewController: TunerDelegate {
             updatePitchCenterTimer(output: output)
         }
     }
+}
+
+enum MainViewOrientation {
+    case portrait
+    case landscape
+    case unspecified
 }
 

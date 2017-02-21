@@ -704,7 +704,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxQ-Xm-BOA">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxQ-Xm-BOA">
                                         <rect key="frame" x="147" y="360" width="82" height="76"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="82" id="J8l-2b-b0a"/>
@@ -721,7 +721,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrA-v6-zUa">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrA-v6-zUa">
                                         <rect key="frame" x="0.0" y="360" width="82" height="76"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="82" id="XHe-1a-17E"/>
@@ -738,7 +738,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bz-bK-sEf" customClass="ScoreCircle" customModule="Pitch" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0bz-bK-sEf" customClass="ScoreCircle" customModule="Pitch" customModuleProvider="target">
                                         <rect key="frame" x="316" y="381" width="35" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -753,7 +753,7 @@
                                             <constraint firstAttribute="width" constant="246" id="6je-i2-1Dd"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0U7-NV-2BZ">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0U7-NV-2BZ">
                                         <rect key="frame" x="293" y="360" width="82" height="76"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="82" id="cuQ-qc-zp4"/>
@@ -777,25 +777,19 @@
                                     <constraint firstItem="eFM-fb-ftt" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" id="3dg-Zb-N8j"/>
                                     <constraint firstAttribute="bottom" secondItem="90I-fc-2p4" secondAttribute="bottom" constant="28" id="4Sv-V6-tBb"/>
                                     <constraint firstItem="VCu-Ft-MJ8" firstAttribute="top" secondItem="XBl-z4-1FC" secondAttribute="top" id="EPW-df-75l"/>
-                                    <constraint firstItem="SrA-v6-zUa" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" id="Lp5-UW-fTF"/>
-                                    <constraint firstAttribute="trailing" secondItem="0U7-NV-2BZ" secondAttribute="trailing" id="M1R-ef-eoB"/>
                                     <constraint firstItem="Jpl-Qo-b0N" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" id="MJM-rE-AOe"/>
                                     <constraint firstItem="2CA-ws-Axi" firstAttribute="top" secondItem="4CE-78-WqF" secondAttribute="bottom" constant="12" id="Q1l-6n-ii4"/>
                                     <constraint firstItem="VCu-Ft-MJ8" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" id="VDb-DT-ybF"/>
                                     <constraint firstItem="d4h-6o-O5x" firstAttribute="centerX" secondItem="ScC-vN-a2a" secondAttribute="centerX" constant="-40" id="WDV-6k-UQa"/>
-                                    <constraint firstAttribute="bottom" secondItem="hxQ-Xm-BOA" secondAttribute="bottom" id="XHt-Jp-Gv1"/>
                                     <constraint firstItem="Jpl-Qo-b0N" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" id="aqO-uy-1UZ"/>
                                     <constraint firstItem="ScC-vN-a2a" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" constant="80" id="c0m-Su-8NZ"/>
                                     <constraint firstItem="0bz-bK-sEf" firstAttribute="centerY" secondItem="0U7-NV-2BZ" secondAttribute="centerY" constant="1" id="cAl-xH-zZd"/>
                                     <constraint firstItem="4CE-78-WqF" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" id="fTd-VJ-SVV"/>
-                                    <constraint firstAttribute="bottom" secondItem="SrA-v6-zUa" secondAttribute="bottom" id="lL1-qE-NSa"/>
                                     <constraint firstAttribute="trailing" secondItem="Jpl-Qo-b0N" secondAttribute="trailing" id="lOW-8N-En3"/>
                                     <constraint firstItem="ScC-vN-a2a" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" id="mfY-zr-DzS"/>
                                     <constraint firstItem="0bz-bK-sEf" firstAttribute="centerX" secondItem="0U7-NV-2BZ" secondAttribute="centerX" id="qeU-5J-oTI"/>
                                     <constraint firstAttribute="trailing" secondItem="VCu-Ft-MJ8" secondAttribute="trailing" id="sgA-Ye-IWp"/>
-                                    <constraint firstItem="hxQ-Xm-BOA" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" id="tHD-rF-NAU"/>
                                     <constraint firstItem="4CE-78-WqF" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" constant="-9" id="tSg-se-NB4"/>
-                                    <constraint firstAttribute="bottom" secondItem="0U7-NV-2BZ" secondAttribute="bottom" id="ubN-af-sM9"/>
                                     <constraint firstItem="d4h-6o-O5x" firstAttribute="centerY" secondItem="ScC-vN-a2a" secondAttribute="centerY" constant="21.75" id="xj3-KY-Q9c"/>
                                     <constraint firstItem="2CA-ws-Axi" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" id="zHX-2n-SRi"/>
                                     <constraint firstAttribute="trailing" secondItem="90I-fc-2p4" secondAttribute="trailing" constant="-66" id="zSv-wd-3hn"/>
