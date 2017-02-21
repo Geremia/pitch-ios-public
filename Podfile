@@ -11,6 +11,7 @@ target 'Pitch' do
   pod 'ScrollableGraphView'
   pod 'Siren'
   pod 'TwicketSegmentedControl'
+  pod 'PureLayout'
 end
 
 post_install do |installer|

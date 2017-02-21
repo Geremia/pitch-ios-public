@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PureLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,37 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4C77DB053FCE177A78426622D0E51EC1</key>
+		<key>2B84EFCA807B0B997F48C75913A7D345</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>75AB92CB5997DBE17D3342A2D7C0180A</key>
+		<key>2FEF45DC71ED41DB04798C043BB23D7D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BDDB01486159D879F56D7382A360E5AD</key>
+		<key>50885A6E20028C66A4E2D20C1715D091</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF4C58B64D80312B0FBC501F78B1E71E</key>
+		<key>869006BDEB57931340CDFAE2606B1478</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E376DB82CBA9A8B5BA05373A91FB41DA</key>
+		<key>AB0959A1AC0FBEE1190AB3BB916DD028</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E4D1A4C090028F46D1023B0F574B72E8</key>
+		<key>AE98CAD60E8E955334647F802ACAC9A2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E867946A272802EAA8D618048753CE9A</key>
+		<key>B1C491A9C485DC6E929924940299E198</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5647780AB93D374ACB8BF3455BC60BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
