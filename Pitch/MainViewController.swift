@@ -43,7 +43,6 @@ class MainViewController: UIViewController {
     
     // MARK: - Tuner Variables
     
-    var tuner: Tuner = Tuner.sharedInstance
     var tunerSetup: Bool = false
     
     var pitchPipeOpen: Bool = false

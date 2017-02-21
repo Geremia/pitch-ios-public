@@ -134,7 +134,7 @@ class Tuner: NSObject {
      - parameter smoothing: Exponential smoothing factor, 0 < smoothing < 1
      
      */
-    public init(threshold: Double = 0.0, smoothing: Float = 0.0) {
+    private init(threshold: Double = 0.0, smoothing: Float = 0.0) {
         self.threshold = min(abs(threshold), 1.0)
         self.smoothing = min(abs(smoothing), 1.0)
         self.previousAmplitude = 0.0
@@ -142,8 +142,6 @@ class Tuner: NSObject {
         microphone = AKMicrophone()
         analyzer = AKFrequencyTracker(microphone, hopSize: 512, peakCount: 100)
         silence = AKBooster(analyzer, gain: 0.0)
-        
-        SoundGenerator.sharedInstance.setUp()
     }
     
     func registerNotifications() {

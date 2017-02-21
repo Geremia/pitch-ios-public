@@ -39,9 +39,8 @@ extension MainViewController {
     
     func setupTuner() {
         tunerSetup = true
-        tuner = Tuner()
-        tuner.delegate = self
-        tuner.start()
+        Tuner.sharedInstance.delegate = self
+        Tuner.sharedInstance.start()
     }
     
     func setupUI() {
@@ -66,7 +65,7 @@ extension MainViewController {
     }
     
     func setupPlot() {
-        plot = AKNodeOutputPlot(tuner.microphone, frame: audioPlot.bounds)
+        plot = AKNodeOutputPlot(Tuner.sharedInstance.microphone, frame: audioPlot.bounds)
         plot.plotType = .rolling
         plot.shouldFill = false
         plot.shouldMirror = true

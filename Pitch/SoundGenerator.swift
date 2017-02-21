@@ -13,8 +13,7 @@ class SoundGenerator : NSObject {
     
     static let sharedInstance: SoundGenerator = SoundGenerator()
     
-    private var bank: AKOscillatorBank!
-    private var mixer: AKMixer!
+    var bank: AKOscillatorBank!
     private var octaveConstant: Int = 60
     private var channelsOn: [Int] = [] {
         didSet {
@@ -22,43 +21,14 @@ class SoundGenerator : NSObject {
         }
     }
     
-    var tuner: Tuner = Tuner.sharedInstance
-    var isSetup: Bool = false
-    
-    func setUp() {
-        self.mixer = AKMixer(tuner.silence)
-        
+    private override init() {
         bank = AKOscillatorBank(waveform: AKTable(.triangle), attackDuration: 0.06, releaseDuration: 0.06)
-        mixer.connect(bank)
-        
-        AudioKit.output = mixer
-        try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
-        if !AudioKit.audioInUseByOtherApps() {
-            AudioKit.start()
-            isSetup = true
-        }
+        super.init()
         
         setPitchStandard()
         NotificationCenter.default.addObserver(self, selector: #selector(setPitchStandard), name: .pitchStandardChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
     }
-    
-    func audioRouteChanged(_ notification: Notification) {
-        let audioRouteChangeReason = notification.userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
-        print(audioRouteChangeReason)
-        
-        switch audioRouteChangeReason {
-        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
-            return
-        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
-            return
-        default:
-            if !isSetup {
-                self.setUp()
-            }
-        }
-    }
-    
+
     func playNoteOn(channelNumber: Int) {
         let concertOffset = UserDefaults.standard.key().concertOffset
         let note = MIDINoteNumber(channelNumber + octaveConstant + concertOffset)
