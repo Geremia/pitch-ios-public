@@ -66,6 +66,7 @@ enum Note: Int, CustomStringConvertible {
      * concertOffset formatted as a string (i.e "+2" or "-5")
      */
     var concertOffsetString: String {
+        if concertOffset == 0 { return "concert" }
         return concertOffset < 0 ? "\(concertOffset)" : "+\(concertOffset)"
     }
 
