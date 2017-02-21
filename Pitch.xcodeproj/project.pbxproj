@@ -12,7 +12,6 @@
 		4C1642DC1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1642DB1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift */; };
 		4C1642DE1E3D3979003F0FB5 /* ShortcutIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1642DD1E3D3979003F0FB5 /* ShortcutIdentifier.swift */; };
 		4C1CCD391E42C93E00B06CD7 /* SnapContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CCD371E42C93E00B06CD7 /* SnapContainerViewController.swift */; };
-		4C1CCD3A1E42C93E00B06CD7 /* VerticalScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1CCD381E42C93E00B06CD7 /* VerticalScrollViewController.swift */; };
 		4C1FD5131DD117A700C1C6B9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1FD5121DD117A700C1C6B9 /* SettingsViewController.swift */; };
 		4C253C361D9FF7E900BD07D6 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C351D9FF7E900BD07D6 /* MainViewState.swift */; };
 		4C253C7D1DAEDF0800BD07D6 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C7C1DAEDF0800BD07D6 /* Day.swift */; };
@@ -90,7 +89,6 @@
 		4C1642DB1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Delegates.swift"; sourceTree = "<group>"; };
 		4C1642DD1E3D3979003F0FB5 /* ShortcutIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutIdentifier.swift; sourceTree = "<group>"; };
 		4C1CCD371E42C93E00B06CD7 /* SnapContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapContainerViewController.swift; sourceTree = "<group>"; };
-		4C1CCD381E42C93E00B06CD7 /* VerticalScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalScrollViewController.swift; sourceTree = "<group>"; };
 		4C1FD5121DD117A700C1C6B9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4C253C351D9FF7E900BD07D6 /* MainViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
 		4C253C7C1DAEDF0800BD07D6 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 			children = (
 				4CDEB5781DD11B68005301BF /* VerticalSlideAnimationController.swift */,
 				4C1CCD371E42C93E00B06CD7 /* SnapContainerViewController.swift */,
-				4C1CCD381E42C93E00B06CD7 /* VerticalScrollViewController.swift */,
 			);
 			name = Transitions;
 			sourceTree = "<group>";
@@ -675,7 +672,6 @@
 				4C1CCD391E42C93E00B06CD7 /* SnapContainerViewController.swift in Sources */,
 				4CFE125B1DECF452005EE1BF /* MainViewController+Analytics.swift in Sources */,
 				4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */,
-				4C1CCD3A1E42C93E00B06CD7 /* VerticalScrollViewController.swift in Sources */,
 				4CE5F0C31E117C4700EF0AB3 /* ScoreCircle.swift in Sources */,
 				4C253C361D9FF7E900BD07D6 /* MainViewState.swift in Sources */,
 				4C1642DE1E3D3979003F0FB5 /* ShortcutIdentifier.swift in Sources */,

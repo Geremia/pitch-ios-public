@@ -33,9 +33,10 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     var veritcalViews = [UIViewController]()
     
     var initialContentOffset = CGPoint() // scrollView initial offset
-    var middleVertScrollVc: VerticalScrollViewController!
     var scrollView: UIScrollView!
     var delegate: SnapContainerViewControllerDelegate?
+    
+    var currentPage: Int = 1
     
     class func containerViewWith(_ leftVC: UIViewController,
                                  middleVC: UIViewController,
@@ -59,21 +60,59 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         setupNotifications()
-        setupVerticalScrollView()
         setupHorizontalScrollView()
     }
     
     func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged(_:)), name: .UIDeviceOrientationDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(shortcutOpenToneGenerator(_:)), name: .openToneGenerator, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(shortcutOpenAnalytics(_:)), name: .openAnalytics, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged(_:)), name: .darkModeChanged, object: nil)
     }
     
-    func setupVerticalScrollView() {
-        middleVertScrollVc = VerticalScrollViewController.verticalScrollVcWith(middleVc: middleVc,
-                                                                               topVc: topVc,
-                                                                               bottomVc: bottomVc)
-        delegate = middleVertScrollVc
+    func orientationChanged(_ notification: Notification) {
+        let orientation = UIDevice.current.orientation
+        if orientation == .faceUp || orientation == .faceDown { return }
+        
+        let view = (
+            x: self.view.bounds.origin.x,
+            y: self.view.bounds.origin.y,
+            width: self.view.bounds.width,
+            height: self.view.bounds.height
+        )
+        
+        UIView.transition(with: self.view, duration: 0.2, options: [.transitionCrossDissolve], animations: {
+            self.scrollView.frame = CGRect(x: view.x,
+                                      y: view.y,
+                                      width: view.width + 16,
+                                      height: view.height
+            )
+            
+            let spacing: CGFloat = 16
+            let scrollWidth  = (3 * view.width) + (3 * spacing)
+            let scrollHeight  = view.height
+            self.scrollView.contentSize = CGSize(width: scrollWidth, height: scrollHeight)
+            
+            self.leftVc.view.frame = CGRect(x: 0,
+                                       y: 0,
+                                       width: view.width,
+                                       height: view.height
+            )
+            
+            self.middleVc.view.frame = CGRect(x: view.width + spacing,
+                                         y: 0,
+                                         width: view.width,
+                                         height: view.height
+            )
+            
+            self.rightVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
+                                        y: 0,
+                                        width: view.width,
+                                        height: view.height
+            )
+            
+            self.scrollView.contentOffset.x = CGFloat(self.currentPage) * view.width + CGFloat(self.currentPage) * spacing
+        }, completion: nil)
     }
     
     func setupHorizontalScrollView() {
@@ -98,7 +137,8 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         
         self.view.addSubview(scrollView)
         
-        let scrollWidth  = (3 * view.width) + 48
+        let spacing: CGFloat = 16
+        let scrollWidth  = (3 * view.width) + (3 * spacing)
         let scrollHeight  = view.height
         scrollView.contentSize = CGSize(width: scrollWidth, height: scrollHeight)
         
@@ -108,31 +148,31 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
                                    height: view.height
         )
         
-        middleVertScrollVc.view.frame = CGRect(x: view.width + 16,
+        middleVc.view.frame = CGRect(x: view.width + spacing,
                                                y: 0,
                                                width: view.width,
                                                height: view.height
         )
         
-        rightVc.view.frame = CGRect(x: (2 * view.width) + 32,
+        rightVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
                                     y: 0,
                                     width: view.width,
                                     height: view.height
         )
         
         addChildViewController(leftVc)
-        addChildViewController(middleVertScrollVc)
+        addChildViewController(middleVc)
         addChildViewController(rightVc)
         
         scrollView.addSubview(leftVc.view)
-        scrollView.addSubview(middleVertScrollVc.view)
+        scrollView.addSubview(middleVc.view)
         scrollView.addSubview(rightVc.view)
         
         leftVc.didMove(toParentViewController: self)
-        middleVertScrollVc.didMove(toParentViewController: self)
+        middleVc.didMove(toParentViewController: self)
         rightVc.didMove(toParentViewController: self)
         
-        scrollView.contentOffset.x = middleVertScrollVc.view.frame.origin.x
+        scrollView.contentOffset.x = middleVc.view.frame.origin.x
         scrollView.delegate = self
     }
     
@@ -148,13 +188,12 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             // directional lock, that allows you to scroll in only one direction at any given time
             self.scrollView!.setContentOffset(newOffset, animated:  false)
         }
-        
-        
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let page = scrollView.contentOffset.x / scrollView.frame.width
-        switch page {
+        currentPage = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        
+        switch currentPage {
         case 0:
             let main: MainViewController = middleVc as! MainViewController
             main.shouldUpdateUI = false
