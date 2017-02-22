@@ -93,10 +93,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     override func updateViewConstraints() {
         if !didSetupConstraints {
             orientationDependentConstraints = portraitConstraints()
@@ -173,6 +169,9 @@ class MainViewController: UIViewController {
             analyticsButton.autoPinEdge(toSuperviewEdge: .right)
             
             tunerView.autoPinEdge(.bottom, to: .top, of: pitchPipeView)
+            tunerView.autoPinEdge(toSuperviewEdge: .trailing)
+            pitchPipeView.autoPinEdge(toSuperviewEdge: .leading)
+            pitchPipeView.autoSetDimension(.height, toSize: 231)
         }
     }
     
