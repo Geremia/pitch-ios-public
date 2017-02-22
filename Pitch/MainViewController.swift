@@ -168,6 +168,11 @@ class MainViewController: UIViewController {
             analyticsButton.autoPinEdge(toSuperviewEdge: .bottom)
             analyticsButton.autoPinEdge(toSuperviewEdge: .right)
             
+            let buttonHeight: CGFloat = 54
+            for button in pitchPipeView.pitchButtons {
+                button.autoSetDimension(.height, toSize: buttonHeight)
+            }
+            
             tunerView.autoPinEdge(.bottom, to: .top, of: pitchPipeView)
             tunerView.autoPinEdge(toSuperviewEdge: .trailing)
             pitchPipeView.autoPinEdge(toSuperviewEdge: .leading)
@@ -184,10 +189,16 @@ class MainViewController: UIViewController {
             analyticsButton.autoPinEdge(toSuperviewEdge: .top)
             analyticsButton.autoPinEdge(toSuperviewEdge: .right)
             
+            let rows: CGFloat = 4
+            let buttonHeight = view.bounds.height / rows
+            for button in pitchPipeView.pitchButtons {
+                button.autoSetDimension(.height, toSize: buttonHeight)
+            }
+            
             tunerView.autoPinEdge(toSuperviewEdge: .bottom)
             tunerView.autoPinEdge(.trailing, to: .leading, of: pitchPipeView)
             pitchPipeView.autoPinEdge(toSuperviewEdge: .top)
-            pitchPipeView.autoSetDimension(.width, toSize: 375)
+            pitchPipeView.autoSetDimension(.width, toSize: 260)
         }
     }
 
