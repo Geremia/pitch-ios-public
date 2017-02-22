@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
     
     // MARK: - Tuner Outlets
     
+    @IBOutlet weak var tunerView: UIView!
+    
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var centsLabel: UILabel!
     @IBOutlet weak var octaveLabel: UILabel!
@@ -37,8 +39,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var audioPlot: EZAudioPlot!
     
-    @IBOutlet var orientationDependentConstraints: [NSLayoutConstraint]!
-    
     // MARK: - Pitch Pipe Outlets
     
     @IBOutlet weak var pitchPipeView: PitchPipeView!
@@ -57,6 +57,8 @@ class MainViewController: UIViewController {
     var plot: AKNodeOutputPlot!
     
     var currentOrientation: MainViewOrientation = .portrait
+    var orientationDependentConstraints: [NSLayoutConstraint] = []
+    var didSetupConstraints: Bool = false
     
     // MARK: - Analytics Variables
     
@@ -93,6 +95,18 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override func updateViewConstraints() {
+        if !didSetupConstraints {
+            orientationDependentConstraints = portraitConstraints()
+            let constraints = orientationDependentConstraints as NSArray
+            constraints.autoInstallConstraints()
+            
+            didSetupConstraints = true
+        }
+        
+        super.updateViewConstraints()
     }
     
     override func viewDidLayoutSubviews() {
@@ -132,20 +146,18 @@ class MainViewController: UIViewController {
         let orientation: MainViewOrientation = size.height > size.width ? .portrait : .landscape
         
         if orientation != currentOrientation && orientation != .unspecified {
-            var constraints: NSArray = orientationDependentConstraints as NSArray
-            constraints.autoRemoveConstraints()
+            orientationDependentConstraints.autoRemoveConstraints()
             
             orientationDependentConstraints = orientation == .portrait ? portraitConstraints() : landscapeConstraints()
-            constraints = orientationDependentConstraints as NSArray
             currentOrientation = orientation
             
             if let coordinator = coordinator {
                 coordinator.animate(alongsideTransition: { context in
-                    constraints.autoInstallConstraints()
+                    self.orientationDependentConstraints.autoInstallConstraints()
                     self.view.layoutIfNeeded()
                 }, completion: nil)
             } else {
-                constraints.autoInstallConstraints()
+                self.orientationDependentConstraints.autoInstallConstraints()
                 view.layoutIfNeeded()
             }
         }
@@ -153,23 +165,30 @@ class MainViewController: UIViewController {
     
     func portraitConstraints() -> [NSLayoutConstraint] {
         return NSLayoutConstraint.autoCreateConstraintsWithoutInstalling {
-            settingsButton.autoPinEdge(toSuperviewMargin: .bottom)
-            settingsButton.autoPinEdge(toSuperviewMargin: .left)
-            pitchPipeButton.autoPinEdge(toSuperviewMargin: .bottom)
-            pitchPipeButton.autoAlignAxis(toSuperviewAxis: .horizontal)
-            analyticsButton.autoPinEdge(toSuperviewMargin: .bottom)
-            analyticsButton.autoPinEdge(toSuperviewMargin: .right)
+            settingsButton.autoPinEdge(toSuperviewEdge: .bottom)
+            settingsButton.autoPinEdge(toSuperviewEdge: .left)
+            pitchPipeButton.autoPinEdge(toSuperviewEdge: .bottom)
+            pitchPipeButton.autoAlignAxis(toSuperviewAxis: .vertical)
+            analyticsButton.autoPinEdge(toSuperviewEdge: .bottom)
+            analyticsButton.autoPinEdge(toSuperviewEdge: .right)
+            
+            tunerView.autoPinEdge(.bottom, to: .top, of: pitchPipeView)
         }
     }
     
     func landscapeConstraints() -> [NSLayoutConstraint] {
         return NSLayoutConstraint.autoCreateConstraintsWithoutInstalling {
-            settingsButton.autoPinEdge(toSuperviewMargin: .bottom)
-            settingsButton.autoPinEdge(toSuperviewMargin: .right)
-            pitchPipeButton.autoPinEdge(toSuperviewMargin: .right)
-            pitchPipeButton.autoAlignAxis(toSuperviewAxis: .vertical)
-            analyticsButton.autoPinEdge(toSuperviewMargin: .top)
-            analyticsButton.autoPinEdge(toSuperviewMargin: .right)
+            settingsButton.autoPinEdge(toSuperviewEdge: .bottom)
+            settingsButton.autoPinEdge(toSuperviewEdge: .right)
+            pitchPipeButton.autoPinEdge(toSuperviewEdge: .right)
+            pitchPipeButton.autoAlignAxis(toSuperviewAxis: .horizontal)
+            analyticsButton.autoPinEdge(toSuperviewEdge: .top)
+            analyticsButton.autoPinEdge(toSuperviewEdge: .right)
+            
+            tunerView.autoPinEdge(toSuperviewEdge: .bottom)
+            tunerView.autoPinEdge(.trailing, to: .leading, of: pitchPipeView)
+            pitchPipeView.autoPinEdge(toSuperviewEdge: .top)
+            pitchPipeView.autoSetDimension(.width, toSize: 375)
         }
     }
 

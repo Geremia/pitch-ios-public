@@ -142,6 +142,16 @@ extension AudioKit {
     }
 }
 
+extension Collection where Iterator.Element == NSLayoutConstraint {
+    func autoInstallConstraints() {
+        (self as! NSArray).autoInstallConstraints()
+    }
+    
+    func autoRemoveConstraints() {
+        (self as! NSArray).autoRemoveConstraints()
+    }
+}
+
 func log2(val: Double) -> Double {
     return log(val)/log(2.0)
 }
