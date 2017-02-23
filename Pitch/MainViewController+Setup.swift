@@ -44,7 +44,6 @@ extension MainViewController {
     }
     
     func setupUI() {
-        self.pitchPipeBottomConstraint.constant = -231
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
         

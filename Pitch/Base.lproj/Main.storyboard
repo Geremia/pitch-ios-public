@@ -1229,8 +1229,8 @@
                             <constraint firstItem="QIG-pk-c1y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Iuy-yh-qu3"/>
                             <constraint firstItem="iVv-DE-UIr" firstAttribute="top" secondItem="XBl-z4-1FC" secondAttribute="bottom" placeholder="YES" id="R8o-LY-pPX"/>
                             <constraint firstItem="H9O-L8-opE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WeZ-AZ-MaF"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iVv-DE-UIr" secondAttribute="bottom" id="XzX-Wk-8aq"/>
-                            <constraint firstAttribute="trailing" secondItem="iVv-DE-UIr" secondAttribute="trailing" id="jbS-fJ-RDk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iVv-DE-UIr" secondAttribute="bottom" placeholder="YES" id="XzX-Wk-8aq"/>
+                            <constraint firstAttribute="trailing" secondItem="iVv-DE-UIr" secondAttribute="trailing" placeholder="YES" id="jbS-fJ-RDk"/>
                             <constraint firstItem="iVv-DE-UIr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" placeholder="YES" id="ouj-QQ-0AY"/>
                         </constraints>
                     </view>
@@ -1245,7 +1245,6 @@
                         <outlet property="movingLineHeight" destination="IK5-7G-sUk" id="Y1d-L5-EVT"/>
                         <outlet property="noteLabel" destination="4CE-78-WqF" id="2pw-wg-JUd"/>
                         <outlet property="octaveLabel" destination="d4h-6o-O5x" id="i8V-98-L97"/>
-                        <outlet property="pitchPipeBottomConstraint" destination="XzX-Wk-8aq" id="pna-oa-XBu"/>
                         <outlet property="pitchPipeButton" destination="hxQ-Xm-BOA" id="qRN-df-NSz"/>
                         <outlet property="pitchPipeView" destination="iVv-DE-UIr" id="Zog-24-HHy"/>
                         <outlet property="portraitMovingLineCenterConstraint" destination="MJM-rE-AOe" id="1tX-M1-qEh"/>

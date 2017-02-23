@@ -39,10 +39,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var audioPlot: EZAudioPlot!
     
-    // MARK: - Pitch Pipe Outlets
-    
     @IBOutlet weak var pitchPipeView: PitchPipeView!
-    @IBOutlet weak var pitchPipeBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Tuner Variables
     
@@ -58,6 +55,7 @@ class MainViewController: UIViewController {
     
     var currentOrientation: MainViewOrientation = .portrait
     var orientationDependentConstraints: [NSLayoutConstraint] = []
+    var pitchPipeDisplayConstraint: NSLayoutConstraint!
     var didSetupConstraints: Bool = false
     
     // MARK: - Analytics Variables
@@ -175,8 +173,13 @@ class MainViewController: UIViewController {
             
             tunerView.autoPinEdge(.bottom, to: .top, of: pitchPipeView)
             tunerView.autoPinEdge(toSuperviewEdge: .trailing)
+            
             pitchPipeView.autoPinEdge(toSuperviewEdge: .leading)
+            pitchPipeView.autoPinEdge(toSuperviewEdge: .trailing)
             pitchPipeView.autoSetDimension(.height, toSize: 231)
+            
+            let inset: CGFloat = pitchPipeOpen ? 0 : -231
+            pitchPipeDisplayConstraint = pitchPipeView.autoPinEdge(toSuperviewEdge: .bottom, withInset: inset)
         }
     }
     
@@ -197,8 +200,13 @@ class MainViewController: UIViewController {
             
             tunerView.autoPinEdge(toSuperviewEdge: .bottom)
             tunerView.autoPinEdge(.trailing, to: .leading, of: pitchPipeView)
+            
             pitchPipeView.autoPinEdge(toSuperviewEdge: .top)
+            pitchPipeView.autoPinEdge(toSuperviewEdge: .bottom)
             pitchPipeView.autoSetDimension(.width, toSize: 260)
+            
+            let inset: CGFloat = pitchPipeOpen ? 0 : -260
+            pitchPipeDisplayConstraint = pitchPipeView.autoPinEdge(toSuperviewEdge: .right, withInset: inset)
         }
     }
 
@@ -225,7 +233,7 @@ class MainViewController: UIViewController {
     func openPitchPipe() {
         pitchPipeOpen = true
         pitchPipeButton.setImage(state.downArrowImage, for: .normal)
-        pitchPipeBottomConstraint.constant = 0
+        pitchPipeDisplayConstraint.constant = 0
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
             self.view.layoutIfNeeded()
@@ -235,7 +243,7 @@ class MainViewController: UIViewController {
     func closePitchPipe() {
         pitchPipeOpen = false
         pitchPipeButton.setImage(state.audioWaveImage, for: .normal)
-        pitchPipeBottomConstraint.constant = -231
+        pitchPipeDisplayConstraint.constant = currentOrientation == .portrait ? 231 : 260
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
             self.view.layoutIfNeeded()
