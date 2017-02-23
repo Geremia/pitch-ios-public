@@ -97,14 +97,15 @@ extension MainViewController {
     func setViewTo(newState: MainViewState) {
         if newState != state {
             state = newState
-            animateViewTo(newState: newState)
+            transitionViewTo(newState: newState, animated: true)
         }
     }
     
-    func animateViewTo(newState: MainViewState) {
+    func transitionViewTo(newState: MainViewState, animated: Bool) {
         let options: UIViewAnimationOptions = [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction]
+        let duration: TimeInterval = animated ? 0.2 : 0
         
-        UIView.transition(with: self.noteLabel, duration: 0.2, options: options, animations: {
+        UIView.transition(with: self.noteLabel, duration: duration, options: options, animations: {
             self.noteLabel.textColor = newState.lineTextColor
             self.noteLabel.font = newState.font
             self.centsLabel.textColor = newState.lineTextColor
@@ -119,21 +120,24 @@ extension MainViewController {
             }
         }, completion: { _ in })
         
-        UIView.transition(with: self.settingsButton, duration: 0.2, options: options, animations: {
+        UIView.transition(with: self.settingsButton, duration: duration, options: options, animations: {
             self.settingsButton.setImage(newState.menuImage, for: .normal)
         }, completion: { _ in })
         
-        UIView.transition(with: self.pitchPipeButton, duration: 0.2, options: options, animations: {
+        UIView.transition(with: self.pitchPipeButton, duration: duration, options: options, animations: {
             let image = self.pitchPipeOpen ? newState.downArrowImage : newState.audioWaveImage
             self.pitchPipeButton.setImage(image, for: .normal)
         }, completion: { _ in })
         
-        UIView.transition(with: self.analyticsButton, duration: 0.2, options: options, animations: {
+        UIView.transition(with: self.analyticsButton, duration: duration, options: options, animations: {
             self.analyticsButton.setImage(newState.analyticsImage, for: .normal)
         }, completion: { _ in })
         
-        UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
+        UIView.animate(withDuration: duration, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
             self.view.backgroundColor = newState.viewBackgroundColor
+            for view in self.buttonBackgrounds {
+                view.backgroundColor = newState.viewBackgroundColor
+            }
             for line in self.tickmarks {
                 line.backgroundColor = newState.lineTextColor
             }

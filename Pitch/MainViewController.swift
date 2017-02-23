@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     // MARK: - Tuner Outlets
     
     @IBOutlet weak var tunerView: UIView!
+    @IBOutlet var buttonBackgrounds: [UIView]!
     
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var centsLabel: UILabel!
@@ -60,7 +61,7 @@ class MainViewController: UIViewController {
     
     // MARK: - Analytics Variables
     
-    var today: Day!
+    lazy var today: Day = DataManager.today()
     
     var previousPitchWasInTune: Bool = false
     var pitchStartTime: Date?
@@ -74,8 +75,6 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        today = DataManager.today()
         
         setupNotifications()
         checkRecordPermission()
@@ -108,7 +107,7 @@ class MainViewController: UIViewController {
         }
         
         state = .outOfTune
-        animateViewTo(newState: .outOfTune)
+        transitionViewTo(newState: .outOfTune, animated: false)
         resetMovingLine()
     }
 

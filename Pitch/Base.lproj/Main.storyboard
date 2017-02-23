@@ -704,23 +704,31 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxQ-Xm-BOA">
-                                        <rect key="frame" x="147" y="360" width="82" height="76"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="82" id="J8l-2b-b0a"/>
-                                            <constraint firstAttribute="height" constant="76" id="S8L-cJ-iCN"/>
-                                        </constraints>
-                                        <state key="normal" image="audio_wave"/>
-                                        <connections>
-                                            <action selector="pitchPipePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Um-1G-vOm"/>
-                                        </connections>
-                                    </button>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are 0.0 cents flat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-ws-Axi">
-                                        <rect key="frame" x="110.5" y="287" width="155" height="20"/>
+                                        <rect key="frame" x="110" y="287" width="155" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4h-6o-O5x">
+                                        <rect key="frame" x="218" y="221" width="19" height="38.5"/>
+                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBl-9v-Ye4">
+                                        <rect key="frame" x="16" y="373" width="50" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Jwy-eq-0Ti"/>
+                                            <constraint firstAttribute="height" constant="50" id="VCz-jC-9ej"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrA-v6-zUa">
                                         <rect key="frame" x="0.0" y="360" width="82" height="76"/>
                                         <constraints>
@@ -732,12 +740,43 @@
                                             <action selector="settingsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4ZN-5J-RgG"/>
                                         </connections>
                                     </button>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4h-6o-O5x">
-                                        <rect key="frame" x="218" y="220.5" width="19" height="38.5"/>
-                                        <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="32"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZD-rN-9fr">
+                                        <rect key="frame" x="163" y="373" width="50" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="hzD-MM-edV"/>
+                                            <constraint firstAttribute="height" constant="50" id="ra2-7a-d2l"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxQ-Xm-BOA">
+                                        <rect key="frame" x="147" y="360" width="82" height="76"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="82" id="J8l-2b-b0a"/>
+                                            <constraint firstAttribute="height" constant="76" id="S8L-cJ-iCN"/>
+                                        </constraints>
+                                        <state key="normal" image="audio_wave"/>
+                                        <connections>
+                                            <action selector="pitchPipePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Um-1G-vOm"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8tw-nh-3i7">
+                                        <rect key="frame" x="309" y="373" width="50" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="Gbe-B8-x9l"/>
+                                            <constraint firstAttribute="height" constant="50" id="qYE-Y3-z6u"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bz-bK-sEf" customClass="ScoreCircle" customModule="Pitch" customModuleProvider="target">
                                         <rect key="frame" x="316" y="381" width="35" height="35"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -777,7 +816,10 @@
                                     <constraint firstItem="eFM-fb-ftt" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" id="3dg-Zb-N8j"/>
                                     <constraint firstAttribute="bottom" secondItem="90I-fc-2p4" secondAttribute="bottom" constant="28" id="4Sv-V6-tBb"/>
                                     <constraint firstItem="SrA-v6-zUa" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" placeholder="YES" id="7Ew-k3-lEo"/>
+                                    <constraint firstItem="GZD-rN-9fr" firstAttribute="centerX" secondItem="hxQ-Xm-BOA" secondAttribute="centerX" id="8Ob-lr-WFT"/>
+                                    <constraint firstItem="8tw-nh-3i7" firstAttribute="centerY" secondItem="0U7-NV-2BZ" secondAttribute="centerY" id="9cX-SI-Jw4"/>
                                     <constraint firstItem="VCu-Ft-MJ8" firstAttribute="top" secondItem="XBl-z4-1FC" secondAttribute="top" id="EPW-df-75l"/>
+                                    <constraint firstItem="VBl-9v-Ye4" firstAttribute="centerX" secondItem="SrA-v6-zUa" secondAttribute="centerX" id="HHe-F9-4Ho"/>
                                     <constraint firstAttribute="bottom" secondItem="0U7-NV-2BZ" secondAttribute="bottom" placeholder="YES" id="Hm4-ED-Iyc"/>
                                     <constraint firstAttribute="bottom" secondItem="SrA-v6-zUa" secondAttribute="bottom" placeholder="YES" id="M9k-9x-o2M"/>
                                     <constraint firstItem="Jpl-Qo-b0N" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" id="MJM-rE-AOe"/>
@@ -789,10 +831,13 @@
                                     <constraint firstItem="0bz-bK-sEf" firstAttribute="centerY" secondItem="0U7-NV-2BZ" secondAttribute="centerY" constant="1" id="cAl-xH-zZd"/>
                                     <constraint firstItem="hxQ-Xm-BOA" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" placeholder="YES" id="dvA-Qr-C1v"/>
                                     <constraint firstItem="4CE-78-WqF" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" id="fTd-VJ-SVV"/>
+                                    <constraint firstItem="VBl-9v-Ye4" firstAttribute="centerY" secondItem="SrA-v6-zUa" secondAttribute="centerY" id="gtn-oH-apa"/>
+                                    <constraint firstItem="8tw-nh-3i7" firstAttribute="centerX" secondItem="0U7-NV-2BZ" secondAttribute="centerX" id="heT-JY-sLT"/>
                                     <constraint firstAttribute="trailing" secondItem="Jpl-Qo-b0N" secondAttribute="trailing" id="lOW-8N-En3"/>
                                     <constraint firstItem="ScC-vN-a2a" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" id="mfY-zr-DzS"/>
                                     <constraint firstAttribute="trailing" secondItem="0U7-NV-2BZ" secondAttribute="trailing" placeholder="YES" id="nq3-Eo-or7"/>
                                     <constraint firstItem="0bz-bK-sEf" firstAttribute="centerX" secondItem="0U7-NV-2BZ" secondAttribute="centerX" id="qeU-5J-oTI"/>
+                                    <constraint firstItem="GZD-rN-9fr" firstAttribute="centerY" secondItem="hxQ-Xm-BOA" secondAttribute="centerY" id="s1c-S6-MkQ"/>
                                     <constraint firstAttribute="trailing" secondItem="VCu-Ft-MJ8" secondAttribute="trailing" id="sgA-Ye-IWp"/>
                                     <constraint firstItem="4CE-78-WqF" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" constant="-9" id="tSg-se-NB4"/>
                                     <constraint firstAttribute="bottom" secondItem="hxQ-Xm-BOA" secondAttribute="bottom" placeholder="YES" id="vPd-Tx-fst"/>
@@ -1257,6 +1302,9 @@
                         <outletCollection property="tickmarks" destination="eFM-fb-ftt" collectionClass="NSMutableArray" id="lDC-M8-82W"/>
                         <outletCollection property="tickmarkHeights" destination="xcy-xC-2cq" collectionClass="NSMutableArray" id="Ac1-3H-f97"/>
                         <outletCollection property="tickmarkHeights" destination="8km-9m-kzg" collectionClass="NSMutableArray" id="qAV-zU-NXc"/>
+                        <outletCollection property="buttonBackgrounds" destination="VBl-9v-Ye4" id="XA8-68-psK"/>
+                        <outletCollection property="buttonBackgrounds" destination="GZD-rN-9fr" id="R3T-4N-r60"/>
+                        <outletCollection property="buttonBackgrounds" destination="8tw-nh-3i7" id="KVp-pz-UWU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
