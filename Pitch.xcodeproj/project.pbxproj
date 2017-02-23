@@ -34,6 +34,7 @@
 		4CD74B631E50D7BB00F073B5 /* BleUUIDNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B601E50D7BB00F073B5 /* BleUUIDNames.swift */; };
 		4CD74B671E50E3AC00F073B5 /* Synchronize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B661E50E3AC00F073B5 /* Synchronize.swift */; };
 		4CD74B691E5BB48300F073B5 /* Mixer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B681E5BB48300F073B5 /* Mixer.swift */; };
+		4CD74B6B1E5E7F7500F073B5 /* MainViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B6A1E5E7F7500F073B5 /* MainViewController+Layout.swift */; };
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
@@ -111,6 +112,7 @@
 		4CD74B601E50D7BB00F073B5 /* BleUUIDNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BleUUIDNames.swift; sourceTree = "<group>"; };
 		4CD74B661E50E3AC00F073B5 /* Synchronize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronize.swift; sourceTree = "<group>"; };
 		4CD74B681E5BB48300F073B5 /* Mixer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mixer.swift; sourceTree = "<group>"; };
+		4CD74B6A1E5E7F7500F073B5 /* MainViewController+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+Layout.swift"; sourceTree = "<group>"; };
 		4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
 		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				4CD743C11E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift */,
 				4CFE12581DECF389005EE1BF /* MainViewController+Animations.swift */,
 				4CFE125A1DECF452005EE1BF /* MainViewController+Analytics.swift */,
+				4CD74B6A1E5E7F7500F073B5 /* MainViewController+Layout.swift */,
 				4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */,
 			);
 			name = Main;
@@ -666,6 +669,7 @@
 				4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */,
 				4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */,
 				4CD74B691E5BB48300F073B5 /* Mixer.swift in Sources */,
+				4CD74B6B1E5E7F7500F073B5 /* MainViewController+Layout.swift in Sources */,
 				4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */,
 				4CB3A2EF1E2D865600DE48AF /* ShareViewController.swift in Sources */,
 				4C253C7D1DAEDF0800BD07D6 /* Day.swift in Sources */,
