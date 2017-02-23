@@ -1071,6 +1071,13 @@
                                             <constraint firstAttribute="width" constant="1.5" id="UPu-fA-Mqd"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QrK-Tx-6RY">
+                                        <rect key="frame" x="-1" y="0.0" width="1" height="231"/>
+                                        <color key="backgroundColor" white="0.11" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="1.5" id="lyq-wx-aSr"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdS-c0-HDo">
                                         <rect key="frame" x="186" y="0.0" width="1.5" height="162"/>
                                         <color key="backgroundColor" white="0.11" alpha="1" colorSpace="calibratedWhite"/>
@@ -1131,9 +1138,11 @@
                                     <constraint firstItem="xMn-Ga-ntp" firstAttribute="top" secondItem="iVv-DE-UIr" secondAttribute="top" id="P67-ak-QUt"/>
                                     <constraint firstItem="7X0-Gb-hQu" firstAttribute="leading" secondItem="pdS-c0-HDo" secondAttribute="trailing" id="QaV-qf-kVs"/>
                                     <constraint firstItem="7X0-Gb-hQu" firstAttribute="top" secondItem="9lN-S2-eu2" secondAttribute="bottom" id="Qc0-uo-jup"/>
+                                    <constraint firstAttribute="bottom" secondItem="QrK-Tx-6RY" secondAttribute="bottom" id="RL9-cl-7s4"/>
                                     <constraint firstAttribute="trailing" secondItem="pXl-bA-mwo" secondAttribute="trailing" id="RVr-6p-Tqk"/>
                                     <constraint firstItem="f3Z-KM-eZm" firstAttribute="leading" secondItem="62A-OO-cWG" secondAttribute="trailing" id="Rm5-fa-1zr"/>
                                     <constraint firstItem="62A-OO-cWG" firstAttribute="top" secondItem="ncl-ur-K4Z" secondAttribute="bottom" id="SaQ-0O-lKp"/>
+                                    <constraint firstItem="QrK-Tx-6RY" firstAttribute="top" secondItem="iVv-DE-UIr" secondAttribute="top" id="Skc-Ic-gP5"/>
                                     <constraint firstAttribute="height" constant="231" placeholder="YES" id="Soq-sB-wnh"/>
                                     <constraint firstItem="lIB-Xl-EOF" firstAttribute="top" secondItem="MbL-VI-4Dh" secondAttribute="bottom" id="UnX-8Q-mK1"/>
                                     <constraint firstItem="Ioa-pp-9AR" firstAttribute="leading" secondItem="Psk-Hp-0dT" secondAttribute="trailing" id="Vk7-Im-TtM"/>
@@ -1155,6 +1164,7 @@
                                     <constraint firstItem="rLr-Rf-CQb" firstAttribute="leading" secondItem="iVv-DE-UIr" secondAttribute="leading" id="h3o-9b-D0k"/>
                                     <constraint firstItem="lIB-Xl-EOF" firstAttribute="top" secondItem="pdS-c0-HDo" secondAttribute="bottom" id="hvH-9V-NoC"/>
                                     <constraint firstItem="Ioa-pp-9AR" firstAttribute="width" secondItem="Wkx-HL-v4E" secondAttribute="width" id="i4d-ac-WYY"/>
+                                    <constraint firstItem="LMu-Sa-RXP" firstAttribute="leading" secondItem="QrK-Tx-6RY" secondAttribute="trailing" id="iNl-Ay-hw3"/>
                                     <constraint firstItem="f3Z-KM-eZm" firstAttribute="leading" secondItem="62A-OO-cWG" secondAttribute="trailing" id="jUf-dc-ALS"/>
                                     <constraint firstItem="wti-lJ-WDr" firstAttribute="width" secondItem="7X0-Gb-hQu" secondAttribute="width" id="ja2-MM-1CP"/>
                                     <constraint firstItem="rLr-Rf-CQb" firstAttribute="top" secondItem="iVv-DE-UIr" secondAttribute="top" id="l3I-0t-ucN"/>
@@ -1205,6 +1215,7 @@
                                     <outletCollection property="separators" destination="xMn-Ga-ntp" collectionClass="NSMutableArray" id="XXr-XX-H46"/>
                                     <outletCollection property="separators" destination="pdS-c0-HDo" collectionClass="NSMutableArray" id="pI8-23-Btz"/>
                                     <outletCollection property="separators" destination="MbL-VI-4Dh" collectionClass="NSMutableArray" id="RW0-gm-96L"/>
+                                    <outletCollection property="separators" destination="QrK-Tx-6RY" collectionClass="NSMutableArray" id="RlR-IO-TsF"/>
                                 </connections>
                             </view>
                         </subviews>
