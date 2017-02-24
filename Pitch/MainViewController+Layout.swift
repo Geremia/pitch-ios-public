@@ -40,9 +40,9 @@ extension MainViewController {
         
         if orientation != currentOrientation && orientation != .unspecified {
             orientationDependentConstraints.autoRemoveConstraints()
-            
             orientationDependentConstraints = orientation == .portrait ? portraitConstraints() : landscapeConstraints()
             currentOrientation = orientation
+            updatePitchPipeButtonImage()
             
             if let coordinator = coordinator {
                 coordinator.animate(alongsideTransition: { context in

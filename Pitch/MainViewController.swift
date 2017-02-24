@@ -133,7 +133,7 @@ class MainViewController: UIViewController {
     
     func openPitchPipe() {
         pitchPipeOpen = true
-        pitchPipeButton.setImage(state.downArrowImage, for: .normal)
+        updatePitchPipeButtonImage()
         pitchPipeDisplayConstraint.constant = 0
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
@@ -143,12 +143,17 @@ class MainViewController: UIViewController {
     
     func closePitchPipe() {
         pitchPipeOpen = false
-        pitchPipeButton.setImage(state.audioWaveImage, for: .normal)
+        updatePitchPipeButtonImage()
         pitchPipeDisplayConstraint.constant = currentOrientation == .portrait ? 231 : 260
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
+    }
+    
+    func updatePitchPipeButtonImage() {
+        let image: UIImage = pitchPipeOpen ? state.closePitchPipeImage : state.pitchPipeImage
+        pitchPipeButton.setImage(image, for: .normal)
     }
     
     // MARK: - Status Bar Style

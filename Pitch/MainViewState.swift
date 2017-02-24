@@ -125,20 +125,22 @@ enum MainViewState {
         }
     }
     
-    var downArrowImage: UIImage {
+    var closePitchPipeImage: UIImage {
+        let isPortrait = UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown
+        
         switch self {
         case .inTune:
-            return #imageLiteral(resourceName: "thick_down_arrow")
+            return isPortrait ? #imageLiteral(resourceName: "thick_down_arrow") : #imageLiteral(resourceName: "thick_forward_arrow")
         default:
             if darkModeOn {
-                return #imageLiteral(resourceName: "white_down_arrow")
+                return isPortrait ? #imageLiteral(resourceName: "white_down_arrow") : #imageLiteral(resourceName: "white_forward_arrow")
             } else {
-                return #imageLiteral(resourceName: "down_arrow")
+                return isPortrait ? #imageLiteral(resourceName: "down_arrow") : #imageLiteral(resourceName: "forward_arrow")
             }
         }
     }
     
-    var audioWaveImage: UIImage {
+    var pitchPipeImage: UIImage {
         switch self {
         case .inTune:
             return #imageLiteral(resourceName: "thick_piano")

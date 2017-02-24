@@ -125,7 +125,7 @@ extension MainViewController {
         }, completion: { _ in })
         
         UIView.transition(with: self.pitchPipeButton, duration: duration, options: options, animations: {
-            let image = self.pitchPipeOpen ? newState.downArrowImage : newState.audioWaveImage
+            let image = self.pitchPipeOpen ? newState.closePitchPipeImage : newState.pitchPipeImage
             self.pitchPipeButton.setImage(image, for: .normal)
         }, completion: { _ in })
         
