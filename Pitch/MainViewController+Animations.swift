@@ -197,7 +197,9 @@ extension MainViewController {
                 self.analyticsCircle.isHidden = true
                 Answers.logCustomEvent(withName: "Popup Appeared", customAttributes: nil)
                 self.snapContainer?.resetAnalyticsVC()
-                self.showPopup()
+                if Constants.currentOrientation == .portrait {
+                    self.showPopup()
+                }
             }
         }
         
