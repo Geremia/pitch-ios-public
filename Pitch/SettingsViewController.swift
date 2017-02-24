@@ -19,8 +19,10 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     @IBOutlet weak var settingsViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var settingsLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    
     @IBOutlet weak var improveLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
+    @IBOutlet weak var feedbackBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var instrumentKeyView: UIView!
     @IBOutlet weak var instrumentKeyBottomConstraint: NSLayoutConstraint!
@@ -29,6 +31,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     var settingsTableViewController: SettingsTableViewController?
     var snapContainer: SnapContainerViewController?
+    var currentOrientation: Orientation = .portrait
     
     // MARK: - Setup Views
 
@@ -44,6 +47,31 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         darkModeChanged()
         
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        updateConstraints(forSize: size, withTransitionCoordinator: coordinator)
+    }
+    
+    // MARK: - Orientation Switching
+    
+    func updateConstraints(forSize size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator?) {
+        let orientation: Orientation = size.height > size.width ? .portrait : .landscape
+        let isPortrait = orientation == .portrait
+        
+        if orientation != currentOrientation && orientation != .unspecified {
+            currentOrientation = orientation
+            if let coordinator = coordinator {
+                coordinator.animate(alongsideTransition: { context in
+                    self.feedbackBottomConstraint.constant = isPortrait ? 20 : -87
+                    self.view.layoutIfNeeded()
+                }, completion: nil)
+            } else {
+                feedbackBottomConstraint.constant = isPortrait ? 20 : -87
+                view.layoutIfNeeded()
+            }
+        }
     }
     
     // MARK: - Actions

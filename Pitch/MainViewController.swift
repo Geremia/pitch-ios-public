@@ -54,7 +54,7 @@ class MainViewController: UIViewController {
     
     var plot: AKNodeOutputPlot!
     
-    var currentOrientation: MainViewOrientation = .portrait
+    var currentOrientation: Orientation = .portrait
     var orientationDependentConstraints: [NSLayoutConstraint] = []
     var pitchPipeDisplayConstraint: NSLayoutConstraint!
     var didSetupConstraints: Bool = false

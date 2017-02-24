@@ -163,3 +163,9 @@ enum Damping: Int {
         }
     }
 }
+
+enum Orientation {
+    case portrait
+    case landscape
+    case unspecified
+}

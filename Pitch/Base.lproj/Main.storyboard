@@ -465,7 +465,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syJ-FW-TRB">
-                                        <rect key="frame" x="147.5" y="23" width="81" height="28"/>
+                                        <rect key="frame" x="147" y="23" width="81" height="28"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -572,6 +572,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="ah8-kU-ren" id="p0u-CH-7Lc"/>
+                        <outlet property="feedbackBottomConstraint" destination="fQ0-Jx-Uzy" id="PCq-yY-RdX"/>
                         <outlet property="feedbackButton" destination="vll-g5-o3Q" id="V1N-kr-RRT"/>
                         <outlet property="improveLabel" destination="QYQ-c3-sou" id="b3X-is-MOC"/>
                         <outlet property="instrumentKeyBottomConstraint" destination="5DS-40-sIU" id="Cuz-rS-Vef"/>
@@ -699,13 +700,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-78-WqF">
-                                        <rect key="frame" x="147" y="143" width="81.5" height="132"/>
+                                        <rect key="frame" x="147.5" y="143.5" width="81.5" height="132"/>
                                         <fontDescription key="fontDescription" name="Lato-Hairline" family="Lato" pointSize="110"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are 0.0 cents flat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-ws-Axi">
-                                        <rect key="frame" x="110" y="287" width="155" height="20"/>
+                                        <rect key="frame" x="110.5" y="287.5" width="155" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1302,9 +1303,9 @@
                         <outletCollection property="tickmarks" destination="eFM-fb-ftt" collectionClass="NSMutableArray" id="lDC-M8-82W"/>
                         <outletCollection property="tickmarkHeights" destination="xcy-xC-2cq" collectionClass="NSMutableArray" id="Ac1-3H-f97"/>
                         <outletCollection property="tickmarkHeights" destination="8km-9m-kzg" collectionClass="NSMutableArray" id="qAV-zU-NXc"/>
-                        <outletCollection property="buttonBackgrounds" destination="VBl-9v-Ye4" id="XA8-68-psK"/>
-                        <outletCollection property="buttonBackgrounds" destination="GZD-rN-9fr" id="R3T-4N-r60"/>
-                        <outletCollection property="buttonBackgrounds" destination="8tw-nh-3i7" id="KVp-pz-UWU"/>
+                        <outletCollection property="buttonBackgrounds" destination="VBl-9v-Ye4" collectionClass="NSMutableArray" id="XA8-68-psK"/>
+                        <outletCollection property="buttonBackgrounds" destination="GZD-rN-9fr" collectionClass="NSMutableArray" id="R3T-4N-r60"/>
+                        <outletCollection property="buttonBackgrounds" destination="8tw-nh-3i7" collectionClass="NSMutableArray" id="KVp-pz-UWU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1396,7 +1397,7 @@
                                                 </connections>
                                             </containerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuning Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFs-qz-IRR">
-                                                <rect key="frame" x="139.5" y="654" width="96" height="20"/>
+                                                <rect key="frame" x="140" y="654" width="96" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1738,7 +1739,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="1500"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your most out-of-tune pitches appear here. Use this to learn your instrument's tendencies and adjust while you play." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-3J-GZs">
-                                        <rect key="frame" x="120" y="467" width="260" height="86.5"/>
+                                        <rect key="frame" x="120" y="467.5" width="260" height="86.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="3J0-8l-J19"/>
                                         </constraints>
@@ -1766,7 +1767,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="3200"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use this graph to keep track of your progress over time. If there's not much here yet, come back in a few days!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3o-Gy-EXT">
-                                        <rect key="frame" x="120" y="1317" width="260" height="86.5"/>
+                                        <rect key="frame" x="120" y="1317.5" width="260" height="86.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="O1q-zG-zFx"/>
                                         </constraints>

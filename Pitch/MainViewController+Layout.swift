@@ -36,7 +36,7 @@ extension MainViewController {
     // MARK: - Orientation Switching
     
     func updateConstraints(forSize size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator?) {
-        let orientation: MainViewOrientation = size.height > size.width ? .portrait : .landscape
+        let orientation: Orientation = size.height > size.width ? .portrait : .landscape
         
         if orientation != currentOrientation && orientation != .unspecified {
             orientationDependentConstraints.autoRemoveConstraints()
@@ -108,10 +108,4 @@ extension MainViewController {
             pitchPipeDisplayConstraint = pitchPipeView.autoPinEdge(toSuperviewEdge: .right, withInset: inset)
         }
     }
-}
-
-enum MainViewOrientation {
-    case portrait
-    case landscape
-    case unspecified
 }
