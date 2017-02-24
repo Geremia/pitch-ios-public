@@ -126,7 +126,7 @@ enum MainViewState {
     }
     
     var closePitchPipeImage: UIImage {
-        let isPortrait = UIDevice.current.orientation == .portrait || UIDevice.current.orientation == .portraitUpsideDown
+        let isPortrait = Constants.currentOrientation == .portrait
         
         switch self {
         case .inTune:

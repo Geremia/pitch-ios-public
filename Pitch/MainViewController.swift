@@ -54,7 +54,6 @@ class MainViewController: UIViewController {
     
     var plot: AKNodeOutputPlot!
     
-    var currentOrientation: Orientation = .portrait
     var orientationDependentConstraints: [NSLayoutConstraint] = []
     var pitchPipeDisplayConstraint: NSLayoutConstraint!
     var didSetupConstraints: Bool = false
@@ -144,7 +143,7 @@ class MainViewController: UIViewController {
     func closePitchPipe() {
         pitchPipeOpen = false
         updatePitchPipeButtonImage()
-        pitchPipeDisplayConstraint.constant = currentOrientation == .portrait ? 231 : 260
+        pitchPipeDisplayConstraint.constant = Constants.currentOrientation == .portrait ? 231 : 260
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
             self.view.layoutIfNeeded()

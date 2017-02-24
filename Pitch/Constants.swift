@@ -10,4 +10,5 @@ import Foundation
 
 class Constants {
     static var pitchPipeIsPlayingSound: Bool = false
+    static var currentOrientation: Orientation = .portrait
 }

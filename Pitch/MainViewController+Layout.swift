@@ -38,10 +38,10 @@ extension MainViewController {
     func updateConstraints(forSize size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator?) {
         let orientation: Orientation = size.height > size.width ? .portrait : .landscape
         
-        if orientation != currentOrientation && orientation != .unspecified {
+        if orientation != Constants.currentOrientation && orientation != .unspecified {
             orientationDependentConstraints.autoRemoveConstraints()
             orientationDependentConstraints = orientation == .portrait ? portraitConstraints() : landscapeConstraints()
-            currentOrientation = orientation
+            Constants.currentOrientation = orientation
             updatePitchPipeButtonImage()
             
             if let coordinator = coordinator {

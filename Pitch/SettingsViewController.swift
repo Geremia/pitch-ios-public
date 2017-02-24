@@ -31,7 +31,6 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     var settingsTableViewController: SettingsTableViewController?
     var snapContainer: SnapContainerViewController?
-    var currentOrientation: Orientation = .portrait
     
     // MARK: - Setup Views
 
@@ -60,8 +59,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
         let orientation: Orientation = size.height > size.width ? .portrait : .landscape
         let isPortrait = orientation == .portrait
         
-        if orientation != currentOrientation && orientation != .unspecified {
-            currentOrientation = orientation
+        if orientation != Constants.currentOrientation && orientation != .unspecified {
             if let coordinator = coordinator {
                 coordinator.animate(alongsideTransition: { context in
                     self.feedbackBottomConstraint.constant = isPortrait ? 20 : -87
