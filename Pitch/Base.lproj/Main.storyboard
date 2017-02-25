@@ -1324,145 +1324,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i58-bQ-mFP" userLabel="Tutorial 1">
-                                <rect key="frame" x="-62" y="-544" width="500" height="1500"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="7GY-aw-hpb">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="1500"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viF-BB-HpV">
-                                        <rect key="frame" x="120" y="876" width="260" height="108"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="260" id="wF9-Au-mPp"/>
-                                        </constraints>
-                                        <string key="text">This is your score for the day. It tells you how good your tuning was overall. The longer you play with app open, the more accurate it gets!</string>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="7GY-aw-hpb" firstAttribute="top" secondItem="i58-bQ-mFP" secondAttribute="top" id="D5u-pY-DU7"/>
-                                    <constraint firstAttribute="height" constant="1500" id="HF9-lW-Gwh"/>
-                                    <constraint firstAttribute="width" constant="500" id="MMb-aA-awl"/>
-                                    <constraint firstItem="viF-BB-HpV" firstAttribute="centerY" secondItem="i58-bQ-mFP" secondAttribute="centerY" constant="180" id="Tb3-vq-FCU"/>
-                                    <constraint firstItem="viF-BB-HpV" firstAttribute="centerX" secondItem="i58-bQ-mFP" secondAttribute="centerX" id="sO9-uf-vqL"/>
-                                    <constraint firstItem="7GY-aw-hpb" firstAttribute="leading" secondItem="i58-bQ-mFP" secondAttribute="leading" id="uAo-3s-vOd"/>
-                                    <constraint firstAttribute="trailing" secondItem="7GY-aw-hpb" secondAttribute="trailing" id="w8n-E7-XBb"/>
-                                    <constraint firstAttribute="bottom" secondItem="7GY-aw-hpb" secondAttribute="bottom" id="wzX-9X-0gV"/>
-                                </constraints>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9pm-v4-ifL" userLabel="Tutorial 2">
-                                <rect key="frame" x="-63" y="-350" width="500" height="1500.5"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="gdf-j1-jha">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="1500.5"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here's some more information about your playing. You can see how in-tune you were and how long you took to center the pitch." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rK6-SX-bne">
-                                        <rect key="frame" x="120" y="517" width="260" height="108"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="260" id="ueb-rl-GET"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="gdf-j1-jha" secondAttribute="trailing" id="7oR-Pt-DPh"/>
-                                    <constraint firstItem="rK6-SX-bne" firstAttribute="centerX" secondItem="9pm-v4-ifL" secondAttribute="centerX" id="Eiu-EV-zB6"/>
-                                    <constraint firstAttribute="width" constant="500" id="GOd-P9-3hU"/>
-                                    <constraint firstAttribute="bottom" secondItem="gdf-j1-jha" secondAttribute="bottom" id="KoX-78-ICH"/>
-                                    <constraint firstAttribute="height" constant="1500" id="NQR-m9-eDl"/>
-                                    <constraint firstItem="gdf-j1-jha" firstAttribute="top" secondItem="9pm-v4-ifL" secondAttribute="top" id="Pdg-Wv-pRg"/>
-                                    <constraint firstItem="rK6-SX-bne" firstAttribute="centerY" secondItem="9pm-v4-ifL" secondAttribute="centerY" constant="-180" id="afS-HH-3Eh"/>
-                                    <constraint firstItem="gdf-j1-jha" firstAttribute="leading" secondItem="9pm-v4-ifL" secondAttribute="leading" id="gX4-7b-szO"/>
-                                </constraints>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWE-ut-Vi7" userLabel="Tutorial 3">
-                                <rect key="frame" x="-63" y="-143" width="500" height="1500"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="out_of_tune_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="jwV-Jh-G1L">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="1500"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your most out-of-tune pitches appear here. Use this to learn your instrument's tendencies and adjust while you play." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-3J-GZs">
-                                        <rect key="frame" x="120" y="467.5" width="260" height="86.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="260" id="3J0-8l-J19"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="500" id="0I8-B0-3hg"/>
-                                    <constraint firstAttribute="bottom" secondItem="jwV-Jh-G1L" secondAttribute="bottom" id="UIx-6n-3fc"/>
-                                    <constraint firstItem="jwV-Jh-G1L" firstAttribute="leading" secondItem="vWE-ut-Vi7" secondAttribute="leading" id="ahu-q8-huS"/>
-                                    <constraint firstItem="qKR-3J-GZs" firstAttribute="centerY" secondItem="vWE-ut-Vi7" secondAttribute="centerY" constant="-240" id="dGs-Jp-KxP"/>
-                                    <constraint firstItem="qKR-3J-GZs" firstAttribute="centerX" secondItem="vWE-ut-Vi7" secondAttribute="centerX" id="dql-Px-Z5h"/>
-                                    <constraint firstAttribute="height" constant="1500" id="i1w-SK-q1N"/>
-                                    <constraint firstAttribute="trailing" secondItem="jwV-Jh-G1L" secondAttribute="trailing" id="pSP-ov-tEb"/>
-                                    <constraint firstItem="jwV-Jh-G1L" firstAttribute="top" secondItem="vWE-ut-Vi7" secondAttribute="top" id="uMz-uT-OQ7"/>
-                                </constraints>
-                            </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqr-JS-P8F" userLabel="Tutorial 4">
-                                <rect key="frame" x="-63" y="-731" width="500" height="3200"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="out_of_tune_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="sDQ-C0-GmN">
-                                        <rect key="frame" x="0.0" y="0.0" width="500" height="3200"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use this graph to keep track of your progress over time. If there's not much here yet, come back in a few days!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3o-Gy-EXT">
-                                        <rect key="frame" x="120" y="1317.5" width="260" height="86.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="260" id="O1q-zG-zFx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Q3o-Gy-EXT" firstAttribute="centerX" secondItem="wqr-JS-P8F" secondAttribute="centerX" id="1sh-bB-5ti"/>
-                                    <constraint firstAttribute="bottom" secondItem="sDQ-C0-GmN" secondAttribute="bottom" id="8mD-SU-x3A"/>
-                                    <constraint firstItem="sDQ-C0-GmN" firstAttribute="top" secondItem="wqr-JS-P8F" secondAttribute="top" id="DLM-Q4-8NY"/>
-                                    <constraint firstAttribute="trailing" secondItem="sDQ-C0-GmN" secondAttribute="trailing" id="Eg3-gG-wYt"/>
-                                    <constraint firstItem="sDQ-C0-GmN" firstAttribute="leading" secondItem="wqr-JS-P8F" secondAttribute="leading" id="JHp-mS-NgJ"/>
-                                    <constraint firstAttribute="height" constant="3200" id="VHL-ua-8V2"/>
-                                    <constraint firstItem="Q3o-Gy-EXT" firstAttribute="centerY" secondItem="wqr-JS-P8F" secondAttribute="centerY" constant="-240" id="qwt-gi-wKK"/>
-                                    <constraint firstAttribute="width" constant="500" id="uX5-81-odO"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IS9-oK-mTM">
-                                <rect key="frame" x="0.0" y="20" width="375" height="1180"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not enough data yet. Come back when you've practiced a little more!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g9-Vp-1Yf">
-                                        <rect key="frame" x="40" y="641" width="295" height="41"/>
-                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_chart_lightgray" translatesAutoresizingMaskIntoConstraints="NO" id="i1H-dX-i2N">
-                                        <rect key="frame" x="123" y="471" width="130" height="130"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="130" id="MSg-gd-9pL"/>
-                                            <constraint firstAttribute="width" constant="130" id="Syv-7H-2Jt"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="6g9-Vp-1Yf" secondAttribute="trailing" constant="40" id="Bc8-xA-GvE"/>
-                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerY" secondItem="IS9-oK-mTM" secondAttribute="centerY" constant="-54" id="HQK-2H-MQ9"/>
-                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerX" secondItem="IS9-oK-mTM" secondAttribute="centerX" id="ZrO-uf-lYr"/>
-                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="top" secondItem="i1H-dX-i2N" secondAttribute="bottom" constant="40" id="aFF-hh-shJ"/>
-                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="leading" secondItem="IS9-oK-mTM" secondAttribute="leading" constant="40" id="l30-id-wU4"/>
-                                </constraints>
-                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QfP-jY-GvI">
                                 <rect key="frame" x="0.0" y="95" width="375" height="1105"/>
                                 <subviews>
@@ -1760,6 +1621,32 @@
                                     <constraint firstItem="Qry-X9-IK3" firstAttribute="leading" secondItem="QfP-jY-GvI" secondAttribute="leading" id="cgK-9I-8cv"/>
                                 </constraints>
                             </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IS9-oK-mTM">
+                                <rect key="frame" x="0.0" y="20" width="375" height="1180"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not enough data yet. Come back when you've practiced a little more!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g9-Vp-1Yf">
+                                        <rect key="frame" x="40" y="641" width="295" height="41"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_chart_lightgray" translatesAutoresizingMaskIntoConstraints="NO" id="i1H-dX-i2N">
+                                        <rect key="frame" x="123" y="471" width="130" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="MSg-gd-9pL"/>
+                                            <constraint firstAttribute="width" constant="130" id="Syv-7H-2Jt"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="6g9-Vp-1Yf" secondAttribute="trailing" constant="40" id="Bc8-xA-GvE"/>
+                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerY" secondItem="IS9-oK-mTM" secondAttribute="centerY" constant="-54" id="HQK-2H-MQ9"/>
+                                    <constraint firstItem="i1H-dX-i2N" firstAttribute="centerX" secondItem="IS9-oK-mTM" secondAttribute="centerX" id="ZrO-uf-lYr"/>
+                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="top" secondItem="i1H-dX-i2N" secondAttribute="bottom" constant="40" id="aFF-hh-shJ"/>
+                                    <constraint firstItem="6g9-Vp-1Yf" firstAttribute="leading" secondItem="IS9-oK-mTM" secondAttribute="leading" constant="40" id="l30-id-wU4"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Analytics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiS-dX-sKS">
                                 <rect key="frame" x="141" y="43" width="93" height="28"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
@@ -1788,6 +1675,119 @@
                                     <action selector="helpButtonPressed:" destination="Lvm-BE-TJq" eventType="touchUpInside" id="NkO-Om-Vxg"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i58-bQ-mFP" userLabel="Tutorial 1">
+                                <rect key="frame" x="-62" y="-544" width="500" height="1500"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="score_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="7GY-aw-hpb">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="1500"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="viF-BB-HpV">
+                                        <rect key="frame" x="120" y="876" width="260" height="108"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="wF9-Au-mPp"/>
+                                        </constraints>
+                                        <string key="text">This is your score for the day. It tells you how good your tuning was overall. The longer you play with app open, the more accurate it gets!</string>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7GY-aw-hpb" firstAttribute="top" secondItem="i58-bQ-mFP" secondAttribute="top" id="D5u-pY-DU7"/>
+                                    <constraint firstAttribute="height" constant="1500" id="HF9-lW-Gwh"/>
+                                    <constraint firstAttribute="width" constant="500" id="MMb-aA-awl"/>
+                                    <constraint firstItem="viF-BB-HpV" firstAttribute="centerY" secondItem="i58-bQ-mFP" secondAttribute="centerY" constant="180" id="Tb3-vq-FCU"/>
+                                    <constraint firstItem="viF-BB-HpV" firstAttribute="centerX" secondItem="i58-bQ-mFP" secondAttribute="centerX" id="sO9-uf-vqL"/>
+                                    <constraint firstItem="7GY-aw-hpb" firstAttribute="leading" secondItem="i58-bQ-mFP" secondAttribute="leading" id="uAo-3s-vOd"/>
+                                    <constraint firstAttribute="trailing" secondItem="7GY-aw-hpb" secondAttribute="trailing" id="w8n-E7-XBb"/>
+                                    <constraint firstAttribute="bottom" secondItem="7GY-aw-hpb" secondAttribute="bottom" id="wzX-9X-0gV"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9pm-v4-ifL" userLabel="Tutorial 2">
+                                <rect key="frame" x="-63" y="-350" width="500" height="1500.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="gdf-j1-jha">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="1500.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here's some more information about your playing. You can see how in-tune you were and how long you took to center the pitch." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rK6-SX-bne">
+                                        <rect key="frame" x="120" y="517" width="260" height="108"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="ueb-rl-GET"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gdf-j1-jha" secondAttribute="trailing" id="7oR-Pt-DPh"/>
+                                    <constraint firstItem="rK6-SX-bne" firstAttribute="centerX" secondItem="9pm-v4-ifL" secondAttribute="centerX" id="Eiu-EV-zB6"/>
+                                    <constraint firstAttribute="width" constant="500" id="GOd-P9-3hU"/>
+                                    <constraint firstAttribute="bottom" secondItem="gdf-j1-jha" secondAttribute="bottom" id="KoX-78-ICH"/>
+                                    <constraint firstAttribute="height" constant="1500" id="NQR-m9-eDl"/>
+                                    <constraint firstItem="gdf-j1-jha" firstAttribute="top" secondItem="9pm-v4-ifL" secondAttribute="top" id="Pdg-Wv-pRg"/>
+                                    <constraint firstItem="rK6-SX-bne" firstAttribute="centerY" secondItem="9pm-v4-ifL" secondAttribute="centerY" constant="-180" id="afS-HH-3Eh"/>
+                                    <constraint firstItem="gdf-j1-jha" firstAttribute="leading" secondItem="9pm-v4-ifL" secondAttribute="leading" id="gX4-7b-szO"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWE-ut-Vi7" userLabel="Tutorial 3">
+                                <rect key="frame" x="-63" y="-143" width="500" height="1500"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="out_of_tune_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="jwV-Jh-G1L">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="1500"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your most out-of-tune pitches appear here. Use this to learn your instrument's tendencies and adjust while you play." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-3J-GZs">
+                                        <rect key="frame" x="120" y="467.5" width="260" height="86.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="3J0-8l-J19"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="0I8-B0-3hg"/>
+                                    <constraint firstAttribute="bottom" secondItem="jwV-Jh-G1L" secondAttribute="bottom" id="UIx-6n-3fc"/>
+                                    <constraint firstItem="jwV-Jh-G1L" firstAttribute="leading" secondItem="vWE-ut-Vi7" secondAttribute="leading" id="ahu-q8-huS"/>
+                                    <constraint firstItem="qKR-3J-GZs" firstAttribute="centerY" secondItem="vWE-ut-Vi7" secondAttribute="centerY" constant="-240" id="dGs-Jp-KxP"/>
+                                    <constraint firstItem="qKR-3J-GZs" firstAttribute="centerX" secondItem="vWE-ut-Vi7" secondAttribute="centerX" id="dql-Px-Z5h"/>
+                                    <constraint firstAttribute="height" constant="1500" id="i1w-SK-q1N"/>
+                                    <constraint firstAttribute="trailing" secondItem="jwV-Jh-G1L" secondAttribute="trailing" id="pSP-ov-tEb"/>
+                                    <constraint firstItem="jwV-Jh-G1L" firstAttribute="top" secondItem="vWE-ut-Vi7" secondAttribute="top" id="uMz-uT-OQ7"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqr-JS-P8F" userLabel="Tutorial 4">
+                                <rect key="frame" x="-63" y="-731" width="500" height="3200"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="out_of_tune_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="sDQ-C0-GmN">
+                                        <rect key="frame" x="0.0" y="0.0" width="500" height="3200"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use this graph to keep track of your progress over time. If there's not much here yet, come back in a few days!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3o-Gy-EXT">
+                                        <rect key="frame" x="120" y="1317.5" width="260" height="86.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="O1q-zG-zFx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Q3o-Gy-EXT" firstAttribute="centerX" secondItem="wqr-JS-P8F" secondAttribute="centerX" id="1sh-bB-5ti"/>
+                                    <constraint firstAttribute="bottom" secondItem="sDQ-C0-GmN" secondAttribute="bottom" id="8mD-SU-x3A"/>
+                                    <constraint firstItem="sDQ-C0-GmN" firstAttribute="top" secondItem="wqr-JS-P8F" secondAttribute="top" id="DLM-Q4-8NY"/>
+                                    <constraint firstAttribute="trailing" secondItem="sDQ-C0-GmN" secondAttribute="trailing" id="Eg3-gG-wYt"/>
+                                    <constraint firstItem="sDQ-C0-GmN" firstAttribute="leading" secondItem="wqr-JS-P8F" secondAttribute="leading" id="JHp-mS-NgJ"/>
+                                    <constraint firstAttribute="height" constant="3200" id="VHL-ua-8V2"/>
+                                    <constraint firstItem="Q3o-Gy-EXT" firstAttribute="centerY" secondItem="wqr-JS-P8F" secondAttribute="centerY" constant="-240" id="qwt-gi-wKK"/>
+                                    <constraint firstAttribute="width" constant="500" id="uX5-81-odO"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

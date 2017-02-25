@@ -10,6 +10,7 @@ import UIKit
 import MessageUI
 import UICountingLabel
 import ScrollableGraphView
+import Crashlytics
 
 class AnalyticsViewController: UIViewController {
     
@@ -104,6 +105,7 @@ class AnalyticsViewController: UIViewController {
     @IBAction func resetButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Reset", message: "This will delete all of your Analytics data for today only. Are you sure?", preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            Answers.logCustomEvent(withName: "Reset Analytics", customAttributes: nil)
             self.snapContainer?.transitionLeft(animated: true, completion: {
                 DataManager.resetToday()
                 self.snapContainer?.resetAnalyticsVC()
