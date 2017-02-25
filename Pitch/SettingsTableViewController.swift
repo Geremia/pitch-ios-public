@@ -203,6 +203,7 @@ class SettingsTableViewController: UITableViewController {
     func darkModeChanged() {
         view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
         tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
+        analyticsSwitch.onTintColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
         style(twicketSegmetedControl: displayModeControl)
         
         plusPitchStandardButton.setImage(darkModeOn ? #imageLiteral(resourceName: "white_small_plus") : #imageLiteral(resourceName: "small_plus"), for: .normal)
