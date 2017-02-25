@@ -15,14 +15,14 @@ extension MainViewController {
     
     func addOutputToAnalytics(output: TunerOutput) {
         if output.isValid {
-            today.add(tunerOutput: output)
+            DataManager.today().add(tunerOutput: output)
         }
     }
     
     func addPitchCenterTimeToAnalytics() {
         if let time = self.pitchStartTime {
             let interval = Date().timeIntervalSince(time)
-            today.add(timeToCenter: interval - 0.5)
+            DataManager.today().add(timeToCenter: interval - 0.5)
             resetPitchCenterTimer()
         }
     }

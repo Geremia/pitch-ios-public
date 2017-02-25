@@ -108,6 +108,7 @@ class AnalyticsViewController: UIViewController {
             Answers.logCustomEvent(withName: "Reset Analytics", customAttributes: nil)
             self.snapContainer?.transitionLeft(animated: true, completion: {
                 DataManager.resetToday()
+                NotificationCenter.default.post(name: .resetAnalyticsData, object: nil)
                 self.snapContainer?.resetAnalyticsVC()
             })
         })

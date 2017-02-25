@@ -259,6 +259,7 @@ class Tuner: NSObject {
             if amplitude - previousAmplitude > 0.05 || abs(frequency - previousFrequency) > (distanceBetweenNotes(frequency: frequency) / 2) {
                 self.smoothing = 1.0
                 self.smoothingBuffer.removeAll()
+                self.frequencyBuffer.removeAll()
             } else {
                 self.smoothing = UserDefaults.standard.damping().smoothing
             }
@@ -269,7 +270,7 @@ class Tuner: NSObject {
             frequency = self.smooth(frequency)
             let standardDeviation = self.standardDeviation(arr: frequencyBuffer)
             
-            if smoothingBuffer.count >= smoothingBufferCount / 2 {
+            if smoothingBuffer.count >= smoothingBufferCount / 4 {
                 let output = Tuner.newOutput(frequency, amplitude, standardDeviation)
                 DispatchQueue.main.async {
                     d.tunerDidUpdate(self, output: output)

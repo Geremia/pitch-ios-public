@@ -60,8 +60,6 @@ class MainViewController: UIViewController {
     
     // MARK: - Analytics Variables
     
-    lazy var today: Day = DataManager.today()
-    
     var previousPitchWasInTune: Bool = false
     var pitchStartTime: Date?
     var pitchCenterTimer: Timer?
@@ -84,7 +82,7 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         pitchPipeView.updateButtonLabels()
-        if today.hasSufficientData {
+        if DataManager.today().hasSufficientData {
             analyticsMessage.alpha = 0.0
         }
     }

@@ -1594,7 +1594,7 @@
                                             <constraint firstItem="gaT-vT-MkP" firstAttribute="centerX" secondItem="Qry-X9-IK3" secondAttribute="centerX" id="XuP-Zq-4V6"/>
                                             <constraint firstItem="Bj3-re-8Z9" firstAttribute="top" secondItem="Qry-X9-IK3" secondAttribute="top" constant="26" id="d4t-m7-aiC"/>
                                             <constraint firstItem="vhY-NI-Ja4" firstAttribute="centerY" secondItem="7HI-Yx-5eC" secondAttribute="centerY" id="dYE-AP-0KV"/>
-                                            <constraint firstItem="7a3-98-bhj" firstAttribute="top" secondItem="PzX-jL-pwt" secondAttribute="top" constant="10" id="dle-SA-Pzo"/>
+                                            <constraint firstItem="7a3-98-bhj" firstAttribute="top" secondItem="PzX-jL-pwt" secondAttribute="top" constant="9.5" id="dle-SA-Pzo"/>
                                             <constraint firstItem="qay-Pw-oQC" firstAttribute="top" secondItem="Bj3-re-8Z9" secondAttribute="bottom" constant="251" id="gBW-8M-Oge"/>
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="PzX-jL-pwt" secondAttribute="bottom" id="git-3w-loM"/>
                                             <constraint firstItem="AkE-gd-45d" firstAttribute="top" secondItem="KFs-qz-IRR" secondAttribute="bottom" constant="15" id="jmk-zf-DFA"/>

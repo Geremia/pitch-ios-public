@@ -15,6 +15,7 @@ extension MainViewController {
     
     func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(openToneGenerator), name: .openToneGenerator, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setupAnalyticsCircle), name: .resetAnalyticsData, object: nil)
     }
     
     func checkRecordPermission() {
@@ -56,10 +57,9 @@ extension MainViewController {
     func setupAnalyticsCircle() {
         analyticsCircle.colorful = false
         analyticsCircle.circleLayer.lineWidth = 1.0
+        analyticsCircle.score = 0
         analyticsCircle.removeBorder()
-        
-        if today.hasSufficientData {
-            shouldUpdateAnalyticsCircle = false
-        }
+        analyticsCircle.isHidden = false
+        shouldUpdateAnalyticsCircle = !DataManager.today().hasSufficientData
     }
 }
