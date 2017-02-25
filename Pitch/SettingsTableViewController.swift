@@ -56,6 +56,7 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var darkModeSwitch: UISwitch!
+    @IBOutlet weak var analyticsSwitch: UISwitch!
     @IBOutlet weak var displayModeControl: TwicketSegmentedControl!
     @IBOutlet weak var micSensitivityLabel: UILabel!
     
@@ -116,13 +117,13 @@ class SettingsTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         switch indexPath.row {
-        case 2:
-            changeMicSensitivity()
         case 3:
-            changeDifficulty()
+            changeMicSensitivity()
         case 4:
-            changeDamping()
+            changeDifficulty()
         case 5:
+            changeDamping()
+        case 6:
             delegate?.instrumentKeySelected()
         default:
             return
@@ -211,6 +212,9 @@ class SettingsTableViewController: UITableViewController {
         darkModeOn = (sender as! UISwitch).isOn
     }
     
+    @IBAction func analyticsSwitched(_ sender: Any) {
+    }
+    
     @IBAction func pitchStandardDecrement(_ sender: Any) {
         currentPitchStandard -= 1
         updatePitchStandardLabel()
@@ -223,10 +227,8 @@ class SettingsTableViewController: UITableViewController {
 }
 
 extension SettingsTableViewController : TwicketSegmentedControlDelegate {
-    
     func twicketSegmentedControl(_ segmentedControl: TwicketSegmentedControl, didSelect segmentIndex: Int) {
         currentDisplayMode = segmentIndex == 0 ? .sharps : .flats
         updateKeyLabel()
     }
-    
 }
