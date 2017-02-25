@@ -47,6 +47,16 @@ class Onboarding4ViewController: OnboardingViewController, UIPickerViewDelegate,
         currentInstrument = instruments[row]
     }
     
+    // MARK: - UIPickerViewDataSource
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return instruments.count
+    }
+    
     // MARK: - Actions
     
     @IBAction func nextPressed(_ sender: Any) {
