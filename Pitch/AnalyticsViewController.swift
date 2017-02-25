@@ -52,7 +52,7 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet var graphSideMargins: [UIView]!
     
     @IBOutlet weak var feedbackLabel: UILabel!
-    @IBOutlet weak var feedbackButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
     
     @IBOutlet weak var tutorial1: UIView!
     @IBOutlet weak var tutorial2: UIView!
@@ -101,16 +101,18 @@ class AnalyticsViewController: UIViewController {
         startTutorial()
     }
     
-    @IBAction func feedbackButtonPressed(_ sender: Any) {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients(["dkuntz0@gmail.com"])
-            mail.setSubject("Pitch Tuner Feedback")
-            mail.setMessageBody("Hi Daniel,\n This is how I think you can improve the Pitch tuner app: \n\n\n\n\n\n ", isHTML: true)
-            
-            present(mail, animated: true, completion: nil)
-        }
+    @IBAction func resetButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Reset", message: "This will delete all of your Analytics data for today only. Are you sure?", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            self.snapContainer?.transitionLeft(animated: true, completion: {
+                DataManager.resetToday()
+                self.snapContainer?.resetAnalyticsVC()
+            })
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addActions([deleteAction, cancelAction])
+        
+        snapContainer?.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Status Bar Style

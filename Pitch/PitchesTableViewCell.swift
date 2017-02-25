@@ -36,7 +36,7 @@ class PitchesTableViewCell: UITableViewCell {
     func updateCentsLabel(cents: Double) {
         let centsString = cents <= 0 ? "\(cents)" : "+\(cents)"
         centsLabel.text = centsString + " cents (average)"
-        centsLabel.textColor = cents < 0 ? UIColor.red : UIColor.lighterPurple
+        centsLabel.textColor = cents < 0 ? UIColor.textLighterRed : UIColor.lighterPurple
     }
     
 }

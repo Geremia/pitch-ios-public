@@ -52,7 +52,7 @@ extension AnalyticsViewController {
         }
         
         feedbackLabel.alpha = 0.0
-        feedbackButton.alpha = 0.0
+        resetButton.alpha = 0.0
     }
     
     func animateIn() {
@@ -83,7 +83,7 @@ extension AnalyticsViewController {
         
         UIView.animate(withDuration: 0.5, delay: 1.4, options: [], animations: {
             self.feedbackLabel.alpha = 1.0
-            self.feedbackButton.alpha = 1.0
+            self.resetButton.alpha = 1.0
         }, completion: { _ in
             let shouldBypassTutorial = UserDefaults.standard.shouldBypassAnalyticsTutorial()
             if !shouldBypassTutorial {

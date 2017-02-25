@@ -142,6 +142,14 @@ extension AudioKit {
     }
 }
 
+extension UIAlertController {
+    func addActions(_ actions: [UIAlertAction]) {
+        for action in actions {
+            addAction(action)
+        }
+    }
+}
+
 extension Collection where Iterator.Element == NSLayoutConstraint {
     func autoInstallConstraints() {
         (self as! NSArray).autoInstallConstraints()

@@ -16,7 +16,8 @@ extension AnalyticsViewController {
     func setupUI() {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
-        feedbackButton.layer.cornerRadius = 8.0
+        resetButton.layer.cornerRadius = 8.0
+        resetButton.backgroundColor = UIColor.lighterRed
         
         darkModeChanged()
         setupGraphView()
@@ -154,6 +155,5 @@ extension AnalyticsViewController {
         }
         
         feedbackLabel.textColor = lineTextColor
-        feedbackButton.backgroundColor = darkModeOn ? .darkInTune : .inTune
     }
 }

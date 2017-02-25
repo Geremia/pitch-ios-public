@@ -10,6 +10,16 @@ import Foundation
 import RealmSwift
 
 class DataManager {
+    
+    fileprivate static let realm = try! Realm()
+    
+    static func resetToday() {
+        let day = today()
+        try! realm.write {
+            realm.delete(day)
+        }
+    }
+    
     static func today() -> Day {
         let days = data(forPastDaysIncludingToday: 1)
         if days.count > 0 {
@@ -21,20 +31,18 @@ class DataManager {
         }
     }
     
-    fileprivate static func add(day: Day) {
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(day, update: true)
-        }
-    }
-    
     static func data(forPastDaysIncludingToday days: Int) -> Results<Day> {
         let numberOfDays = max(days, 1)
         let today = NSCalendar.current.startOfDay(for: Date())
         let startDate = today.adding(numberOfDays: -(numberOfDays - 1))
         
-        let realm = try! Realm()
         let days = realm.objects(Day.self).filter("date >= %@", startDate)
         return days
+    }
+    
+    fileprivate static func add(day: Day) {
+        try! realm.write {
+            realm.add(day, update: true)
+        }
     }
 }

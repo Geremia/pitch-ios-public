@@ -257,7 +257,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - Actions
     
-    func transitionLeft(animated: Bool) {
+    func transitionLeft(animated: Bool, completion: (() -> Void)? = nil) {
         if animated {
             scrollView.bounces = true
             UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
@@ -265,14 +265,20 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             }, completion: { finished in
                 self.scrollView.bounces = false
                 self.scrollViewDidEndDecelerating(self.scrollView)
+                if let completion = completion {
+                    completion()
+                }
             })
         } else {
             scrollView.contentOffset.x -= self.view.frame.width + 16
             scrollViewDidEndDecelerating(scrollView)
+            if let completion = completion {
+                completion()
+            }
         }
     }
     
-    func transitionRight(animated: Bool) {
+    func transitionRight(animated: Bool, completion: (() -> Void)? = nil) {
         if animated {
             scrollView.bounces = true
             UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
@@ -280,10 +286,16 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             }, completion: { finished in
                 self.scrollView.bounces = false
                 self.scrollViewDidEndDecelerating(self.scrollView)
+                if let completion = completion {
+                    completion()
+                }
             })
         } else {
             scrollView.contentOffset.x += self.view.frame.width + 16
             scrollViewDidEndDecelerating(scrollView)
+            if let completion = completion {
+                completion()
+            }
         }
     }
     
