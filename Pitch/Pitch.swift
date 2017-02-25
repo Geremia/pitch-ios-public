@@ -25,12 +25,12 @@ import Foundation
 class Pitch: NSObject {
     
     /**
-     * The note is one of C, C#, D, Em, E, F, F#, G, Am, A, Bm, B.
+     * The note is one of C, C#, D, D#, E, F, F#, G, G#, A, A#, B.
      */
     let note: Note
 
     /**
-     * The octave is a whole integer between 0 and 9.
+     * The octave is a whole integer between 2 and 9.
      */
     let octave: Int
 
@@ -52,7 +52,7 @@ class Pitch: NSObject {
      * First, the octaves are mapped to arrays of pitches for each note within
      * each octave.
      */
-    static let all = Array((0 ... 7).map { octave -> [Pitch] in
+    static let all = Array((2 ... 7).map { octave -> [Pitch] in
         Note.all.map { note -> Pitch in
             Pitch(note: note, octave: octave)
         }
