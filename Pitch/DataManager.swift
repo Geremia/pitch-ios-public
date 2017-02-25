@@ -27,6 +27,7 @@ class DataManager {
         } else {
             let day = Day.newDay()
             add(day: day)
+            sendUsageStatistics()
             return day
         }
     }
@@ -44,5 +45,10 @@ class DataManager {
         try! realm.write {
             realm.add(day, update: true)
         }
+    }
+    
+    fileprivate static func sendUsageStatistics() {
+        let delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.sendUsageStatistics()
     }
 }

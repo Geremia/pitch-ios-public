@@ -70,8 +70,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if DataManager.data(forPastDaysIncludingToday: 10).count > 1 {
             Answers.logCustomEvent(withName: "Settings", customAttributes: ["Instrument" : UserDefaults.standard.instrument().description,
                                                                             "Dark Mode On" : String(UserDefaults.standard.darkModeOn()),
-                                                                            "Difficulty" : UserDefaults.standard.difficulty().description,
-                                                                            "Damping" : UserDefaults.standard.damping().description,
+                                                                            "Difficulty" : UserDefaults.standard.difficulty().name,
+                                                                            "Damping" : UserDefaults.standard.damping().name,
                                                                             "Mic Sensitivity" : UserDefaults.standard.micSensitivity().name])
         }
     }
