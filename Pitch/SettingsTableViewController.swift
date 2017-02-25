@@ -92,6 +92,7 @@ class SettingsTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         darkModeSwitch.setOn(darkModeOn, animated: false)
+        darkModeSwitch.onTintColor = UIColor.darkInTune
         micSensitivityLabel.text = currentMicSensitivity.name
         difficultyLabel.text = currentDifficulty.name
         difficultyDescriptionLabel.text = currentDifficulty.description
