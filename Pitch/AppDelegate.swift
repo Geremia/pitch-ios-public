@@ -36,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupSnapContainer()
         Mixer.sharedInstance.setUp()
         
+        sendUsageStatistics()
+        
         return true
     }
     
@@ -61,6 +63,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             _ = DataManager.today()
             let isPastUser = DataManager.data(forPastDaysIncludingToday: 10).count > 1
             UserDefaults.standard.setUserBeforeAnalyticsSharing(isPastUser)
+        }
+    }
+    
+    func sendUsageStatistics() {
+        if DataManager.data(forPastDaysIncludingToday: 10).count > 1 {
+            Answers.logCustomEvent(withName: "Settings", customAttributes: ["Instrument" : UserDefaults.standard.instrument().description,
+                                                                            "Dark Mode On" : String(UserDefaults.standard.darkModeOn()),
+                                                                            "Difficulty" : UserDefaults.standard.difficulty().description,
+                                                                            "Damping" : UserDefaults.standard.damping().description,
+                                                                            "Mic Sensitivity" : UserDefaults.standard.micSensitivity().name])
         }
     }
     
