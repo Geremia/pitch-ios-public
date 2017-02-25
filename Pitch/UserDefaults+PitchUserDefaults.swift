@@ -82,6 +82,17 @@ extension UserDefaults {
     }
     
     /**
+     * Bool indicating whether analytics data collection is on.
+     */
+    func analyticsOn() -> Bool {
+        return bool(forKey: "analyticsOn")
+    }
+    
+    func setAnalyticsOn(_ newValue: Bool) {
+        set(newValue, forKey: "analyticsOn")
+    }
+    
+    /**
      * The user's selected difficulty.
      */
     func difficulty() -> Difficulty {
