@@ -14,7 +14,10 @@ class Onboarding1ViewController: OnboardingViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        addTapGestureRecognizer()
+    }
+    
+    func addTapGestureRecognizer() {
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         view.addGestureRecognizer(tapGR)
     }

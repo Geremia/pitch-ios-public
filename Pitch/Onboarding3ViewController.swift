@@ -21,8 +21,10 @@ class Onboarding3ViewController: OnboardingViewController {
     // MARK: - Actions
     
     @IBAction func allowAccessPressed(_ sender: Any) {
+        
     }
     
     @IBAction func noThanksPressed(_ sender: Any) {
+        
     }
 }

@@ -7,19 +7,21 @@
 //
 
 import UIKit
+import AudioKit
 
 class Onboarding2ViewController: OnboardingViewController {
-
-    // MARK: - Setup Views
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
 
     // MARK: - Actions
     
     @IBAction func allowAccessPressed(_ sender: Any) {
+        requestRecordPermission()
+    }
+    
+    func requestRecordPermission() {
+        AKSettings.session.requestRecordPermission() { (granted: Bool) -> Void in
+            if granted {
+                self.performSegue(withIdentifier: "onboarding23", sender: nil)
+            }
+        }
     }
 }
