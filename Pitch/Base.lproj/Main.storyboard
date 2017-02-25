@@ -422,7 +422,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Du0-2C-gF7">
-                                                    <rect key="frame" x="237" y="13" width="51" height="31"/>
+                                                    <rect key="frame" x="292" y="13" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.0" green="0.70196078429999997" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="autoKeySwitched:" destination="IaY-yC-ccq" eventType="valueChanged" id="Ofe-6n-b9J"/>
@@ -449,7 +449,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" showsSelectionIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDt-UU-6qD">
-                                                    <rect key="frame" x="15" y="0.0" width="270" height="222"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="222"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <connections>
                                                         <outlet property="dataSource" destination="IaY-yC-ccq" id="gvr-Lq-IHd"/>
@@ -485,10 +485,10 @@
             </objects>
             <point key="canvasLocation" x="-1546" y="438"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding1 View Controller-->
         <scene sceneID="LyE-HC-Wi0">
             <objects>
-                <viewController id="9D3-2L-DWJ" sceneMemberID="viewController">
+                <viewController id="9D3-2L-DWJ" customClass="Onboarding1ViewController" customModule="Pitch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oZC-EA-xOr"/>
                         <viewControllerLayoutGuide type="bottom" id="wdS-6k-LD6"/>
@@ -520,15 +520,18 @@
                             <constraint firstItem="1sY-S4-2uD" firstAttribute="centerY" secondItem="Opp-wY-SAq" secondAttribute="centerY" constant="100" id="jW3-8X-RFb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="hea-jE-WWY" kind="show" identifier="onboarding12" id="hdC-3p-uHN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sk-zH-cGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1530" y="1183"/>
+            <point key="canvasLocation" x="-2158" y="1179"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding2 View Controller-->
         <scene sceneID="S3K-sM-YLd">
             <objects>
-                <viewController id="hea-jE-WWY" sceneMemberID="viewController">
+                <viewController id="hea-jE-WWY" customClass="Onboarding2ViewController" customModule="Pitch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n6W-OB-OVq"/>
                         <viewControllerLayoutGuide type="bottom" id="do9-1Z-per"/>
@@ -566,10 +569,6 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="feedbackPressed:" destination="FFt-kb-reG" eventType="touchUpInside" id="dsa-96-63Q"/>
-                                    <action selector="shareButtonPressed:" destination="koB-Ds-blE" eventType="touchUpInside" id="2Za-4e-XOc"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -583,15 +582,18 @@
                             <constraint firstAttribute="trailing" secondItem="mJy-9Z-dOd" secondAttribute="trailing" constant="30" id="pvs-uj-NQX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="xHl-sU-KYs" kind="show" identifier="onboarding23" id="THy-1c-zoe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtI-rc-Cff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-766" y="1182"/>
+            <point key="canvasLocation" x="-1394" y="1178"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding5 View Controller-->
         <scene sceneID="WHi-If-FHa">
             <objects>
-                <viewController id="Q7i-PZ-h2T" sceneMemberID="viewController">
+                <viewController id="Q7i-PZ-h2T" customClass="Onboarding5ViewController" customModule="Pitch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iL2-U5-5Zo"/>
                         <viewControllerLayoutGuide type="bottom" id="kRv-aA-mCn"/>
@@ -627,8 +629,7 @@ your daily analytics are ready!</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="feedbackPressed:" destination="FFt-kb-reG" eventType="touchUpInside" id="p6A-f5-oYx"/>
-                                    <action selector="shareButtonPressed:" destination="koB-Ds-blE" eventType="touchUpInside" id="lYx-w5-sDC"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="onboardingEnd" id="YLI-De-rMZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -641,15 +642,18 @@ your daily analytics are ready!</string>
                             <constraint firstItem="QR8-6H-xfH" firstAttribute="leading" secondItem="jUJ-cO-hcN" secondAttribute="leading" constant="30" id="wop-yo-dlP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="QR8-6H-xfH" id="mfw-Zl-JEn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYW-Qn-YHN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521" y="1182"/>
+            <point key="canvasLocation" x="894" y="1178"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding3 View Controller-->
         <scene sceneID="exx-wB-CV5">
             <objects>
-                <viewController id="xHl-sU-KYs" sceneMemberID="viewController">
+                <viewController id="xHl-sU-KYs" customClass="Onboarding3ViewController" customModule="Pitch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vIW-H5-U32"/>
                         <viewControllerLayoutGuide type="bottom" id="07V-Jf-G7D"/>
@@ -694,8 +698,7 @@ your daily analytics are ready!</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="feedbackPressed:" destination="FFt-kb-reG" eventType="touchUpInside" id="O94-nV-VNL"/>
-                                    <action selector="shareButtonPressed:" destination="koB-Ds-blE" eventType="touchUpInside" id="cwK-GV-cQM"/>
+                                    <action selector="allowAccessPressed:" destination="xHl-sU-KYs" eventType="touchUpInside" id="55P-H5-Hhh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YD8-Gz-qvY">
@@ -710,6 +713,7 @@ your daily analytics are ready!</string>
                                 </state>
                                 <connections>
                                     <action selector="cancelButtonPressed:" destination="koB-Ds-blE" eventType="touchUpInside" id="TWZ-E8-KBz"/>
+                                    <action selector="noThanksPressed:" destination="xHl-sU-KYs" eventType="touchUpInside" id="COS-UH-6LA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -729,15 +733,18 @@ your daily analytics are ready!</string>
                             <constraint firstItem="mly-bB-RKS" firstAttribute="centerY" secondItem="m4C-iO-guZ" secondAttribute="centerY" constant="80" id="zkZ-kE-Pka"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="SoM-sj-eqa" kind="show" identifier="onboarding34" id="GhO-K3-sHT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="926-Is-dIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2.3999999999999999" y="1181.5592203898052"/>
+            <point key="canvasLocation" x="-630" y="1178"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding4 View Controller-->
         <scene sceneID="I2N-I7-3X9">
             <objects>
-                <viewController id="SoM-sj-eqa" sceneMemberID="viewController">
+                <viewController id="SoM-sj-eqa" customClass="Onboarding4ViewController" customModule="Pitch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYO-MK-je5"/>
                         <viewControllerLayoutGuide type="bottom" id="rhg-S2-ch2"/>
@@ -763,8 +770,7 @@ your daily analytics are ready!</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="feedbackPressed:" destination="FFt-kb-reG" eventType="touchUpInside" id="f76-YD-hzW"/>
-                                    <action selector="shareButtonPressed:" destination="koB-Ds-blE" eventType="touchUpInside" id="tVA-C1-32H"/>
+                                    <action selector="nextPressed:" destination="SoM-sj-eqa" eventType="touchUpInside" id="c9N-eq-AAK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qts-EJ-TWo">
@@ -779,6 +785,7 @@ your daily analytics are ready!</string>
                                 </state>
                                 <connections>
                                     <action selector="cancelButtonPressed:" destination="koB-Ds-blE" eventType="touchUpInside" id="oaF-zf-PCO"/>
+                                    <action selector="skipPressed:" destination="SoM-sj-eqa" eventType="touchUpInside" id="V6b-7O-57m"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ect-5g-mtC">
@@ -818,10 +825,14 @@ your daily analytics are ready!</string>
                             <constraint firstItem="wr4-dU-E67" firstAttribute="top" secondItem="Ect-5g-mtC" secondAttribute="bottom" constant="-60" id="y6R-my-dsN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pickerView" destination="Ect-5g-mtC" id="Tmi-cY-QLH"/>
+                        <segue destination="Q7i-PZ-h2T" kind="show" identifier="onboarding45" id="1Gm-Nt-sUN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0uk-nn-Lix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="753" y="1182"/>
+            <point key="canvasLocation" x="126" y="1178"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="8bJ-bP-J8c">
@@ -2289,7 +2300,6 @@ your daily analytics are ready!</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="feedbackPressed:" destination="FFt-kb-reG" eventType="touchUpInside" id="Zgy-HA-rxC"/>
                                     <action selector="shareButtonPressed:" destination="koB-Ds-blE" eventType="touchUpInside" id="c8m-cV-K4D"/>
                                 </connections>
                             </button>

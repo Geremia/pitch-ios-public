@@ -8,28 +8,53 @@
 
 import UIKit
 
-class Onboarding4ViewController: UIViewController {
+class Onboarding4ViewController: OnboardingViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var pickerView: UIPickerView!
+    
+    // MARK: - Variables
+    
+    let instruments: [Instrument] = Instrument.all
+    var currentInstrument: Instrument = .other
+    
+    // MARK: - Setup Views
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - UIPickerViewDelegate
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return instruments[row].description
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let string: NSMutableAttributedString = NSMutableAttributedString(string: instruments[row].description)
+        string.addAttributes([NSFontAttributeName:UIFont(name: "Lato-Light", size: 22.0)!], range: NSMakeRange(0, string.length))
+        
+        let label = UILabel()
+        label.attributedText = string
+        label.textAlignment = .center
+        return label
     }
-    */
-
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        currentInstrument = instruments[row]
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func nextPressed(_ sender: Any) {
+        UserDefaults.standard.setInstrument(currentInstrument)
+    }
+    
+    @IBAction func skipPressed(_ sender: Any) {
+        performSegue(withIdentifier: "onboarding45", sender: nil)
+    }
+    
 }

@@ -40,11 +40,12 @@
 		4CD74B721E622FBE00F073B5 /* Onboarding3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B711E622FBE00F073B5 /* Onboarding3ViewController.swift */; };
 		4CD74B741E622FC900F073B5 /* Onboarding4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B731E622FC900F073B5 /* Onboarding4ViewController.swift */; };
 		4CD74B761E622FD300F073B5 /* Onboarding5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B751E622FD300F073B5 /* Onboarding5ViewController.swift */; };
+		4CD74B781E623E1600F073B5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B771E623E1600F073B5 /* OnboardingViewController.swift */; };
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
 		4CDA4A031DD2B3FB00D05DAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6DA1D8A0CFD000492E6 /* Assets.xcassets */; };
-		4CDEB5791DD11B68005301BF /* VerticalSlideAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEB5781DD11B68005301BF /* VerticalSlideAnimationController.swift */; };
+		4CDEB5791DD11B68005301BF /* SlideAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDEB5781DD11B68005301BF /* SlideAnimationController.swift */; };
 		4CDED8771E131354003C4000 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDED8761E131354003C4000 /* DataManager.swift */; };
 		4CDF00001D8B0BFA00BEAD0D /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CDFFFFC1D8B0BFA00BEAD0D /* Lato-Thin.ttf */; };
 		4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */; };
@@ -123,10 +124,11 @@
 		4CD74B711E622FBE00F073B5 /* Onboarding3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding3ViewController.swift; sourceTree = "<group>"; };
 		4CD74B731E622FC900F073B5 /* Onboarding4ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding4ViewController.swift; sourceTree = "<group>"; };
 		4CD74B751E622FD300F073B5 /* Onboarding5ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding5ViewController.swift; sourceTree = "<group>"; };
+		4CD74B771E623E1600F073B5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
 		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		4CDEB5781DD11B68005301BF /* VerticalSlideAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalSlideAnimationController.swift; sourceTree = "<group>"; };
+		4CDEB5781DD11B68005301BF /* SlideAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideAnimationController.swift; sourceTree = "<group>"; };
 		4CDED8761E131354003C4000 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4CDFFFF11D8B017000BEAD0D /* UIColor+PitchColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+PitchColors.swift"; sourceTree = "<group>"; };
 		4CDFFFF91D8B0BFA00BEAD0D /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
@@ -222,7 +224,7 @@
 		4C1CCD3B1E42C97C00B06CD7 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
-				4CDEB5781DD11B68005301BF /* VerticalSlideAnimationController.swift */,
+				4CDEB5781DD11B68005301BF /* SlideAnimationController.swift */,
 				4C1CCD371E42C93E00B06CD7 /* SnapContainerViewController.swift */,
 			);
 			name = Transitions;
@@ -305,6 +307,7 @@
 		4CD74B6C1E622F7700F073B5 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				4CD74B771E623E1600F073B5 /* OnboardingViewController.swift */,
 				4CD74B6D1E622F9F00F073B5 /* Onboarding1ViewController.swift */,
 				4CD74B6F1E622FB200F073B5 /* Onboarding2ViewController.swift */,
 				4CD74B711E622FBE00F073B5 /* Onboarding3ViewController.swift */,
@@ -710,7 +713,8 @@
 				4CFC73BE1DC6821400AFD8AC /* Tuner.swift in Sources */,
 				4CD74B611E50D7BB00F073B5 /* BleManager.swift in Sources */,
 				4CD74B581E50D77400F073B5 /* PeripheralList.swift in Sources */,
-				4CDEB5791DD11B68005301BF /* VerticalSlideAnimationController.swift in Sources */,
+				4CD74B781E623E1600F073B5 /* OnboardingViewController.swift in Sources */,
+				4CDEB5791DD11B68005301BF /* SlideAnimationController.swift in Sources */,
 				4CD74B671E50E3AC00F073B5 /* Synchronize.swift in Sources */,
 				4CFE12591DECF389005EE1BF /* MainViewController+Animations.swift in Sources */,
 				4CF25E911DE8BA07009D109F /* InstrumentKeyTableViewController.swift in Sources */,

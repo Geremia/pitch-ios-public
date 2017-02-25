@@ -1,5 +1,5 @@
 //
-//  VerticalSlideAnimationController.swift
+//  SlideAnimationController.swift
 //  passdown-iOS
 //
 //  Created by Daniel Kuntz on 4/1/16.
@@ -17,7 +17,7 @@ enum Direction {
     case toBottom
 }
 
-class VerticalSlideAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
+class SlideAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     
     var direction: Direction
     var darkView: UIView!
