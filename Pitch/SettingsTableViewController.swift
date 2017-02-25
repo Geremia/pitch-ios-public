@@ -24,6 +24,13 @@ class SettingsTableViewController: UITableViewController {
             NotificationCenter.default.post(name: .darkModeChanged, object: nil)
         }
     }
+    var analyticsOn: Bool = UserDefaults.standard.analyticsOn() {
+        didSet {
+            UserDefaults.standard.setAnalyticsOn(analyticsOn)
+            (delegate as! SettingsViewController).snapContainer?.resetAnalyticsVC()
+            NotificationCenter.default.post(name: .resetAnalyticsData, object: nil)
+        }
+    }
     var currentDisplayMode: DisplayMode = UserDefaults.standard.displayMode() {
         didSet {
             UserDefaults.standard.setDisplayMode(currentDisplayMode)
@@ -213,6 +220,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func analyticsSwitched(_ sender: Any) {
+        analyticsOn = (sender as! UISwitch).isOn
     }
     
     @IBAction func pitchStandardDecrement(_ sender: Any) {

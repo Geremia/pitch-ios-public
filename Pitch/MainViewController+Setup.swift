@@ -60,6 +60,6 @@ extension MainViewController {
         analyticsCircle.score = 0
         analyticsCircle.removeBorder()
         analyticsCircle.isHidden = false
-        shouldUpdateAnalyticsCircle = !DataManager.today().hasSufficientData
+        shouldUpdateAnalyticsCircle = !DataManager.today().hasSufficientData && UserDefaults.standard.analyticsOn()
     }
 }

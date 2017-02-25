@@ -24,7 +24,7 @@ extension AnalyticsViewController {
         
         let today = DataManager.today()
         let showingSharePrompt = UserDefaults.standard.shouldShowAnalyticsSharePrompt()
-        if today.hasSufficientData && !showingSharePrompt {
+        if today.hasSufficientData && !showingSharePrompt && UserDefaults.standard.analyticsOn() {
             displayData()
         }
     }
