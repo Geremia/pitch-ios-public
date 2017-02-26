@@ -54,7 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         main.snapContainer = container
         analytics.snapContainer = container
         
-        self.window?.rootViewController = container
+        let tutorial: Onboarding1ViewController = storyboard.instantiateViewController(withIdentifier: "onboarding1") as! Onboarding1ViewController
+        
+        self.window?.rootViewController = tutorial
         self.window?.makeKeyAndVisible()
     }
     

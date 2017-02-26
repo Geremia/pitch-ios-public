@@ -20,7 +20,7 @@ class OnboardingViewController: UIViewController {
 }
 
 extension OnboardingViewController: UIViewControllerTransitioningDelegate {
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return presentAnimationController
     }
 }

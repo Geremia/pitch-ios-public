@@ -488,7 +488,7 @@
         <!--Onboarding1 View Controller-->
         <scene sceneID="LyE-HC-Wi0">
             <objects>
-                <viewController id="9D3-2L-DWJ" customClass="Onboarding1ViewController" customModule="Pitch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onboarding1" id="9D3-2L-DWJ" customClass="Onboarding1ViewController" customModule="Pitch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oZC-EA-xOr"/>
                         <viewControllerLayoutGuide type="bottom" id="wdS-6k-LD6"/>

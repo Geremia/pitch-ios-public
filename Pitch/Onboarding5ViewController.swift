@@ -35,7 +35,7 @@ class Onboarding5ViewController: UIViewController {
         let chunk4 = NSAttributedString(string: "daily analytics ", attributes: [NSFontAttributeName: boldFont])
         let chunk5 = NSAttributedString(string: "are ready!", attributes: [NSFontAttributeName: lightFont])
         
-        let combined: NSMutableAttributedString = chunk1 as! NSMutableAttributedString
+        let combined: NSMutableAttributedString = NSMutableAttributedString(attributedString: chunk1)
         combined.append(chunk2)
         combined.append(chunk3)
         combined.append(chunk4)
