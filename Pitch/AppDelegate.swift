@@ -42,8 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setRootViewController() {
         let viewController: UIViewController!
         if UserDefaults.standard.hasSeenOnboarding() {
-            viewController = snapContainer()
             Mixer.sharedInstance.setUp()
+            viewController = snapContainer()
         } else {
             viewController = onboardingViewController()
         }
