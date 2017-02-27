@@ -12,6 +12,8 @@ target 'Pitch' do
   pod 'Siren'
   pod 'TwicketSegmentedControl'
   pod 'PureLayout'
+  pod 'Permission/Microphone'
+  pod 'Permission/Notifications'
 end
 
 post_install do |installer|

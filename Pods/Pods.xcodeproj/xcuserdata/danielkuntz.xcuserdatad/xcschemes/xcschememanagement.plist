@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Permission.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Pitch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -46,47 +51,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>2B84EFCA807B0B997F48C75913A7D345</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2FEF45DC71ED41DB04798C043BB23D7D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>50885A6E20028C66A4E2D20C1715D091</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>869006BDEB57931340CDFAE2606B1478</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AB0959A1AC0FBEE1190AB3BB916DD028</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AE98CAD60E8E955334647F802ACAC9A2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B1C491A9C485DC6E929924940299E198</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F5647780AB93D374ACB8BF3455BC60BE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>
