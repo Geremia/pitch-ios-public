@@ -10,21 +10,9 @@ import UIKit
 
 class Onboarding1ViewController: OnboardingViewController {
     
-    // MARK: - Setup Views
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addTapGestureRecognizer()
-    }
+    // MARK: - Actions
     
-    func addTapGestureRecognizer() {
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
-        view.addGestureRecognizer(tapGR)
-    }
-    
-    // MARK: - Tap Gesture Recognizer
-    
-    func viewTapped(_ gestureRecognizer: UITapGestureRecognizer) {
+    @IBAction func nextPressed(_ sender: Any) {
         performSegue(withIdentifier: "onboarding12", sender: nil)
     }
 }

@@ -47,7 +47,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GGF-Da-11n">
-                                                    <rect key="frame" x="16" y="17" width="94" height="23"/>
+                                                    <rect key="frame" x="16" y="17" width="92.5" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -79,7 +79,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Analytics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAu-kT-lTi">
-                                                    <rect key="frame" x="16" y="17" width="77" height="23"/>
+                                                    <rect key="frame" x="16" y="17" width="74" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -111,7 +111,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Display" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrJ-A5-5sh">
-                                                    <rect key="frame" x="16" y="17" width="62.5" height="23"/>
+                                                    <rect key="frame" x="16" y="17" width="60" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -171,7 +171,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Hv-Hi-ITJ">
-                                                    <rect key="frame" x="234.5" y="10" width="106.5" height="23"/>
+                                                    <rect key="frame" x="233" y="10" width="108" height="23"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Intermediate">
                                                             <attributes>
@@ -184,13 +184,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="±5 cents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXt-36-OBv">
-                                                    <rect key="frame" x="278.5" y="39" width="62.5" height="19"/>
+                                                    <rect key="frame" x="281" y="39" width="60" height="19"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gi-vy-jvo">
-                                                    <rect key="frame" x="14" y="23.5" width="73.5" height="23"/>
+                                                    <rect key="frame" x="14" y="23.5" width="74.5" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -230,13 +230,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb6-zO-QJl">
-                                                    <rect key="frame" x="237.5" y="39" width="103.5" height="19"/>
+                                                    <rect key="frame" x="239" y="39" width="102" height="19"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Damping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8MX-Ch-4tV">
-                                                    <rect key="frame" x="14" y="10" width="77" height="23"/>
+                                                    <rect key="frame" x="14" y="10" width="74" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -263,13 +263,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Instrument" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuD-Qw-Nty">
-                                                    <rect key="frame" x="16" y="17" width="91" height="23"/>
+                                                    <rect key="frame" x="16" y="17" width="89.5" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYt-Ct-WFT">
-                                                    <rect key="frame" x="235" y="18" width="105" height="23"/>
+                                                    <rect key="frame" x="236" y="18" width="104" height="23"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Clarinet (Bb)">
                                                             <attributes>
@@ -302,19 +302,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Pitch Standard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ANu-bl-GLi">
-                                                    <rect key="frame" x="16" y="17.5" width="126.5" height="23"/>
+                                                    <rect key="frame" x="16" y="17.5" width="118.5" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="A440" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3B-n7-V05">
-                                                    <rect key="frame" x="259.5" y="17.5" width="44.5" height="23"/>
+                                                    <rect key="frame" x="258" y="17.5" width="46" height="23"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="19"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9Y-XL-zCR">
-                                                    <rect key="frame" x="208.5" y="0.0" width="57" height="57.5"/>
+                                                    <rect key="frame" x="207" y="0.0" width="57" height="57.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="57" id="oka-V7-YGW"/>
                                                     </constraints>
@@ -498,7 +498,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pitch tracks your progress over time to help you become a better musician." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sY-S4-2uD">
-                                <rect key="frame" x="30" y="394" width="315" height="80"/>
+                                <rect key="frame" x="30" y="394.5" width="315" height="79.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -510,10 +510,32 @@
                                     <constraint firstAttribute="width" constant="130" id="fDx-Ay-wWh"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2M-sI-S3r">
+                                <rect key="frame" x="67" y="561" width="240" height="46"/>
+                                <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="1dW-bG-9gn"/>
+                                    <constraint firstAttribute="height" constant="46" id="eY7-pG-Sjy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="21"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextPressed:" destination="9D3-2L-DWJ" eventType="touchUpInside" id="VNC-ro-hSx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wdS-6k-LD6" firstAttribute="top" secondItem="c2M-sI-S3r" secondAttribute="bottom" constant="60" id="7s1-N3-sbk"/>
                             <constraint firstItem="ZrN-h7-aUj" firstAttribute="centerX" secondItem="Opp-wY-SAq" secondAttribute="centerX" id="8n7-nj-qdk"/>
+                            <constraint firstItem="c2M-sI-S3r" firstAttribute="centerX" secondItem="Opp-wY-SAq" secondAttribute="centerX" id="Wb0-tD-iij"/>
                             <constraint firstItem="ZrN-h7-aUj" firstAttribute="centerY" secondItem="Opp-wY-SAq" secondAttribute="centerY" constant="-120" id="dTB-7w-J3s"/>
                             <constraint firstAttribute="trailing" secondItem="1sY-S4-2uD" secondAttribute="trailing" constant="30" id="fMd-ff-xbC"/>
                             <constraint firstItem="1sY-S4-2uD" firstAttribute="leading" secondItem="Opp-wY-SAq" secondAttribute="leading" constant="30" id="ild-9g-3Eb"/>
@@ -541,7 +563,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But first, Pitch needs to access your microphone." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJy-9Z-dOd">
-                                <rect key="frame" x="30" y="408" width="315" height="53"/>
+                                <rect key="frame" x="30" y="407.5" width="315" height="53"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -666,13 +688,13 @@ your daily analytics are ready!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pitch can send you daily notifications with tips to improve your playing." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mly-bB-RKS">
-                                <rect key="frame" x="30" y="374" width="315" height="79.5"/>
+                                <rect key="frame" x="30" y="374.5" width="315" height="79.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will never spam you." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaP-oI-2Sr">
-                                <rect key="frame" x="93.5" y="453.5" width="188.5" height="107.5"/>
+                                <rect key="frame" x="93.5" y="454" width="188.5" height="107"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -802,7 +824,7 @@ your daily analytics are ready!</string>
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What instrument do you play?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUl-sd-qWw">
-                                <rect key="frame" x="45" y="0.0" width="287" height="264"/>
+                                <rect key="frame" x="44.5" y="0.0" width="286.5" height="264"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -858,7 +880,7 @@ your daily analytics are ready!</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syJ-FW-TRB">
-                                        <rect key="frame" x="147" y="23" width="81" height="28"/>
+                                        <rect key="frame" x="147.5" y="23" width="81" height="28"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -875,7 +897,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HgG-IX-2xp">
-                                        <rect key="frame" x="10" y="75" width="355" height="464"/>
+                                        <rect key="frame" x="10" y="75" width="355" height="464.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="450" id="oRX-ha-HQP"/>
                                         </constraints>
@@ -884,7 +906,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </containerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How can we improve?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QYQ-c3-sou">
-                                        <rect key="frame" x="87" y="559" width="200" height="26"/>
+                                        <rect key="frame" x="87.5" y="559.5" width="199.5" height="25.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="21"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -1093,19 +1115,19 @@ your daily analytics are ready!</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-78-WqF">
-                                        <rect key="frame" x="147" y="143" width="82" height="132"/>
+                                        <rect key="frame" x="147.5" y="143.5" width="81.5" height="132"/>
                                         <fontDescription key="fontDescription" name="Lato-Hairline" family="Lato" pointSize="110"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are 0.0 cents flat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-ws-Axi">
-                                        <rect key="frame" x="110" y="287" width="155" height="21"/>
+                                        <rect key="frame" x="110.5" y="287.5" width="155" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4h-6o-O5x">
-                                        <rect key="frame" x="218" y="221" width="19" height="39"/>
+                                        <rect key="frame" x="218" y="221.5" width="19" height="38.5"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1266,7 +1288,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Psk-Hp-0dT">
-                                        <rect key="frame" x="94" y="0.0" width="94" height="54"/>
+                                        <rect key="frame" x="94" y="0.0" width="93.5" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" placeholder="YES" id="blL-wG-jLv"/>
                                         </constraints>
@@ -1281,7 +1303,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ioa-pp-9AR">
-                                        <rect key="frame" x="188" y="0.0" width="94" height="54"/>
+                                        <rect key="frame" x="187.5" y="0.0" width="94" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" placeholder="YES" id="D3H-CC-zdb"/>
                                         </constraints>
@@ -1296,7 +1318,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wkx-HL-v4E">
-                                        <rect key="frame" x="282" y="0.0" width="93" height="54"/>
+                                        <rect key="frame" x="281.5" y="0.0" width="93.5" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" placeholder="YES" id="OG6-1u-NEP"/>
                                         </constraints>
@@ -1326,7 +1348,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpy-FC-z3p">
-                                        <rect key="frame" x="94" y="54" width="94" height="54"/>
+                                        <rect key="frame" x="94" y="54" width="93.5" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" placeholder="YES" id="Itx-Bq-r7n"/>
                                         </constraints>
@@ -1341,7 +1363,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRC-mt-qZ1">
-                                        <rect key="frame" x="188" y="54" width="94" height="54"/>
+                                        <rect key="frame" x="187.5" y="54" width="94" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" placeholder="YES" id="MhK-Sj-GM9"/>
                                         </constraints>
@@ -1356,7 +1378,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RkH-1m-34D">
-                                        <rect key="frame" x="282" y="54" width="93" height="54"/>
+                                        <rect key="frame" x="281.5" y="54" width="93.5" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" placeholder="YES" id="Yws-C3-O1h"/>
                                         </constraints>
@@ -1386,7 +1408,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3Z-KM-eZm">
-                                        <rect key="frame" x="94" y="108" width="94" height="54"/>
+                                        <rect key="frame" x="94" y="108" width="93.5" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" placeholder="YES" id="9QC-9G-OuD"/>
                                         </constraints>
@@ -1401,7 +1423,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9lN-S2-eu2">
-                                        <rect key="frame" x="188" y="108" width="94" height="54"/>
+                                        <rect key="frame" x="187.5" y="108" width="94" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" placeholder="YES" id="cTR-fc-oyw"/>
                                         </constraints>
@@ -1416,7 +1438,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GM1-SO-ott">
-                                        <rect key="frame" x="282" y="108" width="93" height="54"/>
+                                        <rect key="frame" x="281.5" y="108" width="93.5" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" placeholder="YES" id="31B-wY-2R1"/>
                                         </constraints>
@@ -1438,23 +1460,23 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wti-lJ-WDr" userLabel="minus">
-                                        <rect key="frame" x="94" y="162" width="94" height="69"/>
+                                        <rect key="frame" x="94" y="162" width="93.5" height="69"/>
                                         <state key="normal" image="minus"/>
                                         <connections>
                                             <action selector="minusButtonPressed:" destination="iVv-DE-UIr" eventType="touchUpInside" id="lE3-8a-d3F"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-Gb-hQu" userLabel="octave">
-                                        <rect key="frame" x="188" y="162" width="94" height="69"/>
+                                        <rect key="frame" x="187.5" y="162" width="94" height="69"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFI-AI-stZ">
-                                                <rect key="frame" x="37" y="4" width="18" height="36"/>
+                                                <rect key="frame" x="38.5" y="4" width="17" height="36"/>
                                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="30"/>
                                                 <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCTAVE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbz-e0-DUB">
-                                                <rect key="frame" x="19" y="44" width="55" height="17"/>
+                                                <rect key="frame" x="20.5" y="44" width="54.5" height="17"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                                 <color key="textColor" red="0.34901960780000002" green="0.34901960780000002" blue="0.34901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1469,7 +1491,7 @@ your daily analytics are ready!</string>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXl-bA-mwo" userLabel="plus">
-                                        <rect key="frame" x="282" y="162" width="93" height="69"/>
+                                        <rect key="frame" x="281.5" y="162" width="93.5" height="69"/>
                                         <state key="normal" image="plus"/>
                                         <connections>
                                             <action selector="plusButtonPressed:" destination="iVv-DE-UIr" eventType="touchUpInside" id="2nh-mY-VTc"/>
@@ -1518,14 +1540,14 @@ your daily analytics are ready!</string>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdS-c0-HDo">
-                                        <rect key="frame" x="186" y="0.0" width="2" height="162"/>
+                                        <rect key="frame" x="185.5" y="0.0" width="2" height="162"/>
                                         <color key="backgroundColor" white="0.11" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1.5" id="l5c-3p-QeD"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbL-VI-4Dh">
-                                        <rect key="frame" x="280" y="0.0" width="2" height="162"/>
+                                        <rect key="frame" x="279.5" y="0.0" width="2" height="162"/>
                                         <color key="backgroundColor" white="0.11" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1.5" id="A6s-1O-oSb"/>
@@ -1747,7 +1769,7 @@ your daily analytics are ready!</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVf-Gq-O3n">
-                                                <rect key="frame" x="165" y="246" width="45" height="21"/>
+                                                <rect key="frame" x="165" y="246" width="45" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1766,7 +1788,7 @@ your daily analytics are ready!</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most Out-of-Tune" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVI-7F-AUG">
-                                                <rect key="frame" x="120" y="412" width="135" height="21"/>
+                                                <rect key="frame" x="120" y="412" width="135" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1790,12 +1812,12 @@ your daily analytics are ready!</string>
                                                 </connections>
                                             </containerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuning Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFs-qz-IRR">
-                                                <rect key="frame" x="140" y="654" width="96" height="21"/>
+                                                <rect key="frame" x="139.5" y="654" width="96" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AkE-gd-45d">
-                                                <rect key="frame" x="87" y="690" width="200" height="1"/>
+                                                <rect key="frame" x="87" y="689" width="200" height="1"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="200" id="AT2-ue-a9D"/>
@@ -1803,28 +1825,28 @@ your daily analytics are ready!</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7a3-98-bhj">
-                                                <rect key="frame" x="55" y="725" width="300" height="1"/>
+                                                <rect key="frame" x="55" y="724" width="300" height="1"/>
                                                 <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="dj8-DI-VjQ"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZeL-vn-oej">
-                                                <rect key="frame" x="55" y="800" width="300" height="1"/>
+                                                <rect key="frame" x="55" y="799" width="300" height="1"/>
                                                 <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="qd4-Ds-1fq"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7HI-Yx-5eC">
-                                                <rect key="frame" x="55" y="875" width="300" height="1"/>
+                                                <rect key="frame" x="55" y="874" width="300" height="1"/>
                                                 <color key="backgroundColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="rN4-gO-o4I"/>
                                                 </constraints>
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzX-jL-pwt" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
-                                                <rect key="frame" x="0.0" y="715" width="375" height="340"/>
+                                                <rect key="frame" x="0.0" y="714" width="375" height="340"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="340" id="76T-01-Zh3"/>
@@ -1901,7 +1923,7 @@ your daily analytics are ready!</string>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QC6-fu-sj3">
-                                                <rect key="frame" x="0.0" y="715" width="55" height="176"/>
+                                                <rect key="frame" x="0.0" y="714" width="55" height="176"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="0dx-S8-pdL"/>
@@ -1909,7 +1931,7 @@ your daily analytics are ready!</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWg-nN-K27">
-                                                <rect key="frame" x="355" y="715" width="20" height="176"/>
+                                                <rect key="frame" x="355" y="714" width="20" height="176"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="176" id="90v-LD-pAZ"/>
@@ -1917,28 +1939,28 @@ your daily analytics are ready!</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qs9-oR-0EH">
-                                                <rect key="frame" x="20" y="716" width="27" height="18"/>
+                                                <rect key="frame" x="20.5" y="715" width="26.5" height="18"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="es3-84-zbZ">
-                                                <rect key="frame" x="29" y="792" width="18" height="18"/>
+                                                <rect key="frame" x="30" y="791" width="17" height="18"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhY-NI-Ja4">
-                                                <rect key="frame" x="38" y="867" width="9" height="18"/>
+                                                <rect key="frame" x="38" y="866" width="9" height="18"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you like this feature?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GiH-D2-a3a">
-                                                <rect key="frame" x="78" y="931" width="219" height="26"/>
+                                                <rect key="frame" x="78.5" y="930" width="218.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="21"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kVW-6L-EwS">
-                                                <rect key="frame" x="68" y="961" width="240" height="46"/>
+                                                <rect key="frame" x="68" y="959.5" width="240" height="46"/>
                                                 <color key="backgroundColor" red="1" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="m6I-JR-bSf"/>
@@ -2132,7 +2154,7 @@ your daily analytics are ready!</string>
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="1500"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your most out-of-tune pitches appear here. Use this to learn your instrument's tendencies and adjust while you play." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-3J-GZs">
-                                        <rect key="frame" x="120" y="467.5" width="260" height="86.5"/>
+                                        <rect key="frame" x="120" y="467" width="260" height="86.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="3J0-8l-J19"/>
                                         </constraints>
@@ -2154,13 +2176,13 @@ your daily analytics are ready!</string>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqr-JS-P8F" userLabel="Tutorial 4">
-                                <rect key="frame" x="-63" y="-730" width="500" height="3200"/>
+                                <rect key="frame" x="-63" y="-731" width="500" height="3200"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="out_of_tune_cutout" translatesAutoresizingMaskIntoConstraints="NO" id="sDQ-C0-GmN">
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="3200"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use this graph to keep track of your progress over time. If there's not much here yet, come back in a few days!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3o-Gy-EXT">
-                                        <rect key="frame" x="120" y="1317.5" width="260" height="86.5"/>
+                                        <rect key="frame" x="120" y="1317" width="260" height="86.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="O1q-zG-zFx"/>
                                         </constraints>
@@ -2286,13 +2308,13 @@ your daily analytics are ready!</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leave a review on the App Store to see your Analytics." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRQ-KB-CnX">
-                                <rect key="frame" x="30" y="308" width="315" height="44"/>
+                                <rect key="frame" x="30" y="308" width="315" height="43.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUh-Ns-Hhf">
-                                <rect key="frame" x="68" y="472" width="240" height="46"/>
+                                <rect key="frame" x="68" y="471.5" width="240" height="46"/>
                                 <color key="backgroundColor" red="0.0" green="0.94999999999999996" blue="0.4591666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="ReA-eX-5bH"/>
@@ -2312,7 +2334,7 @@ your daily analytics are ready!</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Once you review, you won't be asked to again." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8LQ-U4-lIy">
-                                <rect key="frame" x="30" y="534" width="315" height="39"/>
+                                <rect key="frame" x="30" y="533.5" width="315" height="38.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2332,7 +2354,7 @@ your daily analytics are ready!</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nrg-Ub-41e">
-                                <rect key="frame" x="0.0" y="352" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="351.5" width="375" height="120"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="down_hand" translatesAutoresizingMaskIntoConstraints="NO" id="UPy-fd-DUn">
                                         <rect key="frame" x="165" y="37" width="45" height="45"/>
