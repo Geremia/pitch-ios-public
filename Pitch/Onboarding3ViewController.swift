@@ -20,8 +20,10 @@ class Onboarding3ViewController: OnboardingViewController {
     func requestNotificationsPermission() {
         let options: UNAuthorizationOptions = [.alert, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options, completionHandler: { granted, error in
-            if granted {
-                self.performSegue(withIdentifier: "onboarding34", sender: nil)
+            DispatchQueue.main.async {
+                if granted {
+                    self.performSegue(withIdentifier: "onboarding34", sender: nil)
+                }
             }
         })
     }
