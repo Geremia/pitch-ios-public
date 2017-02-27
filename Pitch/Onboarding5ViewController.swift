@@ -45,6 +45,7 @@ class Onboarding5ViewController: OnboardingViewController {
     @IBAction func getStartedPressed(_ sender: Any) {
         let delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let container = delegate.snapContainer()
+        container.view.alpha = 0.0
         let window = delegate.window
         window?.rootViewController = container
         window?.makeKeyAndVisible()
