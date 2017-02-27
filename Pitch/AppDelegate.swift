@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Siren.sharedInstance.checkVersion(checkType: .daily)
         }
 
-        setupSnapContainer()
+        setRootViewController()
         Mixer.sharedInstance.setUp()
         
         sendUsageStatistics()
@@ -41,7 +41,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func setupSnapContainer() {
+    func setRootViewController() {
+        let viewController: UIViewController!
+        if UserDefaults.standard.hasSeenOnboarding() {
+            viewController = snapContainer()
+        } else {
+            viewController = onboardingViewController()
+        }
+        
+        self.window?.rootViewController = viewController
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func snapContainer() -> SnapContainerViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         let settings: SettingsViewController = storyboard.instantiateViewController(withIdentifier: "settings") as! SettingsViewController
@@ -54,10 +66,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         main.snapContainer = container
         analytics.snapContainer = container
         
-        let tutorial: Onboarding1ViewController = storyboard.instantiateViewController(withIdentifier: "onboarding1") as! Onboarding1ViewController
-        
-        self.window?.rootViewController = tutorial
-        self.window?.makeKeyAndVisible()
+        return container!
+    }
+    
+    func onboardingViewController() -> Onboarding1ViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "onboarding1") as! Onboarding1ViewController
     }
     
     func updateAnalyticsSharing() {

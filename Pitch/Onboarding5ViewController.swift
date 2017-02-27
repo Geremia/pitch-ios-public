@@ -43,22 +43,11 @@ class Onboarding5ViewController: OnboardingViewController {
     // MARK: - Actions
     
     @IBAction func getStartedPressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let settings: SettingsViewController = storyboard.instantiateViewController(withIdentifier: "settings") as! SettingsViewController
-        let main: MainViewController = storyboard.instantiateViewController(withIdentifier: "main") as! MainViewController
-        let analytics: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
-        
-        let container = SnapContainerViewController.containerViewWith(settings, middleVC: main, rightVC: analytics)
-        container.view.alpha = 0.0
-        
-        settings.snapContainer = container
-        main.snapContainer = container
-        analytics.snapContainer = container
-        
-        let window = UIApplication.shared.delegate?.window
-        window??.rootViewController = container
-        window??.makeKeyAndVisible()
+        let delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let container = delegate.snapContainer()
+        let window = delegate.window
+        window?.rootViewController = container
+        window?.makeKeyAndVisible()
         
         UIView.animate(withDuration: 0.3, animations: {
             self.view.alpha = 0.0
