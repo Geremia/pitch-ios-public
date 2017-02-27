@@ -9,6 +9,8 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
+    
+    // MARK: - Variables
 
     let presentAnimationController = SlideAnimationController(direction: .right)
     
@@ -31,6 +33,12 @@ class OnboardingViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    // MARK: - Orientation
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
     }
 }
 

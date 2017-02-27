@@ -40,6 +40,8 @@ class Onboarding2ViewController: OnboardingViewController {
         }
     }
     
+    // MARK: - App State Notification
+    
     func applicationDidBecomeActive(_ notification: Notification) {
         if permission.status == .authorized {
             self.performSegue(withIdentifier: "onboarding23", sender: nil)
