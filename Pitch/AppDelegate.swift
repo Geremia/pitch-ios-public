@@ -162,7 +162,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
         let recordPermissionGranted = UserDefaults.standard.recordPermission()
-        if !Constants.pitchPipeIsPlayingSound && recordPermissionGranted {
+        let hasSeenOnboarding = UserDefaults.standard.hasSeenOnboarding()
+        if !Constants.pitchPipeIsPlayingSound && recordPermissionGranted && hasSeenOnboarding {
             if !AudioKit.audioInUseByOtherApps() {
                 AudioKit.start()
             }

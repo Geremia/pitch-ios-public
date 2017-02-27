@@ -10,6 +10,12 @@ import UIKit
 import AudioKit
 
 class Onboarding2ViewController: OnboardingViewController {
+    
+    // MARK: - Setup Views
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
     // MARK: - Actions
     
@@ -20,8 +26,8 @@ class Onboarding2ViewController: OnboardingViewController {
     func requestRecordPermission() {
         AKSettings.session.requestRecordPermission() { (granted: Bool) -> Void in
             DispatchQueue.main.async {
+                print(granted)
                 if granted {
-                    Mixer.sharedInstance.setUp()
                     self.performSegue(withIdentifier: "onboarding23", sender: nil)
                 }
             }

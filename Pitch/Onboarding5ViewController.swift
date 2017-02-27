@@ -54,5 +54,8 @@ class Onboarding5ViewController: OnboardingViewController {
             self.view.alpha = 0.0
             container.view.alpha = 1.0
         })
+        
+        Mixer.sharedInstance.setUp()
+        UserDefaults.standard.setHasSeenOnboarding(true)
     }
 }
