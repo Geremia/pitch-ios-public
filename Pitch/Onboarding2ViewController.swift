@@ -19,8 +19,11 @@ class Onboarding2ViewController: OnboardingViewController {
     
     func requestRecordPermission() {
         AKSettings.session.requestRecordPermission() { (granted: Bool) -> Void in
-            if granted {
-                self.performSegue(withIdentifier: "onboarding23", sender: nil)
+            DispatchQueue.main.async {
+                if granted {
+                    Mixer.sharedInstance.setUp()
+                    self.performSegue(withIdentifier: "onboarding23", sender: nil)
+                }
             }
         }
     }

@@ -60,6 +60,7 @@ class Onboarding4ViewController: OnboardingViewController, UIPickerViewDelegate,
     
     @IBAction func nextPressed(_ sender: Any) {
         UserDefaults.standard.setInstrument(currentInstrument)
+        UserDefaults.standard.setKey(currentInstrument.key)
         performSegue(withIdentifier: "onboarding45", sender: nil)
     }
     

@@ -34,8 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         setRootViewController()
-        Mixer.sharedInstance.setUp()
-        
         sendUsageStatistics()
         
         return true
@@ -45,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController: UIViewController!
         if UserDefaults.standard.hasSeenOnboarding() {
             viewController = snapContainer()
+            Mixer.sharedInstance.setUp()
         } else {
             viewController = onboardingViewController()
         }
