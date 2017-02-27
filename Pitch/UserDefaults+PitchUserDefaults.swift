@@ -11,6 +11,22 @@ import Foundation
 extension UserDefaults {
     
     /**
+     * Bool indicating whether the user has completed the onboarding
+     * sequence.
+     */
+    func hasSeenOnboarding() -> Bool {
+        if DataManager.data(forPastDaysIncludingToday: 10).count > 1 {
+            return true
+        } else {
+            return bool(forKey: "hasSeenOnboarding")
+        }
+    }
+    
+    func setHasSeenOnboarding(_ newValue: Bool) {
+        set(newValue, forKey: "hasSeenOnboarding")
+    }
+    
+    /**
      * Whether microphone recording permission has been granted
      * by the user.
      */
