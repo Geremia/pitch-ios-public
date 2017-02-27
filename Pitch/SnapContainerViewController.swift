@@ -81,6 +81,9 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             height: self.view.bounds.height
         )
         
+        // For some reason a weird bug occurs here only after going through onboarding. This ViewController thinks it's in landscape when it's actually
+        // in portrait and vice versa. This fixes it.
+        
         if (UIDeviceOrientationIsLandscape(orientation) && view.width < view.height) || (UIDeviceOrientationIsPortrait(orientation) && view.width > view.height) {
             view.width = self.view.bounds.height
             view.height = self.view.bounds.width
