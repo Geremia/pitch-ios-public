@@ -12,10 +12,25 @@ class OnboardingViewController: UIViewController {
 
     let presentAnimationController = SlideAnimationController(direction: .right)
     
+    // MARK: - Setup Views
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.layer.cornerRadius = 8.0
+        view.clipsToBounds = true
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         segue.destination.transitioningDelegate = self
+    }
+    
+    // MARK: - Status Bar Style
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
 

@@ -526,7 +526,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sk-zH-cGe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2158" y="1179"/>
+            <point key="canvasLocation" x="-1652" y="1262"/>
         </scene>
         <!--Onboarding2 View Controller-->
         <scene sceneID="S3K-sM-YLd">
@@ -591,7 +591,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtI-rc-Cff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1394" y="1178"/>
+            <point key="canvasLocation" x="-887" y="1261"/>
         </scene>
         <!--Onboarding5 View Controller-->
         <scene sceneID="WHi-If-FHa">
@@ -632,7 +632,7 @@ your daily analytics are ready!</string>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="onboardingEnd" id="YLI-De-rMZ"/>
+                                    <action selector="getStartedPressed:" destination="Q7i-PZ-h2T" eventType="touchUpInside" id="PfY-yG-7ha"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -651,7 +651,7 @@ your daily analytics are ready!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYW-Qn-YHN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="894" y="1178"/>
+            <point key="canvasLocation" x="1401" y="1261"/>
         </scene>
         <!--Onboarding3 View Controller-->
         <scene sceneID="exx-wB-CV5">
@@ -742,7 +742,7 @@ your daily analytics are ready!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="926-Is-dIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-630" y="1178"/>
+            <point key="canvasLocation" x="-124" y="1261"/>
         </scene>
         <!--Onboarding4 View Controller-->
         <scene sceneID="I2N-I7-3X9">
@@ -806,7 +806,7 @@ your daily analytics are ready!</string>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can change this any time in settings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wr4-dU-E67">
                                 <rect key="frame" x="30" y="403.5" width="315" height="157.5"/>
-                                <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -835,7 +835,7 @@ your daily analytics are ready!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0uk-nn-Lix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="1178"/>
+            <point key="canvasLocation" x="633" y="1261"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="8bJ-bP-J8c">

@@ -8,15 +8,11 @@
 
 import UIKit
 
-class Onboarding5ViewController: UIViewController {
+class Onboarding5ViewController: OnboardingViewController {
     
     // MARK: - Outlets
     
     @IBOutlet weak var label: UILabel!
-    
-    // MARK: - Variables
-    
-    let presentAnimationController = SlideAnimationController(direction: .above)
     
     // MARK: - Setup Views
 
@@ -44,15 +40,29 @@ class Onboarding5ViewController: UIViewController {
         label.attributedText = combined
     }
     
-    // MARK: - Navigation
+    // MARK: - Actions
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        segue.destination.transitioningDelegate = self
-    }
-}
-
-extension Onboarding5ViewController: UIViewControllerTransitioningDelegate {
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return presentAnimationController
+    @IBAction func getStartedPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let settings: SettingsViewController = storyboard.instantiateViewController(withIdentifier: "settings") as! SettingsViewController
+        let main: MainViewController = storyboard.instantiateViewController(withIdentifier: "main") as! MainViewController
+        let analytics: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
+        
+        let container = SnapContainerViewController.containerViewWith(settings, middleVC: main, rightVC: analytics)
+        container.view.alpha = 0.0
+        
+        settings.snapContainer = container
+        main.snapContainer = container
+        analytics.snapContainer = container
+        
+        let window = UIApplication.shared.delegate?.window
+        window??.rootViewController = container
+        window??.makeKeyAndVisible()
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.alpha = 0.0
+            container.view.alpha = 1.0
+        })
     }
 }

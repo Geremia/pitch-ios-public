@@ -19,6 +19,13 @@ class Onboarding4ViewController: OnboardingViewController, UIPickerViewDelegate,
     let instruments: [Instrument] = Instrument.all
     var currentInstrument: Instrument = .other
     
+    // MARK: - Setup Views
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        pickerView.reloadAllComponents()
+    }
+    
     // MARK: - UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
