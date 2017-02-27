@@ -74,12 +74,17 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         let orientation = UIDevice.current.orientation
         if orientation == .faceUp || orientation == .faceDown { return }
         
-        let view = (
+        var view = (
             x: self.view.bounds.origin.x,
             y: self.view.bounds.origin.y,
             width: self.view.bounds.width,
             height: self.view.bounds.height
         )
+        
+        if (UIDeviceOrientationIsLandscape(orientation) && view.width < view.height) || (UIDeviceOrientationIsPortrait(orientation) && view.width > view.height) {
+            view.width = self.view.bounds.height
+            view.height = self.view.bounds.width
+        }
         
         UIView.transition(with: self.view, duration: 0.2, options: [.transitionCrossDissolve], animations: {
             self.scrollView.frame = CGRect(x: view.x,
@@ -317,4 +322,9 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         return true
     }
     
+    // MARK: - Orientation
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
 }

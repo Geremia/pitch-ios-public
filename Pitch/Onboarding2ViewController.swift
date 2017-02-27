@@ -33,7 +33,9 @@ class Onboarding2ViewController: OnboardingViewController {
         permission.request { status in
             switch status {
             case .authorized:
-                self.performSegue(withIdentifier: "onboarding23", sender: nil)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "onboarding23", sender: nil)
+                }
             default:
                 break
             }
