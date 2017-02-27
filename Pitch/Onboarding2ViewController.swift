@@ -8,13 +8,19 @@
 
 import UIKit
 import AudioKit
+import Permission
 
 class Onboarding2ViewController: OnboardingViewController {
+    
+    // MARK: - Variables
+    
+    let permission: Permission = .microphone
     
     // MARK: - Setup Views
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive(_:)), name: .UIApplicationDidBecomeActive, object: nil)
     }
 
     // MARK: - Actions
@@ -24,13 +30,19 @@ class Onboarding2ViewController: OnboardingViewController {
     }
     
     func requestRecordPermission() {
-        AKSettings.session.requestRecordPermission() { (granted: Bool) -> Void in
-            DispatchQueue.main.async {
-                print(granted)
-                if granted {
-                    self.performSegue(withIdentifier: "onboarding23", sender: nil)
-                }
+        permission.request { status in
+            switch status {
+            case .authorized:
+                self.performSegue(withIdentifier: "onboarding23", sender: nil)
+            default:
+                break
             }
+        }
+    }
+    
+    func applicationDidBecomeActive(_ notification: Notification) {
+        if permission.status == .authorized {
+            self.performSegue(withIdentifier: "onboarding23", sender: nil)
         }
     }
 }

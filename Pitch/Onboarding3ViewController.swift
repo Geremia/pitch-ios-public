@@ -8,8 +8,13 @@
 
 import UIKit
 import UserNotifications
+import Permission
 
 class Onboarding3ViewController: OnboardingViewController {
+    
+    // MARK: - Variables
+    
+    let permission: Permission = .notifications
 
     // MARK: - Actions
     
@@ -18,14 +23,14 @@ class Onboarding3ViewController: OnboardingViewController {
     }
     
     func requestNotificationsPermission() {
-        let options: UNAuthorizationOptions = [.alert, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(options: options, completionHandler: { granted, error in
-            DispatchQueue.main.async {
-                if granted {
-                    self.performSegue(withIdentifier: "onboarding34", sender: nil)
-                }
+        permission.request { status in
+            switch status {
+            case .authorized:
+                self.performSegue(withIdentifier: "onboarding34", sender: nil)
+            default:
+                break
             }
-        })
+        }
     }
     
     @IBAction func noThanksPressed(_ sender: Any) {
