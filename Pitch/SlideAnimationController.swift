@@ -13,8 +13,6 @@ enum Direction {
     case below
     case left
     case right
-    case fromBottom
-    case toBottom
 }
 
 class SlideAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
@@ -46,111 +44,50 @@ class SlideAnimationController: NSObject, UIViewControllerAnimatedTransitioning 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let toViewController: UIViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
         let fromViewController: UIViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
-        
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
         
         transitionContext.containerView.addSubview(toViewController.view!)
+        transitionContext.containerView.backgroundColor = UIColor.black
         
-        let darkModeOn = UserDefaults.standard.darkModeOn()
+        let damping: CGFloat!
+        let initialVelocity: CGFloat = 0.6
+        
         switch self.direction {
         case .above:
-            toViewController.view.frame = CGRect(x: 0, y: -height, width: width, height: height)
-            if darkModeOn {
-                transitionContext.containerView.backgroundColor = UIColor.darkGrayView
-            } else {
-                transitionContext.containerView.backgroundColor = UIColor.white
-            }
+            toViewController.view.frame = CGRect(x: 0, y: -height - 16, width: width, height: height)
+            damping = 0.8
         case .below:
-            toViewController.view.frame = CGRect(x: 0, y: height, width: width, height: height)
-            if darkModeOn {
-                transitionContext.containerView.backgroundColor = UIColor.darkGrayView
-            } else {
-                transitionContext.containerView.backgroundColor = UIColor.white
-            }
-        case .fromBottom:
-            toViewController.view.frame = CGRect(x: 0, y: height, width: width, height: height)
-            self.darkView.frame = fromViewController.view.frame
-            fromViewController.view.addSubview(self.darkView)
-            
-            toViewController.view.layer.shadowColor = UIColor(white: 0.0, alpha: 0.05).cgColor
-            toViewController.view.layer.shadowOpacity = 0.0
-            toViewController.view.layer.shadowRadius = 4.0
-        case .toBottom:
-            toViewController.view.frame = CGRect(x: 0, y: 0, width: width, height: height)
-            transitionContext.containerView.sendSubview(toBack: toViewController.view)
+            toViewController.view.frame = CGRect(x: 0, y: height + 16, width: width, height: height)
+            damping = 0.8
         case .left:
             toViewController.view.frame = CGRect(x: -width - 16, y: 0, width: width, height: height)
-            transitionContext.containerView.backgroundColor = UIColor.black
+            damping = 0.75
         case .right:
             toViewController.view.frame = CGRect(x: width + 16, y: 0, width: width, height: height)
-            transitionContext.containerView.backgroundColor = UIColor.black
+            damping = 0.75
         }
         
-        switch self.direction {
-        case .above, .below:
-            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
-                switch self.direction {
-                case .above:
-                    toViewController.view.frame.origin.y += height
-                    fromViewController.view.frame.origin.y += height
-                case .below:
-                    toViewController.view.frame.origin.y -= height
-                    fromViewController.view.frame.origin.y -= height
-                default:
-                    return
-                }
-                
-                }, completion: { finished in
-                    if finished {
-                        transitionContext.completeTransition(true)
-                    }
-            })
-        case .left, .right:
-            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: 0.75, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
-                switch self.direction {
-                case .left:
-                    toViewController.view.frame.origin.x += width + 16
-                    fromViewController.view.frame.origin.x += width + 16
-                case .right:
-                    toViewController.view.frame.origin.x -= width + 16
-                    fromViewController.view.frame.origin.x -= width + 16
-                default:
-                    return
-                }
-                
-            }, completion: { finished in
-                if finished {
-                    transitionContext.completeTransition(true)
-                }
-            })
-        case .fromBottom, .toBottom:
-            UIView.animate(withDuration: transitionDuration(using: transitionContext) - 0.1, delay: 0, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
-                switch self.direction {
-                case .fromBottom:
-                    toViewController.view.frame.origin.y -= height
-                    toViewController.view.layer.shadowOpacity = 1.0
-                    self.darkView.alpha = 0.25
-                case .toBottom:
-                    fromViewController.view.frame.origin.y += height
-                    fromViewController.view.layer.shadowOpacity = 0.0
-                    self.darkView.alpha = 0.0
-                default:
-                    return
-                }
-                
-                }, completion:  { finished in
-                    if finished {
-                        transitionContext.completeTransition(true)
-                        UIApplication.shared.keyWindow!.addSubview(toViewController.view)
-                        
-                        if self.direction == .toBottom {
-                            self.darkView.removeFromSuperview()
-                        }
-                        
-                    }
-            })
-        }
+        UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: initialVelocity, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
+            switch self.direction {
+            case .above:
+                toViewController.view.frame.origin.y += height + 16
+                fromViewController.view.frame.origin.y += height + 16
+            case .below:
+                toViewController.view.frame.origin.y -= height + 16
+                fromViewController.view.frame.origin.y -= height + 16
+            case .left:
+                toViewController.view.frame.origin.x += width + 16
+                fromViewController.view.frame.origin.x += width + 16
+            case .right:
+                toViewController.view.frame.origin.x -= width + 16
+                fromViewController.view.frame.origin.x -= width + 16
+            }
+        }, completion: { finished in
+            if finished {
+                transitionContext.completeTransition(true)
+            }
+        })
     }
     
 }
