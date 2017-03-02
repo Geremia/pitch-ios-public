@@ -101,7 +101,11 @@ extension UserDefaults {
      * Bool indicating whether analytics data collection is on.
      */
     func analyticsOn() -> Bool {
-        return bool(forKey: "analyticsOn")
+        if object(forKey: "analyticsOn") != nil {
+            return bool(forKey: "analyticsOn")
+        }
+        
+        return true
     }
     
     func setAnalyticsOn(_ newValue: Bool) {
