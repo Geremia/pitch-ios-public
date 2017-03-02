@@ -41,6 +41,7 @@
 		4CD74B741E622FC900F073B5 /* Onboarding4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B731E622FC900F073B5 /* Onboarding4ViewController.swift */; };
 		4CD74B761E622FD300F073B5 /* Onboarding5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B751E622FD300F073B5 /* Onboarding5ViewController.swift */; };
 		4CD74B781E623E1600F073B5 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B771E623E1600F073B5 /* OnboardingViewController.swift */; };
+		4CD74B7B1E68E4CE00F073B5 /* SessionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B7A1E68E4CE00F073B5 /* SessionsViewController.swift */; };
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
@@ -125,6 +126,7 @@
 		4CD74B731E622FC900F073B5 /* Onboarding4ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding4ViewController.swift; sourceTree = "<group>"; };
 		4CD74B751E622FD300F073B5 /* Onboarding5ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding5ViewController.swift; sourceTree = "<group>"; };
 		4CD74B771E623E1600F073B5 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		4CD74B7A1E68E4CE00F073B5 /* SessionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsViewController.swift; sourceTree = "<group>"; };
 		4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
 		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -317,6 +319,14 @@
 			name = Onboarding;
 			sourceTree = "<group>";
 		};
+		4CD74B791E68E4B800F073B5 /* Sessions */ = {
+			isa = PBXGroup;
+			children = (
+				4CD74B7A1E68E4CE00F073B5 /* SessionsViewController.swift */,
+			);
+			name = Sessions;
+			sourceTree = "<group>";
+		};
 		4CDFFFF01D8B016300BEAD0D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +425,7 @@
 			children = (
 				4CD74B6C1E622F7700F073B5 /* Onboarding */,
 				4CE5F0BD1E0EC74900EF0AB3 /* Analytics */,
+				4CD74B791E68E4B800F073B5 /* Sessions */,
 				4C1FD5101DD1178100C1C6B9 /* Main */,
 				4C1FD5111DD1178700C1C6B9 /* Settings */,
 			);
@@ -693,6 +704,7 @@
 				4CFC73B91DC646EC00AFD8AC /* SoundGenerator.swift in Sources */,
 				4CD74B5A1E50D77400F073B5 /* Preferences.swift in Sources */,
 				4CEAD6D41D8A0CFD000492E6 /* AppDelegate.swift in Sources */,
+				4CD74B7B1E68E4CE00F073B5 /* SessionsViewController.swift in Sources */,
 				4C5076041E1FEDD400DBD02C /* Pitch.swift in Sources */,
 				4C5076091E205DB300DBD02C /* PitchesTableViewController.swift in Sources */,
 				4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */,

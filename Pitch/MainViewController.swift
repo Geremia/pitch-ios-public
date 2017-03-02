@@ -38,8 +38,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var analyticsCircle: ScoreCircle!
     @IBOutlet weak var analyticsMessage: UIImageView!
     
-    @IBOutlet weak var audioPlot: EZAudioPlot!
-    
     @IBOutlet weak var pitchPipeView: PitchPipeView!
     
     // MARK: - Tuner Variables
@@ -110,6 +108,13 @@ class MainViewController: UIViewController {
 
     // MARK: - Actions
     
+    @IBAction func sessionsPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let sessionsVC = storyboard.instantiateViewController(withIdentifier: "sessions")
+        sessionsVC.transitioningDelegate = self
+        present(sessionsVC, animated: true, completion: nil)
+    }
+    
     @IBAction func settingsPressed(_ sender: Any) {
         if let container = snapContainer {
             container.transitionLeft(animated: true)
@@ -173,5 +178,15 @@ extension MainViewController: TunerDelegate {
             addOutputToAnalytics(output: output)
             updatePitchCenterTimer(output: output)
         }
+    }
+}
+
+extension MainViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return SlideAnimationController(direction: .above)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return SlideAnimationController(direction: .below)
     }
 }
