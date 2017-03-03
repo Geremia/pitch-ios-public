@@ -6,7 +6,6 @@
 //  Copyright © 2016 Plutonium Apps. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import UICountingLabel
 import Crashlytics

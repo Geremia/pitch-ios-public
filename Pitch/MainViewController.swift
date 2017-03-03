@@ -92,19 +92,6 @@ class MainViewController: UIViewController {
             openPitchPipe()
         }
     }
-    
-    // MARK: - Dark Mode Switching
-    
-    func darkModeChanged() {
-        let darkModeOn = UserDefaults.standard.darkModeOn()
-        if darkModeOn {
-            view.backgroundColor = UIColor.darkGrayView
-        }
-        
-        state = .outOfTune
-        transitionViewTo(newState: .outOfTune, animated: false)
-        resetMovingLine()
-    }
 
     // MARK: - Actions
     

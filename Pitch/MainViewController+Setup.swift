@@ -62,4 +62,17 @@ extension MainViewController {
         analyticsCircle.isHidden = false
         shouldUpdateAnalyticsCircle = !DataManager.today().hasSufficientData && UserDefaults.standard.analyticsOn()
     }
+    
+    // MARK: - Dark Mode Switching
+    
+    func darkModeChanged() {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        if darkModeOn {
+            view.backgroundColor = UIColor.darkGrayView
+        }
+        
+        state = .outOfTune
+        transitionViewTo(newState: .outOfTune, animated: false)
+        resetMovingLine()
+    }
 }
