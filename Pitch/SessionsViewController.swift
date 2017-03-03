@@ -14,6 +14,7 @@ class SessionsViewController: UIViewController {
     
     @IBOutlet weak var sessionsLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var newSessionButton: UIButton!
     
     // MARK: - Variables
     
@@ -31,6 +32,10 @@ class SessionsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func newSessionPressed(_ sender: Any) {
+        
+    }
+    
     // MARK: - Status Bar Style
     
     override var prefersStatusBarHidden: Bool {
