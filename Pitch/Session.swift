@@ -15,4 +15,20 @@ class Session: Object {
     
     // MARK: - Variables
     
+    dynamic var name: String = ""
+    dynamic var date: Date = Date()
+    dynamic var length: Double = 0
+    dynamic var path: URL = URL(fileURLWithPath: "")
+    dynamic var analytics: SessionAnalytics = SessionAnalytics()
+    
+    // MARK: - Setup
+    
+    static func newSession(withName name: String, path: URL) -> Session {
+        let session = Session()
+        session.name = name
+        session.path = path
+        // CONFIGURE LENGTH BASED ON PATH
+        
+        return session
+    }
 }
