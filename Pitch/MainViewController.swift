@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var recordView: UIView!
     @IBOutlet weak var recordLabel: UILabel!
+    @IBOutlet weak var leftRecordButton: UIButton!
+    @IBOutlet weak var rightRecordButton: UIButton!
     @IBOutlet weak var recordViewTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var tunerView: UIView!
@@ -66,8 +68,7 @@ class MainViewController: UIViewController {
     
     // MARK: - Recording Variables
     
-    var recording: Bool = false
-    var finishedRecording: Bool = false
+    var recordingState: MainViewRecordingState = .notRecording
     
     // MARK: - Other Variables
     
@@ -102,20 +103,20 @@ class MainViewController: UIViewController {
 
     // MARK: - Actions
     
-    @IBAction func cancelRecordingPressed(_ sender: Any) {
+    @IBAction func rightRecordButtonPressed(_ sender: Any) {
         cancelRecording()
     }
     
-    @IBAction func toggleRecordingPressed(_ sender: Any) {
-        let button: UIButton = sender as! UIButton
-        let title = recording ? "Save" : "Stop"
-        button.setTitle(title, for: .normal)
-        
-        finishedRecording = recording
-        recording = !recording
-        
-        if finishedRecording {
-            
+    @IBAction func leftRecordButtonPressed(_ sender: Any) {
+        switch recordingState {
+        case .notRecording:
+            break
+        case .ready:
+            startRecording()
+        case .recording:
+            stopRecording()
+        case .doneRecording:
+            saveRecording()
         }
     }
     
