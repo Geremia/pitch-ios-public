@@ -100,7 +100,7 @@ class Day: Object {
     
     // MARK: - Functions
     
-    static func newDay() -> Day {
+    static func makeNew() -> Day {
         let day = Day()
         day.id = day.date.id
         return day

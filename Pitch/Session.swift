@@ -19,7 +19,7 @@ class Session: Object {
     dynamic var date: Date = Date()
     dynamic var length: Double = 0
     dynamic var path: URL = URL(fileURLWithPath: "")
-    dynamic var analytics: SessionAnalytics = SessionAnalytics()
+    dynamic var analytics: SessionAnalytics = SessionAnalytics.makeNew()
     
     // MARK: - Setup
     
