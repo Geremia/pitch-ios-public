@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     // MARK: - Tuner Outlets
     
     @IBOutlet weak var recordView: UIView!
+    @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var recordViewTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var tunerView: UIView!
@@ -53,8 +54,6 @@ class MainViewController: UIViewController {
     var shouldUpdateAnalyticsCircle: Bool = true
     var shouldUpdateUI: Bool = true
     
-    var plot: AKNodeOutputPlot!
-    
     var orientationDependentConstraints: [NSLayoutConstraint] = []
     var pitchPipeDisplayConstraint: NSLayoutConstraint!
     var didSetupConstraints: Bool = false
@@ -64,6 +63,11 @@ class MainViewController: UIViewController {
     var previousPitchWasInTune: Bool = false
     var pitchStartTime: Date?
     var pitchCenterTimer: Timer?
+    
+    // MARK: - Recording Variables
+    
+    var recording: Bool = false
+    var finishedRecording: Bool = false
     
     // MARK: - Other Variables
     
@@ -102,7 +106,17 @@ class MainViewController: UIViewController {
         cancelRecording()
     }
     
-    @IBAction func startRecordingPressed(_ sender: Any) {
+    @IBAction func toggleRecordingPressed(_ sender: Any) {
+        let button: UIButton = sender as! UIButton
+        let title = recording ? "Save" : "Stop"
+        button.setTitle(title, for: .normal)
+        
+        finishedRecording = recording
+        recording = !recording
+        
+        if finishedRecording {
+            
+        }
     }
     
     @IBAction func sessionsPressed(_ sender: Any) {

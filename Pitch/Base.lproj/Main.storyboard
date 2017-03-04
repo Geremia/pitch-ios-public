@@ -1483,7 +1483,7 @@ your daily analytics are ready!</string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="startRecordingPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ibf-wK-8Jk"/>
+                                                    <action selector="toggleRecordingPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MGh-sV-MdO"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1984,6 +1984,7 @@ your daily analytics are ready!</string>
                         <outlet property="pitchPipeButton" destination="hxQ-Xm-BOA" id="qRN-df-NSz"/>
                         <outlet property="pitchPipeView" destination="iVv-DE-UIr" id="Zog-24-HHy"/>
                         <outlet property="portraitMovingLineCenterConstraint" destination="MJM-rE-AOe" id="1tX-M1-qEh"/>
+                        <outlet property="recordLabel" destination="nv7-Tx-wI5" id="uAu-bm-GHL"/>
                         <outlet property="recordView" destination="oze-rG-43j" id="rzl-ap-jXU"/>
                         <outlet property="recordViewTopConstraint" destination="fxr-f7-TJJ" id="BFa-jW-5L5"/>
                         <outlet property="settingsButton" destination="SrA-v6-zUa" id="jhH-tp-LH8"/>

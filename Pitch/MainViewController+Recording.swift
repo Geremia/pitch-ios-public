@@ -19,6 +19,18 @@ extension MainViewController: SessionsViewControllerDelegate {
         }, completion: nil)
     }
     
+    func startRecording() {
+        
+    }
+    
+    func stopRecording() {
+        
+    }
+    
+    func saveRecording() {
+        
+    }
+    
     func cancelRecording() {
         recordViewTopConstraint.constant = -recordView.frame.height
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
