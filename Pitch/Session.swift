@@ -19,7 +19,7 @@ class Session: Object {
     dynamic var date: Date = Date()
     dynamic var length: Double = 0
     dynamic var path: String = ""
-    dynamic var analytics: SessionAnalytics = SessionAnalytics.makeNew()
+    dynamic var analytics: SessionAnalytics? = SessionAnalytics.makeNew()
     
     // MARK: - Setup
     
