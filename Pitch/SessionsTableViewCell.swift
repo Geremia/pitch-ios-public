@@ -12,7 +12,7 @@ class SessionsTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var lengthLabel: UILabel!
     @IBOutlet weak var playPauseButton: UIButton!
