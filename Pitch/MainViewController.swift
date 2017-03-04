@@ -14,6 +14,9 @@ class MainViewController: UIViewController {
     
     // MARK: - Tuner Outlets
     
+    @IBOutlet weak var recordView: UIView!
+    @IBOutlet weak var recordViewTopConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var tunerView: UIView!
     @IBOutlet var buttonBackgrounds: [UIView]!
     
@@ -95,11 +98,19 @@ class MainViewController: UIViewController {
 
     // MARK: - Actions
     
+    @IBAction func cancelRecordingPressed(_ sender: Any) {
+        cancelRecording()
+    }
+    
+    @IBAction func startRecordingPressed(_ sender: Any) {
+    }
+    
     @IBAction func sessionsPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let sessionsVC = storyboard.instantiateViewController(withIdentifier: "sessions")
+        let sessionsVC: SessionsViewController = storyboard.instantiateViewController(withIdentifier: "sessions") as! SessionsViewController
         sessionsVC.transitioningDelegate = self
-        present(sessionsVC, animated: true, completion: nil)
+        sessionsVC.delegate = self
+        snapContainer?.present(sessionsVC, animated: true, completion: nil)
     }
     
     @IBAction func settingsPressed(_ sender: Any) {

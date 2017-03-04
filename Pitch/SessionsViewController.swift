@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SessionsViewControllerDelegate {
+    func prepareForRecording()
+}
+
 class SessionsViewController: UIViewController {
     
     // MARK: - Outlets
@@ -18,11 +22,12 @@ class SessionsViewController: UIViewController {
     
     // MARK: - Variables
     
+    var delegate: SessionsViewControllerDelegate?
+    
     // MARK: - Setup Views
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
     }
     
@@ -33,7 +38,9 @@ class SessionsViewController: UIViewController {
     }
 
     @IBAction func newSessionPressed(_ sender: Any) {
-        
+        dismiss(animated: true, completion: { _ in
+            self.delegate?.prepareForRecording()
+        })
     }
     
     // MARK: - Status Bar Style

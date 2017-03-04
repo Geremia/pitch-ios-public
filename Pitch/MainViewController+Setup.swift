@@ -16,6 +16,7 @@ extension MainViewController {
     func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(openToneGenerator), name: .openToneGenerator, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setupAnalyticsCircle), name: .resetAnalyticsData, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(prepareForRecording), name: .prepareForRecording, object: nil)
     }
     
     func checkRecordPermission() {
@@ -47,6 +48,7 @@ extension MainViewController {
     func setupUI() {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
+        recordViewTopConstraint.constant = -recordView.frame.height
         
         setupAnalyticsCircle()
         

@@ -100,6 +100,8 @@ extension Notification.Name {
     static let pitchStandardChanged = Notification.Name(rawValue: "pitchStandardChangedNotification")
     static let resetAnalyticsData = Notification.Name(rawValue: "resetAnalyticsDataNotification")
     static let resetBufferSizes = Notification.Name(rawValue: "resetBufferSizesNotification")
+    static let prepareForRecording = Notification.Name(rawValue: "prepareForRecordingNotification")
+    
     static let openAnalytics = Notification.Name(rawValue: ShortcutIdentifier.Analytics.rawValue)
     static let openToneGenerator = Notification.Name(rawValue: ShortcutIdentifier.ToneGenerator.rawValue)
 }
