@@ -18,7 +18,7 @@ class Session: Object {
     dynamic var name: String = ""
     dynamic var date: Date = Date()
     dynamic var length: Double = 0
-    dynamic var path: URL = URL(fileURLWithPath: "")
+    dynamic var path: String = ""
     dynamic var analytics: SessionAnalytics = SessionAnalytics.makeNew()
     
     // MARK: - Setup
@@ -26,7 +26,7 @@ class Session: Object {
     static func newSession(withName name: String, path: URL) -> Session {
         let session = Session()
         session.name = name
-        session.path = path
+        session.path = path.absoluteString
         // CONFIGURE LENGTH BASED ON PATH
         
         return session
