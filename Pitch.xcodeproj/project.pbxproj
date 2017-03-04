@@ -45,6 +45,7 @@
 		4CD74B7D1E68E91B00F073B5 /* SessionsViewController+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B7C1E68E91B00F073B5 /* SessionsViewController+Setup.swift */; };
 		4CD74B811E690F0C00F073B5 /* SessionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B801E690F0C00F073B5 /* SessionsTableViewController.swift */; };
 		4CD74B861E69119500F073B5 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B851E69119500F073B5 /* Session.swift */; };
+		4CD74B881E6A3EA100F073B5 /* SessionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B871E6A3EA100F073B5 /* SessionsTableViewCell.swift */; };
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
@@ -133,6 +134,7 @@
 		4CD74B7C1E68E91B00F073B5 /* SessionsViewController+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SessionsViewController+Setup.swift"; sourceTree = "<group>"; };
 		4CD74B801E690F0C00F073B5 /* SessionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsTableViewController.swift; sourceTree = "<group>"; };
 		4CD74B851E69119500F073B5 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		4CD74B871E6A3EA100F073B5 /* SessionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsTableViewCell.swift; sourceTree = "<group>"; };
 		4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
 		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				4CD74B801E690F0C00F073B5 /* SessionsTableViewController.swift */,
+				4CD74B871E6A3EA100F073B5 /* SessionsTableViewCell.swift */,
 			);
 			name = "Sessions Table View";
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */,
 				4CE5F0C31E117C4700EF0AB3 /* ScoreCircle.swift in Sources */,
 				4C253C361D9FF7E900BD07D6 /* MainViewState.swift in Sources */,
+				4CD74B881E6A3EA100F073B5 /* SessionsTableViewCell.swift in Sources */,
 				4CD74B741E622FC900F073B5 /* Onboarding4ViewController.swift in Sources */,
 				4C1642DE1E3D3979003F0FB5 /* ShortcutIdentifier.swift in Sources */,
 				4CE28F351E329CCF00027F04 /* MainViewController+Setup.swift in Sources */,
