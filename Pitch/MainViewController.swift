@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var recordView: UIView!
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var leftRecordButton: UIButton!
+    @IBOutlet weak var leftRecordButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightRecordButton: UIButton!
     @IBOutlet weak var recordViewTopConstraint: NSLayoutConstraint!
     

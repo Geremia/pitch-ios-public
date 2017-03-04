@@ -1489,8 +1489,8 @@ your daily analytics are ready!</string>
                                         </subviews>
                                         <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="WEP-bB-ODs" firstAttribute="leading" secondItem="UlM-6r-DtK" secondAttribute="trailing" constant="15" id="3vx-Do-iXe"/>
                                             <constraint firstAttribute="height" constant="50" id="8hn-zz-RtN"/>
+                                            <constraint firstAttribute="trailing" secondItem="UlM-6r-DtK" secondAttribute="trailing" constant="100" id="9Ag-cj-EYs"/>
                                             <constraint firstAttribute="trailing" secondItem="WEP-bB-ODs" secondAttribute="trailing" constant="15" id="CJn-FO-kR6"/>
                                             <constraint firstItem="UlM-6r-DtK" firstAttribute="top" secondItem="oze-rG-43j" secondAttribute="top" constant="8" id="H5e-uC-X0J"/>
                                             <constraint firstAttribute="bottom" secondItem="WEP-bB-ODs" secondAttribute="bottom" constant="8" id="Hqo-n5-Imo"/>
@@ -1979,6 +1979,7 @@ your daily analytics are ready!</string>
                         <outlet property="analyticsMessage" destination="90I-fc-2p4" id="CqN-wi-p7U"/>
                         <outlet property="centsLabel" destination="2CA-ws-Axi" id="KfM-tk-IDd"/>
                         <outlet property="leftRecordButton" destination="UlM-6r-DtK" id="SnA-ax-GJV"/>
+                        <outlet property="leftRecordButtonConstraint" destination="9Ag-cj-EYs" id="RKA-5b-NkE"/>
                         <outlet property="movingLineHeight" destination="IK5-7G-sUk" id="Y1d-L5-EVT"/>
                         <outlet property="noteLabel" destination="4CE-78-WqF" id="2pw-wg-JUd"/>
                         <outlet property="octaveLabel" destination="d4h-6o-O5x" id="i8V-98-L97"/>

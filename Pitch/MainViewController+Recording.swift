@@ -22,7 +22,12 @@ extension MainViewController: SessionsViewControllerDelegate {
     func startRecording() {
         recordingState = .recording
         leftRecordButton.setTitle("Stop", for: .normal)
-        // ANIMATE TO NEW POSITION
+        
+        leftRecordButtonConstraint.constant = 15
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
+            self.recordView.layoutIfNeeded()
+            self.rightRecordButton.alpha = 0.0
+        }, completion: nil)
         
         // START RECORDING
     }
@@ -31,7 +36,12 @@ extension MainViewController: SessionsViewControllerDelegate {
         recordingState = .doneRecording
         leftRecordButton.setTitle("Save", for: .normal)
         rightRecordButton.setTitle("Discard", for: .normal)
-        // ANIMATE TO NEW POSITION
+        
+        leftRecordButtonConstraint.constant = 100
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
+            self.recordView.layoutIfNeeded()
+            self.rightRecordButton.alpha = 1.0
+        }, completion: nil)
         
         // STOP RECORDING
     }
