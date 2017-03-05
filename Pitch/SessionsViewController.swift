@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioKit
 
 protocol SessionsViewControllerDelegate {
     func prepareForRecording()
