@@ -47,6 +47,7 @@
 		4CD74B861E69119500F073B5 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B851E69119500F073B5 /* Session.swift */; };
 		4CD74B881E6A3EA100F073B5 /* SessionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B871E6A3EA100F073B5 /* SessionsTableViewCell.swift */; };
 		4CD74B8A1E6A64DE00F073B5 /* MainViewController+Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B891E6A64DE00F073B5 /* MainViewController+Recording.swift */; };
+		4CD74B8C1E6BB37500F073B5 /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B8B1E6BB37500F073B5 /* Recorder.swift */; };
 		4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */; };
 		4CDA4A001DD13E1100D05DAB /* SettingsEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */; };
 		4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA4A011DD17A6C00D05DAB /* Constants.swift */; };
@@ -137,6 +138,7 @@
 		4CD74B851E69119500F073B5 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		4CD74B871E6A3EA100F073B5 /* SessionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsTableViewCell.swift; sourceTree = "<group>"; };
 		4CD74B891E6A64DE00F073B5 /* MainViewController+Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+Recording.swift"; sourceTree = "<group>"; };
+		4CD74B8B1E6BB37500F073B5 /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
 		4CDA49FD1DD13D7400D05DAB /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		4CDA49FF1DD13E1100D05DAB /* SettingsEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEnums.swift; sourceTree = "<group>"; };
 		4CDA4A011DD17A6C00D05DAB /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				4CD74B681E5BB48300F073B5 /* Mixer.swift */,
 				4CFC73B81DC646EC00AFD8AC /* SoundGenerator.swift */,
 				4CFC73BD1DC6821400AFD8AC /* Tuner.swift */,
+				4CD74B8B1E6BB37500F073B5 /* Recorder.swift */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -741,6 +744,7 @@
 				4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */,
 				4C5076051E1FEDD400DBD02C /* Note.swift in Sources */,
 				4CD74B8A1E6A64DE00F073B5 /* MainViewController+Recording.swift in Sources */,
+				4CD74B8C1E6BB37500F073B5 /* Recorder.swift in Sources */,
 				4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */,
 				4CD743C21E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift in Sources */,
 				4CD74B701E622FB300F073B5 /* Onboarding2ViewController.swift in Sources */,
