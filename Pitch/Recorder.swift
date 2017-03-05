@@ -28,6 +28,10 @@ class Recorder: NSObject {
         recorder = try? AKNodeRecorder(node: Tuner.sharedInstance.microphone, file: file)
     }
     
+    private func newFileName() -> String {
+        let number = UserDefaults.standard.fileNumber()
+    }
+    
     func startRecording() {
         try? recorder?.record()
     }

@@ -11,6 +11,22 @@ import Foundation
 extension UserDefaults {
     
     /**
+     * Current file number for recordings.
+     */
+    func fileNumber() -> Int {
+        let number: Int!
+        if object(forKey: "fileNumber") == nil {
+            number = 1
+            set(number, forKey: "fileNumber")
+        } else {
+            number = integer(forKey: "fileNumber") + 1
+            set(number, forKey: "fileNumber")
+        }
+        
+        return number
+    }
+    
+    /**
      * Bool indicating whether the user has completed the onboarding
      * sequence.
      */
