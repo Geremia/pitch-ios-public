@@ -15,15 +15,15 @@ extension MainViewController {
     // MARK: - Animations
     
     func updateUI(output: TunerOutput) {
-        if !output.isValid {
-            setViewTo(newState: .outOfTune)
-            resetMovingLine()
-        } else {
+        if output.isValid {
             displayPitch(pitch: output.pitch.description)
             updateCentsLabel(offset: output.centsDistance)
             updateOctaveLabel(octave: output.pitch.octave)
             updateMovingLine(centsDistance: output.centsDistance)
             setViewToNewState(basedOnCentsDistance: output.centsDistance)
+        } else {
+            setViewTo(newState: .outOfTune)
+            resetMovingLine()
         }
         
         UIView.animate(withDuration: 0.08, delay: 0, options: [.allowUserInteraction], animations: {
@@ -38,7 +38,9 @@ extension MainViewController {
         if abs(offset) < threshold {
             centsLabel.text = state == .inTune ? "You got it!" : "Hold it..."
         } else {
-            centsLabel.text = "\(abs(offset.roundTo(places: 1))) cents " + (offset > 0 ? "sharp" : "flat")
+            let cents = abs(offset.roundTo(places: 1))
+            let sharpOrFlat = offset > 0 ? "sharp" : "flat"
+            centsLabel.text = "\(cents) cents \(sharpOrFlat)"
         }
     }
     
