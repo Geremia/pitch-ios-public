@@ -29,7 +29,7 @@ extension MainViewController: SessionsViewControllerDelegate {
             self.rightRecordButton.alpha = 0.0
         }, completion: nil)
         
-        // START RECORDING
+        Recorder.sharedInstance.startRecording()
     }
     
     func stopRecording() {
@@ -43,18 +43,22 @@ extension MainViewController: SessionsViewControllerDelegate {
             self.rightRecordButton.alpha = 1.0
         }, completion: nil)
         
-        // STOP RECORDING
+        Recorder.sharedInstance.stopRecording()
     }
     
     func saveRecording() {
         recordingState = .notRecording
         resetRecordView()
-        // SAVE RECORDING
+        
+        Recorder.sharedInstance.reset()
     }
     
     func cancelRecording() {
         recordingState = .notRecording
         resetRecordView()
+        
+        Recorder.sharedInstance.deleteCurrentRecording()
+        Recorder.sharedInstance.reset()
     }
     
     func resetRecordView() {
