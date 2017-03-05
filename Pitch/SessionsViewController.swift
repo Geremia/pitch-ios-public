@@ -23,6 +23,7 @@ class SessionsViewController: UIViewController {
     // MARK: - Variables
     
     var delegate: SessionsViewControllerDelegate?
+    var audioFile: AKAudioFile?
     
     // MARK: - Setup Views
 

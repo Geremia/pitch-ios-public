@@ -51,6 +51,10 @@ extension MainViewController: SessionsViewControllerDelegate {
         recordingState = .notRecording
         resetRecordView()
         
+        let sessions = sessionsVC()
+        sessions.audioFile = Recorder.sharedInstance.file
+        present(sessions, animated: true, completion: nil)
+        
         Recorder.sharedInstance.reset()
     }
     

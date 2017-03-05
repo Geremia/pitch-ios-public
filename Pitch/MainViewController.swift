@@ -122,11 +122,15 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func sessionsPressed(_ sender: Any) {
+        snapContainer?.present(sessionsVC(), animated: true, completion: nil)
+    }
+    
+    func sessionsVC() -> SessionsViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let sessionsVC: SessionsViewController = storyboard.instantiateViewController(withIdentifier: "sessions") as! SessionsViewController
         sessionsVC.transitioningDelegate = self
         sessionsVC.delegate = self
-        snapContainer?.present(sessionsVC, animated: true, completion: nil)
+        return sessionsVC
     }
     
     @IBAction func settingsPressed(_ sender: Any) {
