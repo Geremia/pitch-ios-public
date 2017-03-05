@@ -13,6 +13,7 @@ extension MainViewController: SessionsViewControllerDelegate {
     // MARK: - Recording
     
     func prepareForRecording() {
+        recordingState = .ready
         recordViewTopConstraint.constant = 0
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
             self.tunerView.layoutIfNeeded()
