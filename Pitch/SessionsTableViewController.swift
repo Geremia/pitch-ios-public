@@ -18,6 +18,7 @@ class SessionsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        reloadData()
     }
     
     func reloadData() {
