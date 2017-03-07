@@ -13,6 +13,8 @@ class DataManager {
     
     fileprivate static let realm = try! Realm()
     
+    // MARK: - Analytics
+    
     static func resetToday() {
         let day = today()
         try! realm.write {
@@ -44,6 +46,20 @@ class DataManager {
     fileprivate static func add(day: Day) {
         try! realm.write {
             realm.add(day, update: true)
+        }
+    }
+    
+    // MARK: - Sessions
+    
+    static func add(session: Session) {
+        try! realm.write {
+            realm.add(session, update: true)
+        }
+    }
+    
+    static func delete(session: Session) {
+        try! realm.write {
+            realm.delete(session)
         }
     }
     

@@ -11,10 +11,14 @@ import AudioKit
 
 class Recorder: NSObject {
     
+    // MARK: - Variables
+    
     static let sharedInstance: Recorder = Recorder()
     
     var file: AKAudioFile?
     var recorder: AKNodeRecorder?
+    
+    // MARK: - Initializers
     
     private override init() {}
     
@@ -23,7 +27,11 @@ class Recorder: NSObject {
         return "file\(number).caf"
     }
     
+    // MARK: - Methods
+    
     func startRecording() {
+        reset()
+        
         let dirPaths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let url = dirPaths[0].appendingPathComponent(newFileName())
         let settings: [String : Any] = [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
@@ -38,7 +46,7 @@ class Recorder: NSObject {
     }
     
     func stopRecording() {
-        try? recorder?.stop()
+        recorder?.stop()
     }
     
     func deleteCurrentRecording() {

@@ -33,6 +33,13 @@ class SessionsViewController: UIViewController {
         setupUI()
     }
     
+    // MARK: - Save Audio
+    
+    func saveAudioIfNecessary() {
+        guard let file = audioFile else { return }
+        let session = Session.with(name: "Test Session", file: file)
+    }
+    
     // MARK: - Actions
     
     @IBAction func backPressed(_ sender: Any) {

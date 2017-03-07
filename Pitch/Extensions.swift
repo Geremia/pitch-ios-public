@@ -42,6 +42,12 @@ extension Date {
         let id = String(format: "%04d%02d%02d", components.year!, components.month!, components.day!)
         return id
     }
+    
+    var longId: String {
+        let components = Calendar.current.dateComponents([.day, .month, .year], from: self)
+        let id = String(format: "%04d%02d%02d%02d%02d%02d", components.year!, components.month!, components.day!, components.hour!, components.minute!, components.second!)
+        return id
+    }
 }
 
 extension Dictionary {
