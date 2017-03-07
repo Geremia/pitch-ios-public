@@ -21,7 +21,7 @@ class SessionsViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var newSessionButton: UIButton!
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     var delegate: SessionsViewControllerDelegate?
     var audioFile: AKAudioFile?

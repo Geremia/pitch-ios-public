@@ -61,7 +61,7 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var tutorial3HeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var tutorial4: UIView!
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     var showingData: Bool = false
     var hasShownShareView: Bool = false

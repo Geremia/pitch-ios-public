@@ -14,7 +14,7 @@ protocol PitchesTableViewControllerDelegate {
 
 class PitchesTableViewController: UITableViewController {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     var delegate: PitchesTableViewControllerDelegate?
     let pitchOffsets = DataManager.today().filteredPitchOffsets

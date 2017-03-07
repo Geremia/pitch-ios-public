@@ -10,7 +10,7 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
-    // MARK: - Variables
+    // MARK: - Properties
 
     let presentAnimationController = SlideAnimationController(direction: .right)
     

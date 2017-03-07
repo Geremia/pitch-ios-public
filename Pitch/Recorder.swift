@@ -11,7 +11,7 @@ import AudioKit
 
 class Recorder: NSObject {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     static let sharedInstance: Recorder = Recorder()
     

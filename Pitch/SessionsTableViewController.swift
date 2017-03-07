@@ -10,7 +10,7 @@ import UIKit
 
 class SessionsTableViewController: UITableViewController {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     var sessions: [Session] = []
     

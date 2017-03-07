@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var pitchPipeView: PitchPipeView!
     
-    // MARK: - Tuner Variables
+    // MARK: - Tuner Properties
     
     var tunerSetup: Bool = false
     
@@ -61,17 +61,17 @@ class MainViewController: UIViewController {
     var pitchPipeDisplayConstraint: NSLayoutConstraint!
     var didSetupConstraints: Bool = false
     
-    // MARK: - Analytics Variables
+    // MARK: - Analytics Properties
     
     var previousPitchWasInTune: Bool = false
     var pitchStartTime: Date?
     var pitchCenterTimer: Timer?
     
-    // MARK: - Recording Variables
+    // MARK: - Recording Properties
     
     var recordingState: MainViewRecordingState = .notRecording
     
-    // MARK: - Other Variables
+    // MARK: - Other Properties
     
     var snapContainer: SnapContainerViewController?
     

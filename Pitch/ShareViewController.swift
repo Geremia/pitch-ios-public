@@ -23,7 +23,7 @@ class ShareViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     var delegate: ShareViewControllerDelegate?
     

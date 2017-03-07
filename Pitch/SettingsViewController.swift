@@ -27,7 +27,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     @IBOutlet weak var instrumentKeyView: UIView!
     @IBOutlet weak var instrumentKeyBottomConstraint: NSLayoutConstraint!
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     var settingsTableViewController: SettingsTableViewController?
     var snapContainer: SnapContainerViewController?

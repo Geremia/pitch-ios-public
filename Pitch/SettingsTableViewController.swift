@@ -15,7 +15,7 @@ protocol SettingsTableViewControllerDelegate {
 
 class SettingsTableViewController: UITableViewController {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     var darkModeOn: Bool = UserDefaults.standard.darkModeOn() {
         didSet {

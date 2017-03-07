@@ -12,7 +12,7 @@ import Permission
 
 class Onboarding2ViewController: OnboardingViewController {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     let permission: Permission = .microphone
     

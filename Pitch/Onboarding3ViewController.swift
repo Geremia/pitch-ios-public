@@ -12,7 +12,7 @@ import Permission
 
 class Onboarding3ViewController: OnboardingViewController {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     let permission: Permission = .notifications
 

@@ -14,7 +14,7 @@ class Onboarding4ViewController: OnboardingViewController, UIPickerViewDelegate,
     
     @IBOutlet weak var pickerView: UIPickerView!
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     let instruments: [Instrument] = Instrument.all
     var currentInstrument: Instrument = .other

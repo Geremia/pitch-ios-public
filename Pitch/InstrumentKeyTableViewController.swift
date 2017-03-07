@@ -10,7 +10,7 @@ import UIKit
 
 class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     var autoKeyOn: Bool = UserDefaults.standard.autoKeyOn() {
         didSet {

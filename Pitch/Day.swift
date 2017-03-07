@@ -11,7 +11,7 @@ import RealmSwift
 
 class Day: Object {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     dynamic var date: Date = Date()
     dynamic var id: String = "0"
