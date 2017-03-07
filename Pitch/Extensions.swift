@@ -44,8 +44,8 @@ extension Date {
     }
     
     var longId: String {
-        let components = Calendar.current.dateComponents([.day, .month, .year], from: self)
-        let id = String(format: "%04d%02d%02d%02d%02d%02d", components.year!, components.month!, components.day!, components.hour!, components.minute!, components.second!)
+        let components = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute, .second], from: self)
+        let id = String(format: "%04d%02d%02d%d%d%d", components.year!, components.month!, components.day!, components.hour!, components.minute!, components.second!)
         return id
     }
     
