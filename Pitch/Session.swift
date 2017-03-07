@@ -42,7 +42,7 @@ class Session: Object {
     
     static func with(name: String, file: AKAudioFile) -> Session {
         let session = Session()
-        session.id = session.date.id
+        session.id = session.date.longId
         session.name = name
         session.path = file.directoryPath.absoluteString
         session.duration = file.duration
