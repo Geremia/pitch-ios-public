@@ -43,6 +43,12 @@ class SessionsTableViewController: UITableViewController {
 
         return cell
     }
+    
+    // MARK: - Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160.0
+    }
 
     /*
     // MARK: - Navigation
