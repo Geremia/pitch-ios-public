@@ -25,12 +25,14 @@ class SessionsViewController: UIViewController {
     
     var delegate: SessionsViewControllerDelegate?
     var audioFile: AKAudioFile?
+    var tableViewController: SessionsTableViewController?
     
     // MARK: - Setup Views
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        saveAudioIfNecessary()
     }
     
     // MARK: - Save Audio
@@ -38,6 +40,8 @@ class SessionsViewController: UIViewController {
     func saveAudioIfNecessary() {
         guard let file = audioFile else { return }
         let session = Session.with(name: "Test Session", file: file)
+        DataManager.add(session)
+        tableViewController?.reloadData()
     }
     
     // MARK: - Actions
@@ -50,6 +54,14 @@ class SessionsViewController: UIViewController {
         dismiss(animated: true, completion: { _ in
             self.delegate?.prepareForRecording()
         })
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "sessionsTableEmbed" {
+            tableViewController = segue.destination as? SessionsTableViewController
+        }
     }
     
     // MARK: - Status Bar Style

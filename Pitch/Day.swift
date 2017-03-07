@@ -98,7 +98,7 @@ class Day: Object {
         return inTune + timeToCenter
     }
     
-    // MARK: - Functions
+    // MARK: - Setup
     
     static func makeNew() -> Day {
         let day = Day()

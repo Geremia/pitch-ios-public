@@ -39,6 +39,10 @@ class Session: Object {
         return session
     }
     
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
     // MARK: - Deletion
     
     func prepareForDeletion() {

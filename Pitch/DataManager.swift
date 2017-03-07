@@ -28,7 +28,7 @@ class DataManager {
             return days[0]
         } else {
             let day = Day.makeNew()
-            add(day: day)
+            add(day)
             sendUsageStatistics()
             return day
         }
@@ -43,7 +43,7 @@ class DataManager {
         return days
     }
     
-    fileprivate static func add(day: Day) {
+    fileprivate static func add(_ day: Day) {
         try! realm.write {
             realm.add(day, update: true)
         }
@@ -51,17 +51,27 @@ class DataManager {
     
     // MARK: - Sessions
     
-    static func add(session: Session) {
+    static func sessions() -> [Session] {
+        let results = realm.objects(Session.self)
+        var sessions: [Session] = []
+        sessions.append(contentsOf: results)
+        return sessions
+    }
+    
+    static func add(_ session: Session) {
         try! realm.write {
             realm.add(session, update: true)
         }
     }
     
-    static func delete(session: Session) {
+    static func delete(_ session: Session) {
         try! realm.write {
+            session.prepareForDeletion()
             realm.delete(session)
         }
     }
+    
+    // MARK: - Fabric Statistics
     
     fileprivate static func sendUsageStatistics() {
         let delegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
