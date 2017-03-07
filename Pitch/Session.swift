@@ -14,7 +14,7 @@ typealias SessionAnalytics = Day
 
 class Session: Object {
     
-    // MARK: - Calculated Properties
+    // MARK: - Computed Properties
     
     var directoryPath: URL {
         return URL(fileURLWithPath: path)

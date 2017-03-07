@@ -41,6 +41,8 @@ class SessionsTableViewController: UITableViewController {
         let session = sessions[indexPath.row]
         
         cell.nameField.text = session.name
+        cell.dateLabel.text = session.dateString
+        cell.durationLabel.text = session.durationString
 
         return cell
     }

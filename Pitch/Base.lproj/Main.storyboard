@@ -1189,7 +1189,7 @@ your daily analytics are ready!</string>
                                     <outlet property="analyticsButton" destination="W6M-lR-WBq" id="6V1-Zg-RND"/>
                                     <outlet property="dateLabel" destination="owK-1w-w8g" id="pek-m2-aRL"/>
                                     <outlet property="deleteButton" destination="m0p-iZ-hVg" id="CfZ-H3-HMo"/>
-                                    <outlet property="lengthLabel" destination="Mba-mM-egg" id="vRt-T2-2wb"/>
+                                    <outlet property="durationLabel" destination="Mba-mM-egg" id="4Lu-RJ-NXP"/>
                                     <outlet property="nameField" destination="cMT-Gg-hf8" id="bw5-s6-ZJy"/>
                                     <outlet property="playPauseButton" destination="lgB-Qx-DBj" id="KaN-r2-QWC"/>
                                     <outlet property="shareButton" destination="bhq-ax-drk" id="tD4-y6-jLC"/>

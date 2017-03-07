@@ -14,7 +14,7 @@ class SessionsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var lengthLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var timePassedLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
