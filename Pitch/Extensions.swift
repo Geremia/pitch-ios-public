@@ -48,6 +48,22 @@ extension Date {
         let id = String(format: "%04d%02d%02d%02d%02d%02d", components.year!, components.month!, components.day!, components.hour!, components.minute!, components.second!)
         return id
     }
+    
+    var prettyString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, h:mm a"
+        return formatter.string(from: self)
+    }
+}
+
+extension TimeInterval {
+    var prettyString: String {
+        let interval = Int(self)
+        let seconds = interval % 60
+        let minutes = (interval / 60) % 60
+        let hours = (interval / 3600)
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+    }
 }
 
 extension Dictionary {

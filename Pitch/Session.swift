@@ -14,11 +14,22 @@ typealias SessionAnalytics = Day
 
 class Session: Object {
     
-    // MARK: - Variables
+    // MARK: - Calculated Properties
     
     var directoryPath: URL {
         return URL(fileURLWithPath: path)
     }
+    
+    var dateString: String {
+        return date.prettyString
+    }
+    
+    var durationString: String {
+        let interval: TimeInterval = duration 
+        return interval.prettyString
+    }
+    
+    // MARK: - Stored Properties
     
     dynamic var id: String = ""
     dynamic var name: String = ""
