@@ -48,7 +48,7 @@ class SessionsTableViewController: UITableViewController {
         cell.durationLabel.text = session.durationString
         
         if let expandedIndex = expandedCellIndex {
-            cell.isExpanded = expandedIndex == indexPath
+            cell.isExpanded = (expandedIndex == indexPath)
         } else {
             cell.isExpanded = false
         }
@@ -73,6 +73,7 @@ class SessionsTableViewController: UITableViewController {
             expandedCellIndex = indexPath
         }
         
+        tableView.isScrollEnabled = (expandedCellIndex == nil)
         tableView.beginUpdates()
         tableView.endUpdates()
     }
