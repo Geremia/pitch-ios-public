@@ -9,9 +9,9 @@
 import UIKit
 
 protocol SessionsTableViewCellDelegate {
-    func sharePressedAt(_ indexPath: IndexPath)
-    func analyticsPressedAt(_ indexPath: IndexPath)
-    func deletePressedAt(_ indexPath: IndexPath)
+    func sharePressedOn(_ cell: SessionsTableViewCell)
+    func analyticsPressedOn(_ cell: SessionsTableViewCell)
+    func deletePressedOn(_ cell: SessionsTableViewCell)
 }
 
 class SessionsTableViewCell: UITableViewCell {
@@ -34,7 +34,6 @@ class SessionsTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     var delegate: SessionsTableViewCellDelegate?
-    var indexPath: IndexPath?
     
     var isExpanded: Bool = false {
         didSet {
@@ -58,18 +57,15 @@ class SessionsTableViewCell: UITableViewCell {
     }
     
     @IBAction func sharePressed(_ sender: Any) {
-        guard let path = indexPath else { return }
-        delegate?.sharePressedAt(path)
+        delegate?.sharePressedOn(self)
     }
     
     @IBAction func analyticsPressed(_ sender: Any) {
-        guard let path = indexPath else { return }
-        delegate?.analyticsPressedAt(path)
+        delegate?.analyticsPressedOn(self)
     }
     
     @IBAction func deletePressed(_ sender: Any) {
-        guard let path = indexPath else { return }
-        delegate?.deletePressedAt(path)
+        delegate?.deletePressedOn(self)
     }
     
     // MARK: - Selected State

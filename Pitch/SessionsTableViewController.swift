@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SessionsTableViewController: UITableViewController {
+class SessionsTableViewController: UITableViewController, SessionsTableViewCellDelegate {
     
     // MARK: - Properties
     
@@ -46,7 +46,7 @@ class SessionsTableViewController: UITableViewController {
         let cell: SessionsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "sessionCell", for: indexPath) as! SessionsTableViewCell
         let session = sessions[indexPath.row]
         
-        cell.indexPath = indexPath
+        cell.delegate = self
         cell.nameField.text = session.name
         cell.dateLabel.text = session.dateString
         cell.durationLabel.text = session.durationString
@@ -93,31 +93,35 @@ class SessionsTableViewController: UITableViewController {
         tableView.endUpdates()
     }
     
+    // MARK: - Sessions Table View Cell Delegate
+    
+    func sharePressedOn(_ cell: SessionsTableViewCell) {
+    }
+    
+    func analyticsPressedOn(_ cell: SessionsTableViewCell) {
+    }
+    
+    func deletePressedOn(_ cell: SessionsTableViewCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            deleteSessionAt(indexPath)
+        }
+    }
+    
     // MARK: - Deletion
     
     func deleteSessionAt(_ indexPath: IndexPath) {
+        expandedCellIndex = nil
+        UIView.animate(withDuration: 0.3, animations: {
+            for i in 0..<self.sessions.count {
+                let index = IndexPath(row: i, section: 0)
+                guard let cell: SessionsTableViewCell = self.tableView.cellForRow(at: index) as? SessionsTableViewCell else { continue }
+                cell.contentView.alpha = 1.0
+            }
+        })
+        
         sessions.remove(at: indexPath.row)
         tableView.beginUpdates()
         tableView.deleteRows(at: [indexPath], with: .middle)
         tableView.endUpdates()
-        tableView.reloadData()
     }
-    
-    func updateCellIndexPaths() {
-        for i in 0..<sessions.count {
-            let index = IndexPath(row: i, section: 0)
-            guard let cell: SessionsTableViewCell = tableView.cellForRow(at: index) as? SessionsTableViewCell else { continue }
-        }
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
