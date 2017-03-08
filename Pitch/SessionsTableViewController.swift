@@ -13,11 +13,14 @@ class SessionsTableViewController: UITableViewController {
     // MARK: - Properties
     
     var sessions: [Session] = []
+    var expandedCellIndex: Int?
     
     // MARK: - Setup Views
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
         reloadData()
     }
     
@@ -49,8 +52,22 @@ class SessionsTableViewController: UITableViewController {
     
     // MARK: - Table View Delegate
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160.0
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let index = expandedCellIndex {
+            if index != indexPath.row {
+                expandedCellIndex = nil
+            }
+        } else {
+            expandedCellIndex = indexPath.row
+        }
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let index = expandedCellIndex else { return 70 }
+        return indexPath.row == index ? 160 : 70
     }
 
     /*

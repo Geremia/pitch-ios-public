@@ -38,7 +38,7 @@ class Recorder: NSObject {
     func saveCurrentRecording(_ completion: @escaping (AKAudioFile?, Error?) -> Void) {
         guard let file = recorder?.audioFile else { return }
         
-        file.exportAsynchronously(name: "\(file.fileName).m4a", baseDir: .documents, exportFormat: .m4a, callback: { processedFile, error in
+        file.exportAsynchronously(name: "TestTempFile.caf", baseDir: .documents, exportFormat: .caf, callback: { processedFile, error in
             completion(processedFile, error)
         })
     }

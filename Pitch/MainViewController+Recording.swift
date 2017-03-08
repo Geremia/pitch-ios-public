@@ -56,7 +56,7 @@ extension MainViewController: SessionsViewControllerDelegate {
             if error == nil {
                 print("New recording saved.")
             } else {
-                print("Error saving new recording: \(error)")
+                print("Error saving new recording: \(error.debugDescription)")
             }
             
             DispatchQueue.main.async {
