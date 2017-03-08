@@ -55,6 +55,7 @@ class DataManager {
         let results = realm.objects(Session.self)
         var sessions: [Session] = []
         sessions.append(contentsOf: results)
+        sessions.sort(by: { $0.date > $1.date })
         return sessions
     }
     
