@@ -23,6 +23,16 @@ class SessionsTableViewCell: UITableViewCell {
     @IBOutlet weak var analyticsButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    
+    // MARK: - Properties
+    
+    var isExpanded: Bool = false {
+        didSet {
+            heightConstraint.constant = isExpanded ? 160 : 70
+        }
+    }
+    
     // MARK: - Setup
 
     override func awakeFromNib() {

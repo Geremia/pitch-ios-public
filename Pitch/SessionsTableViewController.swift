@@ -13,7 +13,7 @@ class SessionsTableViewController: UITableViewController {
     // MARK: - Properties
     
     var sessions: [Session] = []
-    var expandedCellIndex: Int?
+    var expandedCellIndex: IndexPath?
     
     // MARK: - Setup Views
 
@@ -46,6 +46,12 @@ class SessionsTableViewController: UITableViewController {
         cell.nameField.text = session.name
         cell.dateLabel.text = session.dateString
         cell.durationLabel.text = session.durationString
+        
+        if let expandedIndex = expandedCellIndex {
+            cell.isExpanded = expandedIndex == indexPath
+        } else {
+            cell.isExpanded = false
+        }
 
         return cell
     }
@@ -53,12 +59,18 @@ class SessionsTableViewController: UITableViewController {
     // MARK: - Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let index = expandedCellIndex {
-            if index != indexPath.row {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if let expandedIndex = expandedCellIndex {
+            if expandedIndex != indexPath {
+                let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: expandedIndex) as! SessionsTableViewCell
+                expandedCell.isExpanded = false
                 expandedCellIndex = nil
             }
         } else {
-            expandedCellIndex = indexPath.row
+            let selectedCell: SessionsTableViewCell = tableView.cellForRow(at: indexPath) as! SessionsTableViewCell
+            selectedCell.isExpanded = true
+            expandedCellIndex = indexPath
         }
         
         tableView.beginUpdates()
@@ -66,8 +78,7 @@ class SessionsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let index = expandedCellIndex else { return 70 }
-        return indexPath.row == index ? 160 : 70
+        return 160
     }
 
     /*
