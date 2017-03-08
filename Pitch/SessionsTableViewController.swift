@@ -46,11 +46,12 @@ class SessionsTableViewController: UITableViewController {
         cell.nameField.text = session.name
         cell.dateLabel.text = session.dateString
         cell.durationLabel.text = session.durationString
+        cell.isExpanded = (expandedCellIndex == indexPath)
         
-        if let expandedIndex = expandedCellIndex {
-            cell.isExpanded = (expandedIndex == indexPath)
+        if expandedCellIndex != nil {
+            cell.contentView.alpha = (expandedCellIndex == indexPath) ? 1.0 : 0.2
         } else {
-            cell.isExpanded = false
+            cell.contentView.alpha = 1.0
         }
 
         return cell
@@ -59,8 +60,6 @@ class SessionsTableViewController: UITableViewController {
     // MARK: - Table View Delegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
         if let expandedIndex = expandedCellIndex {
             if expandedIndex != indexPath {
                 let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: expandedIndex) as! SessionsTableViewCell
@@ -72,6 +71,18 @@ class SessionsTableViewController: UITableViewController {
             selectedCell.isExpanded = true
             expandedCellIndex = indexPath
         }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            for i in 0..<self.sessions.count {
+                let index = IndexPath(row: i, section: 0)
+                guard let cell: SessionsTableViewCell = tableView.cellForRow(at: index) as? SessionsTableViewCell else { continue }
+                if self.expandedCellIndex == nil {
+                    cell.contentView.alpha = 1.0
+                } else {
+                    cell.contentView.alpha = (index == self.expandedCellIndex) ? 1.0 : 0.2
+                }
+            }
+        })
         
         tableView.isScrollEnabled = (expandedCellIndex == nil)
         tableView.beginUpdates()
