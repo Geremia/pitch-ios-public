@@ -57,11 +57,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         cell.durationLabel.text = session.durationString
         cell.isExpanded = (expandedCellIndex == indexPath)
         
-        if expandedCellIndex != nil {
-            cell.contentView.alpha = (expandedCellIndex == indexPath) ? 1.0 : 0.2
-        } else {
-            cell.contentView.alpha = 1.0
-        }
+        setAlphaFor(cell)
 
         return cell
     }
@@ -85,17 +81,22 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
             for i in 0..<self.sessions.count {
                 let index = IndexPath(row: i, section: 0)
                 guard let cell: SessionsTableViewCell = tableView.cellForRow(at: index) as? SessionsTableViewCell else { continue }
-                if expandedCellIndex != nil {
-                    cell.contentView.alpha = (expandedCellIndex == indexPath) ? 1.0 : 0.2
-                } else {
-                    cell.contentView.alpha = 1.0
-                }
+                self.setAlphaFor(cell)
             }
         })
         
         tableView.isScrollEnabled = (expandedCellIndex == nil)
         tableView.beginUpdates()
         tableView.endUpdates()
+    }
+    
+    func setAlphaFor(_ cell: SessionsTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        if self.expandedCellIndex != nil {
+            cell.contentView.alpha = (self.expandedCellIndex == indexPath) ? 1.0 : 0.2
+        } else {
+            cell.contentView.alpha = 1.0
+        }
     }
     
     // MARK: - Sessions Table View Cell Delegate
