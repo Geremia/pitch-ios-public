@@ -19,12 +19,17 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         reloadData()
+    }
+    
+    func setupUI() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView()
     }
     
     func reloadData() {
         sessions = DataManager.sessions()
-        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.reloadData()
     }
 
@@ -80,10 +85,10 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
             for i in 0..<self.sessions.count {
                 let index = IndexPath(row: i, section: 0)
                 guard let cell: SessionsTableViewCell = tableView.cellForRow(at: index) as? SessionsTableViewCell else { continue }
-                if self.expandedCellIndex == nil {
-                    cell.contentView.alpha = 1.0
+                if expandedCellIndex != nil {
+                    cell.contentView.alpha = (expandedCellIndex == indexPath) ? 1.0 : 0.2
                 } else {
-                    cell.contentView.alpha = (index == self.expandedCellIndex) ? 1.0 : 0.2
+                    cell.contentView.alpha = 1.0
                 }
             }
         })
