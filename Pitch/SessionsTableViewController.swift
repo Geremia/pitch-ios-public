@@ -119,6 +119,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
             }
         })
         
+        DataManager.delete(sessions[indexPath.row])
         sessions.remove(at: indexPath.row)
         tableView.beginUpdates()
         tableView.deleteRows(at: [indexPath], with: .middle)
