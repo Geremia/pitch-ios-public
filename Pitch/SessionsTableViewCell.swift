@@ -30,6 +30,7 @@ class SessionsTableViewCell: UITableViewCell {
     var isExpanded: Bool = false {
         didSet {
             heightConstraint.constant = isExpanded ? 160 : 70
+            nameField.isUserInteractionEnabled = isExpanded
         }
     }
     
