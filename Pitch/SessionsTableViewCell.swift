@@ -33,7 +33,7 @@ class SessionsTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    var delegate: SessionsTableViewCellDelegate
+    var delegate: SessionsTableViewCellDelegate?
     var indexPath: IndexPath?
     
     var isExpanded: Bool = false {
@@ -58,15 +58,18 @@ class SessionsTableViewCell: UITableViewCell {
     }
     
     @IBAction func sharePressed(_ sender: Any) {
-        delegate.sharePressedAt(indexPath)
+        guard let path = indexPath else { return }
+        delegate?.sharePressedAt(path)
     }
     
     @IBAction func analyticsPressed(_ sender: Any) {
-        delegate.analyticsPressedAt(indexPath)
+        guard let path = indexPath else { return }
+        delegate?.analyticsPressedAt(path)
     }
     
     @IBAction func deletePressed(_ sender: Any) {
-        delegate.deletePressedAt(indexPath)
+        guard let path = indexPath else { return }
+        delegate?.deletePressedAt(path)
     }
     
     // MARK: - Selected State
