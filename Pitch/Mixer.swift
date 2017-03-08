@@ -27,6 +27,7 @@ class Mixer: NSObject {
         }
         
         try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
+        AKSettings.bufferLength = .medium
         
         NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
     }

@@ -16,10 +16,6 @@ class Session: Object {
     
     // MARK: - Computed Properties
     
-    var directoryPath: URL {
-        return URL(fileURLWithPath: path)
-    }
-    
     var dateString: String {
         return date.prettyString
     }
@@ -35,19 +31,34 @@ class Session: Object {
     dynamic var name: String = ""
     dynamic var date: Date = Date()
     dynamic var duration: Double = 0
-    dynamic var path: String = ""
+    dynamic var url: String = ""
     dynamic var analytics: SessionAnalytics? = SessionAnalytics.makeNew()
     
     // MARK: - Setup
     
-    static func with(name: String, file: AKAudioFile) -> Session {
+    static func with(name: String, recordedFileUrl url: URL) -> Session {
         let session = Session()
         session.id = session.date.longId
         session.name = name
-        session.path = file.directoryPath.absoluteString
-        session.duration = file.duration
+        
+//        if let file = try? AKAudioFile(forReading: url) {
+//            file.exportAsynchronously(name: "\(file.fileName).m4a", baseDir: .documents, exportFormat: .m4a, callback: { processedFile, error in
+//                if error == nil {
+//                    session.url = (processedFile?.url.absoluteString)!
+//                    session.duration = (processedFile?.duration)!
+//                    print("New recording saved.")
+//                } else {
+//                    print("Error saving new recording: \(error)")
+//                }
+//            })
+//        }
         
         return session
+    }
+    
+    private func newFileName() -> String {
+        let number = UserDefaults.standard.fileNumber()
+        return "recording\(number).caf"
     }
     
     override static func primaryKey() -> String? {
@@ -57,8 +68,8 @@ class Session: Object {
     // MARK: - Deletion
     
     func prepareForDeletion() {
-        if FileManager.default.isDeletableFile(atPath: path) {
-            try? FileManager.default.removeItem(atPath: path)
+        if FileManager.default.isDeletableFile(atPath: url) {
+            try? FileManager.default.removeItem(atPath: url)
         }
     }
 }

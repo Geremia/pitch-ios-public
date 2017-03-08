@@ -51,11 +51,24 @@ extension MainViewController: SessionsViewControllerDelegate {
         recordingState = .notRecording
         resetRecordView()
         
-        let sessions = sessionsVC()
-        sessions.audioFile = Recorder.sharedInstance.file
-        present(sessions, animated: true, completion: nil)
+        Recorder.sharedInstance.saveCurrentRecording({ processedFile, error in
+            
+            if error == nil {
+                print("New recording saved.")
+            } else {
+                print("Error saving new recording: \(error)")
+            }
+            
+            DispatchQueue.main.async {
+                let sessions = self.sessionsVC()
+                sessions.audioFileUrl = processedFile?.url
+                self.present(sessions, animated: true, completion: nil)
+            }
+        })
         
-        Recorder.sharedInstance.reset()
+        
+        
+//        Recorder.sharedInstance.reset()
     }
     
     func cancelRecording() {

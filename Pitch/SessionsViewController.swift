@@ -24,7 +24,7 @@ class SessionsViewController: UIViewController {
     // MARK: - Properties
     
     var delegate: SessionsViewControllerDelegate?
-    var audioFile: AKAudioFile?
+    var audioFileUrl: URL?
     var tableViewController: SessionsTableViewController?
     
     // MARK: - Setup Views
@@ -38,8 +38,8 @@ class SessionsViewController: UIViewController {
     // MARK: - Save Audio
     
     func saveAudioIfNecessary() {
-        guard let file = audioFile else { return }
-        let session = Session.with(name: "Test Session", file: file)
+        guard let url = audioFileUrl else { return }
+        let session = Session.with(name: "Test Session", recordedFileUrl: url)
         DataManager.add(session)
         tableViewController?.reloadData()
     }

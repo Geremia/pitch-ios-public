@@ -22,31 +22,25 @@ class Recorder: NSObject {
     
     private override init() {}
     
-    private func newFileName() -> String {
-        let number = UserDefaults.standard.fileNumber()
-        return "file\(number).caf"
-    }
-    
     // MARK: - Methods
     
     func startRecording() {
-        reset()
-        
-        let dirPaths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let url = dirPaths[0].appendingPathComponent(newFileName())
-        let settings: [String : Any] = [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
-                                        AVEncoderBitRateKey: 16,
-                                        AVNumberOfChannelsKey: 2,
-                                        AVSampleRateKey: 44100.0]
-        
-        file = try? AKAudioFile(forWriting: url, settings: settings)
-        recorder = try? AKNodeRecorder(node: Tuner.sharedInstance.microphone, file: file)
+        recorder = try? AKNodeRecorder(node: Tuner.sharedInstance.microphone)
+        file = recorder?.audioFile
         
         try? recorder?.record()
     }
     
     func stopRecording() {
         recorder?.stop()
+    }
+    
+    func saveCurrentRecording(_ completion: @escaping (AKAudioFile?, Error?) -> Void) {
+        guard let file = recorder?.audioFile else { return }
+        
+        file.exportAsynchronously(name: "\(file.fileName).m4a", baseDir: .documents, exportFormat: .m4a, callback: { processedFile, error in
+            completion(processedFile, error)
+        })
     }
     
     func deleteCurrentRecording() {
