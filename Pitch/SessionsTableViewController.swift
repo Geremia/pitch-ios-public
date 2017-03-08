@@ -19,13 +19,12 @@ class SessionsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.rowHeight = UITableViewAutomaticDimension
         reloadData()
     }
     
     func reloadData() {
         sessions = DataManager.sessions()
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.reloadData()
     }
 
@@ -38,11 +37,16 @@ class SessionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessions.count
     }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SessionsTableViewCell = tableView.dequeueReusableCell(withIdentifier: "sessionCell", for: indexPath) as! SessionsTableViewCell
         let session = sessions[indexPath.row]
         
+        cell.indexPath = indexPath
         cell.nameField.text = session.name
         cell.dateLabel.text = session.dateString
         cell.durationLabel.text = session.durationString
@@ -89,8 +93,21 @@ class SessionsTableViewController: UITableViewController {
         tableView.endUpdates()
     }
     
-    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+    // MARK: - Deletion
+    
+    func deleteSessionAt(_ indexPath: IndexPath) {
+        sessions.remove(at: indexPath.row)
+        tableView.beginUpdates()
+        tableView.deleteRows(at: [indexPath], with: .middle)
+        tableView.endUpdates()
+        tableView.reloadData()
+    }
+    
+    func updateCellIndexPaths() {
+        for i in 0..<sessions.count {
+            let index = IndexPath(row: i, section: 0)
+            guard let cell: SessionsTableViewCell = tableView.cellForRow(at: index) as? SessionsTableViewCell else { continue }
+        }
     }
 
     /*

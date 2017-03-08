@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol SessionsTableViewCellDelegate {
+    func sharePressedAt(_ indexPath: IndexPath)
+    func analyticsPressedAt(_ indexPath: IndexPath)
+    func deletePressedAt(_ indexPath: IndexPath)
+}
+
 class SessionsTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
@@ -27,6 +33,9 @@ class SessionsTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
+    var delegate: SessionsTableViewCellDelegate
+    var indexPath: IndexPath?
+    
     var isExpanded: Bool = false {
         didSet {
             heightConstraint.constant = isExpanded ? 160 : 70
@@ -38,7 +47,26 @@ class SessionsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func playPausePressed(_ sender: Any) {
+    }
+    
+    @IBAction func sliderValueChanged(_ sender: Any) {
+    }
+    
+    @IBAction func sharePressed(_ sender: Any) {
+        delegate.sharePressedAt(indexPath)
+    }
+    
+    @IBAction func analyticsPressed(_ sender: Any) {
+        delegate.analyticsPressedAt(indexPath)
+    }
+    
+    @IBAction func deletePressed(_ sender: Any) {
+        delegate.deletePressedAt(indexPath)
     }
     
     // MARK: - Selected State
