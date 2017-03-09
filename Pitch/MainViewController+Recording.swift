@@ -81,15 +81,17 @@ extension MainViewController: SessionsViewControllerDelegate {
     // MARK: - Record View
     
     func startAnimatingRecordLabel() {
-        recordLabelUpdateTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
-            let time: String = (Recorder.sharedInstance.recorder?.recordedDuration.prettyString)!
-            self.recordLabel.text = "Recording \(time)"
-        })
+        recordLabel.text = "Recording 00:00"
+        recordLabelUpdateLink.add(to: .current, forMode: .defaultRunLoopMode)
+    }
+    
+    func updateRecordLabel() {
+        let time: String = (Recorder.sharedInstance.recorder?.recordedDuration.prettyString)!
+        recordLabel.text = "Recording \(time)"
     }
     
     func stopAnimatingRecordLabel() {
-        recordLabelUpdateTimer?.invalidate()
-        recordLabelUpdateTimer = nil
+        recordLabelUpdateLink.remove(from: .current, forMode: .defaultRunLoopMode)
         
         let time: String = (Recorder.sharedInstance.recorder?.recordedDuration.prettyString)!
         recordLabel.text = "Recorded \(time)"

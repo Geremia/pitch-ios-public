@@ -70,7 +70,7 @@ class MainViewController: UIViewController {
     // MARK: - Recording Properties
     
     var recordingState: MainViewRecordingState = .notRecording
-    var recordLabelUpdateTimer: Timer?
+    var recordLabelUpdateLink: CADisplayLink!
     
     // MARK: - Other Properties
     
