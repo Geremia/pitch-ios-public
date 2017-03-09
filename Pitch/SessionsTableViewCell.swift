@@ -12,6 +12,7 @@ protocol SessionsTableViewCellDelegate {
     func sharePressedOn(_ cell: SessionsTableViewCell)
     func analyticsPressedOn(_ cell: SessionsTableViewCell)
     func deletePressedOn(_ cell: SessionsTableViewCell)
+    func nameEditedOn(_ cell: SessionsTableViewCell)
 }
 
 class SessionsTableViewCell: UITableViewCell {
@@ -73,8 +74,19 @@ class SessionsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+}
 
+extension SessionsTableViewCell: UITextFieldDelegate {
+    
+    // MARK: - UITextFieldDelegate Methods
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return textField.text != ""
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.nameEditedOn(self)
+    }
 }

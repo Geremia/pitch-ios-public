@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SessionsTableViewController: UITableViewController, SessionsTableViewCellDelegate {
     
@@ -28,9 +29,11 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         tableView.tableFooterView = UIView()
     }
     
-    func reloadData() {
+    func reloadData(andTableView reloadTableView: Bool = true) {
         sessions = DataManager.sessions()
-        tableView.reloadData()
+        if reloadTableView {
+            tableView.reloadData()
+        }
     }
 
     // MARK: - Table View Data Source
@@ -110,6 +113,14 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     func deletePressedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
             deleteSessionAt(indexPath)
+        }
+    }
+    
+    func nameEditedOn(_ cell: SessionsTableViewCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            let session = sessions[indexPath.row]
+            DataManager.rename(session, to: cell.nameField.text!)
+            reloadData(andTableView: false)
         }
     }
     

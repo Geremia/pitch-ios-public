@@ -72,6 +72,12 @@ class DataManager {
         }
     }
     
+    static func rename(_ session: Session, to newName: String) {
+        try! realm.write {
+            session.name = newName
+        }
+    }
+    
     // MARK: - Fabric Statistics
     
     fileprivate static func sendUsageStatistics() {
