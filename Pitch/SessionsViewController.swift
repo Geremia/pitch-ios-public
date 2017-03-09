@@ -38,10 +38,11 @@ class SessionsViewController: UIViewController {
     // MARK: - Save Audio
     
     func saveAudioIfNecessary() {
+        print(audioFileUrl)
         guard let url = audioFileUrl else { return }
-        let session = Session.with(name: "Test Session", recordedFileUrl: url)
+        let session = Session.with(recordedFileUrl: url)
         DataManager.add(session)
-        tableViewController?.reloadData()
+        tableViewController?.newSessionAdded()
     }
     
     // MARK: - Actions

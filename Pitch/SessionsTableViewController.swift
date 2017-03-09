@@ -16,7 +16,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     var sessions: [Session] = []
     var expandedCellIndex: IndexPath?
     
-    // MARK: - Setup Views
+    // MARK: - Setup
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +34,15 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         if reloadTableView {
             tableView.reloadData()
         }
+    }
+    
+    func newSessionAdded() {
+        reloadData()
+        
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell: SessionsTableViewCell = tableView.cellForRow(at: indexPath) as! SessionsTableViewCell
+        tableView(tableView, didSelectRowAt: indexPath)
+        cell.nameField.becomeFirstResponder()
     }
 
     // MARK: - Table View Data Source

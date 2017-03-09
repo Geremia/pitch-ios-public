@@ -1098,7 +1098,7 @@ your daily analytics are ready!</string>
                                                 <constraint firstAttribute="height" priority="750" constant="160" id="z6X-8I-jjI"/>
                                             </constraints>
                                         </view>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Session Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMT-Gg-hf8">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name this session..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMT-Gg-hf8">
                                             <rect key="frame" x="12" y="15" width="328" height="24"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="20"/>

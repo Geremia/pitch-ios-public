@@ -61,14 +61,11 @@ extension MainViewController: SessionsViewControllerDelegate {
             
             DispatchQueue.main.async {
                 let sessions = self.sessionsVC()
-                sessions.audioFileUrl = processedFile?.url
+//                sessions.audioFileUrl = processedFile?.url
+                sessions.audioFileUrl = Recorder.sharedInstance.file?.url
                 self.present(sessions, animated: true, completion: nil)
             }
         })
-        
-        
-        
-//        Recorder.sharedInstance.reset()
     }
     
     func cancelRecording() {

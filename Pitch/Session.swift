@@ -36,10 +36,9 @@ class Session: Object {
     
     // MARK: - Setup
     
-    static func with(name: String, recordedFileUrl url: URL) -> Session {
+    static func with(recordedFileUrl url: URL) -> Session {
         let session = Session()
         session.id = session.date.longId
-        session.name = name
         
 //        if let file = try? AKAudioFile(forReading: url) {
 //            file.exportAsynchronously(name: "\(file.fileName).m4a", baseDir: .documents, exportFormat: .m4a, callback: { processedFile, error in
