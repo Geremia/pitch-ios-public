@@ -112,7 +112,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     
     func deletePressedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
-            deleteSessionAt(indexPath)
+            requestDeletionForSessionAt(indexPath)
         }
     }
     
@@ -125,6 +125,19 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     }
     
     // MARK: - Deletion
+    
+    func requestDeletionForSessionAt(_ indexPath: IndexPath) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let sessionName = sessions[indexPath.row].name
+        let deleteAction = UIAlertAction(title: "Delete \"\(sessionName)\"", style: .destructive, handler: { action in
+            self.deleteSessionAt(indexPath)
+        })
+        
+        alertController.addActions([deleteAction, cancelAction])
+        present(alertController, animated: true, completion: nil)
+    }
     
     func deleteSessionAt(_ indexPath: IndexPath) {
         expandedCellIndex = nil
