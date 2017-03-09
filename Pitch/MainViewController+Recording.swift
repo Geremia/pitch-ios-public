@@ -96,14 +96,14 @@ extension MainViewController: SessionsViewControllerDelegate {
     }
     
     func resetRecordView() {
-        recordLabel.text = "Ready to record"
-        leftRecordButton.setTitle("Start", for: .normal)
-        rightRecordButton.setTitle("Cancel", for: .normal)
-        
         recordViewTopConstraint.constant = -recordView.frame.height
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
             self.tunerView.layoutIfNeeded()
-        }, completion: nil)
+        }, completion: { finished in
+            self.recordLabel.text = "Ready to record"
+            self.leftRecordButton.setTitle("Start", for: .normal)
+            self.rightRecordButton.setTitle("Cancel", for: .normal)
+        })
     }
 }
 
