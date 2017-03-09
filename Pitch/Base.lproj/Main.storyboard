@@ -563,7 +563,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But first, Pitch needs to access your microphone." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJy-9Z-dOd">
-                                <rect key="frame" x="30" y="408" width="315" height="53"/>
+                                <rect key="frame" x="30" y="407" width="315" height="53"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1102,7 +1102,7 @@ your daily analytics are ready!</string>
                                             <rect key="frame" x="12" y="15" width="328" height="24"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="20"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
                                                 <outlet property="delegate" destination="lsQ-K4-lW3" id="BTg-L8-FIP"/>
                                             </connections>

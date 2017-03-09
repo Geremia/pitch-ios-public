@@ -83,7 +83,7 @@ extension SessionsTableViewCell: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        return textField.text != ""
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
