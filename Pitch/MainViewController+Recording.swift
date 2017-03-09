@@ -30,6 +30,7 @@ extension MainViewController: SessionsViewControllerDelegate {
             self.rightRecordButton.alpha = 0.0
         }, completion: nil)
         
+        startAnimatingRecordLabel()
         Recorder.sharedInstance.startRecording()
     }
     
@@ -44,6 +45,7 @@ extension MainViewController: SessionsViewControllerDelegate {
             self.rightRecordButton.alpha = 1.0
         }, completion: nil)
         
+        stopAnimatingRecordLabel()
         Recorder.sharedInstance.stopRecording()
     }
     
@@ -74,6 +76,23 @@ extension MainViewController: SessionsViewControllerDelegate {
         
         Recorder.sharedInstance.deleteCurrentRecording()
         Recorder.sharedInstance.reset()
+    }
+    
+    // MARK: - Record View
+    
+    func startAnimatingRecordLabel() {
+        recordLabelUpdateTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
+            let time: String = (Recorder.sharedInstance.recorder?.recordedDuration.prettyString)!
+            self.recordLabel.text = "Recording \(time)"
+        })
+    }
+    
+    func stopAnimatingRecordLabel() {
+        recordLabelUpdateTimer?.invalidate()
+        recordLabelUpdateTimer = nil
+        
+        let time: String = (Recorder.sharedInstance.recorder?.recordedDuration.prettyString)!
+        recordLabel.text = "Recorded \(time)"
     }
     
     func resetRecordView() {
