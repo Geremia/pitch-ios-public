@@ -37,7 +37,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     
     func darkModeChanged() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
-        tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
+        tableView.separatorColor = darkModeOn ? UIColor.darkSeparatorColor : UIColor.separatorColor
     }
     
     // MARK: - Data Loading

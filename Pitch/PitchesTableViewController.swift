@@ -31,7 +31,7 @@ class PitchesTableViewController: UITableViewController {
     
     func darkModeChanged() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
-        tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
+        tableView.separatorColor = darkModeOn ? UIColor.darkSeparatorColor : UIColor.separatorColor
     }
 
     // MARK: - Table view data source

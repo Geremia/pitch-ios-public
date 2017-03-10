@@ -148,7 +148,7 @@ extension AnalyticsViewController {
         }
         
         for line in graphReferenceLines {
-            line.backgroundColor = darkModeOn ? .darkPitchPipeBackground : .separatorColor
+            line.backgroundColor = darkModeOn ? .darkSeparatorColor : .separatorColor
         }
         
         for label in graphLabels {

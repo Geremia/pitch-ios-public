@@ -113,7 +113,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     func style(twicketSegmetedControl control: TwicketSegmentedControl) {
-        control.segmentsBackgroundColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
+        control.segmentsBackgroundColor = darkModeOn ? UIColor.darkSeparatorColor : UIColor.separatorColor
         control.sliderBackgroundColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
         control.font = UIFont(name: "Lato-Semibold", size: 19.0)!
         control.isSliderShadowHidden = true
@@ -203,7 +203,7 @@ class SettingsTableViewController: UITableViewController {
     
     func darkModeChanged() {
         view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
-        tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
+        tableView.separatorColor = darkModeOn ? UIColor.darkSeparatorColor : UIColor.separatorColor
         analyticsSwitch.onTintColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
         style(twicketSegmetedControl: displayModeControl)
         

@@ -76,7 +76,7 @@ class SessionsTableViewCell: UITableViewCell {
         resetPlayPauseImage()
         
         let minTrackColor = darkModeOn ? UIColor.darkGray : UIColor.lightGray
-        let maxTrackColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
+        let maxTrackColor = darkModeOn ? UIColor.darkSeparatorColor : UIColor.separatorColor
         slider.minimumTrackTintColor = minTrackColor
         slider.maximumTrackTintColor = maxTrackColor
         

@@ -70,7 +70,7 @@ class InstrumentKeyTableViewController: UITableViewController, UIPickerViewDeleg
         let darkModeOn = UserDefaults.standard.darkModeOn()
         autoKeyLabel.textColor = darkModeOn ? UIColor.white : UIColor.black
         autoKeySwitch.onTintColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
-        tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
+        tableView.separatorColor = darkModeOn ? UIColor.darkSeparatorColor : UIColor.separatorColor
         
         pickerView.reloadAllComponents()
     }
