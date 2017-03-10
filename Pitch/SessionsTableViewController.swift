@@ -25,6 +25,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     }
     
     func setupUI() {
+        tableView.separatorColor = UIColor.separatorColor
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
     }
