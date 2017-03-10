@@ -48,6 +48,8 @@ class SessionsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        slider.setThumbImage(#imageLiteral(resourceName: "slider_thumb"), for: .normal)
     }
     
     // MARK: - Actions

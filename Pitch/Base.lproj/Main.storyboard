@@ -1138,9 +1138,10 @@ your daily analytics are ready!</string>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IRJ-Dl-Qrz">
+                                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IRJ-Dl-Qrz">
                                             <rect key="frame" x="76" y="72" width="223" height="31"/>
-                                            <color key="minimumTrackTintColor" red="0.29803921568627451" green="0.85098039215686272" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="minimumTrackTintColor" red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="maximumTrackTintColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <action selector="sliderValueChanged:" destination="lsQ-K4-lW3" eventType="valueChanged" id="qIp-Jd-HMU"/>
                                             </connections>
