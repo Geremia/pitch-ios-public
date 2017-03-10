@@ -35,6 +35,7 @@ class SessionsTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     var delegate: SessionsTableViewCellDelegate?
+    var isPlaying: Bool = false
     
     var isExpanded: Bool = false {
         didSet {
@@ -48,13 +49,61 @@ class SessionsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        setup()
+    }
+    
+    func setup() {
         slider.setThumbImage(#imageLiteral(resourceName: "slider_thumb"), for: .normal)
+        
+        darkModeChanged()
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
+    }
+    
+    // MARK: - Dark Mode
+    
+    func darkModeChanged() {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        
+        let textColor = darkModeOn ? UIColor.white : UIColor.black
+        nameField.textColor = textColor
+        dateLabel.textColor = textColor
+        durationLabel.textColor = textColor
+        
+        let mutedTextColor = darkModeOn ? UIColor.lightGray : UIColor.darkGray
+        timePassedLabel.textColor = mutedTextColor
+        timeLeftLabel.textColor = mutedTextColor
+        
+        resetPlayPauseImage()
+        
+        let minTrackColor = darkModeOn ? UIColor.darkGray : UIColor.lightGray
+        let maxTrackColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
+        slider.minimumTrackTintColor = minTrackColor
+        slider.maximumTrackTintColor = maxTrackColor
+        
+        let shareImage = darkModeOn ? #imageLiteral(resourceName: "white_share") : #imageLiteral(resourceName: "share")
+        let analyticsImage = darkModeOn ? #imageLiteral(resourceName: "white_analytics") : #imageLiteral(resourceName: "analytics")
+        let deleteImage = darkModeOn ? #imageLiteral(resourceName: "white_trash") /* hehe */ : #imageLiteral(resourceName: "trash")
+        shareButton.setImage(shareImage, for: .normal)
+        analyticsButton.setImage(analyticsImage, for: .normal)
+        deleteButton.setImage(deleteImage, for: .normal)
     }
     
     // MARK: - Actions
     
     @IBAction func playPausePressed(_ sender: Any) {
+        isPlaying = !isPlaying
+        resetPlayPauseImage()
+    }
+    
+    func resetPlayPauseImage() {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        let image: UIImage
+        if darkModeOn {
+            image = isPlaying ? #imageLiteral(resourceName: "white_pause") : #imageLiteral(resourceName: "white_play")
+        } else {
+            image = isPlaying ? #imageLiteral(resourceName: "pause") : #imageLiteral(resourceName: "play")
+        }
+        playPauseButton.setImage(image, for: .normal)
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {

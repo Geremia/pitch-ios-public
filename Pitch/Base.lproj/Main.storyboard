@@ -1081,7 +1081,7 @@ your daily analytics are ready!</string>
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4JB-yg-ASg">
                         <rect key="frame" x="0.0" y="0.0" width="355" height="582"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="sessionCell" rowHeight="160" id="lsQ-K4-lW3" customClass="SessionsTableViewCell" customModule="Pitch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="355" height="160"/>
@@ -1186,7 +1186,7 @@ your daily analytics are ready!</string>
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="m0p-iZ-hVg" secondAttribute="trailing" id="1wk-cZ-Zfz"/>
                                         <constraint firstItem="IRJ-Dl-Qrz" firstAttribute="leading" secondItem="qb1-Ma-Sku" secondAttribute="trailing" constant="8" id="3nx-Lm-xwa"/>
@@ -1215,6 +1215,7 @@ your daily analytics are ready!</string>
                                         <constraint firstItem="Fqo-Ui-MTF" firstAttribute="leading" secondItem="IRJ-Dl-Qrz" secondAttribute="trailing" constant="8" id="wxW-0Z-qLV"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="analyticsButton" destination="W6M-lR-WBq" id="6V1-Zg-RND"/>
                                     <outlet property="dateLabel" destination="owK-1w-w8g" id="pek-m2-aRL"/>

@@ -28,7 +28,19 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         tableView.separatorColor = UIColor.separatorColor
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
+        
+        darkModeChanged()
+        NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
     }
+    
+    // MARK: - Dark Mode
+    
+    func darkModeChanged() {
+        let darkModeOn = UserDefaults.standard.darkModeOn()
+        tableView.separatorColor = darkModeOn ? UIColor.darkPitchPipeBackground : UIColor.separatorColor
+    }
+    
+    // MARK: - Data Loading
     
     func reloadData(andTableView reloadTableView: Bool = true) {
         sessions = DataManager.sessions()

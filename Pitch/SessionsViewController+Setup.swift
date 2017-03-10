@@ -16,16 +16,21 @@ extension SessionsViewController {
         view.layer.cornerRadius = 8.0
         view.clipsToBounds = true
         
-        NotificationCenter.default.addObserver(self, selector: #selector(SessionsViewController.darkModeChanged), name: .darkModeChanged, object: nil)
         darkModeChanged()
+        NotificationCenter.default.addObserver(self, selector: #selector(SessionsViewController.darkModeChanged), name: .darkModeChanged, object: nil)
     }
     
-    // MARK: - Dark Mode Switching
+    // MARK: - Dark Mode
     
     func darkModeChanged() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
-        if darkModeOn {
-            view.backgroundColor = UIColor.darkGrayView
-        }
+        
+        view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
+        sessionsLabel.textColor = darkModeOn ? UIColor.white : UIColor.black
+        
+        let backImage = darkModeOn ? #imageLiteral(resourceName: "white_down_arrow") : #imageLiteral(resourceName: "down_arrow")
+        let newSessionImage = darkModeOn ? #imageLiteral(resourceName: "white_plus") : #imageLiteral(resourceName: "plus")
+        backButton.setImage(backImage, for: .normal)
+        newSessionButton.setImage(newSessionImage, for: .normal)
     }
 }
