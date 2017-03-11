@@ -11,6 +11,52 @@ import ScrollableGraphView
 
 extension AnalyticsViewController {
     
+    // MARK: - Load Data
+    
+    func setDataToDisplay() {
+        if let analytics = sessionAnalytics {
+            data = analytics
+            showingSessionData = true
+        } else {
+            data = DataManager.today()
+        }
+    }
+    
+    func checkForShareAndAnimation() {
+        showingSessionData ? sessionRefresh() : todayRefresh()
+    }
+    
+    func todayRefresh() {
+        data = DataManager.today()
+        let defaults = UserDefaults.standard
+        if data.hasSufficientData && defaults.analyticsOn() {
+            if defaults.shouldShowAnalyticsSharePrompt() && !hasShownShareView {
+                showShareView()
+            } else if !defaults.hasSeenAnalyticsAnimation() {
+                startAnimation()
+            }
+        }
+    }
+    
+    func sessionRefresh() {
+        let defaults = UserDefaults.standard
+        if defaults.shouldShowAnalyticsSharePrompt() && !hasShownShareView {
+            showShareView()
+        } else if !defaults.hasSeenAnalyticsAnimation() {
+            startAnimation()
+        }
+    }
+    
+    func showShareView() {
+        hasShownShareView = true
+        performSegue(withIdentifier: "analyticsToShare", sender: nil)
+    }
+    
+    func startAnimation() {
+        animateIn()
+        UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
+    }
+    
     // MARK: - Setup
     
     func setupUI() {
@@ -24,6 +70,8 @@ extension AnalyticsViewController {
         
         let showingSharePrompt = UserDefaults.standard.shouldShowAnalyticsSharePrompt()
         if showingSessionData {
+            hideViewsForSessionAnalytics()
+            
             if !showingSharePrompt {
                 showingData = true
                 displayData()
@@ -34,6 +82,12 @@ extension AnalyticsViewController {
                 displayData()
             }
         }
+    }
+    
+    func hideViewsForSessionAnalytics() {
+        helpButton.isHidden = true
+        graphView.isHidden = true
+        resetButton.isHidden = true
     }
     
     func setupNotifications() {
