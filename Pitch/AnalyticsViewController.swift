@@ -85,10 +85,11 @@ class AnalyticsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        checkForShareAndAnimation()
+        
+        if showingSessionData {
+            sessionRefresh()
+        }
     }
-    
-
 
     // MARK: - Actions
     
