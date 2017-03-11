@@ -63,6 +63,7 @@ class AnalyticsViewController: UIViewController {
     
     // MARK: - Properties
     
+    var sessionAnalytics: SessionAnalytics?
     var showingData: Bool = false
     var hasShownShareView: Bool = false
     var tutorialState: Int = 1

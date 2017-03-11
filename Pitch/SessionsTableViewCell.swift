@@ -43,7 +43,7 @@ class SessionsTableViewCell: UITableViewCell {
             nameField.isUserInteractionEnabled = isExpanded
             nameField.resignFirstResponder()
             
-            if isExpanded == false {
+            if isExpanded == false && nameField.text == "" {
                 nameField.text = "Untitled"
                 delegate?.nameEditedOn(self)
             }
