@@ -54,7 +54,10 @@ extension AnalyticsViewController {
     
     func startAnimation() {
         animateIn()
-        UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
+        
+        if !showingSessionData {
+            UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
+        }
     }
     
     // MARK: - Setup
