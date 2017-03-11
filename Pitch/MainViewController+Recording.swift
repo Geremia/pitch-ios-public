@@ -56,7 +56,6 @@ extension MainViewController: SessionsViewControllerDelegate {
         resetRecordView()
         
         Recorder.sharedInstance.saveCurrentRecording({ processedFile, error in
-            
             if error == nil {
                 print("New recording saved.")
             } else {
@@ -64,10 +63,9 @@ extension MainViewController: SessionsViewControllerDelegate {
             }
             
             DispatchQueue.main.async {
-                let sessions = self.sessionsVC()
-//                sessions.audioFileUrl = processedFile?.url
-                sessions.audioFileUrl = Recorder.sharedInstance.file?.url
-                self.present(sessions, animated: true, completion: nil)
+                guard let analytics = self.sessionAnalytics else { return }
+                let session = Session.with(recordedFileUrl: (Recorder.sharedInstance.file?.url)!, andAnalytics: analytics)
+                self.presentSessionsViewController(with: session)
             }
         })
     }
@@ -78,6 +76,12 @@ extension MainViewController: SessionsViewControllerDelegate {
         
         Recorder.sharedInstance.deleteCurrentRecording()
         Recorder.sharedInstance.reset()
+    }
+    
+    func presentSessionsViewController(with session: Session) {
+        let sessionsVC = self.sessionsVC()
+        sessionsVC.session = session
+        self.present(sessionsVC, animated: true, completion: nil)
     }
     
     // MARK: - Record View

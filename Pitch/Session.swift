@@ -32,13 +32,14 @@ class Session: Object {
     dynamic var date: Date = Date()
     dynamic var duration: Double = 0
     dynamic var url: String = ""
-    dynamic var analytics: SessionAnalytics? = SessionAnalytics.makeNew()
+    dynamic var analytics: SessionAnalytics?
     
     // MARK: - Setup
     
-    static func with(recordedFileUrl url: URL) -> Session {
+    static func with(recordedFileUrl url: URL, andAnalytics analytics: SessionAnalytics) -> Session {
         let session = Session()
         session.id = session.date.longId
+        session.analytics = analytics
         
 //        if let file = try? AKAudioFile(forReading: url) {
 //            file.exportAsynchronously(name: "\(file.fileName).m4a", baseDir: .documents, exportFormat: .m4a, callback: { processedFile, error in
