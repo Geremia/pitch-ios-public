@@ -56,7 +56,7 @@ extension AnalyticsViewController {
     }
     
     func animateIn() {
-        let score = DataManager.today().tuningScore
+        let score = data.tuningScore
         self.scoreLabel.countFromZero(to: CGFloat(score), withDuration: 1.2)
         
         UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.01, options: [.curveEaseInOut], animations: {

@@ -22,11 +22,17 @@ extension AnalyticsViewController {
         darkModeChanged()
         setupGraphView()
         
-        let today = DataManager.today()
         let showingSharePrompt = UserDefaults.standard.shouldShowAnalyticsSharePrompt()
-        if today.hasSufficientData && !showingSharePrompt && UserDefaults.standard.analyticsOn() {
-            showingData = true
-            displayData()
+        if showingSessionData {
+            if !showingSharePrompt {
+                showingData = true
+                displayData()
+            }
+        } else {
+            if data.hasSufficientData && !showingSharePrompt && UserDefaults.standard.analyticsOn() {
+                showingData = true
+                displayData()
+            }
         }
     }
     
@@ -47,8 +53,7 @@ extension AnalyticsViewController {
     }
     
     func setupScoreCircle() {
-        let today = DataManager.today()
-        let score = today.tuningScore
+        let score = data.tuningScore
         scoreLabel.text = "\(Int(score))"
         scoreCircle.colorful = true
         
@@ -61,8 +66,8 @@ extension AnalyticsViewController {
     func setupDescriptionLabel() {
         let boldFont = UIFont(name: "Lato-Regular", size: 17.0)!
         let lightFont = UIFont(name: "Lato-Light", size: 17.0)!
-        let percentage = DataManager.today().inTunePercentage.roundTo(places: 2) * 100
-        let time = DataManager.today().timeToCenter.roundTo(places: 1)
+        let percentage = data.inTunePercentage.roundTo(places: 2) * 100
+        let time = data.timeToCenter.roundTo(places: 1)
         
         let percentageString: NSAttributedString = NSAttributedString(string: "\(Int(percentage))%", attributes: [NSFontAttributeName: boldFont])
         let timeString: NSAttributedString = NSAttributedString(string: "\(time) seconds", attributes: [NSFontAttributeName: boldFont])

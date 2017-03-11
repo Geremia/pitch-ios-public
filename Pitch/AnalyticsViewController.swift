@@ -63,7 +63,10 @@ class AnalyticsViewController: UIViewController {
     
     // MARK: - Properties
     
+    var data: Day!
     var sessionAnalytics: SessionAnalytics?
+    
+    var showingSessionData: Bool = false
     var showingData: Bool = false
     var hasShownShareView: Bool = false
     var tutorialState: Int = 1
@@ -75,21 +78,58 @@ class AnalyticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setDataToDisplay()
         setupUI()
         setupNotifications()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkForShareAndAnimation()
+    }
+    
+    func setDataToDisplay() {
+        if let analytics = sessionAnalytics {
+            data = analytics
+            showingSessionData = true
+        } else {
+            data = DataManager.today()
+        }
+    }
+    
     func checkForShareAndAnimation() {
+        showingSessionData ? sessionRefresh() : todayRefresh()
+    }
+    
+    func todayRefresh() {
+        data = DataManager.today()
         let defaults = UserDefaults.standard
-        if DataManager.today().hasSufficientData && defaults.analyticsOn() {
+        if data.hasSufficientData && defaults.analyticsOn() {
             if defaults.shouldShowAnalyticsSharePrompt() && !hasShownShareView {
-                hasShownShareView = true
-                performSegue(withIdentifier: "analyticsToShare", sender: nil)
+                showShareView()
             } else if !defaults.hasSeenAnalyticsAnimation() {
-                animateIn()
-                UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
+                startAnimation()
             }
         }
+    }
+    
+    func sessionRefresh() {
+        let defaults = UserDefaults.standard
+        if defaults.shouldShowAnalyticsSharePrompt() && !hasShownShareView {
+            showShareView()
+        } else if !defaults.hasSeenAnalyticsAnimation() {
+            startAnimation()
+        }
+    }
+    
+    func showShareView() {
+        hasShownShareView = true
+        performSegue(withIdentifier: "analyticsToShare", sender: nil)
+    }
+    
+    func startAnimation() {
+        animateIn()
+        UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
     }
 
     // MARK: - Actions
