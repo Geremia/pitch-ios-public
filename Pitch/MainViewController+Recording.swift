@@ -66,6 +66,7 @@ extension MainViewController: SessionsViewControllerDelegate {
                 guard let analytics = self.sessionAnalytics else { return }
                 let session = Session.with(recordedFileUrl: (Recorder.sharedInstance.file?.url)!, andAnalytics: analytics)
                 self.presentSessionsViewController(with: session)
+                self.resetSessionAnalytics()
             }
         })
     }
@@ -82,6 +83,10 @@ extension MainViewController: SessionsViewControllerDelegate {
         let sessionsVC = self.sessionsVC()
         sessionsVC.session = session
         self.present(sessionsVC, animated: true, completion: nil)
+    }
+    
+    func resetSessionAnalytics() {
+        sessionAnalytics = nil
     }
     
     // MARK: - Record View
