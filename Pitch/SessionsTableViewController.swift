@@ -136,6 +136,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let analyticsVC: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
             analyticsVC.session = session
+            analyticsVC.transitioningDelegate = self
             present(analyticsVC, animated: true, completion: nil)
         }
     }
@@ -184,5 +185,15 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         tableView.beginUpdates()
         tableView.deleteRows(at: [indexPath], with: .middle)
         tableView.endUpdates()
+    }
+}
+
+extension SessionsTableViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return SlideAnimationController(direction: .right)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return SlideAnimationController(direction: .left)
     }
 }
