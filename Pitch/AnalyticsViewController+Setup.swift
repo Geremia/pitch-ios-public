@@ -74,6 +74,7 @@ extension AnalyticsViewController {
         let showingSharePrompt = UserDefaults.standard.shouldShowAnalyticsSharePrompt()
         if showingSessionData {
             hideViewsForSessionAnalytics()
+            setLabelTitlesForSessionAnalytics()
             
             if !showingSharePrompt {
                 showingData = true
@@ -90,6 +91,12 @@ extension AnalyticsViewController {
     func hideViewsForSessionAnalytics() {
         graphView.isHidden = true
         resetButton.isHidden = true
+    }
+    
+    func setLabelTitlesForSessionAnalytics() {
+        analyticsLabel.text = session?.name
+        todayLabel.text = "This Session"
+        tutorial1Label.text = "This is your score for this session. It tells you how good your tuning was overall."
     }
     
     func setupNotifications() {
