@@ -15,13 +15,15 @@ extension MainViewController {
     func addOutputToAnalytics(output: TunerOutput) {
         if output.isValid {
             DataManager.today().add(tunerOutput: output)
+            addOutputToSession(output: output)
         }
     }
     
     func addPitchCenterTimeToAnalytics() {
-        if let time = self.pitchStartTime {
+        if let time = pitchStartTime {
             let interval = Date().timeIntervalSince(time)
             DataManager.today().add(timeToCenter: interval - 0.5)
+            addCenterTimeToSession()
             resetPitchCenterTimer()
         }
     }
@@ -29,10 +31,15 @@ extension MainViewController {
     // MARK: - Session Analytics
     
     func addOutputToSession(output: TunerOutput) {
-        
+        if output.isValid, let analytics = sessionAnalytics {
+            analytics.add(tunerOutput: output)
+        }
     }
     
     func addCenterTimeToSession() {
-        
+        if let time = pitchStartTime, let analytics = sessionAnalytics {
+            let interval = Date().timeIntervalSince(time)
+            analytics.add(timeToCenter: interval - 0.5)
+        }
     }
 }
