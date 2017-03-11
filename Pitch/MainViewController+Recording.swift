@@ -24,6 +24,8 @@ extension MainViewController: SessionsViewControllerDelegate {
         recordingState = .recording
         leftRecordButton.setTitle("Stop", for: .normal)
         
+        sessionAnalytics = SessionAnalytics.makeNew()
+        
         leftRecordButtonConstraint.constant = 15
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
             self.recordView.layoutIfNeeded()

@@ -71,6 +71,7 @@ class MainViewController: UIViewController {
     
     var recordingState: MainViewRecordingState = .notRecording
     var recordLabelUpdateLink: CADisplayLink!
+    var sessionAnalytics: SessionAnalytics?
     
     // MARK: - Other Properties
     

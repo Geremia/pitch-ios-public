@@ -25,4 +25,14 @@ extension MainViewController {
             resetPitchCenterTimer()
         }
     }
+    
+    // MARK: - Session Analytics
+    
+    func addOutputToSession(output: TunerOutput) {
+        
+    }
+    
+    func addCenterTimeToSession() {
+        
+    }
 }
