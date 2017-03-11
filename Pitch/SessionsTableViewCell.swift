@@ -77,8 +77,10 @@ class SessionsTableViewCell: UITableViewCell {
         
         let minTrackColor = darkModeOn ? UIColor.darkGray : UIColor.lightGray
         let maxTrackColor = darkModeOn ? UIColor.darkSeparatorColor : UIColor.separatorColor
+        let sliderThumb = darkModeOn ? #imageLiteral(resourceName: "dark_slider_thumb") : #imageLiteral(resourceName: "slider_thumb")
         slider.minimumTrackTintColor = minTrackColor
         slider.maximumTrackTintColor = maxTrackColor
+        slider.setThumbImage(sliderThumb, for: .normal)
         
         let shareImage = darkModeOn ? #imageLiteral(resourceName: "white_share") : #imageLiteral(resourceName: "share")
         let analyticsImage = darkModeOn ? #imageLiteral(resourceName: "white_analytics") : #imageLiteral(resourceName: "analytics")
