@@ -31,13 +31,13 @@ extension MainViewController {
     // MARK: - Session Analytics
     
     func addOutputToSession(output: TunerOutput) {
-        if output.isValid, let analytics = sessionAnalytics {
+        if output.isValid, let analytics = sessionAnalytics, recordingState == .recording {
             analytics.add(tunerOutput: output)
         }
     }
     
     func addCenterTimeToSession() {
-        if let time = pitchStartTime, let analytics = sessionAnalytics {
+        if let time = pitchStartTime, let analytics = sessionAnalytics, recordingState == .recording {
             let interval = Date().timeIntervalSince(time)
             analytics.add(timeToCenter: interval - 0.5)
         }
