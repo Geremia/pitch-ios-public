@@ -44,7 +44,7 @@ class SessionsTableViewCell: UITableViewCell {
             nameField.resignFirstResponder()
             
             if isExpanded == false && nameField.text == "" {
-                nameField.text = "Untitled"
+                nameField.text = "New session"
                 delegate?.nameEditedOn(self)
             }
         }
@@ -58,8 +58,6 @@ class SessionsTableViewCell: UITableViewCell {
     }
     
     func setup() {
-        slider.setThumbImage(#imageLiteral(resourceName: "slider_thumb"), for: .normal)
-        
         darkModeChanged()
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
     }
