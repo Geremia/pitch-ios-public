@@ -130,6 +130,14 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     }
     
     func analyticsPressedOn(_ cell: SessionsTableViewCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            let session = sessions[indexPath.row]
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let analyticsVC: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
+            analyticsVC.sessionAnalytics = session.analytics
+            present(analyticsVC, animated: true, completion: nil)
+        }
     }
     
     func deletePressedOn(_ cell: SessionsTableViewCell) {
