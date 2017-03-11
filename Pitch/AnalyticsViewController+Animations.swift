@@ -19,11 +19,7 @@ extension AnalyticsViewController {
         
         let isPortrait = orientation == .portrait || orientation == .portraitUpsideDown
         UIView.transition(with: helpButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
-            if !self.showingSessionData {
-                self.helpButton.isHidden = !isPortrait
-            } else {
-                self.helpButton.isHidden = true
-            }
+            self.helpButton.isHidden = !isPortrait
         }, completion: nil)
         
         endTutorial()

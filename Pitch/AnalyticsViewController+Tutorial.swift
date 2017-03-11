@@ -67,6 +67,11 @@ extension AnalyticsViewController {
     }
     
     func showTutorial4() {
+        if showingSessionData {
+            endTutorial()
+            return
+        }
+        
         var graphFrame = graphView.frame
         graphFrame.origin.y -= 60
         scrollView.scrollRectToVisible(graphFrame, animated: false)
@@ -78,6 +83,7 @@ extension AnalyticsViewController {
     }
     
     func endTutorial() {
+        tutorialState = 0
         UIView.transition(with: view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
             self.tutorial1.isHidden = true
             self.tutorial2.isHidden = true

@@ -23,10 +23,10 @@ extension AnalyticsViewController {
     }
     
     func checkForShareAndAnimation() {
-        showingSessionData ? sessionRefresh() : todayRefresh()
+        showingSessionData ? sessionViewAppeared() : todayViewAppeared()
     }
     
-    func todayRefresh() {
+    func todayViewAppeared() {
         data = DataManager.today()
         let defaults = UserDefaults.standard
         if data.hasSufficientData && defaults.analyticsOn() {
@@ -38,7 +38,7 @@ extension AnalyticsViewController {
         }
     }
     
-    func sessionRefresh() {
+    func sessionViewAppeared() {
         let defaults = UserDefaults.standard
         if defaults.shouldShowAnalyticsSharePrompt() && !hasShownShareView {
             showShareView()
@@ -85,7 +85,6 @@ extension AnalyticsViewController {
     }
     
     func hideViewsForSessionAnalytics() {
-        helpButton.isHidden = true
         graphView.isHidden = true
         resetButton.isHidden = true
     }

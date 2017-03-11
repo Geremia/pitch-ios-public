@@ -87,7 +87,7 @@ class AnalyticsViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if showingSessionData {
-            sessionRefresh()
+            sessionViewAppeared()
         }
     }
 
