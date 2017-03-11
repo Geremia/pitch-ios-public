@@ -71,9 +71,8 @@ extension MainViewController {
     
     func darkModeChanged() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
-        if darkModeOn {
-            view.backgroundColor = UIColor.darkGrayView
-        }
+        view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
+        recordView.backgroundColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
         
         state = .outOfTune
         transitionViewTo(newState: .outOfTune, animated: false)
