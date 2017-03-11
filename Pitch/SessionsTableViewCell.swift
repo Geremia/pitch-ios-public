@@ -42,6 +42,11 @@ class SessionsTableViewCell: UITableViewCell {
             heightConstraint.constant = isExpanded ? 160 : 70
             nameField.isUserInteractionEnabled = isExpanded
             nameField.resignFirstResponder()
+            
+            if isExpanded == false {
+                nameField.text = "Untitled"
+                delegate?.nameEditedOn(self)
+            }
         }
     }
     
