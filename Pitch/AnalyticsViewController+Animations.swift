@@ -21,6 +21,8 @@ extension AnalyticsViewController {
         UIView.transition(with: helpButton, duration: 0.2, options: .transitionCrossDissolve, animations: {
             if !self.showingSessionData {
                 self.helpButton.isHidden = !isPortrait
+            } else {
+                self.helpButton.isHidden = true
             }
         }, completion: nil)
         
