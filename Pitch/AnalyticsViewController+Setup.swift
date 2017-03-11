@@ -14,8 +14,8 @@ extension AnalyticsViewController {
     // MARK: - Load Data
     
     func setDataToDisplay() {
-        if let analytics = sessionAnalytics {
-            data = analytics
+        if let session = session {
+            data = session.analytics
             showingSessionData = true
         } else {
             data = DataManager.today()

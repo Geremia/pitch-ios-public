@@ -64,7 +64,7 @@ class AnalyticsViewController: UIViewController {
     // MARK: - Properties
     
     var data: Day!
-    var sessionAnalytics: SessionAnalytics?
+    var session: Session?
     
     var showingSessionData: Bool = false
     var showingData: Bool = false

@@ -135,7 +135,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let analyticsVC: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
-            analyticsVC.sessionAnalytics = session.analytics
+            analyticsVC.session = session
             present(analyticsVC, animated: true, completion: nil)
         }
     }
