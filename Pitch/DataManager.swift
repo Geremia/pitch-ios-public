@@ -27,7 +27,7 @@ class DataManager {
         if days.count > 0 {
             return days[0]
         } else {
-            let day = Day.makeNew()
+            let day = Day()
             add(day)
             sendUsageStatistics()
             return day

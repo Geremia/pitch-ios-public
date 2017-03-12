@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import Realm
 
 class Day: Object {
     
@@ -104,13 +105,20 @@ class Day: Object {
     
     // MARK: - Setup
     
-    static func makeNew() -> Day {
-        let day = Day()
-        day.id = day.date.id
-        return day
+    required init() {
+        super.init()
+        self.id = date.id
     }
     
-    override static func primaryKey() -> String? {
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    override class func primaryKey() -> String? {
         return "id"
     }
     
