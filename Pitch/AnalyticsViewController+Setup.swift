@@ -219,6 +219,7 @@ extension AnalyticsViewController {
         tuningScoreSeparator.backgroundColor = lineTextColor
         
         graphView.dataPointLabelColor = lineTextColor
+        graphView.dataPointFillColor = lineTextColor
         graphView.lineColor = darkModeOn ? .darkInTune : .inTune
         
         for view in graphSideMargins {
