@@ -54,7 +54,6 @@ extension AnalyticsViewController {
     
     func startAnimation() {
         animateIn()
-        
         if !showingSessionData {
             UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
         }
@@ -88,8 +87,23 @@ extension AnalyticsViewController {
         }
     }
     
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged(_:)), name: .UIDeviceOrientationDidChange, object: nil)
+    }
+    
     func hideViewsForSessionAnalytics() {
+        tuningScoreLabel.isHidden = true
+        tuningScoreSeparator.isHidden = true
         graphView.isHidden = true
+        for line in graphReferenceLines {
+            line.isHidden = true
+        }
+        for label in graphLabels {
+            label.isHidden = true
+        }
+        for view in graphSideMargins {
+            view.isHidden = true
+        }
         resetButton.isHidden = true
     }
     
@@ -97,10 +111,6 @@ extension AnalyticsViewController {
         analyticsLabel.text = session?.name
         todayLabel.text = "This Session"
         tutorial1Label.text = "This is your score for this session. It tells you how good your tuning was overall."
-    }
-    
-    func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged(_:)), name: .UIDeviceOrientationDidChange, object: nil)
     }
     
     func displayData() {
