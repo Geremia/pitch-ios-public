@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import Realm
 import AudioKit
 
 class SessionAnalytics: Day {
@@ -37,37 +38,47 @@ class Session: Object {
     dynamic var date: Date = Date()
     dynamic var duration: Double = 0
     dynamic var url: String = ""
-    dynamic var analytics: SessionAnalytics?
+    dynamic var analytics: SessionAnalytics = SessionAnalytics()
     
     // MARK: - Setup
     
-    static func with(recordedFileUrl url: URL, andAnalytics analytics: SessionAnalytics) -> Session {
-        let session = Session()
-        session.id = session.date.longId
-        session.analytics = analytics
+    required init() {
+        super.init()
+    }
+    
+    required init(withRecordedFileUrl url: URL, andAnalytics analyticsObject: SessionAnalytics) {
+        id = date.longId
+        analytics = analyticsObject
+        super.init()
         
-//        if let file = try? AKAudioFile(forReading: url) {
-//            file.exportAsynchronously(name: "\(file.fileName).m4a", baseDir: .documents, exportFormat: .m4a, callback: { processedFile, error in
-//                if error == nil {
-//                    session.url = (processedFile?.url.absoluteString)!
-//                    session.duration = (processedFile?.duration)!
-//                    print("New recording saved.")
-//                } else {
-//                    print("Error saving new recording: \(error)")
-//                }
-//            })
-//        }
-        
-        return session
+        //        if let file = try? AKAudioFile(forReading: url) {
+        //            file.exportAsynchronously(name: "\(file.fileName).m4a", baseDir: .documents, exportFormat: .m4a, callback: { processedFile, error in
+        //                if error == nil {
+        //                    session.url = (processedFile?.url.absoluteString)!
+        //                    session.duration = (processedFile?.duration)!
+        //                    print("New recording saved.")
+        //                } else {
+        //                    print("Error saving new recording: \(error)")
+        //                }
+        //            })
+        //        }
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
     
     private func newFileName() -> String {
         let number = UserDefaults.standard.fileNumber()
         return "recording\(number).caf"
-    }
-    
-    override static func primaryKey() -> String? {
-        return "id"
     }
     
     // MARK: - Deletion

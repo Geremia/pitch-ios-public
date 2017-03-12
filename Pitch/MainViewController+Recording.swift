@@ -64,7 +64,7 @@ extension MainViewController: SessionsViewControllerDelegate {
             
             DispatchQueue.main.async {
                 guard let analytics = self.sessionAnalytics else { return }
-                let session = Session.with(recordedFileUrl: (Recorder.sharedInstance.file?.url)!, andAnalytics: analytics)
+                let session = Session(withRecordedFileUrl: (Recorder.sharedInstance.file?.url)!, andAnalytics: analytics)
                 self.presentSessionsViewController(with: session)
                 self.resetSessionAnalytics()
             }
