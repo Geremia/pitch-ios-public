@@ -10,7 +10,12 @@ import Foundation
 import RealmSwift
 import AudioKit
 
-typealias SessionAnalytics = Day
+class SessionAnalytics: Day {
+    
+    // MARK: - Stored Properties
+    
+    dynamic var hasSeenAnimation: Bool = false
+}
 
 class Session: Object {
     
