@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 import ScrollableGraphView
 
 extension AnalyticsViewController {
@@ -32,7 +33,7 @@ extension AnalyticsViewController {
         if data.hasSufficientData && defaults.analyticsOn() {
             if defaults.shouldShowAnalyticsSharePrompt() && !hasShownShareView {
                 showShareView()
-            } else if !defaults.hasSeenAnalyticsAnimation() {
+            } else if !hasSeenAnimation() {
                 startAnimation()
             }
         }
@@ -42,7 +43,7 @@ extension AnalyticsViewController {
         let defaults = UserDefaults.standard
         if defaults.shouldShowAnalyticsSharePrompt() && !hasShownShareView {
             showShareView()
-        } else if !defaults.hasSeenAnalyticsAnimation() {
+        } else if !hasSeenAnimation() {
             startAnimation()
         }
     }
@@ -54,7 +55,9 @@ extension AnalyticsViewController {
     
     func startAnimation() {
         animateIn()
-        if !showingSessionData {
+        if showingSessionData {
+            DataManager.setHasSeenAnalyticsAnimation(true, forSession: self.session!)
+        } else {
             UserDefaults.standard.setHasSeenAnalyticsAnimation(true)
         }
     }
@@ -113,6 +116,14 @@ extension AnalyticsViewController {
         tutorial1Label.text = "This is your score for this session. It tells you how good your tuning was overall."
     }
     
+    func hasSeenAnimation() -> Bool {
+        if showingSessionData {
+            return (session?.analytics?.hasSeenAnimation)!
+        } else {
+            return UserDefaults.standard.hasSeenAnalyticsAnimation()
+        }
+    }
+    
     func displayData() {
         noDataView.isHidden = true
         helpButton.isHidden = false
@@ -120,7 +131,9 @@ extension AnalyticsViewController {
         setupScoreCircle()
         setupDescriptionLabel()
         
-        if !UserDefaults.standard.hasSeenAnalyticsAnimation() {
+        print(hasSeenAnimation())
+        
+        if !hasSeenAnimation() {
             prepareForAnimation()
         }
     }
@@ -130,7 +143,7 @@ extension AnalyticsViewController {
         scoreLabel.text = "\(Int(score))"
         scoreCircle.colorful = true
         
-        if UserDefaults.standard.hasSeenAnalyticsAnimation() {
+        if hasSeenAnimation() {
             scoreCircle.score = Double(score)
             scoreCircle.setNeedsDisplay()
         }

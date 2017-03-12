@@ -78,6 +78,12 @@ class DataManager {
         }
     }
     
+    static func setHasSeenAnalyticsAnimation(_ hasSeen: Bool, forSession session: Session) {
+        try! realm.write {
+            session.analytics?.hasSeenAnimation = hasSeen
+        }
+    }
+    
     // MARK: - Fabric Statistics
     
     fileprivate static func sendUsageStatistics() {

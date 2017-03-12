@@ -42,12 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func resetAnalyticsAnimationBools() {
         UserDefaults.standard.setHasSeenAnalyticsAnimation(false)
-        let realm = try! Realm()
         let sessions = DataManager.sessions()
-        try! realm.write {
-            for session in sessions {
-                session.analytics?.hasSeenAnimation = false
-            }
+        for session in sessions {
+            DataManager.setHasSeenAnalyticsAnimation(false, forSession: session)
         }
     }
     

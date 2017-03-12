@@ -38,7 +38,7 @@ class Session: Object {
     dynamic var date: Date = Date()
     dynamic var duration: Double = 0
     dynamic var url: String = ""
-    dynamic var analytics: SessionAnalytics = SessionAnalytics()
+    dynamic var analytics: SessionAnalytics? = SessionAnalytics()
     
     // MARK: - Setup
     
