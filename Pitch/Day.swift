@@ -129,7 +129,7 @@ class Day: Object {
         try! realm.write {
             inTunePercentageDataCount += 1
             
-            let inTune: Double = tunerOutput.distance <= tuningThreshold ? 1 : 0
+            let inTune: Double = tunerOutput.centsDistance <= tuningThreshold ? 1 : 0
             let newDataPointWeight = 1 / Double(self.inTunePercentageDataCount)
             let oldAverageWeight = 1 - newDataPointWeight
             
