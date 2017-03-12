@@ -23,8 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         updateRealmSchema()
         updateAnalyticsSharing()
         addShortcutItems(application: application)
+        resetAnalyticsAnimationBools()
         Fabric.with([Crashlytics.self])
-        UserDefaults.standard.setHasSeenAnalyticsAnimation(false)
+        
         UIApplication.shared.isIdleTimerDisabled = true
         
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
@@ -37,6 +38,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sendUsageStatistics()
         
         return true
+    }
+    
+    func resetAnalyticsAnimationBools() {
+        UserDefaults.standard.setHasSeenAnalyticsAnimation(false)
+        let realm = try! Realm()
+        let sessions = DataManager.sessions()
+        try! realm.write {
+            for session in sessions {
+                session.analytics?.hasSeenAnimation = false
+            }
+        }
     }
     
     func setRootViewController() {
