@@ -48,6 +48,7 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var tuningScoreLabel: UILabel!
     @IBOutlet weak var tuningScoreSeparator: UIView!
     @IBOutlet weak var graphView: ScrollableGraphView!
+    @IBOutlet weak var graphViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet var graphReferenceLines: [UIView]!
     @IBOutlet var graphLabels: [UILabel]!
     @IBOutlet var graphSideMargins: [UIView]!

@@ -75,7 +75,7 @@ extension AnalyticsViewController {
         
         let showingSharePrompt = UserDefaults.standard.shouldShowAnalyticsSharePrompt()
         if showingSessionData {
-            hideViewsForSessionAnalytics()
+            setupViewsForSessionAnalytics()
             setLabelTitlesForSessionAnalytics()
             
             if !showingSharePrompt {
@@ -95,7 +95,7 @@ extension AnalyticsViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .reloadAnalyticsData, object: nil)
     }
     
-    func hideViewsForSessionAnalytics() {
+    func setupViewsForSessionAnalytics() {
         tuningScoreLabel.isHidden = true
         tuningScoreSeparator.isHidden = true
         graphView.isHidden = true
@@ -109,6 +109,8 @@ extension AnalyticsViewController {
             view.isHidden = true
         }
         resetButton.isHidden = true
+        
+        graphViewBottomConstraint.constant = -400
     }
     
     func setLabelTitlesForSessionAnalytics() {
