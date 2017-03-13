@@ -72,6 +72,7 @@ class AnalyticsViewController: UIViewController {
     var hasShownShareView: Bool = false
     var tutorialState: Int = 1
     
+    var pitchesTableViewController: PitchesTableViewController?
     var snapContainer: SnapContainerViewController?
     
     // MARK: - Setup Views
@@ -135,8 +136,8 @@ class AnalyticsViewController: UIViewController {
             let shareVC: ShareViewController = segue.destination as! ShareViewController
             shareVC.delegate = self
         } else if segue.identifier == "pitchesTableEmbed" {
-            let pitchesVC: PitchesTableViewController = segue.destination as! PitchesTableViewController
-            pitchesVC.delegate = self
+            pitchesTableViewController = segue.destination as? PitchesTableViewController
+            pitchesTableViewController?.delegate = self
         }
     }
 }

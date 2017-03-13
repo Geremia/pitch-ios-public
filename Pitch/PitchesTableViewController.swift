@@ -17,13 +17,18 @@ class PitchesTableViewController: UITableViewController {
     // MARK: - Properties
     
     var delegate: PitchesTableViewControllerDelegate?
-    let pitchOffsets = DataManager.today().filteredPitchOffsets
+    var pitchOffsets: [OffsetData] = []
+    
+    // MARK: - Setup
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.tableFooterView = UIView()
+        setup()
+    }
+    
+    func setup() {
         darkModeChanged()
+        tableView.tableFooterView = UIView()
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
     }
     

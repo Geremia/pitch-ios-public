@@ -21,6 +21,9 @@ extension AnalyticsViewController {
         } else {
             data = DataManager.today()
         }
+        
+        pitchesTableViewController?.pitchOffsets = data.filteredPitchOffsets
+        pitchesTableViewController?.tableView.reloadData()
     }
     
     func checkForShareAndAnimation() {
