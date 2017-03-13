@@ -64,7 +64,7 @@ extension MainViewController: SessionsViewControllerDelegate {
             
             DispatchQueue.main.async {
                 guard let analytics = self.sessionAnalytics else { return }
-                let session = Session(withRecordedFileUrl: (Recorder.sharedInstance.file?.url)!, andAnalytics: analytics)
+                let session = Session(withRecordedFileUrl: (processedFile?.url)!, andAnalytics: analytics)
                 self.presentSessionsViewController(with: session)
                 self.resetSessionAnalytics()
             }
@@ -98,14 +98,13 @@ extension MainViewController: SessionsViewControllerDelegate {
     
     func updateRecordLabel() {
         let time: String = (Recorder.sharedInstance.recorder?.recordedDuration.prettyString)!
-        recordLabel.text = "Recording \(time)"
+        let text = recordingState == .recording ? "Recording" : "Recorded"
+        recordLabel.text = "\(text) \(time)"
     }
     
     func stopAnimatingRecordLabel() {
+        updateRecordLabel()
         recordLabelUpdateLink.remove(from: .current, forMode: .defaultRunLoopMode)
-        
-        let time: String = (Recorder.sharedInstance.recorder?.recordedDuration.prettyString)!
-        recordLabel.text = "Recorded \(time)"
     }
     
     func resetRecordView() {
