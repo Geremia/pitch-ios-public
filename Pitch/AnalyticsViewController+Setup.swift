@@ -21,9 +21,6 @@ extension AnalyticsViewController {
         } else {
             data = DataManager.today()
         }
-        
-        pitchesTableViewController?.pitchOffsets = data.filteredPitchOffsets
-        pitchesTableViewController?.tableView.reloadData()
     }
     
     func checkForShareAndAnimation() {
@@ -95,6 +92,7 @@ extension AnalyticsViewController {
     
     func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged(_:)), name: .UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .reloadAnalyticsData, object: nil)
     }
     
     func hideViewsForSessionAnalytics() {
@@ -131,14 +129,17 @@ extension AnalyticsViewController {
         noDataView.isHidden = true
         helpButton.isHidden = false
         
-        setupScoreCircle()
-        setupDescriptionLabel()
-        
-        print(hasSeenAnimation())
+        reloadData()
         
         if !hasSeenAnimation() {
             prepareForAnimation()
         }
+    }
+    
+    func reloadData() {
+        setupScoreCircle()
+        setupDescriptionLabel()
+        pitchesTableViewController?.pitchOffsets = data.filteredPitchOffsets
     }
     
     func setupScoreCircle() {

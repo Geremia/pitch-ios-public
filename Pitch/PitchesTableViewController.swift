@@ -17,7 +17,11 @@ class PitchesTableViewController: UITableViewController {
     // MARK: - Properties
     
     var delegate: PitchesTableViewControllerDelegate?
-    var pitchOffsets: [OffsetData] = []
+    var pitchOffsets: [OffsetData] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     // MARK: - Setup
 

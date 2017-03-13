@@ -15,6 +15,7 @@ extension MainViewController {
     func addOutputToAnalytics(output: TunerOutput) {
         if output.isValid {
             DataManager.today().add(tunerOutput: output)
+            NotificationCenter.default.post(name: .reloadAnalyticsData, object: nil)
             addOutputToSession(output: output)
         }
     }

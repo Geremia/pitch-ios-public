@@ -131,6 +131,7 @@ extension Notification.Name {
     static let darkModeChanged = Notification.Name(rawValue: "darkModeChangedNotification")
     static let pitchStandardChanged = Notification.Name(rawValue: "pitchStandardChangedNotification")
     static let resetAnalyticsData = Notification.Name(rawValue: "resetAnalyticsDataNotification")
+    static let reloadAnalyticsData = Notification.Name(rawValue: "reloadAnalyticsDataNotification")
     static let resetBufferSizes = Notification.Name(rawValue: "resetBufferSizesNotification")
     static let prepareForRecording = Notification.Name(rawValue: "prepareForRecordingNotification")
     
