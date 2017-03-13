@@ -135,6 +135,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let analyticsVC: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
+            print(session.analytics)
             analyticsVC.session = session
             analyticsVC.transitioningDelegate = self
             present(analyticsVC, animated: true, completion: nil)

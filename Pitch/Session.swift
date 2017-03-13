@@ -16,6 +16,21 @@ class SessionAnalytics: Day {
     // MARK: - Stored Properties
     
     dynamic var hasSeenAnimation: Bool = false
+    
+    // MARK: - Setup
+    
+    required init() {
+        super.init()
+        self.id = date.longId
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
 }
 
 class Session: Object {
@@ -38,11 +53,12 @@ class Session: Object {
     dynamic var date: Date = Date()
     dynamic var duration: Double = 0
     dynamic var url: String = ""
-    dynamic var analytics: SessionAnalytics? = SessionAnalytics()
+    dynamic var analytics: SessionAnalytics?
     
     // MARK: - Setup
     
     required init() {
+        analytics = SessionAnalytics()
         super.init()
     }
     
