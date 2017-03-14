@@ -27,7 +27,7 @@ class Player: NSObject {
     // MARK: - Actions
     
     func play(_ audioFile: AKAudioFile) {
-        if player.audioFile == audioFile {
+        if player.audioFile.fileName == audioFile.fileName {
             player.resume()
         } else {
             player.stop()
