@@ -67,21 +67,10 @@ class Session: Object {
         analytics = analyticsObject
         url = aUrl.path
         
+        let asset = AVURLAsset(url: URL(fileURLWithPath: url))
+        duration = Double(CMTimeGetSeconds(asset.duration))
+        
         super.init()
-        
-        duration = duration(for: url)
-        
-        //        if let file = try? AKAudioFile(forReading: url) {
-        //            file.exportAsynchronously(name: "\(file.fileName).m4a", baseDir: .documents, exportFormat: .m4a, callback: { processedFile, error in
-        //                if error == nil {
-        //                    session.url = (processedFile?.url.absoluteString)!
-        //                    session.duration = (processedFile?.duration)!
-        //                    print("New recording saved.")
-        //                } else {
-        //                    print("Error saving new recording: \(error)")
-        //                }
-        //            })
-        //        }
     }
     
     required init(realm: RLMRealm, schema: RLMObjectSchema) {
@@ -99,12 +88,6 @@ class Session: Object {
     private func newFileName() -> String {
         let number = UserDefaults.standard.fileNumber()
         return "recording\(number).caf"
-    }
-    
-    private func duration(for resource: String) -> Double {
-        let asset = AVURLAsset(url: URL(fileURLWithPath: resource))
-        print(asset.duration)
-        return Double(CMTimeGetSeconds(asset.duration))
     }
     
     // MARK: - Deletion
