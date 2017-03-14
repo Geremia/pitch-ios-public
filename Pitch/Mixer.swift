@@ -11,13 +11,15 @@ import AudioKit
 
 class Mixer: NSObject {
     
+    // MARK: - Properties
+    
     static let sharedInstance: Mixer = Mixer()
     private var mixer: AKMixer!
     var isSetup: Bool = false
     
-    private override init() {
-        super.init()
-    }
+    // MARK: - Setup
+    
+    private override init() {}
     
     func setUp() {
         self.mixer = AKMixer(Tuner.sharedInstance.silence, SoundGenerator.sharedInstance.bank)

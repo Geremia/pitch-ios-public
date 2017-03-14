@@ -11,12 +11,14 @@ import AVFoundation
 
 class Recorder: NSObject, AVAudioRecorderDelegate {
     
+    // MARK: - Properties
+    
     static let sharedInstance: Recorder = Recorder()
     var recorder: AVAudioRecorder!
     
-    private override init() {}
+    // MARK: - Setup
     
-    // MARK: - AVRecorder Setup
+    private override init() {}
     
     func setupRecorder() -> Bool {
         let recordSettings: [String : Any] = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
