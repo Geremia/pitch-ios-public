@@ -55,28 +55,15 @@ extension MainViewController: SessionsViewControllerDelegate {
         recordingState = .notRecording
         resetRecordView()
         
-        Recorder.sharedInstance.saveCurrentRecording({ processedFile, error in
-            if error == nil {
-                print("New recording saved.")
-            } else {
-                print("Error saving new recording: \(error.debugDescription)")
-            }
-            
-            DispatchQueue.main.async {
-                guard let analytics = self.sessionAnalytics else { return }
-                let session = Session(withRecordedFileUrl: (processedFile?.url)!, andAnalytics: analytics)
-                self.presentSessionsViewController(with: session)
-                self.resetSessionAnalytics()
-            }
-        })
+        guard let analytics = self.sessionAnalytics else { return }
+        let session = Session(withRecordedFileUrl: Recorder.sharedInstance.recorder.url, analytics: analytics)
+        self.presentSessionsViewController(with: session)
+        self.resetSessionAnalytics()
     }
     
     func cancelRecording() {
         recordingState = .notRecording
         resetRecordView()
-        
-        Recorder.sharedInstance.deleteCurrentRecording()
-        Recorder.sharedInstance.reset()
     }
     
     func presentSessionsViewController(with session: Session) {
@@ -97,7 +84,7 @@ extension MainViewController: SessionsViewControllerDelegate {
     }
     
     func updateRecordLabel() {
-        let time: String = (Recorder.sharedInstance.recorder?.recordedDuration.prettyString)!
+        let time: String = Recorder.sharedInstance.recorder.currentTime.prettyString
         let text = recordingState == .recording ? "Recording" : "Recorded"
         recordLabel.text = "\(text) \(time)"
     }

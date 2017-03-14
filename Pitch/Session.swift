@@ -62,10 +62,15 @@ class Session: Object {
         super.init()
     }
     
-    required init(withRecordedFileUrl url: URL, andAnalytics analyticsObject: SessionAnalytics) {
+    required init(withRecordedFileUrl aUrl: URL, analytics analyticsObject: SessionAnalytics) {
         id = date.longId
         analytics = analyticsObject
+        url = aUrl.absoluteString
+        
+        
         super.init()
+        
+        duration = duration(for: url)
         
         //        if let file = try? AKAudioFile(forReading: url) {
         //            file.exportAsynchronously(name: "\(file.fileName).m4a", baseDir: .documents, exportFormat: .m4a, callback: { processedFile, error in
@@ -95,6 +100,11 @@ class Session: Object {
     private func newFileName() -> String {
         let number = UserDefaults.standard.fileNumber()
         return "recording\(number).caf"
+    }
+    
+    private func duration(for resource: String) -> Double {
+        let asset = AVURLAsset(url: URL(fileURLWithPath: resource))
+        return Double(CMTimeGetSeconds(asset.duration))
     }
     
     // MARK: - Deletion
