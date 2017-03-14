@@ -65,7 +65,7 @@ class Session: Object {
     required init(withRecordedFileUrl aUrl: URL, analytics analyticsObject: SessionAnalytics) {
         id = date.longId
         analytics = analyticsObject
-        url = aUrl.absoluteString
+        url = aUrl.path
         
         super.init()
         
@@ -103,7 +103,7 @@ class Session: Object {
     
     private func duration(for resource: String) -> Double {
         let asset = AVURLAsset(url: URL(fileURLWithPath: resource))
-        print(asset)
+        print(asset.duration)
         return Double(CMTimeGetSeconds(asset.duration))
     }
     
