@@ -21,10 +21,10 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     private override init() {}
     
     func setupRecorder() -> Bool {
-        let recordSettings: [String : Any] = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
-                                              AVSampleRateKey: 44100,
-                                              AVNumberOfChannelsKey: 2,
-                                              AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue];
+        let recordSettings: [String : Any] = [AVFormatIDKey: NSNumber(value:Int32(kAudioFormatMPEG4AAC)),
+                                              AVSampleRateKey: NSNumber(value: Float(44100.0)),
+                                              AVNumberOfChannelsKey: NSNumber(value: Int32(2)),
+                                              AVEncoderAudioQualityKey: NSNumber(value: Int32(AVAudioQuality.max.rawValue))];
         
         do {
             recorder = try AVAudioRecorder(url: getFileURL(), settings: recordSettings)

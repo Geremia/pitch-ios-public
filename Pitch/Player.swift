@@ -14,27 +14,38 @@ class Player: NSObject {
     // MARK: - Properties
     
     static let sharedInstance: Player = Player()
-    var player: AKAudioPlayer!
+    var player: AVAudioPlayer!
     
     // MARK: - Setup
     
     private override init() {
-        player = try! AKAudioPlayer(file: AKAudioFile())
-        player.looping = false
+//        player = try! AKAudioPlayer(file: AKAudioFile())
+//        player = try! AVAudioPlayer(contentsOf: URL(string: "")!)
         super.init()
     }
 
     // MARK: - Actions
     
     func play(_ audioFile: AKAudioFile) {
-        if player.audioFile.fileName == audioFile.fileName {
-            player.resume()
+        player = try! AVAudioPlayer(contentsOf: audioFile.url)
+        player.play()
+        
+        if player.url == audioFile.url {
+            player.play()
         } else {
             player.stop()
-            try! player.replace(file: audioFile)
-            player.completionHandler = finishedPlaying
+            player = try! AVAudioPlayer(contentsOf: audioFile.url)
             player.play()
         }
+        
+//        if player.audioFile.fileName == audioFile.fileName {
+//            player.resume()
+//        } else {
+//            player.stop()
+//            try! player.replace(file: audioFile)
+//            player.completionHandler = finishedPlaying
+//            player.play()
+//        }
     }
     
     func pause() {

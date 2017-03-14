@@ -47,8 +47,9 @@ class Session: Object {
     }
     
     var audioFile: AKAudioFile? {
-        let url = documentDirectory().appendingPathComponent(fileName)
-        let file = try? AKAudioFile(forReading: url)
+        let file = try? AKAudioFile(readFileName: fileName, baseDir: .documents)
+        print(file?.duration)
+        print(file?.sampleRate)
         return file
     }
     
