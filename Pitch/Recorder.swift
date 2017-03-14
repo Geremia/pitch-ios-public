@@ -18,27 +18,23 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     // MARK: - AVRecorder Setup
     
-    func setupRecorder() {
+    func setupRecorder() -> Bool {
         let recordSettings: [String : Any] = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
                                               AVSampleRateKey: 44100,
                                               AVNumberOfChannelsKey: 2,
                                               AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue];
         
-        var error: NSError?
-        
         do {
-            recorder =  try AVAudioRecorder(url: getFileURL(), settings: recordSettings)
-        } catch let error1 as NSError {
-            error = error1
+            recorder = try AVAudioRecorder(url: getFileURL(), settings: recordSettings)
+        } catch let error as NSError {
+            print("AVAudioRecorder error: \(error.localizedDescription)")
             recorder = nil
+            return false
         }
         
-        if let err = error {
-            print("AVAudioRecorder error: \(err.localizedDescription)")
-        } else {
-            recorder.delegate = self
-            recorder.prepareToRecord()
-        }
+        recorder.delegate = self
+        recorder.prepareToRecord()
+        return true
     }
     
     // MARK: - Prepare AVPlayer
@@ -67,8 +63,9 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     // MARK: - Actions
     
     func startRecording() {
-        setupRecorder()
-        recorder.record()
+        if setupRecorder() {
+            recorder.record()
+        }
     }
     
     func stopRecording() {
