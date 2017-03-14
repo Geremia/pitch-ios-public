@@ -49,7 +49,7 @@ class Session: Object {
     // MARK: - Stored Properties
     
     dynamic var id: String = ""
-    dynamic var name: String = ""
+    dynamic var name: String = "New session"
     dynamic var date: Date = Date()
     dynamic var duration: Double = 0
     dynamic var url: String = ""
@@ -58,6 +58,7 @@ class Session: Object {
     // MARK: - Setup
     
     required init() {
+        id = date.longId
         analytics = SessionAnalytics()
         super.init()
     }

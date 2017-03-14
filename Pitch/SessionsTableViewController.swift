@@ -150,6 +150,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     func nameEditedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
             let session = sessions[indexPath.row]
+            print(cell.nameField.text!)
             DataManager.rename(session, to: cell.nameField.text!)
             reloadData(andTableView: false)
         }
