@@ -18,43 +18,29 @@ class Player: NSObject {
     
     // MARK: - Setup
     
-    private override init() {
-//        player = try! AKAudioPlayer(file: AKAudioFile())
-//        player = try! AVAudioPlayer(contentsOf: URL(string: "")!)
-        super.init()
-    }
+    private override init() {}
 
     // MARK: - Actions
     
-    func play(_ audioFile: AKAudioFile) {
-        player = try! AVAudioPlayer(contentsOf: audioFile.url)
-        player.play()
-        
-        if player.url == audioFile.url {
-            player.play()
+    func play(from url: URL) {
+        if let player = player {
+            if player.url == url {
+                player.play()
+            } else {
+                player.stop()
+                loadAndPlay(from: url)
+            }
         } else {
-            player.stop()
-            player = try! AVAudioPlayer(contentsOf: audioFile.url)
-            player.play()
+            loadAndPlay(from: url)
         }
-        
-//        if player.audioFile.fileName == audioFile.fileName {
-//            player.resume()
-//        } else {
-//            player.stop()
-//            try! player.replace(file: audioFile)
-//            player.completionHandler = finishedPlaying
-//            player.play()
-//        }
+    }
+    
+    private func loadAndPlay(from url: URL) {
+        player = try! AVAudioPlayer(contentsOf: url)
+        player.play()
     }
     
     func pause() {
         player.pause()
-    }
-    
-    private func finishedPlaying() {
-        DispatchQueue.main.async {
-            //
-        }
     }
 }

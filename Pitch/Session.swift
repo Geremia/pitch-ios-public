@@ -46,11 +46,8 @@ class Session: Object {
         return interval.prettyString
     }
     
-    var audioFile: AKAudioFile? {
-        let file = try? AKAudioFile(readFileName: fileName, baseDir: .documents)
-        print(file?.duration)
-        print(file?.sampleRate)
-        return file
+    var audioFileUrl: URL {
+        return documentDirectory().appendingPathComponent(fileName)
     }
     
     // MARK: - Stored Properties
