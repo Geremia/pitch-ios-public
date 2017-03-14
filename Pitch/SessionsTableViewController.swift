@@ -129,7 +129,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         }
     }
     
-    // MARK: - Sessions Table View Cell Delegate
+    // MARK: - SessionsTableViewCellDelegate Methods
     
     func nameEditedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
@@ -148,6 +148,11 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
                 Player.sharedInstance.pause()
             }
         }
+    }
+    
+    func sliderValueChangedOn(_ cell: SessionsTableViewCell) {
+        let time = TimeInterval(cell.slider.value)
+        Player.sharedInstance.setCurrentTime(time)
     }
     
     func sharePressedOn(_ cell: SessionsTableViewCell) {

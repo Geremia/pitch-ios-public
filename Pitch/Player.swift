@@ -15,9 +15,9 @@ class Player: NSObject, AVAudioPlayerDelegate {
     
     static let sharedInstance: Player = Player()
     
-    var player: AVAudioPlayer!
-    var currentTime: TimeInterval = 0
-    var updateLink: CADisplayLink?
+    private var player: AVAudioPlayer!
+    private var currentTime: TimeInterval = 0
+    private var updateLink: CADisplayLink?
     
     // MARK: - Setup
     
@@ -33,6 +33,7 @@ class Player: NSObject, AVAudioPlayerDelegate {
         
         if player.url == url {
             player.play()
+            startSendingUpdates()
         } else {
             player.stop()
             loadAndPlay(from: url)
@@ -59,6 +60,10 @@ class Player: NSObject, AVAudioPlayerDelegate {
     func stopSendingUpdates() {
         updateLink?.remove(from: .current, forMode: .defaultRunLoopMode)
         updateLink = nil
+    }
+    
+    func setCurrentTime(_ time: TimeInterval) {
+        player.currentTime = time
     }
     
     func pause() {

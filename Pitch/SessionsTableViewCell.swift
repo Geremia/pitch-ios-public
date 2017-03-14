@@ -11,6 +11,7 @@ import UIKit
 protocol SessionsTableViewCellDelegate {
     func nameEditedOn(_ cell: SessionsTableViewCell)
     func playPausePressedOn(_ cell: SessionsTableViewCell)
+    func sliderValueChangedOn(_ cell: SessionsTableViewCell)
     func sharePressedOn(_ cell: SessionsTableViewCell)
     func analyticsPressedOn(_ cell: SessionsTableViewCell)
     func deletePressedOn(_ cell: SessionsTableViewCell)
@@ -132,6 +133,7 @@ class SessionsTableViewCell: UITableViewCell {
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
+        delegate?.sliderValueChangedOn(self)
     }
     
     @IBAction func sharePressed(_ sender: Any) {
