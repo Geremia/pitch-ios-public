@@ -47,7 +47,7 @@ class Session: Object {
     }
     
     var audioFile: AKAudioFile? {
-        let url = URL(fileURLWithPath: path)
+        let url = documentDirectory().appendingPathComponent(fileName)
         let file = try? AKAudioFile(forReading: url)
         return file
     }
@@ -58,7 +58,7 @@ class Session: Object {
     dynamic var name: String = "New session"
     dynamic var date: Date = Date()
     dynamic var duration: Double = 0
-    dynamic var path: String = ""
+    dynamic var fileName: String = ""
     dynamic var analytics: SessionAnalytics?
     
     // MARK: - Setup
@@ -72,7 +72,7 @@ class Session: Object {
     required init(withRecordedFileUrl url: URL, analytics analyticsObject: SessionAnalytics) {
         id = date.longId
         analytics = analyticsObject
-        path = url.path
+        fileName = url.lastPathComponent
         
         let asset = AVURLAsset(url: url)
         duration = Double(CMTimeGetSeconds(asset.duration))
@@ -97,11 +97,17 @@ class Session: Object {
         return "recording\(number).caf"
     }
     
+    private func documentDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
     // MARK: - Deletion
     
     func prepareForDeletion() {
-        if FileManager.default.isDeletableFile(atPath: path) {
-            try? FileManager.default.removeItem(atPath: path)
+        let file = documentDirectory().appendingPathComponent(fileName)
+        if FileManager.default.isDeletableFile(atPath: file.path) {
+            try? FileManager.default.removeItem(atPath: file.path)
         }
     }
 }

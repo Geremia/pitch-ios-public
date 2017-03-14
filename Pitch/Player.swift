@@ -20,6 +20,7 @@ class Player: NSObject {
     
     private override init() {
         player = try! AKAudioPlayer(file: AKAudioFile())
+        player.looping = false
         super.init()
     }
 
