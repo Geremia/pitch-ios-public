@@ -152,7 +152,10 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     
     func sliderValueChangedOn(_ cell: SessionsTableViewCell) {
         let time = TimeInterval(cell.slider.value)
-        Player.sharedInstance.setCurrentTime(time)
+        
+        DispatchQueue.main.async {
+            Player.sharedInstance.setCurrentTime(time)
+        }
     }
     
     func sharePressedOn(_ cell: SessionsTableViewCell) {
