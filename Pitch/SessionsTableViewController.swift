@@ -95,6 +95,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
                 let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: expandedIndex) as! SessionsTableViewCell
                 expandedCell.isExpanded = false
                 expandedCellIndex = nil
+                Player.sharedInstance.pause()
             }
         } else {
             let selectedCell: SessionsTableViewCell = tableView.cellForRow(at: indexPath) as! SessionsTableViewCell
