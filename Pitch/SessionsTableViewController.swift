@@ -160,6 +160,9 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     
     func analyticsPressedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
+            Player.sharedInstance.reset()
+            finishedPlayback()
+            
             let session = sessions[indexPath.row]
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let analyticsVC: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
