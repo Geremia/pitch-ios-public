@@ -142,6 +142,7 @@ class Tuner: NSObject {
         microphone = AKMicrophone()
         analyzer = AKFrequencyTracker(microphone, hopSize: 512, peakCount: 100)
         silence = AKBooster(analyzer, gain: 0.0)
+        super.init()
     }
     
     func registerNotifications() {

@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let shortcutItem = launchOptions?[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem {
             handleShortcut(shortcutItem)
         } else {
-            Siren.sharedInstance.checkVersion(checkType: .daily)
+            Siren.shared.checkVersion(checkType: .daily)
         }
 
         setRootViewController()
