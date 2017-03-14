@@ -63,7 +63,9 @@ class Player: NSObject, AVAudioPlayerDelegate {
     }
     
     func setCurrentTime(_ time: TimeInterval) {
-        player.currentTime = time
+        if let player = player {
+            player.currentTime = time
+        }
     }
     
     func pause() {
