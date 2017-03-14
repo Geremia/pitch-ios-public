@@ -40,6 +40,7 @@ class Player: NSObject, AVAudioPlayerDelegate {
     
     private func loadAndPlay(from url: URL) {
         player = try! AVAudioPlayer(contentsOf: url)
+        player.delegate = self
         player.play()
         startSendingUpdates()
     }

@@ -215,11 +215,6 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
             
             let timeLeft = sessions[index.row].duration - currentTime
             expandedCell.timeLeftLabel.text = "-\(timeLeft.prettyString)"
-            
-            if timeLeft == 0 {
-                expandedCell.isPlaying = false
-                expandedCell.resetPlayPauseImage()
-            }
         }
     }
     
@@ -228,6 +223,10 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
             let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: index) as! SessionsTableViewCell
             expandedCell.isPlaying = false
             expandedCell.resetPlayPauseImage()
+            expandedCell.slider.value = 0
+            expandedCell.timePassedLabel.text = "00:00"
+            let timeLeft = sessions[index.row].duration
+            expandedCell.timeLeftLabel.text = "-\(timeLeft.prettyString)"
         }
     }
 }
