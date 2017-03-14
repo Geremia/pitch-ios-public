@@ -36,6 +36,11 @@ extension MainViewController: SessionsViewControllerDelegate {
         Recorder.sharedInstance.startRecording()
     }
     
+    func cancelRecording() {
+        recordingState = .notRecording
+        resetRecordView()
+    }
+    
     func stopRecording() {
         recordingState = .doneRecording
         leftRecordButton.setTitle("Save", for: .normal)
@@ -61,9 +66,9 @@ extension MainViewController: SessionsViewControllerDelegate {
         self.resetSessionAnalytics()
     }
     
-    func cancelRecording() {
-        recordingState = .notRecording
-        resetRecordView()
+    func discardRecording() {
+        cancelRecording()
+        Recorder.sharedInstance.deleteCurrentRecording()
     }
     
     func presentSessionsViewController(with session: Session) {

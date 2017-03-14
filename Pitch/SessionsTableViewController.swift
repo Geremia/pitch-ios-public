@@ -117,8 +117,8 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     
     func setAlphaFor(_ cell: SessionsTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        if self.expandedCellIndex != nil {
-            cell.contentView.alpha = (self.expandedCellIndex == indexPath) ? 1.0 : 0.2
+        if expandedCellIndex != nil {
+            cell.contentView.alpha = (expandedCellIndex == indexPath) ? 1.0 : 0.2
         } else {
             cell.contentView.alpha = 1.0
         }

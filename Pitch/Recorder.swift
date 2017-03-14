@@ -26,7 +26,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         
         do {
             recorder = try AVAudioRecorder(url: getFileURL(), settings: recordSettings)
-        } catch let error as NSError {
+        } catch let error {
             print("AVAudioRecorder error: \(error.localizedDescription)")
             recorder = nil
             return false
@@ -40,12 +40,12 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     // MARK: - Prepare AVPlayer
     
     func preparePlayer() {
-        var error: NSError?
+        var error: Error?
         var soundPlayer: AVAudioPlayer?
         
         do {
             soundPlayer = try AVAudioPlayer(contentsOf: recorder.url)
-        } catch let error1 as NSError {
+        } catch let error1 {
             error = error1
             soundPlayer = nil
         }
@@ -70,6 +70,16 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     func stopRecording() {
         recorder.stop()
+    }
+    
+    func deleteCurrentRecording() {
+        if !recorder.isRecording {
+            do {
+                try FileManager.default.removeItem(at: recorder.url)
+            } catch let error {
+                print("Delete recording error: \(error.localizedDescription)")
+            }
+        }
     }
     
     // MARK: - File URL

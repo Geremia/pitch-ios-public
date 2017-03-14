@@ -107,7 +107,12 @@ class MainViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func rightRecordButtonPressed(_ sender: Any) {
-        cancelRecording()
+        switch recordingState {
+        case .doneRecording:
+            discardRecording()
+        default:
+            cancelRecording()
+        }
     }
     
     @IBAction func leftRecordButtonPressed(_ sender: Any) {
