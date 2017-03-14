@@ -26,14 +26,15 @@ class Player: NSObject, AVAudioPlayerDelegate {
     // MARK: - Actions
     
     func play(from url: URL) {
-        if let player = player {
-            if player.url == url {
-                player.play()
-            } else {
-                player.stop()
-                loadAndPlay(from: url)
-            }
+        guard let player = player else {
+            loadAndPlay(from: url)
+            return
+        }
+        
+        if player.url == url {
+            player.play()
         } else {
+            player.stop()
             loadAndPlay(from: url)
         }
     }
@@ -62,6 +63,7 @@ class Player: NSObject, AVAudioPlayerDelegate {
     
     func pause() {
         stopSendingUpdates()
+        guard let player = player else { return }
         player.pause()
     }
     
