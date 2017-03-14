@@ -22,7 +22,7 @@ class Mixer: NSObject {
     private override init() {}
     
     func setUp() {
-        self.mixer = AKMixer(Tuner.sharedInstance.silence, SoundGenerator.sharedInstance.bank)
+        self.mixer = AKMixer(Tuner.sharedInstance.silence, SoundGenerator.sharedInstance.bank, Player.sharedInstance.player)
         AudioKit.output = mixer
         
         if !AudioKit.audioInUseByOtherApps() {
