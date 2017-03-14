@@ -174,6 +174,8 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     
     func deletePressedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
+            Player.sharedInstance.reset()
+            finishedPlayback()
             requestDeletionForSessionAt(indexPath)
         }
     }

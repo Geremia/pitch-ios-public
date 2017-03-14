@@ -15,7 +15,7 @@ class Player: NSObject, AVAudioPlayerDelegate {
     
     static let sharedInstance: Player = Player()
     
-    private var player: AVAudioPlayer!
+    private var player: AVAudioPlayer?
     private var currentTime: TimeInterval = 0
     private var updateLink: CADisplayLink?
     
@@ -42,8 +42,8 @@ class Player: NSObject, AVAudioPlayerDelegate {
     
     private func loadAndPlay(from url: URL) {
         player = try! AVAudioPlayer(contentsOf: url)
-        player.delegate = self
-        player.play()
+        player?.delegate = self
+        player?.play()
         startSendingUpdates()
     }
     
@@ -53,8 +53,10 @@ class Player: NSObject, AVAudioPlayerDelegate {
     }
     
     func sendUpdate() {
-        currentTime = player.currentTime
-        NotificationCenter.default.post(name: .playbackUpdate, object: nil, userInfo: ["currentTime": currentTime])
+        if let player = player {
+            currentTime = player.currentTime
+            NotificationCenter.default.post(name: .playbackUpdate, object: nil, userInfo: ["currentTime": currentTime])
+        }
     }
     
     func stopSendingUpdates() {

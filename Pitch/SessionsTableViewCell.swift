@@ -50,9 +50,7 @@ class SessionsTableViewCell: UITableViewCell {
     var currentTime: Double = 0.0 {
         didSet {
             slider.value = Float(currentTime)
-            timePassedLabel.text = currentTime.prettyString
-            let timeLeft = duration - currentTime
-            timeLeftLabel.text = "-\(timeLeft.prettyString)"
+            updateSliderLabels()
         }
     }
     
@@ -133,7 +131,14 @@ class SessionsTableViewCell: UITableViewCell {
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
+        updateSliderLabels()
         delegate?.sliderValueChangedOn(self)
+    }
+    
+    func updateSliderLabels() {
+        timePassedLabel.text = currentTime.prettyString
+        let timeLeft = duration - currentTime
+        timeLeftLabel.text = "-\(timeLeft.prettyString)"
     }
     
     @IBAction func sharePressed(_ sender: Any) {
