@@ -66,7 +66,7 @@ class Player: NSObject, AVAudioPlayerDelegate {
     }
     
     func reset() {
-        stopSendingUpdates()
+        pause()
         player = nil
     }
     

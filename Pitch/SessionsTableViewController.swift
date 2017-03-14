@@ -94,10 +94,12 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let expandedIndex = expandedCellIndex {
             if expandedIndex != indexPath {
+                Player.sharedInstance.reset()
+                finishedPlayback()
+                
                 let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: expandedIndex) as! SessionsTableViewCell
                 expandedCell.isExpanded = false
                 expandedCellIndex = nil
-                Player.sharedInstance.pause()
             }
         } else {
             let selectedCell: SessionsTableViewCell = tableView.cellForRow(at: indexPath) as! SessionsTableViewCell
