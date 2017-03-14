@@ -20,17 +20,19 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setup()
         reloadData()
     }
     
-    func setupUI() {
+    func setup() {
         tableView.separatorColor = UIColor.separatorColor
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
         
         darkModeChanged()
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateExpandedCellPlayhead(_:)), name: .playbackUpdate, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(finishedPlayback), name: .finishedPlayback, object: nil)
     }
     
     // MARK: - Dark Mode
@@ -79,7 +81,12 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         cell.delegate = self
         cell.nameField.text = session.name
         cell.dateLabel.text = session.dateString
+        
         cell.durationLabel.text = session.durationString
+        cell.timeLeftLabel.text = "-\(session.durationString)"
+        cell.slider.minimumValue = 0
+        cell.slider.maximumValue = Float(session.duration)
+        
         cell.isExpanded = (expandedCellIndex == indexPath)
         
         setAlphaFor(cell)
@@ -196,6 +203,32 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         tableView.beginUpdates()
         tableView.deleteRows(at: [indexPath], with: .middle)
         tableView.endUpdates()
+    }
+    
+    // MARK: - Playback Notifications
+    
+    func updateExpandedCellPlayhead(_ notification: Notification) {
+        if let index = expandedCellIndex, let currentTime = notification.userInfo!["currentTime"] as? Double {
+            let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: index) as! SessionsTableViewCell
+            expandedCell.slider.value = Float(currentTime)
+            expandedCell.timePassedLabel.text = currentTime.prettyString
+            
+            let timeLeft = sessions[index.row].duration - currentTime
+            expandedCell.timeLeftLabel.text = "-\(timeLeft.prettyString)"
+            
+            if timeLeft == 0 {
+                expandedCell.isPlaying = false
+                expandedCell.resetPlayPauseImage()
+            }
+        }
+    }
+    
+    func finishedPlayback() {
+        if let index = expandedCellIndex {
+            let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: index) as! SessionsTableViewCell
+            expandedCell.isPlaying = false
+            expandedCell.resetPlayPauseImage()
+        }
     }
 }
 

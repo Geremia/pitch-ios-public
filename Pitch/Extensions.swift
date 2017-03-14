@@ -134,6 +134,8 @@ extension Notification.Name {
     static let reloadAnalyticsData = Notification.Name(rawValue: "reloadAnalyticsDataNotification")
     static let resetBufferSizes = Notification.Name(rawValue: "resetBufferSizesNotification")
     static let prepareForRecording = Notification.Name(rawValue: "prepareForRecordingNotification")
+    static let playbackUpdate = Notification.Name(rawValue: "playbackUpdateNotification")
+    static let finishedPlayback = Notification.Name(rawValue: "finishedPlaybackNotification")
     
     static let openAnalytics = Notification.Name(rawValue: ShortcutIdentifier.Analytics.rawValue)
     static let openToneGenerator = Notification.Name(rawValue: ShortcutIdentifier.ToneGenerator.rawValue)
