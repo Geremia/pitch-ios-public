@@ -93,7 +93,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     private func newFileName() -> String {
         let number = UserDefaults.standard.fileNumber()
-        return "file\(number).m4a"
+        return "recording\(number).m4a"
     }
     
     // MARK: - AVAudioRecorderDelegate Methods
