@@ -43,6 +43,7 @@ class Player: NSObject, AVAudioPlayerDelegate {
     private func loadAndPlay(from url: URL) {
         player = try! AVAudioPlayer(contentsOf: url)
         player?.delegate = self
+        player?.currentTime = currentTime
         player?.play()
         startSendingUpdates()
     }
@@ -67,6 +68,8 @@ class Player: NSObject, AVAudioPlayerDelegate {
     func setCurrentTime(_ time: TimeInterval) {
         if let player = player {
             player.currentTime = time
+        } else {
+            currentTime = time
         }
     }
     
@@ -78,6 +81,7 @@ class Player: NSObject, AVAudioPlayerDelegate {
     
     func reset() {
         pause()
+        currentTime = 0
         player = nil
     }
     

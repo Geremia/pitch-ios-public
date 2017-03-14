@@ -134,6 +134,7 @@ class SessionsTableViewCell: UITableViewCell {
     
     @IBAction func sliderValueChanged(_ sender: Any) {
         currentTime = Double(slider.value)
+        updateSliderLabels()
         delegate?.sliderValueChangedOn(self)
     }
     
