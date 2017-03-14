@@ -17,6 +17,7 @@
 		4C253C7D1DAEDF0800BD07D6 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C7C1DAEDF0800BD07D6 /* Day.swift */; };
 		4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C7E1DAEE98900BD07D6 /* Extensions.swift */; };
 		4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C253C801DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift */; };
+		4C3C96F01E783A1B009E0769 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3C96EF1E783A1B009E0769 /* Player.swift */; };
 		4C5076041E1FEDD400DBD02C /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076021E1FEDD400DBD02C /* Pitch.swift */; };
 		4C5076051E1FEDD400DBD02C /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076031E1FEDD400DBD02C /* Note.swift */; };
 		4C5076071E20461200DBD02C /* OffsetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076061E20461200DBD02C /* OffsetData.swift */; };
@@ -108,6 +109,7 @@
 		4C253C7C1DAEDF0800BD07D6 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		4C253C7E1DAEE98900BD07D6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4C253C801DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PitchUserDefaults.swift"; sourceTree = "<group>"; };
+		4C3C96EF1E783A1B009E0769 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		4C5076021E1FEDD400DBD02C /* Pitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pitch.swift; sourceTree = "<group>"; };
 		4C5076031E1FEDD400DBD02C /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		4C5076061E20461200DBD02C /* OffsetData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffsetData.swift; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 				4CFC73B81DC646EC00AFD8AC /* SoundGenerator.swift */,
 				4CFC73BD1DC6821400AFD8AC /* Tuner.swift */,
 				4CD74B8B1E6BB37500F073B5 /* Recorder.swift */,
+				4C3C96EF1E783A1B009E0769 /* Player.swift */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				4CD743C21E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift in Sources */,
 				4CD74B701E622FB300F073B5 /* Onboarding2ViewController.swift in Sources */,
 				4C1642D71E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift in Sources */,
+				4C3C96F01E783A1B009E0769 /* Player.swift in Sources */,
 				4CD74B761E622FD300F073B5 /* Onboarding5ViewController.swift in Sources */,
 				4CD74B631E50D7BB00F073B5 /* BleUUIDNames.swift in Sources */,
 				4CDFFFF21D8B017000BEAD0D /* UIColor+PitchColors.swift in Sources */,

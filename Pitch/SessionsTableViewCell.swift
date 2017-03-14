@@ -9,10 +9,11 @@
 import UIKit
 
 protocol SessionsTableViewCellDelegate {
+    func nameEditedOn(_ cell: SessionsTableViewCell)
+    func playPausePressedOn(_ cell: SessionsTableViewCell)
     func sharePressedOn(_ cell: SessionsTableViewCell)
     func analyticsPressedOn(_ cell: SessionsTableViewCell)
     func deletePressedOn(_ cell: SessionsTableViewCell)
-    func nameEditedOn(_ cell: SessionsTableViewCell)
 }
 
 class SessionsTableViewCell: UITableViewCell {
@@ -98,6 +99,7 @@ class SessionsTableViewCell: UITableViewCell {
     @IBAction func playPausePressed(_ sender: Any) {
         isPlaying = !isPlaying
         resetPlayPauseImage()
+        delegate?.playPausePressedOn(self)
     }
     
     func resetPlayPauseImage() {

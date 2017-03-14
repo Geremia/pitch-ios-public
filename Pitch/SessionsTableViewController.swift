@@ -126,13 +126,29 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     
     // MARK: - Sessions Table View Cell Delegate
     
+    func nameEditedOn(_ cell: SessionsTableViewCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            let session = sessions[indexPath.row]
+            DataManager.rename(session, to: cell.nameField.text!)
+            reloadData(andTableView: false)
+        }
+    }
+    
+    func playPausePressedOn(_ cell: SessionsTableViewCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            let session = sessions[indexPath.row]
+            if cell.isPlaying {
+//                Player.sharedInstance.play(<#T##audioFile: AKAudioFile##AKAudioFile#>)
+            }
+        }
+    }
+    
     func sharePressedOn(_ cell: SessionsTableViewCell) {
     }
     
     func analyticsPressedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
             let session = sessions[indexPath.row]
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let analyticsVC: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
             analyticsVC.session = session
@@ -144,15 +160,6 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     func deletePressedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
             requestDeletionForSessionAt(indexPath)
-        }
-    }
-    
-    func nameEditedOn(_ cell: SessionsTableViewCell) {
-        if let indexPath = tableView.indexPath(for: cell) {
-            let session = sessions[indexPath.row]
-            print(cell.nameField.text!)
-            DataManager.rename(session, to: cell.nameField.text!)
-            reloadData(andTableView: false)
         }
     }
     
