@@ -32,12 +32,12 @@ class SessionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        saveAudioIfNecessary()
+        saveSessionIfNecessary()
     }
     
     // MARK: - Save Audio
     
-    func saveAudioIfNecessary() {
+    func saveSessionIfNecessary() {
         guard let recordedSession = session else { return }
         DataManager.add(recordedSession)
         tableViewController?.newSessionAdded()
