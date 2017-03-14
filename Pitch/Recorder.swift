@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
+class Recorder: NSObject, AVAudioRecorderDelegate {
     
     static let sharedInstance: Recorder = Recorder()
     var recorder: AVAudioRecorder!
@@ -27,7 +27,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         do {
             recorder = try AVAudioRecorder(url: getFileURL(), settings: recordSettings)
         } catch let error {
-            print("AVAudioRecorder error: \(error.localizedDescription)")
+            print("AVAudioRecorder setup error: \(error.localizedDescription)")
             recorder = nil
             return false
         }
@@ -35,29 +35,6 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
         recorder.delegate = self
         recorder.prepareToRecord()
         return true
-    }
-    
-    // MARK: - Prepare AVPlayer
-    
-    func preparePlayer() {
-        var error: Error?
-        var soundPlayer: AVAudioPlayer?
-        
-        do {
-            soundPlayer = try AVAudioPlayer(contentsOf: recorder.url)
-        } catch let error1 {
-            error = error1
-            soundPlayer = nil
-        }
-        
-        if let err = error {
-            print("AVAudioPlayer error: \(err.localizedDescription)")
-        } else {
-            soundPlayer?.delegate = self
-            soundPlayer?.prepareToPlay()
-            soundPlayer?.volume = 1.0
-            soundPlayer?.play()
-        }
     }
     
     // MARK: - Actions
@@ -101,21 +78,9 @@ class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         let success = flag ? "successfully" : "not successfully"
         print("finished recording \(success)")
-        preparePlayer()
     }
     
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
         print("Error while recording audio \(error!.localizedDescription)")
-    }
-    
-    // MARK: - AVAudioPlayerDelegate Methods
-    
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        let success = flag ? "successfully" : "not successfully"
-        print("finished playing \(success)")
-    }
-    
-    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
-        print("Error while playing audio \(error!.localizedDescription)")
     }
 }
