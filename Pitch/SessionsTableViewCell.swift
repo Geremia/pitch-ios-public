@@ -49,8 +49,10 @@ class SessionsTableViewCell: UITableViewCell {
     
     var currentTime: Double = 0.0 {
         didSet {
-            slider.value = Float(currentTime)
-            updateSliderLabels()
+            if Double(slider.value) != currentTime {
+                slider.value = Float(currentTime)
+                updateSliderLabels()
+            }
         }
     }
     
@@ -131,7 +133,7 @@ class SessionsTableViewCell: UITableViewCell {
     }
     
     @IBAction func sliderValueChanged(_ sender: Any) {
-        updateSliderLabels()
+        currentTime = Double(slider.value)
         delegate?.sliderValueChangedOn(self)
     }
     
