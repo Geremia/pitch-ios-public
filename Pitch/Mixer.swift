@@ -18,7 +18,7 @@ class Mixer: NSObject {
     private override init() {}
     
     func setUp() {
-        self.mixer = AKMixer(Tuner.sharedInstance.silence, SoundGenerator.sharedInstance.bank)
+        self.mixer = AKMixer(Tuner.sharedInstance.silence, SoundGenerator.sharedInstance.bank, Recorder.sharedInstance.booster)
         AudioKit.output = mixer
         
         if !AudioKit.audioInUseByOtherApps() {
@@ -27,7 +27,6 @@ class Mixer: NSObject {
         }
         
         try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
-        AKSettings.bufferLength = .medium
         
         NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
     }

@@ -10,14 +10,28 @@ import UIKit
 
 // MARK: - SirenDelegate Protocol
 
+/// Delegate that handles all codepaths for Siren upon version check completion.
 public protocol SirenDelegate: class {
-    func sirenDidShowUpdateDialog(alertType: SirenAlertType)   // User presented with update dialog
-    func sirenUserDidLaunchAppStore()                          // User did click on button that launched App Store.app
-    func sirenUserDidSkipVersion()                             // User did click on button that skips version update
-    func sirenUserDidCancel()                                  // User did click on button that cancels update dialog
-    func sirenDidFailVersionCheck(error: NSError)              // Siren failed to perform version check (may return system-level error)
-    func sirenDidDetectNewVersionWithoutAlert(message: String) // Siren performed version check and did not display alert
-    func sirenLatestVersionInstalled()                         // Siren performed version check and latest version is installed
+    /// User presented with update dialog
+    func sirenDidShowUpdateDialog(alertType: SirenAlertType)
+
+    /// User did click on button that launched App Store.app
+    func sirenUserDidLaunchAppStore()
+
+    /// User did click on button that skips version update
+    func sirenUserDidSkipVersion()
+
+    /// User did click on button that cancels update dialog
+    func sirenUserDidCancel()
+
+    /// Siren failed to perform version check (may return system-level error)
+    func sirenDidFailVersionCheck(error: NSError)
+
+    /// Siren performed version check and did not display alert
+    func sirenDidDetectNewVersionWithoutAlert(message: String)
+
+    /// Siren performed version check and latest version is installed
+    func sirenLatestVersionInstalled()
 }
 
 // MARK: - SirenDelegate Protocol Extension
@@ -33,27 +47,31 @@ public extension SirenDelegate {
 }
 
 /// Determines the type of alert to present after a successful version check has been performed.
-///
-/// - force: Forces user to update your app (1 button alert)
-/// - option: (DEFAULT) Presents user with option to update app now or at next launch (2 button alert)
-/// - skip: Presents user with option to update the app now, at next launch, or to skip this version all together (3 button alert)
-/// - none: Doesn't show the alert, but instead returns a localized message for use in a custom UI within the sirenDidDetectNewVersionWithoutAlert() delegate method
 public enum SirenAlertType {
-    case force        // Forces user to update your app (1 button alert)
-    case option       // (DEFAULT) Presents user with option to update app now or at next launch (2 button alert)
-    case skip         // Presents user with option to update the app now, at next launch, or to skip this version all together (3 button alert)
-    case none         // Doesn't show the alert, but instead returns a localized message for use in a custom UI within the sirenDidDetectNewVersionWithoutAlert() delegate method
+    /// Forces user to update your app (1 button alert).
+    case force
+
+    /// (DEFAULT) Presents user with option to update app now or at next launch (2 button alert).
+    case option
+
+    /// Presents user with option to update the app now, at next launch, or to skip this version all together (3 button alert).
+    case skip
+
+    /// Doesn't show the alert, but instead returns a localized message for use in a custom UI within the sirenDidDetectNewVersionWithoutAlert() delegate method.
+    case none
 }
 
-/// Determines the frequency in which the the version check is performed
+/// Determines the frequency in which the the version check is performed.
 ///
-/// - immediately: Version check performed every time the app is launched.
-/// - daily:  Version check performed once a day.
-/// - weekly: Version check performed once a week.
 public enum SirenVersionCheckType: Int {
-    case immediately = 0    // Version check performed every time the app is launched
-    case daily = 1          // Version check performed once a day
-    case weekly = 7         // Version check performed once a week
+    /// Version check performed every time the app is launched.
+    case immediately = 0
+
+    /// Version check performed once a day.
+    case daily = 1
+
+    /// Version check performed once a week.
+    case weekly = 7
 }
 
 /// Determines the available languages in which the update message and alert button titles should appear.
@@ -120,17 +138,17 @@ private enum SirenError: Error {
 }
 
 /// Siren-specific UserDefaults Keys
-///
-/// - StoredVersionCheckDate: Key that stores the timestamp of the last version check
-/// - StoredSkippedVersion: Key that stores the version that a user decided to skip
 private enum SirenUserDefaults: String {
+    /// Key that stores the timestamp of the last version check in UserDefaults
     case StoredVersionCheckDate
+
+    /// Key that stores the version that a user decided to skip in UserDefaults.
     case StoredSkippedVersion
 }
 
 // MARK: - Siren
 
-/// The Siren Class. A singleton that is initialized using the sharedInstance() method.
+/// The Siren Class. A singleton that is initialized using the shared() method.
 public final class Siren: NSObject {
 
     ///Current installed version of your app
@@ -167,22 +185,22 @@ public final class Siren: NSObject {
             revisionUpdateAlertType = alertType
         }
     }
-    
+
     /// Determines the type of alert that should be shown for major version updates: A.b.c
     /// Defaults to SirenAlertType.Option.
     /// See the SirenAlertType enum for full details.
     public lazy var majorUpdateAlertType = SirenAlertType.option
-    
+
     /// Determines the type of alert that should be shown for minor version updates: a.B.c
     /// Defaults to SirenAlertType.Option.
     /// See the SirenAlertType enum for full details.
     public lazy var minorUpdateAlertType  = SirenAlertType.option
-    
+
     /// Determines the type of alert that should be shown for minor patch updates: a.b.C
     /// Defaults to SirenAlertType.Option.
     /// See the SirenAlertType enum for full details.
     public lazy var patchUpdateAlertType = SirenAlertType.option
-    
+
     /// Determines the type of alert that should be shown for revision updates: a.b.c.D
     /// Defaults to SirenAlertType.Option.
     /// See the SirenAlertType enum for full details.
@@ -196,16 +214,16 @@ public final class Siren: NSObject {
     /// By default, all version checks are performed against the US App Store.
     /// If your app is not available in the US App Store, set it to the identifier of at least one App Store within which it is available.
     public var countryCode: String?
-    
+
     /// Overrides the default localization of a user's device when presenting the update message and button titles in the alert.
     /// See the SirenLanguageType enum for more details.
     public var forceLanguageLocalization: SirenLanguageType?
-    
+
     /// Overrides the tint color for UIAlertController.
     public var alertControllerTintColor: UIColor?
 
     /// When this is set, the alert will only show up if the current version has already been released for X days
-    public var showAlertAfterCurrentVersionHasBeenReleasedForDays: Int? = nil
+    public var showAlertAfterCurrentVersionHasBeenReleasedForDays: Int?
 
     /// The current version of your app that is available for download on the App Store
     public fileprivate(set) var currentAppStoreVersion: String?
@@ -215,8 +233,12 @@ public final class Siren: NSObject {
     fileprivate lazy var alertViewIsVisible: Bool = false
     fileprivate var updaterWindow: UIWindow?
 
+    /// The App's Singleton
+    public static let shared = Siren()
+
+    @available(*, deprecated: 1.2.0, unavailable, renamed: "shared")
     public static let sharedInstance = Siren()
-    
+
     override init() {
         lastVersionCheckPerformedOnDate = UserDefaults.standard.object(forKey: SirenUserDefaults.StoredVersionCheckDate.rawValue) as? Date
     }
@@ -240,7 +262,7 @@ public final class Siren: NSObject {
                 performVersionCheck()
                 return
             }
-            
+
             if days(since: lastVersionCheckPerformedOnDate) >= checkType.rawValue {
                 performVersionCheck()
             } else {
@@ -258,7 +280,7 @@ private extension Siren {
         do {
             let url = try iTunesURLFromString()
             let request = URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30)
-            let task = URLSession.shared.dataTask(with: request, completionHandler: { [unowned self] (data, response, error) in
+            let task = URLSession.shared.dataTask(with: request, completionHandler: { [unowned self] (data, _, error) in
                 if let error = error {
                     self.postError(.appStoreDataRetrievalFailure, underlyingError: error)
                 } else {
@@ -328,18 +350,18 @@ private extension Siren {
             postError(.noUpdateAvailable, underlyingError: nil)
             return
         }
-        
+
         guard let alertDays = showAlertAfterCurrentVersionHasBeenReleasedForDays else {
             showAlertIfCurrentAppStoreVersionNotSkipped()
             return
         }
-        
+
         guard let currentVersionReleaseDate = allResults.first?["currentVersionReleaseDate"] as? String,
             let daysSinceRelease = days(since: currentVersionReleaseDate),
             daysSinceRelease >= alertDays else {
                 return
         }
-        
+
         showAlertIfCurrentAppStoreVersionNotSkipped()
         showAlertAfterCurrentVersionHasBeenReleasedForDays = nil
     }
@@ -362,7 +384,7 @@ private extension Siren {
         guard let url = components.url, !url.absoluteString.isEmpty else {
             throw SirenError.malformedURL
         }
-        
+
         return url
     }
 }
@@ -372,17 +394,17 @@ private extension Siren {
 private extension Siren {
     func showAlertIfCurrentAppStoreVersionNotSkipped() {
         alertType = setAlertType()
-        
+
         guard let previouslySkippedVersion = UserDefaults.standard.object(forKey: SirenUserDefaults.StoredSkippedVersion.rawValue) as? String else {
             showAlert()
             return
         }
-        
+
         if let currentAppStoreVersion = currentAppStoreVersion, currentAppStoreVersion != previouslySkippedVersion {
             showAlert()
         }
     }
-    
+
     func showAlert() {
         let updateAvailableMessage = Bundle().localizedString(stringKey: "Update Available", forceLanguageLocalization: forceLanguageLocalization)
         let newVersionMessage = localizedNewVersionMessage()
@@ -406,42 +428,42 @@ private extension Siren {
         case .none:
             delegate?.sirenDidDetectNewVersionWithoutAlert(message: newVersionMessage)
         }
-        
-        if alertType != .none && !alertViewIsVisible{
+
+        if alertType != .none && !alertViewIsVisible {
             alertController.show()
             alertViewIsVisible = true
             delegate?.sirenDidShowUpdateDialog(alertType: alertType)
         }
     }
-    
+
     func updateAlertAction() -> UIAlertAction {
         let title = localizedUpdateButtonTitle()
-        let action = UIAlertAction(title: title, style: .default) { [unowned self] (alert: UIAlertAction) in
+        let action = UIAlertAction(title: title, style: .default) { [unowned self] _ in
             self.hideWindow()
             self.launchAppStore()
             self.delegate?.sirenUserDidLaunchAppStore()
             self.alertViewIsVisible = false
             return
         }
-        
+
         return action
     }
-    
+
     func nextTimeAlertAction() -> UIAlertAction {
         let title = localizedNextTimeButtonTitle()
-        let action = UIAlertAction(title: title, style: .default) { [unowned self] (alert: UIAlertAction) in
+        let action = UIAlertAction(title: title, style: .default) { [unowned self] _  in
             self.hideWindow()
             self.delegate?.sirenUserDidCancel()
             self.alertViewIsVisible = false
             return
         }
-        
+
         return action
     }
-    
+
     func skipAlertAction() -> UIAlertAction {
         let title = localizedSkipButtonTitle()
-        let action = UIAlertAction(title: title, style: .default) { [unowned self] (alert: UIAlertAction) in
+        let action = UIAlertAction(title: title, style: .default) { [unowned self] _ in
 
             if let currentAppStoreVersion = self.currentAppStoreVersion {
                 UserDefaults.standard.set(currentAppStoreVersion, forKey: SirenUserDefaults.StoredSkippedVersion.rawValue)
@@ -453,7 +475,7 @@ private extension Siren {
             self.alertViewIsVisible = false
             return
         }
-        
+
         return action
     }
 
@@ -479,11 +501,10 @@ private extension Siren {
         } else if newVersion.count > 3 && (oldVersion.count <= 3 || newVersion[3] > oldVersion[3]) { // a.b.c.D
             alertType = revisionUpdateAlertType
         }
-        
+
         return alertType
     }
 }
-
 
 // MARK: - Helpers (Localization)
 
@@ -511,7 +532,6 @@ private extension Siren {
         return Bundle().localizedString(stringKey: "Skip this version", forceLanguageLocalization: forceLanguageLocalization)
     }
 }
-
 
 // MARK: - Helpers (Version)
 
@@ -601,7 +621,7 @@ private extension Siren {
         }
 
     }
-    
+
     func printMessage(message: String) {
         if debugEnabled {
             print("[Siren] \(message)")
@@ -616,9 +636,9 @@ private extension UIAlertController {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = ViewController()
         window.windowLevel = UIWindowLevelAlert + 1
-        
-        Siren.sharedInstance.updaterWindow = window
-        
+
+        Siren.shared.updaterWindow = window
+
         window.makeKeyAndVisible()
         window.rootViewController!.present(self, animated: true, completion: nil)
     }
@@ -627,7 +647,6 @@ private extension UIAlertController {
         override var preferredStatusBarStyle: UIStatusBarStyle { return UIApplication.shared.statusBarStyle }
     }
 }
-
 
 // MARK: - Bundle Extension
 
@@ -654,7 +673,7 @@ private extension Bundle {
         } else {
             path = sirenBundlePath()
         }
-        
+
         return Bundle(path: path)!.localizedString(forKey: stringKey, value: stringKey, table: table)
     }
 
@@ -665,7 +684,6 @@ private extension Bundle {
         return bundleDisplayName ?? bundleName ?? ""
     }
 }
-
 
 // MARK: - Error Handling
 
@@ -697,7 +715,7 @@ private extension Siren {
         }
 
         var userInfo: [String: Any] = [NSLocalizedDescriptionKey: description]
-        
+
         if let underlyingError = underlyingError {
             userInfo[NSUnderlyingErrorKey] = underlyingError
         }

@@ -2,7 +2,7 @@
 
 ### Notify users when a new version of your app is available and prompt them to upgrade.
 
-![Travis-CI](https://travis-ci.org/ArtSabintsev/Siren.svg?branch=master) [![CocoaPods](https://img.shields.io/cocoapods/v/Siren.svg)]()  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)]() [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)]() [![CocoaPods](https://img.shields.io/cocoapods/dt/Siren.svg)]() [![CocoaPods](https://img.shields.io/cocoapods/dm/Siren.svg)]()
+[![CocoaPods](https://img.shields.io/cocoapods/v/Siren.svg)](https://cocoapods.org/pods/Siren)  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/) [![CocoaPods](https://img.shields.io/cocoapods/dt/Siren.svg)](https://cocoapods.org/pods/Siren) [![CocoaPods](https://img.shields.io/cocoapods/dm/Siren.svg)](https://cocoapods.org/pods/Siren)
 ---
 
 ## About
@@ -12,9 +12,11 @@ If a new version is available, an alert can be presented to the user informing t
 
 - Siren is built to work with the [**Semantic Versioning**](http://semver.org/) system.
 	- Semantic Versioning is a three number versioning system (e.g., 1.0.0)
-	- Siren also supports two-number versioning (e.g., 1.0)
-	- Siren also supports four-number versioning (e.g., 1.0.0.0)
+	- Siren also supports two-number versioning (e.g., 1.0) and four-number versioning (e.g., 1.0.0.0)
 - Siren is actively maintained by [**Arthur Sabintsev**](http://github.com/ArtSabintsev) and [**Aaron Brager**](http://twitter.com/getaaron)
+
+## README Translations
+- [**简体中文**](README.zh_CN.md) (by [**Daniel Hu**](http://www.jianshu.com/u/d8bbc4831623))
 
 ## Ports
 - Siren is a Swift language port of [**Harpy**](http://github.com/ArtSabintsev/Harpy), an Objective-C library that achieves the same functionality.
@@ -39,9 +41,9 @@ If a new version is available, an alert can be presented to the user informing t
 - The **right picture** gives the user the option to skip the current update.
 - These options are controlled by the `SirenAlertType` enum.
 
-<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picForcedUpdate.png?raw=true" height=480">
-<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picOptionalUpdate.png?raw=true" height=480">
-<img src="https://github.com/ArtSabintsev/Harpy/blob/master/samplePictures/picSkippedUpdate.png?raw=true" height=480">
+<img src="https://github.com/ArtSabintsev/Harpy/blob/master/Assets/picForcedUpdate.png?raw=true" height=480">
+<img src="https://github.com/ArtSabintsev/Harpy/blob/master/Assets/picOptionalUpdate.png?raw=true" height=480">
+<img src="https://github.com/ArtSabintsev/Harpy/blob/master/Assets/picSkippedUpdate.png?raw=true" height=480">
 
 
 ## Installation Instructions
@@ -53,13 +55,11 @@ pod 'Siren'
 ```
 
 For Swift 2.3 support:
-
 ```ruby
 pod 'Siren', :git => 'https://github.com/ArtSabintsev/Siren.git', :branch => 'swift2.3'
 ```
 
 For Swift 2.2 support:
-
 ```ruby
 pod 'Siren', '0.9.5'
 ```
@@ -86,12 +86,14 @@ github "ArtSabintsev/Siren" "swift2.3"
 
 Here's some commented sample code. Adapt this to meet your app's needs. For a full list of optional settings/preferences, please refer to https://github.com/ArtSabintsev/Siren/blob/master/Sample%20App/Sample%20App/AppDelegate.swift in the Sample Project.
 
+Full documentation can be found at http://sabintsev.com/Siren.
+
 ```Swift
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 	/* Siren code should go below window?.makeKeyAndVisible() */
 
 	// Siren is a singleton
-	let siren = Siren.sharedInstance
+	let siren = Siren.shared
 
 	// Optional: Defaults to .Option
 	siren.alertType = <#SirenAlertType_Enum_Value#>
@@ -111,7 +113,7 @@ func applicationDidBecomeActive(application: UIApplication) {
 	    Useful if user returns to your app from the background after extended period of time.
     	 Place in applicationDidBecomeActive(_:).	*/
 
-    Siren.sharedInstance.checkVersion(checkType: .daily)
+    Siren.shared.checkVersion(checkType: .daily)
 }
 
 func applicationWillEnterForeground(application: UIApplication) {
@@ -122,7 +124,7 @@ func applicationWillEnterForeground(application: UIApplication) {
        ONLY USE WITH SirenAlertType.Force
    */
 
-    Siren.sharedInstance.checkVersion(checkType: .immediately)
+    Siren.shared.checkVersion(checkType: .immediately)
 }
 ```
 
@@ -155,10 +157,10 @@ If you would like to set a different type of alert for revision, patch, minor, a
 
 ```swift
 	/* Siren defaults to SirenAlertType.Option for all updates */
-	siren.sharedInstance().revisionUpdateAlertType = <#SirenAlertType_Enum_Value#>
-	siren.sharedInstance().patchUpdateAlertType = <#SirenAlertType_Enum_Value#>
-	siren.sharedInstance().minorUpdateAlertType = <#SirenAlertType_Enum_Value#>
-	siren.sharedInstance().majorUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	siren.shared.revisionUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	siren.shared.patchUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	siren.shared.minorUpdateAlertType = <#SirenAlertType_Enum_Value#>
+	siren.shared.majorUpdateAlertType = <#SirenAlertType_Enum_Value#>
 ```
 
 ## Optional Delegate and Delegate Methods
@@ -215,7 +217,7 @@ You may want the update dialog to *always* appear in a certain language, ignorin
 You can enable it like this:
 
 ```swift
-Siren.sharedInstance.forceLanguageLocalization = SirenLanguageType.<#SirenLanguageType_Enum_Value#>
+Siren.shared.forceLanguageLocalization = SirenLanguageType.<#SirenLanguageType_Enum_Value#>
 ```
 ## Device Compatibility
 If an app update is available, Siren checks to make sure that the version of iOS on the user's device is compatible the one that is required by the app update. For example, if a user has iOS 9 installed on their device, but the app update requires iOS 10, an alert will not be shown. This takes care of the *false positive* case regarding app updating.

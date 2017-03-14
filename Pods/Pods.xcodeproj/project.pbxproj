@@ -89,19 +89,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>0223C33F1E90B993415C3043B0790A46</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>path</key>
-			<string>Siren.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>036717942A3869DE5015CB89A63CB0C1</key>
 		<dict>
 			<key>fileRef</key>
@@ -184,6 +171,19 @@
 			<string>5A102E41877C35C5273A7B0318FA79CD</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>048E493AF50E03CB1A86272F6403E444</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>049FC3130428418BAA0AC230743EBA4D</key>
 		<dict>
@@ -1895,6 +1895,26 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>38336EFA3A37E1F31E996B84008671EE</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>048E493AF50E03CB1A86272F6403E444</string>
+				<string>70D398BB135090378E47AB065C9F599B</string>
+				<string>5E8B994037B246236088771690FA1E96</string>
+				<string>3A08398A8D57E330A9800BB9A7A8C3B5</string>
+				<string>EB750C2B26A6FC087FD01A839D0F6068</string>
+				<string>B5792C2D188C0FF33B3E916BDF74A2C9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Support Files</string>
+			<key>path</key>
+			<string>../Target Support Files/Siren</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>396EC03B2403D7489CE827B84D3E42D0</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -1932,6 +1952,19 @@
 			<string>D8DDCF12F45E712BD8A3A0E9F1D0C75B</string>
 			<key>productType</key>
 			<string>com.apple.product-type.framework</string>
+		</dict>
+		<key>3A08398A8D57E330A9800BB9A7A8C3B5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>Siren-dummy.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>3B73BA69E4DE00B6C53D602FAD9D9F1B</key>
 		<dict>
@@ -2040,18 +2073,6 @@
 			<string>DFDDD9EB025DBBC8524BC78D1034C9F2</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>3D713349079B973BE1D681DF1B8BB5C0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>B8B17794C95FD4AB23C3215E3A8FE0A1</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>COMPILER_FLAGS</key>
-				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
-			</dict>
 		</dict>
 		<key>3D7D8EDA12F7BD32ACB0EF85F11478F7</key>
 		<dict>
@@ -2586,7 +2607,7 @@
 		<key>4A9C384E91AAAB010471C900057AB644</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>0223C33F1E90B993415C3043B0790A46</string>
+			<string>5E8B994037B246236088771690FA1E96</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -2646,6 +2667,21 @@
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Debug</string>
+		</dict>
+		<key>4ACB8645C5F227BB65C2AE10A06C6EC8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Siren.swift</string>
+			<key>path</key>
+			<string>Sources/Siren.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>4AE93B1A928067C47B35F5E41787B26B</key>
 		<dict>
@@ -2881,19 +2917,6 @@
 			<string>list.cpp</string>
 			<key>path</key>
 			<string>Realm/ObjectStore/src/list.cpp</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>4FE24D841451903687839E04560A6EEE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Siren-prefix.pch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -3164,26 +3187,6 @@
 			<string>Realm</string>
 			<key>path</key>
 			<string>Realm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>5449A0E50623B4B7A9E8629FAAD40412</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>857769D77C5E041471F2AFCA83FBBECE</string>
-				<string>EB70A77ACD2128827805460799774870</string>
-				<string>0223C33F1E90B993415C3043B0790A46</string>
-				<string>8BC5829C66D67C13390AA047DAE96C7C</string>
-				<string>4FE24D841451903687839E04560A6EEE</string>
-				<string>D797FFD2D2AB0BB6BD1F5F22C6A13407</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Support Files</string>
-			<key>path</key>
-			<string>../Target Support Files/Siren</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -3579,6 +3582,19 @@
 				</array>
 			</dict>
 		</dict>
+		<key>5E8B994037B246236088771690FA1E96</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>path</key>
+			<string>Siren.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>5ECC16BD02C606F10DF036D36A45EA36</key>
 		<dict>
 			<key>explicitFileType</key>
@@ -3738,6 +3754,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>626B8221CC886B4C549EC305B8A17B0D</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>DF81F1A5DAA08A31129DD0D9DE574763</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Resources</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>62BCC07E596432B44804E6669FF7FDBA</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -3853,19 +3882,6 @@
 			<string>PBXHeadersBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
-		</dict>
-		<key>665F77E70B3742621B6E71E287E2862A</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>EF8C925536B808E38B7D5C6D7EADE4CE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>66C7E103D22A92B4712D86897419399E</key>
 		<dict>
@@ -4202,6 +4218,17 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>70D398BB135090378E47AB065C9F599B</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Siren.modulemap</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>7167FCF6E94113EE25E5B4AA5833E024</key>
 		<dict>
 			<key>fileRef</key>
@@ -4435,13 +4462,6 @@
 				<key>COMPILER_FLAGS</key>
 				<string>-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@"2.4.3"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC -w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
-		</dict>
-		<key>796EEEA43CEE541FB27069271F6EF40A</key>
-		<dict>
-			<key>fileRef</key>
-			<string>EF8C925536B808E38B7D5C6D7EADE4CE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>7AA2AEC12E3611F1F915B76C374682FC</key>
 		<dict>
@@ -4846,19 +4866,6 @@
 				<string>-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@"2.4.3"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC -w -Xanalyzer -analyzer-disable-all-checks</string>
 			</dict>
 		</dict>
-		<key>857769D77C5E041471F2AFCA83FBBECE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>85E6A36B22FBE4A0D0CB2B08CC98F0E5</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5111,19 +5118,6 @@
 			<string>RLMSwiftSupport.m</string>
 			<key>path</key>
 			<string>Realm/RLMSwiftSupport.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8BC5829C66D67C13390AA047DAE96C7C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Siren-dummy.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -5615,7 +5609,7 @@
 		<key>966F61CCE6258382EC7F59316564AD5D</key>
 		<dict>
 			<key>fileRef</key>
-			<string>8BC5829C66D67C13390AA047DAE96C7C</string>
+			<string>3A08398A8D57E330A9800BB9A7A8C3B5</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -6527,6 +6521,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>A7A3F4431C743A6B8D8B313E6FCD355F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DF81F1A5DAA08A31129DD0D9DE574763</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>A7B175C97BF9FE5F73C8D50F153D738F</key>
 		<dict>
 			<key>fileRef</key>
@@ -6962,6 +6963,23 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>AEDCA37D0C8F204F0A2EA1B1D8F29453</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4ACB8645C5F227BB65C2AE10A06C6EC8</string>
+				<string>626B8221CC886B4C549EC305B8A17B0D</string>
+				<string>38336EFA3A37E1F31E996B84008671EE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Siren</string>
+			<key>path</key>
+			<string>Siren</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>AF8A4EF6A98AA31043837F25D2EAA110</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -7120,7 +7138,7 @@
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>796EEEA43CEE541FB27069271F6EF40A</string>
+				<string>A7A3F4431C743A6B8D8B313E6FCD355F</string>
 			</array>
 			<key>isa</key>
 			<string>PBXResourcesBuildPhase</string>
@@ -7134,7 +7152,7 @@
 			<key>files</key>
 			<array>
 				<string>966F61CCE6258382EC7F59316564AD5D</string>
-				<string>3D713349079B973BE1D681DF1B8BB5C0</string>
+				<string>C13E44149DD86BFB92D065B7CAF23EFC</string>
 			</array>
 			<key>isa</key>
 			<string>PBXSourcesBuildPhase</string>
@@ -7306,6 +7324,19 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>B5792C2D188C0FF33B3E916BDF74A2C9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Siren-umbrella.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>B5C4CF1CC77061126AF35953052913DA</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -7354,7 +7385,7 @@
 		<key>B63D2935CEA8D2F8A804E3A681DC37F8</key>
 		<dict>
 			<key>baseConfigurationReference</key>
-			<string>0223C33F1E90B993415C3043B0790A46</string>
+			<string>5E8B994037B246236088771690FA1E96</string>
 			<key>buildSettings</key>
 			<dict>
 				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
@@ -7613,21 +7644,6 @@
 			<string>XCBuildConfiguration</string>
 			<key>name</key>
 			<string>Debug</string>
-		</dict>
-		<key>B8B17794C95FD4AB23C3215E3A8FE0A1</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>name</key>
-			<string>Siren.swift</string>
-			<key>path</key>
-			<string>Siren/Siren.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>B938922B14F782BB5D50ED5D2F417A1B</key>
 		<dict>
@@ -8059,6 +8075,18 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>C13E44149DD86BFB92D065B7CAF23EFC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4ACB8645C5F227BB65C2AE10A06C6EC8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>COMPILER_FLAGS</key>
+				<string>-w -Xanalyzer -analyzer-disable-all-checks</string>
+			</dict>
+		</dict>
 		<key>C16BC190A0BFEFA902E40C701F1DC2CC</key>
 		<dict>
 			<key>fileRef</key>
@@ -8097,7 +8125,7 @@
 		<key>C3479ECC5904B9B3B0D6238C37587D9F</key>
 		<dict>
 			<key>fileRef</key>
-			<string>D797FFD2D2AB0BB6BD1F5F22C6A13407</string>
+			<string>B5792C2D188C0FF33B3E916BDF74A2C9</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 			<key>settings</key>
@@ -8831,19 +8859,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>D797FFD2D2AB0BB6BD1F5F22C6A13407</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Siren-umbrella.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>D7E777CD5BEA73D08B0480F3BCFC944E</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -9152,6 +9167,21 @@
 			<string>BF166CFBC7819386A8B8A99D8B64283F</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>DF81F1A5DAA08A31129DD0D9DE574763</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.plug-in</string>
+			<key>name</key>
+			<string>Siren.bundle</string>
+			<key>path</key>
+			<string>Sources/Siren.bundle</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>DF9225FC04459ADDDAA4C98CEE8A0CC6</key>
 		<dict>
@@ -9587,14 +9617,16 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>EB70A77ACD2128827805460799774870</key>
+		<key>EB750C2B26A6FC087FD01A839D0F6068</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>Siren.modulemap</string>
+			<string>Siren-prefix.pch</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -9932,21 +9964,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>EF8C925536B808E38B7D5C6D7EADE4CE</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.plug-in</string>
-			<key>name</key>
-			<string>Siren.bundle</string>
-			<key>path</key>
-			<string>Siren/Siren.bundle</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>EFDBA68678465EDB3FEB2F30F1204527</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -10043,23 +10060,6 @@
 			<string>PBXFileReference</string>
 			<key>path</key>
 			<string>ScrollableGraphView.modulemap</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F26F1143B626C79F7E8D59F9EFDC1FB4</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>B8B17794C95FD4AB23C3215E3A8FE0A1</string>
-				<string>665F77E70B3742621B6E71E287E2862A</string>
-				<string>5449A0E50623B4B7A9E8629FAAD40412</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Siren</string>
-			<key>path</key>
-			<string>Siren</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -10246,7 +10246,7 @@
 				<string>541F667D85E5955AE82B60B7E9ECD914</string>
 				<string>58EDA327786AF92503A83429F2373EF2</string>
 				<string>7DB5F0B08CCB10A89CD823F5AA33B043</string>
-				<string>F26F1143B626C79F7E8D59F9EFDC1FB4</string>
+				<string>AEDCA37D0C8F204F0A2EA1B1D8F29453</string>
 				<string>0CDA5567E63F532B4AD7172A700C08C8</string>
 				<string>E8DB5BB443FA72A2CFE62D23BD97248C</string>
 			</array>

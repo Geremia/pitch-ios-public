@@ -172,7 +172,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let recordPermissionGranted = UserDefaults.standard.recordPermission()
         let hasSeenOnboarding = UserDefaults.standard.hasSeenOnboarding()
-        if !Constants.pitchPipeIsPlayingSound && recordPermissionGranted && hasSeenOnboarding {
+        if !Constants.pitchPipeIsPlayingSound && recordPermissionGranted && hasSeenOnboarding && Mixer.sharedInstance.isSetup {
             if !AudioKit.audioInUseByOtherApps() {
                 AudioKit.start()
             }

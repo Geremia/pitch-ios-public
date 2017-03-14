@@ -14,20 +14,33 @@ class Recorder: NSObject {
     // MARK: - Properties
     
     static let sharedInstance: Recorder = Recorder()
+    var recorder: AKNodeRecorder!
+    var booster: AKBooster!
     
-    var file: AKAudioFile?
-    var recorder: AKNodeRecorder?
+//    private var player: AKAudioPlayer?
     
     // MARK: - Initializers
     
-    private override init() {}
+    private override init() {
+        AKAudioFile.cleanTempDirectory()
+        AKSettings.bufferLength = .medium
+        try! AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
+        
+        let microphone = AKMicrophone()
+        let mixer = AKMixer(microphone)
+        booster = AKBooster(mixer)
+        booster.gain = 0.0
+        
+        recorder = try? AKNodeRecorder(node: mixer)
+        
+        super.init()
+        
+//        player = recorder?.audioFile?.player
+    }
     
     // MARK: - Methods
     
     func startRecording() {
-        recorder = try? AKNodeRecorder(node: Tuner.sharedInstance.microphone)
-        file = recorder?.audioFile
-        
         try? recorder?.record()
     }
     
@@ -36,21 +49,22 @@ class Recorder: NSObject {
     }
     
     func saveCurrentRecording(_ completion: @escaping (AKAudioFile?, Error?) -> Void) {
-        guard let file = recorder?.audioFile else { return }
+        guard let audio = recorder?.audioFile else { return }
         
-        file.exportAsynchronously(name: "TestTempFile.caf", baseDir: .documents, exportFormat: .caf, callback: { processedFile, error in
+        audio.exportAsynchronously(name: "file.m4a", baseDir: .documents, exportFormat: .m4a, callback: { processedFile, error in
             completion(processedFile, error)
         })
+        
+//        try! player?.reloadFile()
+//        player?.play()
     }
     
     func deleteCurrentRecording() {
-        if let file = file {
-            try? FileManager.default.removeItem(at: file.url)
-        }
+        //
     }
     
     func reset() {
-        file = nil
-        recorder = nil
+        try! recorder?.reset()
+//        player = recorder?.audioFile?.player
     }
 }
