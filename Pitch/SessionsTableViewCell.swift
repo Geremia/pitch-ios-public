@@ -38,6 +38,23 @@ class SessionsTableViewCell: UITableViewCell {
     var delegate: SessionsTableViewCellDelegate?
     var isPlaying: Bool = false
     
+    var duration: Double = 0.0 {
+        didSet {
+            durationLabel.text = duration.prettyString
+            timeLeftLabel.text = "-\(duration.prettyString)"
+            slider.maximumValue = Float(duration)
+        }
+    }
+    
+    var currentTime: Double = 0.0 {
+        didSet {
+            slider.value = Float(currentTime)
+            timePassedLabel.text = currentTime.prettyString
+            let timeLeft = duration - currentTime
+            timeLeftLabel.text = "-\(timeLeft.prettyString)"
+        }
+    }
+    
     var isExpanded: Bool = false {
         didSet {
             heightConstraint.constant = isExpanded ? 160 : 70

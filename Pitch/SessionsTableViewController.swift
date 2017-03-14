@@ -81,12 +81,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         cell.delegate = self
         cell.nameField.text = session.name
         cell.dateLabel.text = session.dateString
-        
-        cell.durationLabel.text = session.durationString
-        cell.timeLeftLabel.text = "-\(session.durationString)"
-        cell.slider.minimumValue = 0
-        cell.slider.maximumValue = Float(session.duration)
-        
+        cell.duration = session.duration
         cell.isExpanded = (expandedCellIndex == indexPath)
         
         setAlphaFor(cell)
@@ -210,11 +205,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     func updateExpandedCellPlayhead(_ notification: Notification) {
         if let index = expandedCellIndex, let currentTime = notification.userInfo!["currentTime"] as? Double {
             let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: index) as! SessionsTableViewCell
-            expandedCell.slider.value = Float(currentTime)
-            expandedCell.timePassedLabel.text = currentTime.prettyString
-            
-            let timeLeft = sessions[index.row].duration - currentTime
-            expandedCell.timeLeftLabel.text = "-\(timeLeft.prettyString)"
+            expandedCell.currentTime = currentTime
         }
     }
     
@@ -223,10 +214,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
             let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: index) as! SessionsTableViewCell
             expandedCell.isPlaying = false
             expandedCell.resetPlayPauseImage()
-            expandedCell.slider.value = 0
-            expandedCell.timePassedLabel.text = "00:00"
-            let timeLeft = sessions[index.row].duration
-            expandedCell.timeLeftLabel.text = "-\(timeLeft.prettyString)"
+            expandedCell.currentTime = 0
         }
     }
 }
