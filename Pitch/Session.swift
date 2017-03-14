@@ -67,7 +67,6 @@ class Session: Object {
         analytics = analyticsObject
         url = aUrl.absoluteString
         
-        
         super.init()
         
         duration = duration(for: url)
@@ -104,6 +103,7 @@ class Session: Object {
     
     private func duration(for resource: String) -> Double {
         let asset = AVURLAsset(url: URL(fileURLWithPath: resource))
+        print(asset)
         return Double(CMTimeGetSeconds(asset.duration))
     }
     

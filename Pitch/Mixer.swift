@@ -29,6 +29,7 @@ class Mixer: NSObject {
         }
         
         try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
+        try! AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
         
         NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
     }

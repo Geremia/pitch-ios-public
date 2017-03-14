@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class Recorder: NSObject, AVAudioRecorderDelegate {
+class Recorder: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     static let sharedInstance: Recorder = Recorder()
     var recorder: AVAudioRecorder!
@@ -19,10 +19,10 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     // MARK: - AVRecorder Setup
     
     func setupRecorder() {
-        let recordSettings: [String : Any] = [AVSampleRateKey: 44100.0,
-                              AVFormatIDKey: kAudioFormatAppleLossless,
-                              AVNumberOfChannelsKey: 2,
-                              AVEncoderAudioQualityKey: AVAudioQuality.max];
+        let recordSettings: [String : Any] = [AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+                                              AVSampleRateKey: 44100,
+                                              AVNumberOfChannelsKey: 2,
+                                              AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue];
         
         var error: NSError?
         
@@ -41,6 +41,29 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
         }
     }
     
+    // MARK: - Prepare AVPlayer
+    
+    func preparePlayer() {
+        var error: NSError?
+        var soundPlayer: AVAudioPlayer?
+        
+        do {
+            soundPlayer = try AVAudioPlayer(contentsOf: recorder.url)
+        } catch let error1 as NSError {
+            error = error1
+            soundPlayer = nil
+        }
+        
+        if let err = error {
+            print("AVAudioPlayer error: \(err.localizedDescription)")
+        } else {
+            soundPlayer?.delegate = self
+            soundPlayer?.prepareToPlay()
+            soundPlayer?.volume = 1.0
+            soundPlayer?.play()
+        }
+    }
+    
     // MARK: - Actions
     
     func startRecording() {
@@ -55,25 +78,37 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     // MARK: - File URL
     
     func getFileURL() -> URL {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = paths[0]
-        let path = documentDirectory.appending(newFileName())
-        let filePath = URL(fileURLWithPath: path)
+        let filePath = documentDirectory.appendingPathComponent(newFileName(), isDirectory: true)
         return filePath
     }
     
     private func newFileName() -> String {
         let number = UserDefaults.standard.fileNumber()
-        return "file\(number).caf"
+        return "file\(number).m4a"
     }
     
-    // MARK: - AVAudioRecorder delegate methods
+    // MARK: - AVAudioRecorderDelegate Methods
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        //
+        let success = flag ? "successfully" : "not successfully"
+        print("finished recording \(success)")
+        preparePlayer()
     }
     
     func audioRecorderEncodeErrorDidOccur(_ recorder: AVAudioRecorder, error: Error?) {
         print("Error while recording audio \(error!.localizedDescription)")
+    }
+    
+    // MARK: - AVAudioPlayerDelegate Methods
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        let success = flag ? "successfully" : "not successfully"
+        print("finished playing \(success)")
+    }
+    
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        print("Error while playing audio \(error!.localizedDescription)")
     }
 }
