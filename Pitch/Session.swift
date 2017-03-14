@@ -46,13 +46,19 @@ class Session: Object {
         return interval.prettyString
     }
     
+    var audioFile: AKAudioFile? {
+        let url = URL(fileURLWithPath: path)
+        let file = try? AKAudioFile(forReading: url)
+        return file
+    }
+    
     // MARK: - Stored Properties
     
     dynamic var id: String = ""
     dynamic var name: String = "New session"
     dynamic var date: Date = Date()
     dynamic var duration: Double = 0
-    dynamic var url: String = ""
+    dynamic var path: String = ""
     dynamic var analytics: SessionAnalytics?
     
     // MARK: - Setup
@@ -63,12 +69,12 @@ class Session: Object {
         super.init()
     }
     
-    required init(withRecordedFileUrl aUrl: URL, analytics analyticsObject: SessionAnalytics) {
+    required init(withRecordedFileUrl url: URL, analytics analyticsObject: SessionAnalytics) {
         id = date.longId
         analytics = analyticsObject
-        url = aUrl.path
+        path = url.path
         
-        let asset = AVURLAsset(url: URL(fileURLWithPath: url))
+        let asset = AVURLAsset(url: url)
         duration = Double(CMTimeGetSeconds(asset.duration))
         
         super.init()
@@ -94,8 +100,8 @@ class Session: Object {
     // MARK: - Deletion
     
     func prepareForDeletion() {
-        if FileManager.default.isDeletableFile(atPath: url) {
-            try? FileManager.default.removeItem(atPath: url)
+        if FileManager.default.isDeletableFile(atPath: path) {
+            try? FileManager.default.removeItem(atPath: path)
         }
     }
 }

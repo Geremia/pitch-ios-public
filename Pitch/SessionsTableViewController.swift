@@ -138,7 +138,9 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         if let indexPath = tableView.indexPath(for: cell) {
             let session = sessions[indexPath.row]
             if cell.isPlaying {
-//                Player.sharedInstance.play(<#T##audioFile: AKAudioFile##AKAudioFile#>)
+                Player.sharedInstance.play(session.audioFile!)
+            } else {
+                Player.sharedInstance.pause()
             }
         }
     }
