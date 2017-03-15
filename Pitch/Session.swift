@@ -103,9 +103,8 @@ class Session: Object {
     // MARK: - Deletion
     
     func prepareForDeletion() {
-        let file = documentDirectory().appendingPathComponent(fileName)
-        if FileManager.default.isDeletableFile(atPath: file.path) {
-            try? FileManager.default.removeItem(atPath: file.path)
+        if FileManager.default.isDeletableFile(atPath: audioFileUrl.path) {
+            try? FileManager.default.removeItem(at: audioFileUrl)
         }
     }
 }
