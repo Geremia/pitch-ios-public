@@ -13,11 +13,15 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     
     // MARK: - Properties
     
-    static let sharedInstance: Recorder = Recorder()
+    static let shared: Recorder = Recorder()
     private var recorder: AVAudioRecorder!
     
     var currentFileUrl: URL {
         return recorder.url
+    }
+    
+    var currentTime: TimeInterval {
+        return recorder.currentTime
     }
     
     // MARK: - Setup

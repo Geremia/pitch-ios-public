@@ -34,7 +34,7 @@ class BleManager : NSObject, CBCentralManagerDelegate {
     }
     
     // Main
-    static let sharedInstance = BleManager()
+    static let shared = BleManager()
     var centralManager: CBCentralManager?
     
     // Scanning

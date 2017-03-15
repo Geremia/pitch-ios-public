@@ -76,9 +76,9 @@ class PeripheralList {
     }
     
     private func calculateFilteredPeripherals() -> [String] {
-        var peripherals = BleManager.sharedInstance.blePeripheralFoundAlphabeticKeys()
+        var peripherals = BleManager.shared.blePeripheralFoundAlphabeticKeys()
         
-        let bleManager = BleManager.sharedInstance
+        let bleManager = BleManager.shared
         let blePeripheralsFound = bleManager.blePeripherals()
         
         // Apply filters
@@ -181,7 +181,7 @@ class PeripheralList {
     
     func disconnected() {
         // Check that is really disconnected
-        if BleManager.sharedInstance.blePeripheralConnected == nil {
+        if BleManager.shared.blePeripheralConnected == nil {
             selectedPeripheralIdentifier = nil
            // DLog("Peripheral selected row: -1")
             
@@ -189,7 +189,7 @@ class PeripheralList {
     }
     
     func connectToPeripheral(identifier: String?) {
-        let bleManager = BleManager.sharedInstance
+        let bleManager = BleManager.shared
         
         if (identifier != bleManager.blePeripheralConnected?.peripheral.identifier.uuidString || identifier == nil) {
             
@@ -204,7 +204,7 @@ class PeripheralList {
                     let selectedBlePeripheralIdentifier = peripherals[selectedRow];
                     let blePeripheral = blePeripheralsFound[selectedBlePeripheralIdentifier]!
                     
-                    BleManager.sharedInstance.disconnect(blePeripheral)
+                    BleManager.shared.disconnect(blePeripheral)
                 }
                 //DLog("Peripheral selected row: -1")
                 selectedPeripheralIdentifier = nil
@@ -214,10 +214,10 @@ class PeripheralList {
             if let selectedBlePeripheralIdentifier = identifier {
                 
                 let blePeripheral = blePeripheralsFound[selectedBlePeripheralIdentifier]!
-                if (BleManager.sharedInstance.blePeripheralConnected?.peripheral.identifier.uuidString != selectedBlePeripheralIdentifier) {
+                if (BleManager.shared.blePeripheralConnected?.peripheral.identifier.uuidString != selectedBlePeripheralIdentifier) {
                     // DLog("connect to new peripheral: \(selectedPeripheralIdentifier)")
                     
-                    BleManager.sharedInstance.connect(blePeripheral)
+                    BleManager.shared.connect(blePeripheral)
                     
                     selectedPeripheralIdentifier = selectedBlePeripheralIdentifier
                 }

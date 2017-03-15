@@ -23,7 +23,7 @@ class UartManager: NSObject {
     static let TxMaxCharacters = 20
 
     // Manager
-    static let sharedInstance = UartManager()
+    static let shared = UartManager()
 
     // Bluetooth Uart
     var uartService: CBService?

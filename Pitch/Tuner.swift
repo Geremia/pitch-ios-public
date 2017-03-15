@@ -108,7 +108,7 @@ class Tuner: NSObject {
     fileprivate var smoothingBufferCount = UserDefaults.standard.damping().smoothingBufferSize
     fileprivate var frequencyBufferCount = UserDefaults.standard.damping().frequencyBufferSize
     
-    static let sharedInstance: Tuner = Tuner()
+    static let shared: Tuner = Tuner()
     
     /**
      Object adopting the TunerDelegate protocol that should receive callbacks

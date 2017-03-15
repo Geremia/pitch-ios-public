@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setRootViewController() {
         let viewController: UIViewController!
         if UserDefaults.standard.hasSeenOnboarding() {
-            Mixer.sharedInstance.setUp()
+            Mixer.shared.setUp()
             viewController = snapContainer()
         } else {
             viewController = onboardingViewController()
@@ -172,7 +172,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let recordPermissionGranted = UserDefaults.standard.recordPermission()
         let hasSeenOnboarding = UserDefaults.standard.hasSeenOnboarding()
-        if !Constants.pitchPipeIsPlayingSound && recordPermissionGranted && hasSeenOnboarding && Mixer.sharedInstance.isSetup {
+        if !Constants.pitchPipeIsPlayingSound && recordPermissionGranted && hasSeenOnboarding && Mixer.shared.isSetup {
             if !AudioKit.audioInUseByOtherApps() {
                 AudioKit.start()
             }

@@ -11,7 +11,7 @@ import AudioKit
 
 class SoundGenerator : NSObject {
     
-    static let sharedInstance: SoundGenerator = SoundGenerator()
+    static let shared: SoundGenerator = SoundGenerator()
     
     var bank: AKOscillatorBank!
     private var octaveConstant: Int = 60

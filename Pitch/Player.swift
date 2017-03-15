@@ -13,7 +13,7 @@ class Player: NSObject, AVAudioPlayerDelegate {
     
     // MARK: - Properties
     
-    static let sharedInstance: Player = Player()
+    static let shared: Player = Player()
     
     private var player: AVAudioPlayer?
     private var currentTime: TimeInterval = 0

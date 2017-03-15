@@ -41,8 +41,8 @@ extension MainViewController {
     
     func setupTuner() {
         tunerSetup = true
-        Tuner.sharedInstance.delegate = self
-        Tuner.sharedInstance.start()
+        Tuner.shared.delegate = self
+        Tuner.shared.start()
     }
     
     func setupUI() {

@@ -13,7 +13,7 @@ class Mixer: NSObject {
     
     // MARK: - Properties
     
-    static let sharedInstance: Mixer = Mixer()
+    static let shared: Mixer = Mixer()
     private var mixer: AKMixer!
     var isSetup: Bool = false
     
@@ -22,7 +22,7 @@ class Mixer: NSObject {
     private override init() {}
     
     func setUp() {
-        self.mixer = AKMixer(Tuner.sharedInstance.silence, SoundGenerator.sharedInstance.bank)
+        self.mixer = AKMixer(Tuner.shared.silence, SoundGenerator.shared.bank)
         AudioKit.output = mixer
         
         if !AudioKit.audioInUseByOtherApps() {

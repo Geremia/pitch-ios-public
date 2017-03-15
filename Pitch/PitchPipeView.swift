@@ -99,7 +99,7 @@ class PitchPipeView: UIView {
     func allOff() {
         for button in self.pitchButtons {
             off(pitchButton: button)
-            SoundGenerator.sharedInstance.playNoteOff(channelNumber: button.tag)
+            SoundGenerator.shared.playNoteOff(channelNumber: button.tag)
         }
     }
     
@@ -143,10 +143,10 @@ class PitchPipeView: UIView {
         let isActive = button.backgroundColor == UIColor.inTune || button.backgroundColor == UIColor.darkInTune
         if isActive {
             off(pitchButton: button)
-            SoundGenerator.sharedInstance.playNoteOff(channelNumber: button.tag)
+            SoundGenerator.shared.playNoteOff(channelNumber: button.tag)
         } else {
             on(pitchButton: button)
-            SoundGenerator.sharedInstance.playNoteOn(channelNumber: button.tag)
+            SoundGenerator.shared.playNoteOn(channelNumber: button.tag)
         }
     }
     
@@ -154,7 +154,7 @@ class PitchPipeView: UIView {
         if !sustainOn {
             let button = sender as! UIButton
             off(pitchButton: button)
-            SoundGenerator.sharedInstance.playNoteOff(channelNumber: button.tag)
+            SoundGenerator.shared.playNoteOff(channelNumber: button.tag)
         }
     }
     
@@ -168,7 +168,7 @@ class PitchPipeView: UIView {
         var currentOctave = Int(octaveLabel.text!)!
         if currentOctave > 2 {
             currentOctave -= 1
-            SoundGenerator.sharedInstance.decrementOctave()
+            SoundGenerator.shared.decrementOctave()
             octaveLabel.text = String(currentOctave)
         }
     }
@@ -177,7 +177,7 @@ class PitchPipeView: UIView {
         var currentOctave = Int(octaveLabel.text!)!
         if currentOctave < 7 {
             currentOctave += 1
-            SoundGenerator.sharedInstance.incrementOctave()
+            SoundGenerator.shared.incrementOctave()
             octaveLabel.text = String(currentOctave)
         }
     }

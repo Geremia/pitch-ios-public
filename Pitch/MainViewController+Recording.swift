@@ -34,7 +34,7 @@ extension MainViewController: SessionsViewControllerDelegate {
         }, completion: nil)
         
         startAnimatingRecordLabel()
-        Recorder.sharedInstance.startRecording()
+        Recorder.shared.startRecording()
     }
     
     func cancelRecording() {
@@ -54,7 +54,7 @@ extension MainViewController: SessionsViewControllerDelegate {
         }, completion: nil)
         
         stopAnimatingRecordLabel()
-        Recorder.sharedInstance.stopRecording()
+        Recorder.shared.stopRecording()
     }
     
     func saveRecording() {
@@ -62,14 +62,14 @@ extension MainViewController: SessionsViewControllerDelegate {
         resetRecordView()
         
         guard let analytics = self.sessionAnalytics else { return }
-        let session = Session(withRecordedFileUrl: Recorder.sharedInstance.currentFileUrl, analytics: analytics)
+        let session = Session(withRecordedFileUrl: Recorder.shared.currentFileUrl, analytics: analytics)
         self.presentSessionsViewController(with: session)
         self.resetSessionAnalytics()
     }
     
     func discardRecording() {
         cancelRecording()
-        Recorder.sharedInstance.deleteCurrentRecording()
+        Recorder.shared.deleteCurrentRecording()
     }
     
     func presentSessionsViewController(with session: Session) {
@@ -90,7 +90,7 @@ extension MainViewController: SessionsViewControllerDelegate {
     }
     
     func updateRecordLabel() {
-        let time: String = Recorder.sharedInstance.recorder.currentTime.prettyString
+        let time: String = Recorder.shared.currentTime.prettyString
         let text = recordingState == .recording ? "Recording" : "Recorded"
         recordLabel.text = "\(text) \(time)"
     }

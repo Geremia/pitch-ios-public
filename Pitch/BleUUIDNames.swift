@@ -12,7 +12,7 @@ import Foundation
 class BleUUIDNames {
     
     // Manager
-    static let sharedInstance = BleUUIDNames()
+    static let shared = BleUUIDNames()
 
     // Data
     private var gattUUIds : [String : String]?

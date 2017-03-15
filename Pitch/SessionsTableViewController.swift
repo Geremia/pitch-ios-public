@@ -94,7 +94,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let expandedIndex = expandedCellIndex {
             if expandedIndex != indexPath {
-                Player.sharedInstance.reset()
+                Player.shared.reset()
                 finishedPlayback()
                 
                 let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: expandedIndex) as! SessionsTableViewCell
@@ -143,9 +143,9 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         if let indexPath = tableView.indexPath(for: cell) {
             let session = sessions[indexPath.row]
             if cell.isPlaying {
-                Player.sharedInstance.play(from: session.audioFileUrl)
+                Player.shared.play(from: session.audioFileUrl)
             } else {
-                Player.sharedInstance.pause()
+                Player.shared.pause()
             }
         }
     }
@@ -154,7 +154,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         let time = TimeInterval(cell.slider.value)
         
         DispatchQueue.main.async {
-            Player.sharedInstance.setCurrentTime(time)
+            Player.shared.setCurrentTime(time)
         }
     }
     
@@ -163,7 +163,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     
     func analyticsPressedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
-            Player.sharedInstance.reset()
+            Player.shared.reset()
             finishedPlayback()
             
             let session = sessions[indexPath.row]
@@ -177,7 +177,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     
     func deletePressedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
-            Player.sharedInstance.reset()
+            Player.shared.reset()
             finishedPlayback()
             requestDeletionForSessionAt(indexPath)
         }
