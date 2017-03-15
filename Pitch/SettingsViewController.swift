@@ -20,7 +20,6 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     @IBOutlet weak var settingsLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
-    @IBOutlet weak var improveLabel: UILabel!
     @IBOutlet weak var feedbackButton: UIButton!
     @IBOutlet weak var feedbackBottomConstraint: NSLayoutConstraint!
     
@@ -141,14 +140,12 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             settingsView.backgroundColor = UIColor.darkGrayView
             instrumentKeyView.backgroundColor = UIColor.darkGrayView
             settingsLabel.textColor = UIColor.white
-            improveLabel.textColor = UIColor.white
             backButton.setImage(#imageLiteral(resourceName: "white_forward_arrow"), for: .normal)
             feedbackButton.backgroundColor = UIColor.darkInTune
         } else {
             settingsView.backgroundColor = UIColor.white
             instrumentKeyView.backgroundColor = UIColor.white
             settingsLabel.textColor = UIColor.black
-            improveLabel.textColor = UIColor.black
             backButton.setImage(#imageLiteral(resourceName: "forward_arrow"), for: .normal)
             feedbackButton.backgroundColor = UIColor.inTune
         }
