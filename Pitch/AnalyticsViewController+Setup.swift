@@ -139,6 +139,7 @@ extension AnalyticsViewController {
     }
     
     func reloadData() {
+        setDataToDisplay()
         setupScoreCircle()
         setupDescriptionLabel()
         pitchesTableViewController?.pitchOffsets = data.filteredPitchOffsets

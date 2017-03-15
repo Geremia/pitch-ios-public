@@ -112,8 +112,9 @@ class AnalyticsViewController: UIViewController {
         let alert = UIAlertController(title: "Reset", message: "This will delete all of your Analytics data for today only. Are you sure?", preferredStyle: .alert)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
             Answers.logCustomEvent(withName: "Reset Analytics", customAttributes: nil)
+            DataManager.resetToday()
+            self.setDataToDisplay()
             self.snapContainer?.transitionLeft(animated: true, completion: {
-                DataManager.resetToday()
                 NotificationCenter.default.post(name: .resetAnalyticsData, object: nil)
                 self.snapContainer?.resetAnalyticsVC()
             })
