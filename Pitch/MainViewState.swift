@@ -112,6 +112,19 @@ enum MainViewState {
         }
     }
     
+    var microphoneImage: UIImage {
+        switch self {
+        case .inTune:
+            return #imageLiteral(resourceName: "thick_microphone")
+        default:
+            if darkModeOn {
+                return #imageLiteral(resourceName: "white_microphone")
+            } else {
+                return #imageLiteral(resourceName: "microphone")
+            }
+        }
+    }
+    
     var menuImage: UIImage {
         switch self {
         case .inTune:

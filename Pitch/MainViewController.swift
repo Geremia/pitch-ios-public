@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     
     // MARK: - Tuner Outlets
     
+    @IBOutlet weak var sessionsButton: UIButton!
     @IBOutlet weak var recordView: UIView!
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var leftRecordButton: UIButton!
