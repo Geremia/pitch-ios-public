@@ -1123,14 +1123,14 @@ your daily analytics are ready!</string>
                                                 <action selector="playPausePressed:" destination="lsQ-K4-lW3" eventType="touchUpInside" id="IGf-bd-owV"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qb1-Ma-Sku">
-                                            <rect key="frame" x="46" y="80.5" width="24" height="14"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qb1-Ma-Sku">
+                                            <rect key="frame" x="46" y="80.5" width="31" height="14"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="IRJ-Dl-Qrz">
-                                            <rect key="frame" x="76" y="72" width="223" height="31"/>
+                                            <rect key="frame" x="83" y="72" width="216" height="31"/>
                                             <color key="minimumTrackTintColor" red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="maximumTrackTintColor" white="0.94999999999999996" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
