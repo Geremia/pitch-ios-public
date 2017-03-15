@@ -14,7 +14,11 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     // MARK: - Properties
     
     static let sharedInstance: Recorder = Recorder()
-    var recorder: AVAudioRecorder!
+    private var recorder: AVAudioRecorder!
+    
+    var currentFileUrl: URL {
+        return recorder.url
+    }
     
     // MARK: - Setup
     
@@ -27,7 +31,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
                                               AVEncoderAudioQualityKey: NSNumber(value: Int32(AVAudioQuality.max.rawValue))];
         
         do {
-            recorder = try AVAudioRecorder(url: getFileURL(), settings: recordSettings)
+            recorder = try AVAudioRecorder(url: newFileURL(), settings: recordSettings)
         } catch let error {
             print("AVAudioRecorder setup error: \(error.localizedDescription)")
             recorder = nil
@@ -47,23 +51,23 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
         }
     }
     
+    func pauseRecording() {
+        recorder.pause()
+    }
+    
     func stopRecording() {
         recorder.stop()
     }
     
     func deleteCurrentRecording() {
         if !recorder.isRecording {
-            do {
-                try FileManager.default.removeItem(at: recorder.url)
-            } catch let error {
-                print("Delete recording error: \(error.localizedDescription)")
-            }
+            recorder.deleteRecording()
         }
     }
     
     // MARK: - File URL
     
-    func getFileURL() -> URL {
+    private func newFileURL() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = paths[0]
         let filePath = documentDirectory.appendingPathComponent(newFileName(), isDirectory: true)

@@ -62,7 +62,7 @@ extension MainViewController: SessionsViewControllerDelegate {
         resetRecordView()
         
         guard let analytics = self.sessionAnalytics else { return }
-        let session = Session(withRecordedFileUrl: Recorder.sharedInstance.recorder.url, analytics: analytics)
+        let session = Session(withRecordedFileUrl: Recorder.sharedInstance.currentFileUrl, analytics: analytics)
         self.presentSessionsViewController(with: session)
         self.resetSessionAnalytics()
     }
