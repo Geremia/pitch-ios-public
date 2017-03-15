@@ -59,14 +59,12 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
         recorder.pause()
     }
     
-    func stopRecording() {
-        recorder.stop()
+    func resumeRecording() {
+        recorder.record()
     }
     
-    func deleteCurrentRecording() {
-        if !recorder.isRecording {
-            recorder.deleteRecording()
-        }
+    func stopRecording() {
+        recorder.stop()
     }
     
     // MARK: - File URL

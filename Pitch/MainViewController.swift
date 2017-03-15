@@ -109,8 +109,8 @@ class MainViewController: UIViewController {
     
     @IBAction func rightRecordButtonPressed(_ sender: Any) {
         switch recordingState {
-        case .doneRecording:
-            discardRecording()
+        case .paused:
+            doneRecording()
         default:
             cancelRecording()
         }
@@ -123,9 +123,9 @@ class MainViewController: UIViewController {
         case .ready:
             startRecording()
         case .recording:
-            stopRecording()
-        case .doneRecording:
-            saveRecording()
+            pauseRecording()
+        case .paused:
+            startRecording()
         }
     }
     

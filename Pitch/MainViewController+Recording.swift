@@ -22,11 +22,16 @@ extension MainViewController: SessionsViewControllerDelegate {
     }
     
     func startRecording() {
+        if recordingState == .ready {
+            sessionAnalytics = SessionAnalytics()
+            Recorder.shared.startRecording()
+        } else {
+            Recorder.shared.resumeRecording()
+        }
+        
         recordingState = .recording
-        leftRecordButton.setTitle("Stop", for: .normal)
-        
-        sessionAnalytics = SessionAnalytics()
-        
+        leftRecordButton.setTitle("Pause", for: .normal)
+
         leftRecordButtonConstraint.constant = 15
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
             self.recordView.layoutIfNeeded()
@@ -34,7 +39,6 @@ extension MainViewController: SessionsViewControllerDelegate {
         }, completion: nil)
         
         startAnimatingRecordLabel()
-        Recorder.shared.startRecording()
     }
     
     func cancelRecording() {
@@ -42,10 +46,10 @@ extension MainViewController: SessionsViewControllerDelegate {
         resetRecordView()
     }
     
-    func stopRecording() {
-        recordingState = .doneRecording
-        leftRecordButton.setTitle("Save", for: .normal)
-        rightRecordButton.setTitle("Discard", for: .normal)
+    func pauseRecording() {
+        recordingState = .paused
+        leftRecordButton.setTitle("Resume", for: .normal)
+        rightRecordButton.setTitle("Done", for: .normal)
         
         leftRecordButtonConstraint.constant = 100
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
@@ -54,22 +58,19 @@ extension MainViewController: SessionsViewControllerDelegate {
         }, completion: nil)
         
         stopAnimatingRecordLabel()
-        Recorder.shared.stopRecording()
+        Recorder.shared.pauseRecording()
     }
     
-    func saveRecording() {
+    func doneRecording() {
         recordingState = .notRecording
         resetRecordView()
+        
+        Recorder.shared.stopRecording()
         
         guard let analytics = self.sessionAnalytics else { return }
         let session = Session(withRecordedFileUrl: Recorder.shared.currentFileUrl, analytics: analytics)
         self.presentSessionsViewController(with: session)
         self.resetSessionAnalytics()
-    }
-    
-    func discardRecording() {
-        cancelRecording()
-        Recorder.shared.deleteCurrentRecording()
     }
     
     func presentSessionsViewController(with session: Session) {
@@ -117,5 +118,5 @@ enum MainViewRecordingState {
     case notRecording
     case ready
     case recording
-    case doneRecording
+    case paused
 }
