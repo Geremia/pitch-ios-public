@@ -1450,17 +1450,6 @@ your daily analytics are ready!</string>
                                             <action selector="analyticsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nPk-8u-zAl"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCh-im-Sww">
-                                        <rect key="frame" x="293" y="0.0" width="82" height="75"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="82" id="1N0-b9-LX5"/>
-                                            <constraint firstAttribute="height" constant="75" id="U0I-N2-NOk"/>
-                                        </constraints>
-                                        <state key="normal" image="microphone"/>
-                                        <connections>
-                                            <action selector="sessionsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="leO-NA-nCM"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oze-rG-43j">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <subviews>
@@ -1536,7 +1525,6 @@ your daily analytics are ready!</string>
                                     <constraint firstAttribute="bottom" secondItem="SrA-v6-zUa" secondAttribute="bottom" placeholder="YES" id="M9k-9x-o2M"/>
                                     <constraint firstItem="Jpl-Qo-b0N" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" id="MJM-rE-AOe"/>
                                     <constraint firstItem="oze-rG-43j" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" id="MPT-kp-HAh"/>
-                                    <constraint firstAttribute="trailing" secondItem="tCh-im-Sww" secondAttribute="trailing" id="NlP-mM-WHm"/>
                                     <constraint firstItem="2CA-ws-Axi" firstAttribute="top" secondItem="4CE-78-WqF" secondAttribute="bottom" constant="12" id="Q1l-6n-ii4"/>
                                     <constraint firstItem="d4h-6o-O5x" firstAttribute="centerX" secondItem="ScC-vN-a2a" secondAttribute="centerX" constant="-40" id="WDV-6k-UQa"/>
                                     <constraint firstItem="Jpl-Qo-b0N" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" id="aqO-uy-1UZ"/>
@@ -1555,7 +1543,6 @@ your daily analytics are ready!</string>
                                     <constraint firstItem="4CE-78-WqF" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" constant="-9" id="tSg-se-NB4"/>
                                     <constraint firstAttribute="bottom" secondItem="hxQ-Xm-BOA" secondAttribute="bottom" placeholder="YES" id="vPd-Tx-fst"/>
                                     <constraint firstItem="d4h-6o-O5x" firstAttribute="centerY" secondItem="ScC-vN-a2a" secondAttribute="centerY" constant="21.75" id="xj3-KY-Q9c"/>
-                                    <constraint firstItem="tCh-im-Sww" firstAttribute="top" secondItem="XBl-z4-1FC" secondAttribute="top" id="yxb-JN-po2"/>
                                     <constraint firstItem="2CA-ws-Axi" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" id="zHX-2n-SRi"/>
                                     <constraint firstAttribute="trailing" secondItem="90I-fc-2p4" secondAttribute="trailing" constant="-66" id="zSv-wd-3hn"/>
                                 </constraints>
@@ -2012,7 +1999,6 @@ your daily analytics are ready!</string>
                         <outlet property="recordView" destination="oze-rG-43j" id="rzl-ap-jXU"/>
                         <outlet property="recordViewTopConstraint" destination="fxr-f7-TJJ" id="BFa-jW-5L5"/>
                         <outlet property="rightRecordButton" destination="WEP-bB-ODs" id="qG0-4i-tTy"/>
-                        <outlet property="sessionsButton" destination="tCh-im-Sww" id="19p-gJ-htl"/>
                         <outlet property="settingsButton" destination="SrA-v6-zUa" id="jhH-tp-LH8"/>
                         <outlet property="stdDevLabel" destination="H9O-L8-opE" id="Y4m-o2-eZu"/>
                         <outlet property="tunerView" destination="XBl-z4-1FC" id="PBS-yY-VtQ"/>
@@ -2792,7 +2778,6 @@ your daily analytics are ready!</string>
         <image name="info_cutout" width="500" height="1500"/>
         <image name="line_chart_lightgray" width="130" height="130"/>
         <image name="menu" width="25" height="25"/>
-        <image name="microphone" width="25" height="25"/>
         <image name="minus" width="22" height="3"/>
         <image name="onboarding_linechart" width="130" height="130"/>
         <image name="onboarding_microphone" width="130" height="130"/>

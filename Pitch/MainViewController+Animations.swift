@@ -121,10 +121,6 @@ extension MainViewController {
             }
         }, completion: { _ in })
         
-        UIView.transition(with: self.sessionsButton, duration: duration, options: options, animations: {
-            self.sessionsButton.setImage(newState.microphoneImage, for: .normal)
-        }, completion: { _ in })
-        
         UIView.transition(with: self.settingsButton, duration: duration, options: options, animations: {
             self.settingsButton.setImage(newState.menuImage, for: .normal)
         }, completion: { _ in })
