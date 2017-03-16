@@ -8,6 +8,7 @@
 
 import UIKit
 import Crashlytics
+import PureLayout
 
 protocol SnapContainerViewControllerDelegate {
     func outerScrollViewShouldScroll() -> Bool
@@ -22,10 +23,13 @@ enum SnapContainerViewControllerType: Int {
 
 class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
+    // MARK: - Properties
+    
     var settingsVc: UIViewController!
     var mainVc: UIViewController!
     var analyticsVc: UIViewController!
     var sessionsVc: UIViewController!
+    var pageControl: UIPageControl!
     
     var directionLockDisabled: Bool!
     
@@ -37,6 +41,8 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     var delegate: SnapContainerViewControllerDelegate?
     
     var currentPage: Int = 1
+    
+    // MARK: - Setup
     
     class func containerViewWith(_ settingsVc: UIViewController,
                                  mainVc: UIViewController,
@@ -67,6 +73,89 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(shortcutOpenAnalytics(_:)), name: .openAnalytics, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged(_:)), name: .darkModeChanged, object: nil)
     }
+    
+    func setupPageControl() {
+        pageControl = UIPageControl()
+        pageControl.numberOfPages = 4
+        pageControl.currentPage = 1
+        
+        pageControl.autoPinEdge(.bottom, to: .bottom, of: view)
+        pageControl.autoAlignAxis(toSuperviewAxis: .horizontal)
+        
+        view.addSubview(pageControl)
+    }
+    
+    func setupHorizontalScrollView() {
+        scrollView = UIScrollView()
+        scrollView.isPagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.bounces = false
+        scrollView.delaysContentTouches = false
+        
+        let view = (
+            x: self.view.bounds.origin.x,
+            y: self.view.bounds.origin.y,
+            width: self.view.bounds.width,
+            height: self.view.bounds.height
+        )
+        
+        scrollView.frame = CGRect(x: view.x,
+                                  y: view.y,
+                                  width: view.width + 16,
+                                  height: view.height
+        )
+        
+        self.view.addSubview(scrollView)
+        
+        let spacing: CGFloat = 16
+        let scrollWidth  = (4 * view.width) + (4 * spacing)
+        let scrollHeight  = view.height
+        scrollView.contentSize = CGSize(width: scrollWidth, height: scrollHeight)
+        
+        settingsVc.view.frame = CGRect(x: 0,
+                                       y: 0,
+                                       width: view.width,
+                                       height: view.height - 20
+        )
+        
+        mainVc.view.frame = CGRect(x: view.width + spacing,
+                                   y: 0,
+                                   width: view.width,
+                                   height: view.height - 20
+        )
+        
+        analyticsVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
+                                        y: 0,
+                                        width: view.width,
+                                        height: view.height - 20
+        )
+        
+        sessionsVc.view.frame = CGRect(x: (3 * view.width) + (3 * spacing),
+                                       y: 0,
+                                       width: view.width,
+                                       height: view.height - 20
+        )
+        
+        addChildViewController(settingsVc)
+        addChildViewController(mainVc)
+        addChildViewController(analyticsVc)
+        addChildViewController(sessionsVc)
+        
+        scrollView.addSubview(settingsVc.view)
+        scrollView.addSubview(mainVc.view)
+        scrollView.addSubview(analyticsVc.view)
+        scrollView.addSubview(sessionsVc.view)
+        
+        settingsVc.didMove(toParentViewController: self)
+        mainVc.didMove(toParentViewController: self)
+        analyticsVc.didMove(toParentViewController: self)
+        sessionsVc.didMove(toParentViewController: self)
+        
+        scrollView.contentOffset.x = mainVc.view.frame.origin.x
+        scrollView.delegate = self
+    }
+    
+    // MARK: - Orientation
     
     func orientationChanged(_ notification: Notification) {
         let orientation = UIDevice.current.orientation
@@ -127,75 +216,11 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         }, completion: nil)
     }
     
-    func setupHorizontalScrollView() {
-        scrollView = UIScrollView()
-        scrollView.isPagingEnabled = true
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.bounces = false
-        scrollView.delaysContentTouches = false
-        
-        let view = (
-            x: self.view.bounds.origin.x,
-            y: self.view.bounds.origin.y,
-            width: self.view.bounds.width,
-            height: self.view.bounds.height
-        )
-
-        scrollView.frame = CGRect(x: view.x,
-                                  y: view.y,
-                                  width: view.width + 16,
-                                  height: view.height
-        )
-        
-        self.view.addSubview(scrollView)
-        
-        let spacing: CGFloat = 16
-        let scrollWidth  = (4 * view.width) + (4 * spacing)
-        let scrollHeight  = view.height
-        scrollView.contentSize = CGSize(width: scrollWidth, height: scrollHeight)
-        
-        settingsVc.view.frame = CGRect(x: 0,
-                                   y: 0,
-                                   width: view.width,
-                                   height: view.height - 20
-        )
-        
-        mainVc.view.frame = CGRect(x: view.width + spacing,
-                                               y: 0,
-                                               width: view.width,
-                                               height: view.height - 20
-        )
-        
-        analyticsVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
-                                    y: 0,
-                                    width: view.width,
-                                    height: view.height - 20
-        )
-        
-        sessionsVc.view.frame = CGRect(x: (3 * view.width) + (3 * spacing),
-                                        y: 0,
-                                        width: view.width,
-                                        height: view.height - 20
-        )
-        
-        addChildViewController(settingsVc)
-        addChildViewController(mainVc)
-        addChildViewController(analyticsVc)
-        addChildViewController(sessionsVc)
-        
-        scrollView.addSubview(settingsVc.view)
-        scrollView.addSubview(mainVc.view)
-        scrollView.addSubview(analyticsVc.view)
-        scrollView.addSubview(sessionsVc.view)
-        
-        settingsVc.didMove(toParentViewController: self)
-        mainVc.didMove(toParentViewController: self)
-        analyticsVc.didMove(toParentViewController: self)
-        sessionsVc.didMove(toParentViewController: self)
-        
-        scrollView.contentOffset.x = mainVc.view.frame.origin.x
-        scrollView.delegate = self
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
     }
+    
+    // MARK: - UIScrollViewDelegate Methods
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         self.initialContentOffset = scrollView.contentOffset
@@ -234,32 +259,6 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func resetAnalyticsVC() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let analytics: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
-        
-        analyticsVc.removeFromParentViewController()
-        analyticsVc.view.removeFromSuperview()
-        
-        analyticsVc = analytics
-        let view = (
-            x: self.view.bounds.origin.x,
-            y: self.view.bounds.origin.y,
-            width: self.view.bounds.width,
-            height: self.view.bounds.height
-        )
-        analyticsVc.view.frame = CGRect(x: (2 * view.width) + 32,
-                                    y: 0,
-                                    width: view.width,
-                                    height: view.height - 20
-        )
-        
-        addChildViewController(analyticsVc)
-        scrollView.addSubview(analyticsVc.view)
-        
-        analytics.snapContainer = self
-    }
-    
     // MARK: - Notifications
     
     func shortcutOpenAnalytics(_ notification: Notification) {
@@ -277,6 +276,32 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     }
     
     // MARK: - Actions
+    
+    func resetAnalyticsVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let analytics: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
+        
+        analyticsVc.removeFromParentViewController()
+        analyticsVc.view.removeFromSuperview()
+        
+        analyticsVc = analytics
+        let view = (
+            x: self.view.bounds.origin.x,
+            y: self.view.bounds.origin.y,
+            width: self.view.bounds.width,
+            height: self.view.bounds.height
+        )
+        analyticsVc.view.frame = CGRect(x: (2 * view.width) + 32,
+                                        y: 0,
+                                        width: view.width,
+                                        height: view.height - 20
+        )
+        
+        addChildViewController(analyticsVc)
+        scrollView.addSubview(analyticsVc.view)
+        
+        analytics.snapContainer = self
+    }
     
     func transitionLeft(animated: Bool, completion: (() -> Void)? = nil) {
         if let viewController = SnapContainerViewControllerType(rawValue: currentPage - 1) {
@@ -317,11 +342,5 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
     override var prefersStatusBarHidden: Bool {
         return true
-    }
-    
-    // MARK: - Orientation
-    
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .all
     }
 }
