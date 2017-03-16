@@ -59,7 +59,7 @@ extension AnalyticsViewController {
         let score = data.tuningScore
         self.scoreLabel.countFromZero(to: CGFloat(score), withDuration: 1.2)
         
-        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.01, options: [.curveEaseInOut], animations: {
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.01, options: [.curveEaseInOut, .allowUserInteraction], animations: {
             self.scoreCircle.transform = CGAffineTransform(scaleX: 1, y: 1)
             self.scoreCircle.alpha = 1.0
         }, completion: nil)
@@ -71,7 +71,7 @@ extension AnalyticsViewController {
             constraint?.constant -= 250.0 + CGFloat(i * increment)
         }
         
-        UIView.animate(withDuration: 1.0, delay: 0.6, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.1, options: [.curveEaseOut], animations: {
+        UIView.animate(withDuration: 1.0, delay: 0.6, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.1, options: [.curveEaseOut, .allowUserInteraction], animations: {
             self.view.layoutIfNeeded()
             self.todayLabel.alpha = 1.0
             self.todaySeparator.alpha = 1.0
