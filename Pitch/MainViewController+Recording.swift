@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension MainViewController: SessionsViewControllerDelegate {
+extension MainViewController {
     
     // MARK: - Recording
     
@@ -62,20 +62,17 @@ extension MainViewController: SessionsViewControllerDelegate {
     
     func doneRecording() {
         recordingState = .notRecording
-        resetRecordView()
-        
         Recorder.shared.stopRecording()
         
-        guard let analytics = self.sessionAnalytics else { return }
-        let session = Session(withRecordedFileUrl: Recorder.shared.currentFileUrl, analytics: analytics)
-        self.presentSessionsViewController(with: session)
-        self.resetSessionAnalytics()
-    }
-    
-    func presentSessionsViewController(with session: Session) {
-        let sessionsVC = self.sessionsVC()
-        sessionsVC.session = session
-        self.present(sessionsVC, animated: true, completion: nil)
+        if let container = snapContainer {
+            guard let analytics = self.sessionAnalytics else { return }
+            let session = Session(withRecordedFileUrl: Recorder.shared.currentFileUrl, analytics: analytics)
+            container.go(toViewController: .sessions, animated: true, completion: {
+                NotificationCenter.default.post(name: .newSessionRecorded, object: session)
+                self.resetRecordView()
+                self.resetSessionAnalytics()
+            })
+        }
     }
     
     func resetSessionAnalytics() {

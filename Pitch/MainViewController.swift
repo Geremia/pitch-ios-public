@@ -128,14 +128,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    func sessionsVC() -> SessionsViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let sessionsVC: SessionsViewController = storyboard.instantiateViewController(withIdentifier: "sessions") as! SessionsViewController
-        sessionsVC.transitioningDelegate = self
-        sessionsVC.delegate = self
-        return sessionsVC
-    }
-    
     @IBAction func settingsPressed(_ sender: Any) {
         if let container = snapContainer {
             container.transitionLeft(animated: true)

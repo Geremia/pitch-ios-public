@@ -320,9 +320,25 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func go(toViewController viewControllerType: SnapContainerViewControllerType) {
-        scrollView.contentOffset.x = scrollView.frame.width * CGFloat(viewControllerType.rawValue)
-        scrollViewDidEndDecelerating(scrollView)
+    func go(toViewController viewControllerType: SnapContainerViewControllerType, animated: Bool = false, completion: (() -> Void)? = nil) {
+        if animated {
+            scrollView.bounces = true
+            UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
+                self.scrollView.contentOffset.x = self.scrollView.frame.width * CGFloat(viewControllerType.rawValue)
+            }, completion: { finished in
+                self.scrollView.bounces = false
+                self.scrollViewDidEndDecelerating(self.scrollView)
+                if let completion = completion {
+                    completion()
+                }
+            })
+        } else {
+            scrollView.contentOffset.x = scrollView.frame.width * CGFloat(viewControllerType.rawValue)
+            scrollViewDidEndDecelerating(scrollView)
+            if let completion = completion {
+                completion()
+            }
+        }
     }
     
     // MARK: - Status Bar Style

@@ -9,10 +9,6 @@
 import UIKit
 import AudioKit
 
-protocol SessionsViewControllerDelegate {
-    func prepareForRecording()
-}
-
 class SessionsViewController: UIViewController {
     
     // MARK: - Outlets
@@ -24,24 +20,20 @@ class SessionsViewController: UIViewController {
     // MARK: - Properties
     
     var snapContainer: SnapContainerViewController?
-    var delegate: SessionsViewControllerDelegate?
-    
-    var session: Session?
     var tableViewController: SessionsTableViewController?
     
     // MARK: - Setup Views
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        saveSessionIfNecessary()
+        setup()
     }
     
-    // MARK: - Save Audio
+    // MARK: - New Session Recorded
     
-    func saveSessionIfNecessary() {
-        guard let recordedSession = session else { return }
-        DataManager.add(recordedSession)
+    func newSessionRecorded(_ notification: Notification) {
+        let session: Session = notification.object as! Session
+        DataManager.add(session)
         tableViewController?.newSessionAdded()
     }
     
@@ -54,9 +46,11 @@ class SessionsViewController: UIViewController {
     }
 
     @IBAction func newSessionPressed(_ sender: Any) {
-        dismiss(animated: true, completion: { _ in
-            self.delegate?.prepareForRecording()
-        })
+        if let container = snapContainer {
+            container.go(toViewController: .main, animated: true, completion: {
+                NotificationCenter.default.post(name: .prepareForRecording, object: nil)
+            })
+        }
     }
     
     // MARK: - Navigation
