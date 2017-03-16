@@ -907,7 +907,7 @@ your daily analytics are ready!</string>
                                     </containerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vll-g5-o3Q">
                                         <rect key="frame" x="67" y="601" width="240" height="46"/>
-                                        <color key="backgroundColor" red="0.01475655008" green="0.98066109420000003" blue="0.49089437720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="46" id="9zV-YU-mRj"/>
                                             <constraint firstAttribute="width" constant="240" id="qAh-le-qHJ"/>
@@ -1063,7 +1063,7 @@ your daily analytics are ready!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZkT-S7-gOG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="277.60000000000002" y="-790.25487256371821"/>
+            <point key="canvasLocation" x="2054" y="36"/>
         </scene>
         <!--Sessions Table View Controller-->
         <scene sceneID="gmS-tQ-lwz">
@@ -1231,7 +1231,7 @@ your daily analytics are ready!</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M4H-9j-zBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="-790.70464767616193"/>
+            <point key="canvasLocation" x="2954" y="-3"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -1376,7 +1376,7 @@ your daily analytics are ready!</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrA-v6-zUa">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SrA-v6-zUa">
                                         <rect key="frame" x="0.0" y="360" width="82" height="76"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="82" id="XHe-1a-17E"/>
@@ -1439,7 +1439,7 @@ your daily analytics are ready!</string>
                                             <constraint firstAttribute="width" constant="246" id="6je-i2-1Dd"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0U7-NV-2BZ">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0U7-NV-2BZ">
                                         <rect key="frame" x="293" y="360" width="82" height="76"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="82" id="cuQ-qc-zp4"/>
@@ -2607,7 +2607,7 @@ your daily analytics are ready!</string>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUh-Ns-Hhf">
                                 <rect key="frame" x="68" y="471.5" width="240" height="46"/>
-                                <color key="backgroundColor" red="0.0" green="0.94999999999999996" blue="0.4591666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="ReA-eX-5bH"/>
                                     <constraint firstAttribute="height" constant="46" id="ehu-PD-zrq"/>
@@ -2696,7 +2696,7 @@ your daily analytics are ready!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h4E-bL-hsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2853.75" y="34.859154929577464"/>
+            <point key="canvasLocation" x="2054" y="-840"/>
         </scene>
         <!--Pitches Table View Controller-->
         <scene sceneID="bZl-To-02f">
@@ -2762,7 +2762,7 @@ your daily analytics are ready!</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jME-3d-xiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2054" y="-175"/>
+            <point key="canvasLocation" x="1148" y="-629"/>
         </scene>
     </scenes>
     <resources>
