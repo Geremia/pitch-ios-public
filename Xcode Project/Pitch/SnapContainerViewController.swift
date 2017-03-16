@@ -102,25 +102,25 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             self.settingsVc.view.frame = CGRect(x: 0,
                                        y: 0,
                                        width: view.width,
-                                       height: view.height
+                                       height: view.height - 20
             )
             
             self.mainVc.view.frame = CGRect(x: view.width + spacing,
                                          y: 0,
                                          width: view.width,
-                                         height: view.height
+                                         height: view.height - 20
             )
             
             self.analyticsVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
                                         y: 0,
                                         width: view.width,
-                                        height: view.height
+                                        height: view.height - 20
             )
             
             self.sessionsVc.view.frame = CGRect(x: (3 * view.width) + (3 * spacing),
                                                  y: 0,
                                                  width: view.width,
-                                                 height: view.height
+                                                 height: view.height - 20
             )
             
             self.scrollView.contentOffset.x = CGFloat(self.currentPage) * view.width + CGFloat(self.currentPage) * spacing
@@ -157,25 +157,25 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         settingsVc.view.frame = CGRect(x: 0,
                                    y: 0,
                                    width: view.width,
-                                   height: view.height
+                                   height: view.height - 20
         )
         
         mainVc.view.frame = CGRect(x: view.width + spacing,
                                                y: 0,
                                                width: view.width,
-                                               height: view.height
+                                               height: view.height - 20
         )
         
         analyticsVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
                                     y: 0,
                                     width: view.width,
-                                    height: view.height
+                                    height: view.height - 20
         )
         
         sessionsVc.view.frame = CGRect(x: (3 * view.width) + (3 * spacing),
                                         y: 0,
                                         width: view.width,
-                                        height: view.height
+                                        height: view.height - 20
         )
         
         addChildViewController(settingsVc)
@@ -251,7 +251,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         analyticsVc.view.frame = CGRect(x: (2 * view.width) + 32,
                                     y: 0,
                                     width: view.width,
-                                    height: view.height
+                                    height: view.height - 20
         )
         
         addChildViewController(analyticsVc)
