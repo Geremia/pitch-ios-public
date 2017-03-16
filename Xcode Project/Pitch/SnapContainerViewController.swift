@@ -238,6 +238,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         currentPage = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        pageControl.currentPage = currentPage
         
         switch currentPage {
         case 0:
