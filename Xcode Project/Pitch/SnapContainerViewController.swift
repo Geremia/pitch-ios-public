@@ -79,11 +79,13 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         pageControl = UIPageControl()
         pageControl.numberOfPages = 4
         pageControl.currentPage = 1
-        
-        pageControl.autoPinEdge(.bottom, to: .bottom, of: view)
-        pageControl.autoAlignAxis(toSuperviewAxis: .horizontal)
+        pageControl.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         
         view.addSubview(pageControl)
+        
+        pageControl.autoPinEdge(toSuperviewEdge: .bottom)
+        pageControl.autoAlignAxis(toSuperviewAxis: .vertical)
+        pageControl.autoSetDimension(.height, toSize: 17.0)
     }
     
     func setupHorizontalScrollView() {
@@ -116,25 +118,25 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         settingsVc.view.frame = CGRect(x: 0,
                                        y: 0,
                                        width: view.width,
-                                       height: view.height - 20
+                                       height: view.height - 17
         )
         
         mainVc.view.frame = CGRect(x: view.width + spacing,
                                    y: 0,
                                    width: view.width,
-                                   height: view.height - 20
+                                   height: view.height - 17
         )
         
         analyticsVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
                                         y: 0,
                                         width: view.width,
-                                        height: view.height - 20
+                                        height: view.height - 17
         )
         
         sessionsVc.view.frame = CGRect(x: (3 * view.width) + (3 * spacing),
                                        y: 0,
                                        width: view.width,
-                                       height: view.height - 20
+                                       height: view.height - 17
         )
         
         addChildViewController(settingsVc)
@@ -192,25 +194,25 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             self.settingsVc.view.frame = CGRect(x: 0,
                                        y: 0,
                                        width: view.width,
-                                       height: view.height - 20
+                                       height: view.height - 17
             )
             
             self.mainVc.view.frame = CGRect(x: view.width + spacing,
                                          y: 0,
                                          width: view.width,
-                                         height: view.height - 20
+                                         height: view.height - 17
             )
             
             self.analyticsVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
                                         y: 0,
                                         width: view.width,
-                                        height: view.height - 20
+                                        height: view.height - 17
             )
             
             self.sessionsVc.view.frame = CGRect(x: (3 * view.width) + (3 * spacing),
                                                  y: 0,
                                                  width: view.width,
-                                                 height: view.height - 20
+                                                 height: view.height - 17
             )
             
             self.scrollView.contentOffset.x = CGFloat(self.currentPage) * view.width + CGFloat(self.currentPage) * spacing
@@ -296,7 +298,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         analyticsVc.view.frame = CGRect(x: (2 * view.width) + 32,
                                         y: 0,
                                         width: view.width,
-                                        height: view.height - 20
+                                        height: view.height - 17
         )
         
         addChildViewController(analyticsVc)
