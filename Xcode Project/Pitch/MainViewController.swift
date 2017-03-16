@@ -159,7 +159,7 @@ class MainViewController: UIViewController {
     func closePitchPipe() {
         pitchPipeOpen = false
         updatePitchPipeButtonImage()
-        pitchPipeDisplayConstraint.constant = Constants.currentOrientation == .portrait ? 231 : 260
+        pitchPipeDisplayConstraint.constant = Constants.currentOrientation == .portrait ? 231 : 261
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1.2, initialSpringVelocity: 0.2, options: [.allowUserInteraction, .curveEaseInOut], animations: {
             self.view.layoutIfNeeded()
