@@ -36,6 +36,7 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.layer.masksToBounds = true
         settingsView.layer.cornerRadius = 8.0
         settingsView.layer.masksToBounds = true
         instrumentKeyView.layer.cornerRadius = 8.0
