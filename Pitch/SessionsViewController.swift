@@ -29,12 +29,17 @@ class SessionsViewController: UIViewController {
         setup()
     }
     
-    // MARK: - New Session Recorded
+    // MARK: - Notifications
     
     func newSessionRecorded(_ notification: Notification) {
         let session: Session = notification.object as! Session
         DataManager.add(session)
         tableViewController?.newSessionAdded()
+        newSessionButton.isHidden = false
+    }
+    
+    func recordingCancelled() {
+        newSessionButton.isHidden = false
     }
     
     // MARK: - Actions
@@ -48,6 +53,7 @@ class SessionsViewController: UIViewController {
     @IBAction func newSessionPressed(_ sender: Any) {
         if let container = snapContainer {
             container.go(toViewController: .main, animated: true, completion: {
+                self.newSessionButton.isHidden = true
                 NotificationCenter.default.post(name: .prepareForRecording, object: nil)
             })
         }

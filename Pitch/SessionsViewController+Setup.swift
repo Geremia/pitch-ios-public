@@ -19,6 +19,7 @@ extension SessionsViewController {
         darkModeChanged()
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(newSessionRecorded(_:)), name: .newSessionRecorded, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(recordingCancelled), name: .recordingCancelled, object: nil)
     }
     
     // MARK: - Dark Mode

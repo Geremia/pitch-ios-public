@@ -43,6 +43,7 @@ extension MainViewController {
     func cancelRecording() {
         recordingState = .notRecording
         resetRecordView()
+        NotificationCenter.default.post(name: .recordingCancelled, object: nil)
     }
     
     func pauseRecording() {
@@ -63,12 +64,12 @@ extension MainViewController {
     func doneRecording() {
         recordingState = .notRecording
         Recorder.shared.stopRecording()
+        NotificationCenter.default.post(name: .newSessionRecorded, object: session)
         
         if let container = snapContainer {
             guard let analytics = self.sessionAnalytics else { return }
             let session = Session(withRecordedFileUrl: Recorder.shared.currentFileUrl, analytics: analytics)
             container.go(toViewController: .sessions, animated: true, completion: {
-                NotificationCenter.default.post(name: .newSessionRecorded, object: session)
                 self.resetRecordView()
                 self.resetSessionAnalytics()
             })
