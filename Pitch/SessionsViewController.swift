@@ -48,7 +48,9 @@ class SessionsViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func backPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if let container = snapContainer {
+            container.transitionLeft(animated: true)
+        }
     }
 
     @IBAction func newSessionPressed(_ sender: Any) {

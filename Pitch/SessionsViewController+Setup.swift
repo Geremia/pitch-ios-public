@@ -28,7 +28,7 @@ extension SessionsViewController {
         view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
         sessionsLabel.textColor = darkModeOn ? UIColor.white : UIColor.black
         
-        let backImage = darkModeOn ? #imageLiteral(resourceName: "white_down_arrow") : #imageLiteral(resourceName: "down_arrow")
+        let backImage = darkModeOn ? #imageLiteral(resourceName: "white_back_arrow") : #imageLiteral(resourceName: "back_arrow")
         let newSessionImage = darkModeOn ? #imageLiteral(resourceName: "white_plus") : #imageLiteral(resourceName: "plus")
         backButton.setImage(backImage, for: .normal)
         newSessionButton.setImage(newSessionImage, for: .normal)
