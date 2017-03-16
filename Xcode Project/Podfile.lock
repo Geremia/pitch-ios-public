@@ -1,0 +1,50 @@
+PODS:
+  - AudioKit (3.5.3)
+  - Crashlytics (3.8.4):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.11)
+  - Permission/Core (2.0.3)
+  - Permission/Microphone (2.0.3):
+    - Permission/Core
+  - Permission/Notifications (2.0.3):
+    - Permission/Core
+  - PureLayout (3.0.2)
+  - Realm (2.4.3):
+    - Realm/Headers (= 2.4.3)
+  - Realm/Headers (2.4.3)
+  - RealmSwift (2.4.3):
+    - Realm (= 2.4.3)
+  - ScrollableGraphView (3.1.0)
+  - Siren (1.2.2)
+  - TwicketSegmentedControl (0.1.2)
+  - UICountingLabel (1.4.0)
+
+DEPENDENCIES:
+  - AudioKit
+  - Crashlytics
+  - Fabric
+  - Permission/Microphone
+  - Permission/Notifications
+  - PureLayout
+  - RealmSwift
+  - ScrollableGraphView
+  - Siren
+  - TwicketSegmentedControl
+  - UICountingLabel
+
+SPEC CHECKSUMS:
+  AudioKit: bf2ebc611bb9b8107dcbe14f8356c761ee8fcc12
+  Crashlytics: 79e236942ca1e7fc641df1feb9a275360a78ab6a
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
+  Permission: ef50195e97672de1946f98da7fd71fbfbcf9c23f
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  Realm: e08d60b0048ccccd3949c8c28a92c4db5712d7e9
+  RealmSwift: 30d49739ccb3385d201242736ca4dda56aec9dfc
+  ScrollableGraphView: e2c8bedc7bbb643e8ac57b9456070d68355c4e4c
+  Siren: 74651375e6238c7489d4b97615381d79234c9186
+  TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
+  UICountingLabel: ed5ce5b6d5ef278ff40d99cfa49577a30ab0c87b
+
+PODFILE CHECKSUM: 7755debf86a88dfd8fba12f0217fbd9b41df5fc5
+
+COCOAPODS: 1.0.1
