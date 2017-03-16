@@ -96,11 +96,27 @@ class MainViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        showVersionUpdatesIfNecessary()
+    }
+    
     // MARK: - Notifications
     
     func openToneGenerator() {
         if !pitchPipeOpen {
             openPitchPipe()
+        }
+    }
+    
+    // MARK: - "What's New" Popup
+    
+    func showVersionUpdatesIfNecessary() {
+        if !UserDefaults.standard.hasSeenWhatsNew() {
+            let alert = UIAlertController(title: "What's New in This Version", message: Constants.versionUpdates, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Sweet!", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
         }
     }
 

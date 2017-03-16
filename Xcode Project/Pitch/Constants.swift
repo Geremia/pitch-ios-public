@@ -23,7 +23,7 @@ class Constants {
                                                 + "- Game center integration! Compete with friends for who has the best intonation.\n"
                                                 + "- Daily goals: know the one thing you should focus on to get a little better every day.\n\n"
         
-                                                + "As always, if you have any comments, questions, or feedback don't be shy! I'd love to hear from you. Just press one of the 'Leave Feedback' buttons in the app. I always read and reply to all emails!\n\n"
+                                                + "As always, if you have any comments, questions, or feedback don't be shy! I'd love to hear from you. Just press one of the 'Leave Feedback' buttons. I always read and reply to all emails!\n\n"
         
                                                 + "Thanks for being an awesome musician :)"
 }
