@@ -65,6 +65,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         
         setupNotifications()
         setupHorizontalScrollView()
+        setupPageControl()
     }
     
     func setupNotifications() {
