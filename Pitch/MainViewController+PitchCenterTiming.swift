@@ -55,7 +55,7 @@ extension MainViewController {
             self.addPitchCenterTimeToAnalytics()
             self.setViewTo(newState: .inTune)
             if self.shouldUpdateAnalyticsCircle {
-                self.updateAnalyticsCircle()
+//                self.updateAnalyticsCircle()
             }
         })
     }
