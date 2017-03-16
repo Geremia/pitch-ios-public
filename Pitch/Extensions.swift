@@ -135,7 +135,7 @@ extension Notification.Name {
     static let resetBufferSizes = Notification.Name(rawValue: "resetBufferSizesNotification")
     static let prepareForRecording = Notification.Name(rawValue: "prepareForRecordingNotification")
     static let newSessionRecorded = Notification.Name(rawValue: "newSessionRecordedNotification")
-    static let recordingCancelled = Notification.Name(rawValue: "recordingCancelledNotification")
+    static let doneRecording = Notification.Name(rawValue: "doneRecordingNotification")
     static let playbackUpdate = Notification.Name(rawValue: "playbackUpdateNotification")
     static let finishedPlayback = Notification.Name(rawValue: "finishedPlaybackNotification")
     

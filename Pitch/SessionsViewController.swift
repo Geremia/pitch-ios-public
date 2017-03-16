@@ -35,10 +35,9 @@ class SessionsViewController: UIViewController {
         let session: Session = notification.object as! Session
         DataManager.add(session)
         tableViewController?.newSessionAdded()
-        newSessionButton.isHidden = false
     }
     
-    func recordingCancelled() {
+    func doneRecording() {
         newSessionButton.isHidden = false
     }
     
