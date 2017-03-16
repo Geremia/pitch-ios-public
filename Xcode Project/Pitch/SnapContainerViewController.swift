@@ -10,10 +10,6 @@ import UIKit
 import Crashlytics
 import PureLayout
 
-protocol SnapContainerViewControllerDelegate {
-    func outerScrollViewShouldScroll() -> Bool
-}
-
 enum SnapContainerViewControllerType: Int {
     case settings
     case main
@@ -29,34 +25,22 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     var mainVc: UIViewController!
     var analyticsVc: UIViewController!
     var sessionsVc: UIViewController!
-    var pageControl: UIPageControl!
-    
-    var directionLockDisabled: Bool!
-    
     var horizontalViews = [UIViewController]()
-    var veritcalViews = [UIViewController]()
     
-    var initialContentOffset = CGPoint() // scrollView initial offset
     var scrollView: UIScrollView!
-    var delegate: SnapContainerViewControllerDelegate?
-    
+    var pageControl: UIPageControl!
     var currentPage: Int = 1
     
     // MARK: - Setup
     
-    class func containerViewWith(_ settingsVc: UIViewController,
-                                 mainVc: UIViewController,
-                                 analyticsVc: UIViewController,
-                                 sessionsVc: UIViewController,
-                                 directionLockDisabled: Bool?=false) -> SnapContainerViewController {
+    class func containerViewWith(_ settingsVc: UIViewController, mainVc: UIViewController, analyticsVc: UIViewController, sessionsVc: UIViewController) -> SnapContainerViewController {
         let container = SnapContainerViewController()
-        
-        container.directionLockDisabled = directionLockDisabled
         
         container.settingsVc = settingsVc
         container.mainVc = mainVc
         container.analyticsVc = analyticsVc
         container.sessionsVc = sessionsVc
+        
         return container
     }
     
@@ -92,7 +76,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.bounces = false
+//        scrollView.bounces = false
         scrollView.delaysContentTouches = false
         
         let view = (
@@ -225,20 +209,6 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - UIScrollViewDelegate Methods
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        self.initialContentOffset = scrollView.contentOffset
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if delegate != nil && !delegate!.outerScrollViewShouldScroll() && !directionLockDisabled {
-            let newOffset = CGPoint(x: self.initialContentOffset.x, y: self.initialContentOffset.y)
-        
-            // Setting the new offset to the scrollView makes it behave like a proper
-            // directional lock, that allows you to scroll in only one direction at any given time
-            self.scrollView!.setContentOffset(newOffset, animated:  false)
-        }
-    }
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         currentPage = Int(scrollView.contentOffset.x / scrollView.frame.width)
         pageControl.currentPage = currentPage
@@ -322,12 +292,12 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     func go(toViewController viewControllerType: SnapContainerViewControllerType, animated: Bool = false, completion: (() -> Void)? = nil) {
         if animated {
             scrollView.isUserInteractionEnabled = false
-            scrollView.bounces = true
+//            scrollView.bounces = true
             UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
                 self.scrollView.contentOffset.x = self.scrollView.frame.width * CGFloat(viewControllerType.rawValue)
             }, completion: { finished in
                 self.scrollView.isUserInteractionEnabled = true
-                self.scrollView.bounces = false
+//                self.scrollView.bounces = false
                 self.scrollViewDidEndDecelerating(self.scrollView)
                 if let completion = completion {
                     completion()
