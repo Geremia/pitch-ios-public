@@ -13,19 +13,19 @@ protocol SnapContainerViewControllerDelegate {
     func outerScrollViewShouldScroll() -> Bool
 }
 
-enum SnapContainerViewControllerType {
-    case left
-    case middle
-    case right
+enum SnapContainerViewControllerType: Int {
+    case settings
+    case main
+    case analytics
+    case sessions
 }
 
 class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
-    var topVc: UIViewController?
-    var leftVc: UIViewController!
-    var middleVc: UIViewController!
-    var rightVc: UIViewController!
-    var bottomVc: UIViewController?
+    var settingsVc: UIViewController!
+    var mainVc: UIViewController!
+    var analyticsVc: UIViewController!
+    var sessionsVc: UIViewController!
     
     var directionLockDisabled: Bool!
     
@@ -38,21 +38,19 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
     var currentPage: Int = 1
     
-    class func containerViewWith(_ leftVC: UIViewController,
-                                 middleVC: UIViewController,
-                                 rightVC: UIViewController,
-                                 topVC: UIViewController?=nil,
-                                 bottomVC: UIViewController?=nil,
+    class func containerViewWith(_ settingsVc: UIViewController,
+                                 mainVc: UIViewController,
+                                 analyticsVc: UIViewController,
+                                 sessionsVc: UIViewController,
                                  directionLockDisabled: Bool?=false) -> SnapContainerViewController {
         let container = SnapContainerViewController()
         
         container.directionLockDisabled = directionLockDisabled
         
-        container.topVc = topVC
-        container.leftVc = leftVC
-        container.middleVc = middleVC
-        container.rightVc = rightVC
-        container.bottomVc = bottomVC
+        container.settingsVc = settingsVc
+        container.mainVc = mainVc
+        container.analyticsVc = analyticsVc
+        container.sessionsVc = sessionsVc
         return container
     }
     
@@ -97,26 +95,32 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             )
             
             let spacing: CGFloat = 16
-            let scrollWidth  = (3 * view.width) + (3 * spacing)
+            let scrollWidth  = (4 * view.width) + (4 * spacing)
             let scrollHeight  = view.height
             self.scrollView.contentSize = CGSize(width: scrollWidth, height: scrollHeight)
             
-            self.leftVc.view.frame = CGRect(x: 0,
+            self.settingsVc.view.frame = CGRect(x: 0,
                                        y: 0,
                                        width: view.width,
                                        height: view.height
             )
             
-            self.middleVc.view.frame = CGRect(x: view.width + spacing,
+            self.mainVc.view.frame = CGRect(x: view.width + spacing,
                                          y: 0,
                                          width: view.width,
                                          height: view.height
             )
             
-            self.rightVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
+            self.analyticsVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
                                         y: 0,
                                         width: view.width,
                                         height: view.height
+            )
+            
+            self.sessionsVc.view.frame = CGRect(x: (3 * view.width) + (3 * spacing),
+                                                 y: 0,
+                                                 width: view.width,
+                                                 height: view.height
             )
             
             self.scrollView.contentOffset.x = CGFloat(self.currentPage) * view.width + CGFloat(self.currentPage) * spacing
@@ -146,41 +150,50 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         self.view.addSubview(scrollView)
         
         let spacing: CGFloat = 16
-        let scrollWidth  = (3 * view.width) + (3 * spacing)
+        let scrollWidth  = (4 * view.width) + (4 * spacing)
         let scrollHeight  = view.height
         scrollView.contentSize = CGSize(width: scrollWidth, height: scrollHeight)
         
-        leftVc.view.frame = CGRect(x: 0,
+        settingsVc.view.frame = CGRect(x: 0,
                                    y: 0,
                                    width: view.width,
                                    height: view.height
         )
         
-        middleVc.view.frame = CGRect(x: view.width + spacing,
+        mainVc.view.frame = CGRect(x: view.width + spacing,
                                                y: 0,
                                                width: view.width,
                                                height: view.height
         )
         
-        rightVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
+        analyticsVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
                                     y: 0,
                                     width: view.width,
                                     height: view.height
         )
         
-        addChildViewController(leftVc)
-        addChildViewController(middleVc)
-        addChildViewController(rightVc)
+        sessionsVc.view.frame = CGRect(x: (3 * view.width) + (3 * spacing),
+                                        y: 0,
+                                        width: view.width,
+                                        height: view.height
+        )
         
-        scrollView.addSubview(leftVc.view)
-        scrollView.addSubview(middleVc.view)
-        scrollView.addSubview(rightVc.view)
+        addChildViewController(settingsVc)
+        addChildViewController(mainVc)
+        addChildViewController(analyticsVc)
+        addChildViewController(sessionsVc)
         
-        leftVc.didMove(toParentViewController: self)
-        middleVc.didMove(toParentViewController: self)
-        rightVc.didMove(toParentViewController: self)
+        scrollView.addSubview(settingsVc.view)
+        scrollView.addSubview(mainVc.view)
+        scrollView.addSubview(analyticsVc.view)
+        scrollView.addSubview(sessionsVc.view)
         
-        scrollView.contentOffset.x = middleVc.view.frame.origin.x
+        settingsVc.didMove(toParentViewController: self)
+        mainVc.didMove(toParentViewController: self)
+        analyticsVc.didMove(toParentViewController: self)
+        sessionsVc.didMove(toParentViewController: self)
+        
+        scrollView.contentOffset.x = mainVc.view.frame.origin.x
         scrollView.delegate = self
     }
     
@@ -203,17 +216,17 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         
         switch currentPage {
         case 0:
-            let main: MainViewController = middleVc as! MainViewController
+            let main: MainViewController = mainVc as! MainViewController
             main.shouldUpdateUI = false
         case 1:
-            let main: MainViewController = middleVc as! MainViewController
+            let main: MainViewController = mainVc as! MainViewController
             main.shouldUpdateUI = true
         case 2:
-            let main: MainViewController = middleVc as! MainViewController
+            let main: MainViewController = mainVc as! MainViewController
             main.shouldUpdateUI = false
             main.hidePopup()
             
-            let analytics: AnalyticsViewController = self.rightVc as! AnalyticsViewController
+            let analytics: AnalyticsViewController = self.analyticsVc as! AnalyticsViewController
             analytics.checkForShareAndAnimation()
             Answers.logCustomEvent(withName: "Opened Analytics", customAttributes: ["afterPopup" : String(DataManager.today().hasSufficientData)])
         default:
@@ -225,24 +238,24 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let analytics: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
         
-        rightVc.removeFromParentViewController()
-        rightVc.view.removeFromSuperview()
+        analyticsVc.removeFromParentViewController()
+        analyticsVc.view.removeFromSuperview()
         
-        rightVc = analytics
+        analyticsVc = analytics
         let view = (
             x: self.view.bounds.origin.x,
             y: self.view.bounds.origin.y,
             width: self.view.bounds.width,
             height: self.view.bounds.height
         )
-        rightVc.view.frame = CGRect(x: (2 * view.width) + 32,
+        analyticsVc.view.frame = CGRect(x: (2 * view.width) + 32,
                                     y: 0,
                                     width: view.width,
                                     height: view.height
         )
         
-        addChildViewController(rightVc)
-        scrollView.addSubview(rightVc.view)
+        addChildViewController(analyticsVc)
+        scrollView.addSubview(analyticsVc.view)
         
         analytics.snapContainer = self
     }
@@ -250,13 +263,13 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - Notifications
     
     func shortcutOpenAnalytics(_ notification: Notification) {
-        go(toViewController: .right)
-        let analytics: AnalyticsViewController = rightVc as! AnalyticsViewController
+        go(toViewController: .analytics)
+        let analytics: AnalyticsViewController = analyticsVc as! AnalyticsViewController
         analytics.checkForShareAndAnimation()
     }
     
     func shortcutOpenToneGenerator(_ notification: NSNotification) {
-        go(toViewController: .middle)
+        go(toViewController: .main)
     }
     
     func darkModeChanged(_ notification: Notification) {
@@ -308,14 +321,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func go(toViewController viewControllerType: SnapContainerViewControllerType) {
-        switch viewControllerType {
-        case .left:
-            scrollView.contentOffset.x = 0
-        case .middle:
-            scrollView.contentOffset.x = scrollView.frame.width
-        case .right:
-            scrollView.contentOffset.x = scrollView.frame.width * 2
-        }
+        scrollView.contentOffset.x = scrollView.frame.width * CGFloat(viewControllerType.rawValue)
         scrollViewDidEndDecelerating(scrollView)
     }
     

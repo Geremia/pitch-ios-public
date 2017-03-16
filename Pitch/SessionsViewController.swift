@@ -23,7 +23,9 @@ class SessionsViewController: UIViewController {
     
     // MARK: - Properties
     
+    var snapContainer: SnapContainerViewController?
     var delegate: SessionsViewControllerDelegate?
+    
     var session: Session?
     var tableViewController: SessionsTableViewController?
     

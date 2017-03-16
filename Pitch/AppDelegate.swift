@@ -67,12 +67,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings: SettingsViewController = storyboard.instantiateViewController(withIdentifier: "settings") as! SettingsViewController
         let main: MainViewController = storyboard.instantiateViewController(withIdentifier: "main") as! MainViewController
         let analytics: AnalyticsViewController = storyboard.instantiateViewController(withIdentifier: "analytics") as! AnalyticsViewController
+        let sessions: SessionsViewController = storyboard.instantiateViewController(withIdentifier: "sessions") as! SessionsViewController
         
-        container = SnapContainerViewController.containerViewWith(settings, middleVC: main, rightVC: analytics)
+        container = SnapContainerViewController.containerViewWith(settings, mainVc: main, analyticsVc: analytics, sessionsVc: sessions)
         
         settings.snapContainer = container
         main.snapContainer = container
         analytics.snapContainer = container
+        sessions.snapContainer = container
         
         return container!
     }
