@@ -279,53 +279,25 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     // MARK: - Actions
     
     func transitionLeft(animated: Bool, completion: (() -> Void)? = nil) {
-        if animated {
-            scrollView.bounces = true
-            UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
-                self.scrollView.contentOffset.x -= self.view.frame.width + 16
-            }, completion: { finished in
-                self.scrollView.bounces = false
-                self.scrollViewDidEndDecelerating(self.scrollView)
-                if let completion = completion {
-                    completion()
-                }
-            })
-        } else {
-            scrollView.contentOffset.x -= self.view.frame.width + 16
-            scrollViewDidEndDecelerating(scrollView)
-            if let completion = completion {
-                completion()
-            }
+        if let viewController = SnapContainerViewControllerType(rawValue: currentPage - 1) {
+            go(toViewController: viewController, animated: animated, completion: completion)
         }
     }
     
     func transitionRight(animated: Bool, completion: (() -> Void)? = nil) {
-        if animated {
-            scrollView.bounces = true
-            UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
-                self.scrollView.contentOffset.x += self.view.frame.width + 16
-            }, completion: { finished in
-                self.scrollView.bounces = false
-                self.scrollViewDidEndDecelerating(self.scrollView)
-                if let completion = completion {
-                    completion()
-                }
-            })
-        } else {
-            scrollView.contentOffset.x += self.view.frame.width + 16
-            scrollViewDidEndDecelerating(scrollView)
-            if let completion = completion {
-                completion()
-            }
+        if let viewController = SnapContainerViewControllerType(rawValue: currentPage + 1) {
+            go(toViewController: viewController, animated: animated, completion: completion)
         }
     }
     
     func go(toViewController viewControllerType: SnapContainerViewControllerType, animated: Bool = false, completion: (() -> Void)? = nil) {
         if animated {
+            scrollView.isUserInteractionEnabled = false
             scrollView.bounces = true
             UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
                 self.scrollView.contentOffset.x = self.scrollView.frame.width * CGFloat(viewControllerType.rawValue)
             }, completion: { finished in
+                self.scrollView.isUserInteractionEnabled = true
                 self.scrollView.bounces = false
                 self.scrollViewDidEndDecelerating(self.scrollView)
                 if let completion = completion {
