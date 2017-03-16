@@ -15,7 +15,6 @@ extension MainViewController: SessionsViewControllerDelegate {
     func prepareForRecording() {
         recordingState = .ready
         recordViewTopConstraint.constant = 0
-        sessionsButton.isUserInteractionEnabled = false
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
             self.tunerView.layoutIfNeeded()
         }, completion: nil)
@@ -103,7 +102,6 @@ extension MainViewController: SessionsViewControllerDelegate {
     
     func resetRecordView() {
         recordViewTopConstraint.constant = -recordView.frame.height
-        sessionsButton.isUserInteractionEnabled = true
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
             self.tunerView.layoutIfNeeded()
         }, completion: { finished in
