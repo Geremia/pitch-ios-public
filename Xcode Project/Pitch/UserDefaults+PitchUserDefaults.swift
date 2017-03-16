@@ -33,13 +33,46 @@ extension UserDefaults {
     func hasSeenOnboarding() -> Bool {
         if DataManager.data(forPastDaysIncludingToday: 10).count > 1 {
             return true
-        } else {
-            return bool(forKey: "hasSeenOnboarding")
         }
+        
+        return bool(forKey: "hasSeenOnboarding")
     }
     
     func setHasSeenOnboarding(_ newValue: Bool) {
         set(newValue, forKey: "hasSeenOnboarding")
+    }
+    
+    /**
+     * Bool indicating whether the user seen the "What's new in this
+     * version" popup.
+     */
+    func hasSeenWhatsNew() -> Bool {
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            if version != versionString() {
+                setVersionString(version)
+                return false
+            }
+            
+            return true
+        }
+        
+        return true
+    }
+    
+    /**
+     * CFBundleShortVersion string stored here to determine whether
+     * the user has seen the "What's new in this version" popup.
+     */
+    func versionString() -> String {
+        if let string = string(forKey: "versionString") {
+            return string
+        }
+        
+        return ""
+    }
+    
+    func setVersionString(_ newValue: String) {
+        set(newValue, forKey: "versionString")
     }
     
     /**
