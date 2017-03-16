@@ -1043,11 +1043,15 @@ import UIKit
     }
   
     private func filterPointsForLabels(fromPoints points:[Int]) -> [Int] {
-        
-        if(self.dataPointLabelsSparsity == 1) {
+        if dataPointLabelsSparsity == 1 {
             return points
         }
-        return points.filter({ $0 % self.dataPointLabelsSparsity == 0 })
+        
+        guard let max = points.max() else { return points }
+        return points.filter({ point in
+            let value = max - point
+            return value % self.dataPointLabelsSparsity == 0
+        })
     }
   
     private func startAnimations(withStaggerValue stagger: Double = 0) {
