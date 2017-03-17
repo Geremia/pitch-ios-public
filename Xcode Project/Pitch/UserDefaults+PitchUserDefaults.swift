@@ -47,7 +47,7 @@ extension UserDefaults {
      * version" popup.
      */
     func hasSeenWhatsNew() -> Bool {
-        if DataManager.allDays().count <= 1 {
+        if DataManager.allDays().count <= 1 { // New user
             return true
         }
         
