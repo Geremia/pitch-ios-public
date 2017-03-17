@@ -23,7 +23,14 @@ class Onboarding4ViewController: OnboardingViewController, UIPickerViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func setupPickerView() {
         pickerView.reloadAllComponents()
+        if pickerView.subviews.count > 2 {
+            pickerView.subviews[1].isHidden = true
+            pickerView.subviews[2].isHidden = true
+        }
     }
     
     // MARK: - UIPickerViewDelegate

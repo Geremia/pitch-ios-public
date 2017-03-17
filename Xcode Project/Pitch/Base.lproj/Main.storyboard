@@ -609,6 +609,7 @@
                     </view>
                     <connections>
                         <segue destination="xHl-sU-KYs" kind="show" identifier="onboarding23" id="THy-1c-zoe"/>
+                        <segue destination="SoM-sj-eqa" kind="show" identifier="onboarding24" id="XAg-Hv-vFI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtI-rc-Cff" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -673,7 +674,7 @@ your daily analytics are ready!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYW-Qn-YHN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1401" y="1261"/>
+            <point key="canvasLocation" x="662" y="1261"/>
         </scene>
         <!--Onboarding3 View Controller-->
         <scene sceneID="exx-wB-CV5">
@@ -764,7 +765,7 @@ your daily analytics are ready!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="926-Is-dIB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-124" y="1261"/>
+            <point key="canvasLocation" x="-887" y="2107"/>
         </scene>
         <!--Onboarding4 View Controller-->
         <scene sceneID="I2N-I7-3X9">
@@ -829,7 +830,7 @@ your daily analytics are ready!</string>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bad at decision making? Have no fear; you can change this any time in settings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wr4-dU-E67">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bad at decision making? Have no fear. You can change this any time in settings." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wr4-dU-E67">
                                 <rect key="frame" x="30" y="403.5" width="315" height="157.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -862,7 +863,7 @@ your daily analytics are ready!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0uk-nn-Lix" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="633" y="1261"/>
+            <point key="canvasLocation" x="-106" y="1261"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="8bJ-bP-J8c">
@@ -2802,4 +2803,7 @@ your daily analytics are ready!</string>
         <image name="small_plus" width="20" height="20"/>
         <image name="trash" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="XAg-Hv-vFI"/>
+    </inferredMetricsTieBreakers>
 </document>
