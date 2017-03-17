@@ -23,6 +23,7 @@ class Onboarding4ViewController: OnboardingViewController, UIPickerViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPickerView()
     }
     
     func setupPickerView() {
