@@ -54,6 +54,7 @@ extension AnalyticsViewController {
     }
     
     func startAnimation() {
+        prepareForAnimation()
         animateIn()
         if showingSessionData {
             DataManager.setHasSeenAnalyticsAnimation(true, forSession: self.session!)
@@ -63,6 +64,11 @@ extension AnalyticsViewController {
     }
     
     // MARK: - Setup
+    
+    func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged(_:)), name: .UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .reloadAnalyticsData, object: nil)
+    }
     
     func setupUI() {
         view.layer.cornerRadius = 8.0
@@ -80,19 +86,14 @@ extension AnalyticsViewController {
             
             if !showingSharePrompt {
                 showingData = true
-                displayData()
+                reloadData()
             }
         } else {
             if data.hasSufficientData && !showingSharePrompt && UserDefaults.standard.analyticsOn() {
                 showingData = true
-                displayData()
+                reloadData()
             }
         }
-    }
-    
-    func setupNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged(_:)), name: .UIDeviceOrientationDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .reloadAnalyticsData, object: nil)
     }
     
     func setupViewsForSessionAnalytics() {
@@ -127,22 +128,26 @@ extension AnalyticsViewController {
         }
     }
     
-    func displayData() {
-        noDataView.isHidden = true
-        helpButton.isHidden = false
-        
-        reloadData()
+    func reloadData() {
+        setDataToDisplay()
+        updateEmptyState()
+        setupScoreCircle()
+        setupDescriptionLabel()
+        pitchesTableViewController?.pitchOffsets = data.filteredPitchOffsets
         
         if !hasSeenAnimation() {
             prepareForAnimation()
         }
     }
     
-    func reloadData() {
-        setDataToDisplay()
-        setupScoreCircle()
-        setupDescriptionLabel()
-        pitchesTableViewController?.pitchOffsets = data.filteredPitchOffsets
+    func updateEmptyState() {
+        if showingSessionData {
+            noDataView.isHidden = true
+            helpButton.isHidden = false
+        } else {
+            noDataView.isHidden = data.hasSufficientData
+            helpButton.isHidden = !data.hasSufficientData
+        }
     }
     
     func setupScoreCircle() {

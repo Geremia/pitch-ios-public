@@ -28,6 +28,9 @@ extension AnalyticsViewController {
     // MARK: - Animation
     
     func prepareForAnimation() {
+        if hasPreparedForAnimation { return }
+        hasPreparedForAnimation = true
+        
         scoreCircle.transform = CGAffineTransform(scaleX: 0, y: 0)
         scoreCircle.alpha = 0.0
         
@@ -56,6 +59,7 @@ extension AnalyticsViewController {
     }
     
     func animateIn() {
+        print("animate in ")
         let score = data.tuningScore
         self.scoreLabel.countFromZero(to: CGFloat(score), withDuration: 1.2)
         
