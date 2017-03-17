@@ -15,7 +15,6 @@ extension MainViewController {
     
     func setupNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(openToneGenerator), name: .openToneGenerator, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(setupAnalyticsCircle), name: .resetAnalyticsData, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(prepareForRecording), name: .prepareForRecording, object: nil)
     }
     
@@ -52,19 +51,11 @@ extension MainViewController {
         recordViewTopConstraint.constant = -recordView.frame.height
         recordLabelUpdateLink = CADisplayLink(target: self, selector: #selector(updateRecordLabel))
         
-        setupAnalyticsCircle()
+        analyticsPopupTopConstraint.constant = -analyticsPopupView.frame.height
+        shouldCheckForAnalyticsPopup = !DataManager.today().hasSufficientData && UserDefaults.standard.analyticsOn()
         
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.darkModeChanged), name: .darkModeChanged, object: nil)
         darkModeChanged()
-    }
-    
-    func setupAnalyticsCircle() {
-        analyticsCircle.colorful = false
-        analyticsCircle.circleLayer.lineWidth = 1.0
-        analyticsCircle.score = 0
-        analyticsCircle.removeBorder()
-        analyticsCircle.isHidden = false
-        shouldUpdateAnalyticsCircle = !DataManager.today().hasSufficientData && UserDefaults.standard.analyticsOn()
     }
     
     // MARK: - Dark Mode Switching
@@ -73,6 +64,7 @@ extension MainViewController {
         let darkModeOn = UserDefaults.standard.darkModeOn()
         view.backgroundColor = darkModeOn ? UIColor.darkGrayView : UIColor.white
         recordView.backgroundColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
+        analyticsPopupView.backgroundColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
         
         state = .outOfTune
         transitionViewTo(newState: .outOfTune, animated: false)

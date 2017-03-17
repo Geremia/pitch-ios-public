@@ -113,8 +113,6 @@ extension MainViewController {
             self.centsLabel.font = newState.centsLabelFont
             self.octaveLabel.textColor = newState.lineTextColor
             self.octaveLabel.font = newState.octaveLabelFont
-            self.analyticsCircle.circleLayer.strokeColor = newState.lineTextColor.cgColor
-            self.analyticsCircle.circleLayer.lineWidth = newState.analyticsCircleThickness
             
             if self.noteLabel.text != "--" {
                 self.displayPitch(pitch: (self.noteLabel.text?.trimmingCharacters(in: .whitespaces))!)
@@ -176,48 +174,25 @@ extension MainViewController {
         }
     }
     
-    func updateAnalyticsCircle() {
-        let label = UICountingLabel()
-        label.formatBlock = { score -> String! in
-            self.analyticsCircle.score = Double(score)
-            return "\(Int(score))"
+    func checkForAnalyticsPopup() {
+        if DataManager.today().dataPercentage == 1 {
+            shouldCheckForAnalyticsPopup = false
+            Answers.logCustomEvent(withName: "Popup Appeared", customAttributes: nil)
+            showAnalyticsPopup()
         }
-        
-        let percentage = DataManager.today().dataPercentage * 100
-        if percentage < 100 {
-            UIView.animate(withDuration: 0.3, animations: {
-                self.analyticsButton.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-            })
-        } else {
-            shouldUpdateAnalyticsCircle = false
-            
-            analyticsMessage.layer.anchorPoint = CGPoint(x: 0.8, y: 1.0)
-            analyticsMessage.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
-            
-            label.completionBlock = { _ in
-                self.analyticsCircle.isHidden = true
-                Answers.logCustomEvent(withName: "Popup Appeared", customAttributes: nil)
-                self.snapContainer?.resetAnalyticsVC()
-                if Constants.currentOrientation == .portrait {
-                    self.showPopup()
-                }
-            }
-        }
-        
-        label.count(from: CGFloat(analyticsCircle.score), to: CGFloat(percentage), withDuration: 1.0)
     }
     
-    func showPopup() {
+    func showAnalyticsPopup() {
+        analyticsPopupTopConstraint.constant = 0
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut, .allowUserInteraction], animations: {
-            self.analyticsButton.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            self.analyticsMessage.alpha = 1.0
-            self.analyticsMessage.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            self.tunerView.layoutIfNeeded()
         }, completion: nil)
     }
     
-    func hidePopup() {
+    func hideAnalyticsPopup() {
+        analyticsPopupTopConstraint.constant = -analyticsPopupView.frame.height
         UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut, .allowUserInteraction], animations: {
-            self.analyticsMessage.alpha = 0.0
+            self.tunerView.layoutIfNeeded()
         }, completion: nil)
     }
 }

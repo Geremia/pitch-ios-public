@@ -881,7 +881,7 @@ your daily analytics are ready!</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syJ-FW-TRB">
-                                        <rect key="frame" x="147.5" y="23" width="81" height="28"/>
+                                        <rect key="frame" x="147" y="23" width="81" height="28"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1041,7 +1041,7 @@ your daily analytics are ready!</string>
                                 </connections>
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press the + button to record a session!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ih-QE-HuZ">
-                                <rect key="frame" x="40" y="356" width="295" height="20.5"/>
+                                <rect key="frame" x="40" y="356.5" width="295" height="20"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -1358,13 +1358,13 @@ your daily analytics are ready!</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-78-WqF">
-                                        <rect key="frame" x="147" y="143" width="81.5" height="132"/>
+                                        <rect key="frame" x="147.5" y="143.5" width="81.5" height="132"/>
                                         <fontDescription key="fontDescription" name="Lato-Hairline" family="Lato" pointSize="110"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are 0.0 cents flat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-ws-Axi">
-                                        <rect key="frame" x="110" y="287" width="155" height="20"/>
+                                        <rect key="frame" x="110.5" y="287.5" width="155" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1436,21 +1436,6 @@ your daily analytics are ready!</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bz-bK-sEf" customClass="ScoreCircle" customModule="Pitch" customModuleProvider="target">
-                                        <rect key="frame" x="316" y="381" width="35" height="35"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="35" id="cNm-L8-x2H"/>
-                                            <constraint firstAttribute="height" constant="35" id="rcu-6q-7k0"/>
-                                        </constraints>
-                                    </view>
-                                    <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="analytics_message" translatesAutoresizingMaskIntoConstraints="NO" id="90I-fc-2p4">
-                                        <rect key="frame" x="195" y="355" width="246" height="53"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="53" id="48M-BI-Cka"/>
-                                            <constraint firstAttribute="width" constant="246" id="6je-i2-1Dd"/>
-                                        </constraints>
-                                    </imageView>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0U7-NV-2BZ">
                                         <rect key="frame" x="293" y="360" width="82" height="76"/>
                                         <constraints>
@@ -1463,7 +1448,7 @@ your daily analytics are ready!</string>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oze-rG-43j">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready to record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nv7-Tx-wI5">
                                                 <rect key="frame" x="15" y="14" width="124.5" height="22"/>
@@ -1491,10 +1476,10 @@ your daily analytics are ready!</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlM-6r-DtK">
-                                                <rect key="frame" x="205" y="8" width="70" height="34"/>
+                                                <rect key="frame" x="215" y="8" width="60" height="34"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="70" id="K4v-EL-0DG"/>
+                                                    <constraint firstAttribute="width" constant="60" id="K4v-EL-0DG"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                 <state key="normal" title="Start">
@@ -1523,12 +1508,52 @@ your daily analytics are ready!</string>
                                             <constraint firstAttribute="bottom" secondItem="UlM-6r-DtK" secondAttribute="bottom" constant="8" id="ttb-IL-FRQ"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZ2-2a-eGB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your daily analytics are ready." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="07F-gb-E4k">
+                                                <rect key="frame" x="15" y="14" width="277" height="22"/>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7Y-Oa-1iG">
+                                                <rect key="frame" x="300" y="8" width="60" height="34"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="ARO-s7-1JL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                <state key="normal" title="View">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="viewAnalyticsPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3BG-2F-kY7"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.29803921570000003" green="0.85098039219999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="07F-gb-E4k" firstAttribute="leading" secondItem="HZ2-2a-eGB" secondAttribute="leading" constant="15" id="3JR-3p-VIL"/>
+                                            <constraint firstItem="r7Y-Oa-1iG" firstAttribute="leading" secondItem="07F-gb-E4k" secondAttribute="trailing" constant="8" id="6YR-K5-50l"/>
+                                            <constraint firstItem="07F-gb-E4k" firstAttribute="centerY" secondItem="HZ2-2a-eGB" secondAttribute="centerY" id="Gs2-lf-IZU"/>
+                                            <constraint firstAttribute="bottom" secondItem="r7Y-Oa-1iG" secondAttribute="bottom" constant="8" id="He9-pC-0XR"/>
+                                            <constraint firstAttribute="height" constant="50" id="KTi-V5-JoL"/>
+                                            <constraint firstAttribute="trailing" secondItem="r7Y-Oa-1iG" secondAttribute="trailing" constant="15" id="i1C-JT-NFq"/>
+                                            <constraint firstItem="r7Y-Oa-1iG" firstAttribute="top" secondItem="HZ2-2a-eGB" secondAttribute="top" constant="8" id="sMe-xH-FZa"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="eFM-fb-ftt" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" constant="-80" id="0j3-UW-aCF"/>
                                     <constraint firstItem="eFM-fb-ftt" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" id="3dg-Zb-N8j"/>
-                                    <constraint firstAttribute="bottom" secondItem="90I-fc-2p4" secondAttribute="bottom" constant="28" id="4Sv-V6-tBb"/>
                                     <constraint firstItem="SrA-v6-zUa" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" placeholder="YES" id="7Ew-k3-lEo"/>
+                                    <constraint firstItem="HZ2-2a-eGB" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" id="7Mc-Jv-kqL"/>
                                     <constraint firstItem="GZD-rN-9fr" firstAttribute="centerX" secondItem="hxQ-Xm-BOA" secondAttribute="centerX" id="8Ob-lr-WFT"/>
                                     <constraint firstItem="8tw-nh-3i7" firstAttribute="centerY" secondItem="0U7-NV-2BZ" secondAttribute="centerY" id="9cX-SI-Jw4"/>
                                     <constraint firstItem="VBl-9v-Ye4" firstAttribute="centerX" secondItem="SrA-v6-zUa" secondAttribute="centerX" id="HHe-F9-4Ho"/>
@@ -1541,22 +1566,21 @@ your daily analytics are ready!</string>
                                     <constraint firstItem="d4h-6o-O5x" firstAttribute="centerX" secondItem="ScC-vN-a2a" secondAttribute="centerX" constant="-40" id="WDV-6k-UQa"/>
                                     <constraint firstItem="Jpl-Qo-b0N" firstAttribute="leading" secondItem="XBl-z4-1FC" secondAttribute="leading" id="aqO-uy-1UZ"/>
                                     <constraint firstItem="ScC-vN-a2a" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" constant="80" id="c0m-Su-8NZ"/>
-                                    <constraint firstItem="0bz-bK-sEf" firstAttribute="centerY" secondItem="0U7-NV-2BZ" secondAttribute="centerY" constant="1" id="cAl-xH-zZd"/>
                                     <constraint firstItem="hxQ-Xm-BOA" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" placeholder="YES" id="dvA-Qr-C1v"/>
                                     <constraint firstItem="4CE-78-WqF" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" id="fTd-VJ-SVV"/>
-                                    <constraint firstItem="oze-rG-43j" firstAttribute="top" secondItem="XBl-z4-1FC" secondAttribute="top" id="fxr-f7-TJJ"/>
+                                    <constraint firstItem="oze-rG-43j" firstAttribute="top" secondItem="XBl-z4-1FC" secondAttribute="top" constant="50" id="fxr-f7-TJJ"/>
                                     <constraint firstItem="VBl-9v-Ye4" firstAttribute="centerY" secondItem="SrA-v6-zUa" secondAttribute="centerY" id="gtn-oH-apa"/>
+                                    <constraint firstAttribute="trailing" secondItem="HZ2-2a-eGB" secondAttribute="trailing" id="hbG-gw-ueQ"/>
                                     <constraint firstItem="8tw-nh-3i7" firstAttribute="centerX" secondItem="0U7-NV-2BZ" secondAttribute="centerX" id="heT-JY-sLT"/>
                                     <constraint firstAttribute="trailing" secondItem="Jpl-Qo-b0N" secondAttribute="trailing" id="lOW-8N-En3"/>
                                     <constraint firstItem="ScC-vN-a2a" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" id="mfY-zr-DzS"/>
                                     <constraint firstAttribute="trailing" secondItem="0U7-NV-2BZ" secondAttribute="trailing" placeholder="YES" id="nq3-Eo-or7"/>
-                                    <constraint firstItem="0bz-bK-sEf" firstAttribute="centerX" secondItem="0U7-NV-2BZ" secondAttribute="centerX" id="qeU-5J-oTI"/>
                                     <constraint firstItem="GZD-rN-9fr" firstAttribute="centerY" secondItem="hxQ-Xm-BOA" secondAttribute="centerY" id="s1c-S6-MkQ"/>
                                     <constraint firstItem="4CE-78-WqF" firstAttribute="centerY" secondItem="XBl-z4-1FC" secondAttribute="centerY" constant="-9" id="tSg-se-NB4"/>
                                     <constraint firstAttribute="bottom" secondItem="hxQ-Xm-BOA" secondAttribute="bottom" placeholder="YES" id="vPd-Tx-fst"/>
+                                    <constraint firstItem="HZ2-2a-eGB" firstAttribute="top" secondItem="XBl-z4-1FC" secondAttribute="top" id="vea-j1-azw"/>
                                     <constraint firstItem="d4h-6o-O5x" firstAttribute="centerY" secondItem="ScC-vN-a2a" secondAttribute="centerY" constant="21.75" id="xj3-KY-Q9c"/>
                                     <constraint firstItem="2CA-ws-Axi" firstAttribute="centerX" secondItem="XBl-z4-1FC" secondAttribute="centerX" id="zHX-2n-SRi"/>
-                                    <constraint firstAttribute="trailing" secondItem="90I-fc-2p4" secondAttribute="trailing" constant="-66" id="zSv-wd-3hn"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVv-DE-UIr" userLabel="Pitch Pipe" customClass="PitchPipeView" customModule="Pitch" customModuleProvider="target">
@@ -1996,8 +2020,8 @@ your daily analytics are ready!</string>
                     <connections>
                         <outlet property="amplitudeLabel" destination="QIG-pk-c1y" id="c50-eU-LfF"/>
                         <outlet property="analyticsButton" destination="0U7-NV-2BZ" id="m55-hn-eU2"/>
-                        <outlet property="analyticsCircle" destination="0bz-bK-sEf" id="wxE-QQ-rrj"/>
-                        <outlet property="analyticsMessage" destination="90I-fc-2p4" id="CqN-wi-p7U"/>
+                        <outlet property="analyticsPopupTopConstraint" destination="vea-j1-azw" id="4BF-hU-1p8"/>
+                        <outlet property="analyticsPopupView" destination="HZ2-2a-eGB" id="Qjj-Lm-uym"/>
                         <outlet property="centsLabel" destination="2CA-ws-Axi" id="KfM-tk-IDd"/>
                         <outlet property="leftRecordButton" destination="UlM-6r-DtK" id="SnA-ax-GJV"/>
                         <outlet property="leftRecordButtonConstraint" destination="9Ag-cj-EYs" id="RKA-5b-NkE"/>
@@ -2114,7 +2138,7 @@ your daily analytics are ready!</string>
                                                 </connections>
                                             </containerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuning Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFs-qz-IRR">
-                                                <rect key="frame" x="140" y="654" width="96" height="20"/>
+                                                <rect key="frame" x="139.5" y="654" width="96" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2456,7 +2480,7 @@ your daily analytics are ready!</string>
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="1500"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your most out-of-tune pitches appear here. Use this to learn your instrument's tendencies and adjust while you play." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-3J-GZs">
-                                        <rect key="frame" x="120" y="467" width="260" height="86.5"/>
+                                        <rect key="frame" x="120" y="467.5" width="260" height="86.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="3J0-8l-J19"/>
                                         </constraints>
@@ -2484,7 +2508,7 @@ your daily analytics are ready!</string>
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="3200"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use this graph to keep track of your progress over time. If there's not much here yet, come back in a few days!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3o-Gy-EXT">
-                                        <rect key="frame" x="120" y="1317" width="260" height="86.5"/>
+                                        <rect key="frame" x="120" y="1317.5" width="260" height="86.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="O1q-zG-zFx"/>
                                         </constraints>
@@ -2779,7 +2803,6 @@ your daily analytics are ready!</string>
     </scenes>
     <resources>
         <image name="analytics" width="25" height="25"/>
-        <image name="analytics_message" width="246" height="53"/>
         <image name="audio_wave" width="25" height="19"/>
         <image name="back_arrow" width="25" height="25"/>
         <image name="down_hand" width="60" height="60"/>

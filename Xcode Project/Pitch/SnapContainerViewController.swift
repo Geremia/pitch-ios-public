@@ -223,7 +223,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         case 2:
             let main: MainViewController = mainVc as! MainViewController
             main.shouldUpdateUI = false
-            main.hidePopup()
+            main.hideAnalyticsPopup()
             
             let analytics: AnalyticsViewController = self.analyticsVc as! AnalyticsViewController
             analytics.checkForShareAndAnimation()

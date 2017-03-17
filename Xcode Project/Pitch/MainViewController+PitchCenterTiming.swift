@@ -54,8 +54,8 @@ extension MainViewController {
         pitchCenterTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
             self.addPitchCenterTimeToAnalytics()
             self.setViewTo(newState: .inTune)
-            if self.shouldUpdateAnalyticsCircle {
-//                self.updateAnalyticsCircle()
+            if self.shouldCheckForAnalyticsPopup {
+                self.checkForAnalyticsPopup()
             }
         })
     }

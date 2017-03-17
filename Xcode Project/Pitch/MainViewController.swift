@@ -14,6 +14,9 @@ class MainViewController: UIViewController {
     
     // MARK: - Tuner Outlets
     
+    @IBOutlet weak var analyticsPopupView: UIView!
+    @IBOutlet weak var analyticsPopupTopConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var recordView: UIView!
     @IBOutlet weak var recordLabel: UILabel!
     @IBOutlet weak var leftRecordButton: UIButton!
@@ -42,8 +45,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var pitchPipeButton: UIButton!
     
     @IBOutlet weak var analyticsButton: UIButton!
-    @IBOutlet weak var analyticsCircle: ScoreCircle!
-    @IBOutlet weak var analyticsMessage: UIImageView!
     
     @IBOutlet weak var pitchPipeView: PitchPipeView!
     
@@ -54,7 +55,7 @@ class MainViewController: UIViewController {
     var pitchPipeOpen: Bool = false
     var state: MainViewState = .outOfTune
     
-    var shouldUpdateAnalyticsCircle: Bool = true
+    var shouldCheckForAnalyticsPopup: Bool = true
     var shouldUpdateUI: Bool = true
     
     var orientationDependentConstraints: [NSLayoutConstraint] = []
@@ -91,9 +92,6 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         
         pitchPipeView.updateButtonLabels()
-        if DataManager.today().hasSufficientData {
-            analyticsMessage.alpha = 0.0
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -141,6 +139,14 @@ class MainViewController: UIViewController {
             pauseRecording()
         case .paused:
             startRecording()
+        }
+    }
+    
+    @IBAction func viewAnalyticsPressed(_ sender: Any) {
+        if let container = snapContainer {
+            container.transitionRight(animated: true, completion: {
+                self.hideAnalyticsPopup()
+            })
         }
     }
     
