@@ -59,7 +59,7 @@ extension AnalyticsViewController {
     }
     
     func animateIn() {
-        print("animate in ")
+        scrollView.isScrollEnabled = false
         let score = data.tuningScore
         self.scoreLabel.countFromZero(to: CGFloat(score), withDuration: 1.2)
         
@@ -89,6 +89,7 @@ extension AnalyticsViewController {
             self.feedbackLabel.alpha = 1.0
             self.resetButton.alpha = 1.0
         }, completion: { _ in
+            self.scrollView.isScrollEnabled = true
             let shouldBypassTutorial = UserDefaults.standard.shouldBypassAnalyticsTutorial()
             if !shouldBypassTutorial {
                 UserDefaults.standard.setShouldBypassAnalyticsTutorial(true)
