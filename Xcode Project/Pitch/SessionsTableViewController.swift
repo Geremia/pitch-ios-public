@@ -167,6 +167,11 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     }
     
     func sharePressedOn(_ cell: SessionsTableViewCell) {
+        if let indexPath = tableView.indexPath(for: cell) {
+            let session = sessions[indexPath.row]
+            let activityView = UIActivityViewController(activityItems: [session.audioFileUrl], applicationActivities: nil)
+            present(activityView, animated: true, completion: nil)
+        }
     }
     
     func analyticsPressedOn(_ cell: SessionsTableViewCell) {
