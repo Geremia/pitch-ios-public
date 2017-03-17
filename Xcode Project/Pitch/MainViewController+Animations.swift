@@ -117,20 +117,20 @@ extension MainViewController {
             if self.noteLabel.text != "--" {
                 self.displayPitch(pitch: (self.noteLabel.text?.trimmingCharacters(in: .whitespaces))!)
             }
-        }, completion: { _ in })
+        }, completion: nil)
         
         UIView.transition(with: self.settingsButton, duration: duration, options: options, animations: {
             self.settingsButton.setImage(newState.menuImage, for: .normal)
-        }, completion: { _ in })
+        }, completion: nil)
         
         UIView.transition(with: self.pitchPipeButton, duration: duration, options: options, animations: {
             let image = self.pitchPipeOpen ? newState.closePitchPipeImage : newState.pitchPipeImage
             self.pitchPipeButton.setImage(image, for: .normal)
-        }, completion: { _ in })
+        }, completion: nil)
         
         UIView.transition(with: self.analyticsButton, duration: duration, options: options, animations: {
             self.analyticsButton.setImage(newState.analyticsImage, for: .normal)
-        }, completion: { _ in })
+        }, completion: nil)
         
         UIView.animate(withDuration: duration, delay: 0, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
             self.view.backgroundColor = newState.viewBackgroundColor
@@ -143,16 +143,16 @@ extension MainViewController {
             for component in self.movingLineComponents {
                 component.backgroundColor = newState.lineTextColor
             }
-        }, completion: { finished in
-            if finished {
-                if self.state == .inTune {
-                    self.movingLineHeight.constant = newState.lineThickness
-                    for height in self.tickmarkHeights {
-                        height.constant = newState.lineThickness
-                    }
+            
+            if self.state == .inTune {
+                self.movingLineHeight.constant = newState.lineThickness
+                for height in self.tickmarkHeights {
+                    height.constant = newState.lineThickness
                 }
+                
+                self.tunerView.layoutIfNeeded()
             }
-        })
+        }, completion: nil)
     }
     
     func displayPitch(pitch: String) {
