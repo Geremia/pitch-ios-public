@@ -9,13 +9,14 @@
 import UIKit
 import AudioKit
 
-class SessionsViewController: UIViewController {
+class SessionsViewController: UIViewController, SessionsTableViewControllerDelegate {
     
     // MARK: - Outlets
     
     @IBOutlet weak var sessionsLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var newSessionButton: UIButton!
+    @IBOutlet weak var emptyStateLabel: UILabel!
     
     // MARK: - Properties
     
@@ -41,6 +42,20 @@ class SessionsViewController: UIViewController {
         newSessionButton.isHidden = false
     }
     
+    // MARK: - Empty State
+    
+    func showEmptyState() {
+        UIView.transition(with: emptyStateLabel, duration: 0.3, options: [.transitionCrossDissolve], animations: {
+            self.emptyStateLabel.isHidden = false
+        }, completion: nil)
+    }
+    
+    func hideEmptyState() {
+        UIView.transition(with: emptyStateLabel, duration: 0.3, options: [.transitionCrossDissolve], animations: {
+            self.emptyStateLabel.isHidden = true
+        }, completion: nil)
+    }
+    
     // MARK: - Actions
     
     @IBAction func backPressed(_ sender: Any) {
@@ -63,6 +78,7 @@ class SessionsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "sessionsTableEmbed" {
             tableViewController = segue.destination as? SessionsTableViewController
+            tableViewController?.delegate = self
         }
     }
     

@@ -9,9 +9,16 @@
 import UIKit
 import RealmSwift
 
+protocol SessionsTableViewControllerDelegate {
+    func showEmptyState()
+    func hideEmptyState()
+}
+
 class SessionsTableViewController: UITableViewController, SessionsTableViewCellDelegate {
     
     // MARK: - Properties
+    
+    var delegate: SessionsTableViewControllerDelegate?
     
     var sessions: [Session] = []
     var expandedCellIndex: IndexPath?
@@ -67,6 +74,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        sessions.isEmpty ? delegate?.showEmptyState() : delegate?.hideEmptyState()
         return sessions.count
     }
     
