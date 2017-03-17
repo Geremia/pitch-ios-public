@@ -43,6 +43,11 @@ class DataManager {
         return days
     }
     
+    static func allDays() -> Results<Day> {
+        let days = realm.objects(Day.self)
+        return days
+    }
+    
     fileprivate static func add(_ day: Day) {
         try! realm.write {
             realm.add(day, update: true)

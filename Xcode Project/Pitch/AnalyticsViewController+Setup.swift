@@ -175,12 +175,12 @@ extension AnalyticsViewController {
     }
     
     func setupGraphView() {
-        let pastSevenDays = DataManager.data(forPastDaysIncludingToday: 30)
-        let data: [Double] = pastSevenDays.map({ Double($0.tuningScore) })
+        let pastThirtyDays = DataManager.data(forPastDaysIncludingToday: 30)
+        let data: [Double] = pastThirtyDays.map({ Double($0.tuningScore) })
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM d"
-        var labels: [String] = pastSevenDays.map({ dateFormatter.string(from: $0.date) })
+        var labels: [String] = pastThirtyDays.map({ dateFormatter.string(from: $0.date) })
         labels.removeLast()
         labels.append("Today")
         

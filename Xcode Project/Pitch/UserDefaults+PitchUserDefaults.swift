@@ -31,7 +31,7 @@ extension UserDefaults {
      * sequence.
      */
     func hasSeenOnboarding() -> Bool {
-        if DataManager.data(forPastDaysIncludingToday: 10).count > 1 {
+        if DataManager.allDays().count > 1 {
             return true
         }
         
@@ -47,6 +47,10 @@ extension UserDefaults {
      * version" popup.
      */
     func hasSeenWhatsNew() -> Bool {
+        if DataManager.allDays().count <= 1 {
+            return true
+        }
+        
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             if version != versionString() {
                 setVersionString(version)
@@ -105,9 +109,9 @@ extension UserDefaults {
      */
     func shouldShowAnalyticsSharePrompt() -> Bool {
         _ = DataManager.today()
-        let pastTenDays = DataManager.data(forPastDaysIncludingToday: 10)
+        let allDays = DataManager.allDays()
         
-        if pastTenDays.count >= 4 && !userBeforeAnalyticsSharing() {
+        if allDays.count >= 4 && !userBeforeAnalyticsSharing() {
             // User has been using the app for four days and they were
             // not a user before I added the Analytics sharing requirement,
             // so show them the sharing prompt.

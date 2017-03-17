@@ -87,13 +87,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func updateAnalyticsSharing() {
         if UserDefaults.standard.object(forKey: "userBeforeAnalyticsSharing") == nil {
             _ = DataManager.today()
-            let isPastUser = DataManager.data(forPastDaysIncludingToday: 10).count > 1
+            let isPastUser = DataManager.allDays().count > 1
             UserDefaults.standard.setUserBeforeAnalyticsSharing(isPastUser)
         }
     }
     
     func sendUsageStatistics() {
-        if DataManager.data(forPastDaysIncludingToday: 10).count > 1 {
+        if DataManager.allDays().count > 1 {
             Answers.logCustomEvent(withName: "Settings", customAttributes: ["Instrument" : UserDefaults.standard.instrument().description,
                                                                             "Dark Mode On" : String(UserDefaults.standard.darkModeOn()),
                                                                             "Difficulty" : UserDefaults.standard.difficulty().name,
@@ -116,6 +116,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // add new field 'pitchOffsets'
                         newObject!["pitchOffsets"] = List<OffsetData>()
                     }
+                } else if oldSchemaVersion < 2 {
+                    
                 }
         })
         
