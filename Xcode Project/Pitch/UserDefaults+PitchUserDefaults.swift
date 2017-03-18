@@ -80,6 +80,18 @@ extension UserDefaults {
     }
     
     /**
+     * Bool indicating whether the user has seen the tutorial view
+     * that shows how to swipe between screens.
+     */
+    func hasSeenSwipeTutorial() -> Bool {
+        return bool(forKey: "hasSeenSwipeTutorial")
+    }
+    
+    func setHasSeenSwipeTutorial(_ newValue: Bool) {
+        set(newValue, forKey: "hasSeenSwipeTutorial")
+    }
+    
+    /**
      * Whether microphone recording permission has been granted
      * by the user.
      */

@@ -114,7 +114,8 @@ class MainViewController: UIViewController {
     // MARK: - Swipe Tutorial
     
     func showSwipeTutorial() {
-        if !showingVersionUpdates {
+        if !showingVersionUpdates && !UserDefaults.standard.hasSeenSwipeTutorial() {
+            UserDefaults.standard.setHasSeenSwipeTutorial(true)
             performSegue(withIdentifier: "mainToSwipeTutorial", sender: nil)
         }
     }
