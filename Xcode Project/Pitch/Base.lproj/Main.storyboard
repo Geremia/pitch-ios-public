@@ -785,7 +785,7 @@ your daily analytics are ready!</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a0x-hU-JNk">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swipe_hand" translatesAutoresizingMaskIntoConstraints="NO" id="a0x-hU-JNk">
                                 <rect key="frame" x="147" y="200.5" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Fao-1A-EfF"/>
@@ -2888,6 +2888,7 @@ your daily analytics are ready!</string>
         <image name="share" width="25" height="25"/>
         <image name="small_minus" width="20" height="20"/>
         <image name="small_plus" width="20" height="20"/>
+        <image name="swipe_hand" width="80" height="80"/>
         <image name="trash" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
