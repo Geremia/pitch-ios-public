@@ -62,6 +62,8 @@ class MainViewController: UIViewController {
     var pitchPipeDisplayConstraint: NSLayoutConstraint!
     var didSetupConstraints: Bool = false
     
+    var showingVersionUpdates: Bool = false
+    
     // MARK: - Analytics Properties
     
     var previousPitchWasInTune: Bool = false
@@ -112,15 +114,21 @@ class MainViewController: UIViewController {
     // MARK: - Swipe Tutorial
     
     func showSwipeTutorial() {
-        performSegue(withIdentifier: "mainToSwipeTutorial", sender: nil)
+        if !showingVersionUpdates {
+            performSegue(withIdentifier: "mainToSwipeTutorial", sender: nil)
+        }
     }
     
     // MARK: - "What's New" Popup
     
     func showVersionUpdatesIfNecessary() {
         if !UserDefaults.standard.hasSeenWhatsNew() {
+            showingVersionUpdates = true
             let alert = UIAlertController(title: "What's New in This Version", message: Constants.versionUpdates, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Sweet!", style: .default, handler: nil)
+            let okAction = UIAlertAction(title: "Sweet!", style: .default, handler: { action in
+                self.showingVersionUpdates = false
+                self.showSwipeTutorial()
+            })
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }
