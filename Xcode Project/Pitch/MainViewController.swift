@@ -95,8 +95,10 @@ class MainViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
+        
         showVersionUpdatesIfNecessary()
+        showSwipeTutorial()
     }
     
     // MARK: - Notifications
@@ -105,6 +107,12 @@ class MainViewController: UIViewController {
         if !pitchPipeOpen {
             openPitchPipe()
         }
+    }
+    
+    // MARK: - Swipe Tutorial
+    
+    func showSwipeTutorial() {
+        performSegue(withIdentifier: "mainToSwipeTutorial", sender: nil)
     }
     
     // MARK: - "What's New" Popup
