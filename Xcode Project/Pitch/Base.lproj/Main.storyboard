@@ -498,7 +498,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pitch tracks your progress over time to help you become a better musician. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sY-S4-2uD">
-                                <rect key="frame" x="30" y="394" width="315" height="79.5"/>
+                                <rect key="frame" x="30" y="394.5" width="315" height="79.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -563,7 +563,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="But first, Pitch needs to access your microphone." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJy-9Z-dOd">
-                                <rect key="frame" x="30" y="407" width="315" height="53"/>
+                                <rect key="frame" x="30" y="407.5" width="315" height="53"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -689,13 +689,13 @@ your daily analytics are ready!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pitch can send you daily notifications with tips to improve your playing." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mly-bB-RKS">
-                                <rect key="frame" x="30" y="374" width="315" height="79.5"/>
+                                <rect key="frame" x="30" y="374.5" width="315" height="79.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We'll never spam you (pinky promise)." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zaP-oI-2Sr">
-                                <rect key="frame" x="42.5" y="453.5" width="290" height="107.5"/>
+                                <rect key="frame" x="42.5" y="454" width="290" height="107"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -767,6 +767,70 @@ your daily analytics are ready!</string>
             </objects>
             <point key="canvasLocation" x="-887" y="2107"/>
         </scene>
+        <!--Swipe Tutorial View Controller-->
+        <scene sceneID="nCf-oX-aro">
+            <objects>
+                <viewController id="wEN-2o-wNb" customClass="SwipeTutorialViewController" customModule="Pitch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TfD-8e-Hoi"/>
+                        <viewControllerLayoutGuide type="bottom" id="90f-OR-GqE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ndp-8L-imm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to get to different screens." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fe8-lP-Unp">
+                                <rect key="frame" x="29" y="360.5" width="318.5" height="26.5"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a0x-hU-JNk">
+                                <rect key="frame" x="147" y="200.5" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Fao-1A-EfF"/>
+                                    <constraint firstAttribute="height" constant="80" id="ajI-MX-jOj"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atf-tI-vmW">
+                                <rect key="frame" x="68" y="541" width="240" height="46"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="APe-WT-hNx"/>
+                                    <constraint firstAttribute="width" constant="240" id="eMT-O4-sRK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Semibold" family="Lato" pointSize="21"/>
+                                <state key="normal" title="Got it">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="gotItPressed:" destination="wEN-2o-wNb" eventType="touchUpInside" id="ga5-YI-z1P"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.047058823529411764" green="0.80000000000000004" blue="0.42352941176470588" alpha="0.96999999999999997" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="90f-OR-GqE" firstAttribute="top" secondItem="atf-tI-vmW" secondAttribute="bottom" constant="80" id="2v7-OP-q8Q"/>
+                            <constraint firstItem="Fe8-lP-Unp" firstAttribute="top" secondItem="a0x-hU-JNk" secondAttribute="bottom" constant="80" id="FbS-id-1op"/>
+                            <constraint firstItem="Fe8-lP-Unp" firstAttribute="centerX" secondItem="ndp-8L-imm" secondAttribute="centerX" id="Fma-a1-du9"/>
+                            <constraint firstItem="a0x-hU-JNk" firstAttribute="centerX" secondItem="ndp-8L-imm" secondAttribute="centerX" id="mV4-jw-Ilc"/>
+                            <constraint firstItem="Fe8-lP-Unp" firstAttribute="centerY" secondItem="ndp-8L-imm" secondAttribute="centerY" constant="40" id="ptl-Vf-ecu"/>
+                            <constraint firstItem="atf-tI-vmW" firstAttribute="centerX" secondItem="ndp-8L-imm" secondAttribute="centerX" id="qRz-D4-ooh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="hand" destination="a0x-hU-JNk" id="qYZ-da-Fti"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1fq-ZU-iK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="277.60000000000002" y="-840.62968515742136"/>
+        </scene>
         <!--Onboarding4 View Controller-->
         <scene sceneID="I2N-I7-3X9">
             <objects>
@@ -825,7 +889,7 @@ your daily analytics are ready!</string>
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What instrument do you play?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUl-sd-qWw">
-                                <rect key="frame" x="44.5" y="0.0" width="286.5" height="263.5"/>
+                                <rect key="frame" x="45" y="0.0" width="286.5" height="263.5"/>
                                 <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -881,7 +945,7 @@ your daily analytics are ready!</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syJ-FW-TRB">
-                                        <rect key="frame" x="147" y="23" width="81" height="28"/>
+                                        <rect key="frame" x="147.5" y="23" width="81" height="28"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1358,13 +1422,13 @@ your daily analytics are ready!</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CE-78-WqF">
-                                        <rect key="frame" x="147.5" y="143.5" width="81.5" height="132"/>
+                                        <rect key="frame" x="147" y="143" width="81.5" height="132"/>
                                         <fontDescription key="fontDescription" name="Lato-Hairline" family="Lato" pointSize="110"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are 0.0 cents flat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-ws-Axi">
-                                        <rect key="frame" x="110.5" y="287.5" width="155" height="20"/>
+                                        <rect key="frame" x="110" y="287" width="155" height="20"/>
                                         <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2138,7 +2202,7 @@ your daily analytics are ready!</string>
                                                 </connections>
                                             </containerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tuning Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KFs-qz-IRR">
-                                                <rect key="frame" x="139.5" y="654" width="96" height="20"/>
+                                                <rect key="frame" x="140" y="654" width="96" height="20"/>
                                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2480,7 +2544,7 @@ your daily analytics are ready!</string>
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="1500"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your most out-of-tune pitches appear here. Use this to learn your instrument's tendencies and adjust while you play." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKR-3J-GZs">
-                                        <rect key="frame" x="120" y="467.5" width="260" height="86.5"/>
+                                        <rect key="frame" x="120" y="467" width="260" height="86.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="3J0-8l-J19"/>
                                         </constraints>
@@ -2508,7 +2572,7 @@ your daily analytics are ready!</string>
                                         <rect key="frame" x="0.0" y="0.0" width="500" height="3200"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use this graph to keep track of your progress over time. If there's not much here yet, come back in a few days!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3o-Gy-EXT">
-                                        <rect key="frame" x="120" y="1317.5" width="260" height="86.5"/>
+                                        <rect key="frame" x="120" y="1317" width="260" height="86.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="O1q-zG-zFx"/>
                                         </constraints>
