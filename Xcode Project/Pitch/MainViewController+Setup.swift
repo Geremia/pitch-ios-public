@@ -40,8 +40,8 @@ extension MainViewController {
     
     func setupTuner() {
         tunerSetup = true
-        Tuner.shared.delegate = self
-        Tuner.shared.start()
+        Mixer.shared.tuner.delegate = self
+        Mixer.shared.tuner.start()
     }
     
     func setupUI() {

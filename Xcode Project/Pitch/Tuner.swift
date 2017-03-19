@@ -108,8 +108,6 @@ class Tuner: NSObject {
     fileprivate var smoothingBufferCount = UserDefaults.standard.damping().smoothingBufferSize
     fileprivate var frequencyBufferCount = UserDefaults.standard.damping().frequencyBufferSize
     
-    static let shared: Tuner = Tuner()
-    
     /**
      Object adopting the TunerDelegate protocol that should receive callbacks
      from this tuner.
@@ -134,7 +132,7 @@ class Tuner: NSObject {
      - parameter smoothing: Exponential smoothing factor, 0 < smoothing < 1
      
      */
-    private init(threshold: Double = 0.0, smoothing: Float = 0.0) {
+    init(threshold: Double = 0.0, smoothing: Float = 0.0) {
         self.threshold = min(abs(threshold), 1.0)
         self.smoothing = min(abs(smoothing), 1.0)
         self.previousAmplitude = 0.0

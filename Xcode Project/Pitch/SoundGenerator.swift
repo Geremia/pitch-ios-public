@@ -11,7 +11,7 @@ import AudioKit
 
 class SoundGenerator : NSObject {
     
-    static let shared: SoundGenerator = SoundGenerator()
+    // MARK: - Properties
     
     var bank: AKOscillatorBank!
     private var octaveConstant: Int = 60
@@ -21,13 +21,17 @@ class SoundGenerator : NSObject {
         }
     }
     
-    private override init() {
+    // MARK: - Setup
+    
+    override init() {
         bank = AKOscillatorBank(waveform: AKTable(.triangle), attackDuration: 0.06, releaseDuration: 0.06)
         super.init()
         
         setPitchStandard()
         NotificationCenter.default.addObserver(self, selector: #selector(setPitchStandard), name: .pitchStandardChanged, object: nil)
     }
+    
+    // MARK: - Methods
 
     func playNoteOn(channelNumber: Int) {
         let concertOffset = UserDefaults.standard.key().concertOffset

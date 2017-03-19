@@ -14,15 +14,22 @@ class Mixer: NSObject {
     // MARK: - Properties
     
     static let shared: Mixer = Mixer()
+    
     private var mixer: AKMixer!
+    var tuner: Tuner!
+    var soundGenerator: SoundGenerator!
+    
     var isSetup: Bool = false
     
     // MARK: - Setup
     
-    private override init() {}
+    private override init() {
+        tuner = Tuner()
+        soundGenerator = SoundGenerator()
+    }
     
     func setUp() {
-        self.mixer = AKMixer(Tuner.shared.silence, SoundGenerator.shared.bank)
+        self.mixer = AKMixer(tuner.silence, soundGenerator.bank)
         AudioKit.output = mixer
         
         if !AudioKit.audioInUseByOtherApps() {
@@ -30,7 +37,6 @@ class Mixer: NSObject {
             isSetup = true
         }
         
-//        try! AKSettings.session.overrideOutputAudioPort(AVAudioSessionPortOverride.speaker)
         try! AKSettings.setSession(category: .playAndRecord, with: .defaultToSpeaker)
         
         NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)
