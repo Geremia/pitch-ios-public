@@ -26,6 +26,8 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     // MARK: - Setup
     
     func setup() -> Bool {
+        recorder.stop()
+        
         let recordSettings: [String : Any] = [AVFormatIDKey: NSNumber(value:Int32(kAudioFormatMPEG4AAC)),
                                               AVSampleRateKey: NSNumber(value: Float(44100.0)),
                                               AVNumberOfChannelsKey: NSNumber(value: Int32(2)),
