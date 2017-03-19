@@ -16,19 +16,15 @@ class Mixer: NSObject {
     static let shared: Mixer = Mixer()
     
     private var mixer: AKMixer!
-    var tuner: Tuner!
-    var soundGenerator: SoundGenerator!
-    var recorder: Recorder!
+    var tuner: Tuner = Tuner()
+    var soundGenerator: SoundGenerator = SoundGenerator()
+    var recorder: Recorder = Recorder()
     
     var isSetup: Bool = false
     
     // MARK: - Setup
     
-    private override init() {
-        tuner = Tuner()
-        soundGenerator = SoundGenerator()
-        recorder = Recorder()
-    }
+    private override init() {}
     
     func setUp() {
         self.mixer = AKMixer(tuner.silence, soundGenerator.bank)
