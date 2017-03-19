@@ -23,9 +23,9 @@ extension MainViewController {
     func startRecording() {
         if recordingState == .ready {
             sessionAnalytics = SessionAnalytics()
-            Recorder.shared.startRecording()
+            Mixer.shared.recorder.startRecording()
         } else {
-            Recorder.shared.resumeRecording()
+            Mixer.shared.recorder.resumeRecording()
         }
         
         recordingState = .recording
@@ -58,17 +58,17 @@ extension MainViewController {
         }, completion: nil)
         
         stopAnimatingRecordLabel()
-        Recorder.shared.pauseRecording()
+        Mixer.shared.recorder.pauseRecording()
     }
     
     func doneRecording() {
         recordingState = .notRecording
-        Recorder.shared.stopRecording()
+        Mixer.shared.recorder.stopRecording()
         NotificationCenter.default.post(name: .doneRecording, object: nil)
         
         if let container = snapContainer {
             guard let analytics = self.sessionAnalytics else { return }
-            let session = Session(withRecordedFileUrl: Recorder.shared.currentFileUrl, analytics: analytics)
+            let session = Session(withRecordedFileUrl: Mixer.shared.recorder.currentFileUrl, analytics: analytics)
             container.go(toViewController: .sessions, animated: true, completion: {
                 NotificationCenter.default.post(name: .newSessionRecorded, object: session)
                 self.resetRecordView()
@@ -89,7 +89,7 @@ extension MainViewController {
     }
     
     func updateRecordLabel() {
-        let time: String = Recorder.shared.currentTime.prettyString
+        let time: String = Mixer.shared.recorder.currentTime.prettyString
         let text = recordingState == .recording ? "Recording" : "Recorded"
         recordLabel.text = "\(text) \(time)"
     }

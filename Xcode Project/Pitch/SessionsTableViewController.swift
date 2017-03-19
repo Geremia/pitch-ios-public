@@ -23,6 +23,8 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     var sessions: [Session] = []
     var expandedCellIndex: IndexPath?
     
+    var player: Player = Player()
+    
     // MARK: - Setup
 
     override func viewDidLoad() {
@@ -102,7 +104,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let expandedIndex = expandedCellIndex {
             if expandedIndex != indexPath {
-                Player.shared.reset()
+                player.reset()
                 finishedPlayback()
                 
                 let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: expandedIndex) as! SessionsTableViewCell
@@ -151,9 +153,9 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         if let indexPath = tableView.indexPath(for: cell) {
             let session = sessions[indexPath.row]
             if cell.isPlaying {
-                Player.shared.play(from: session.audioFileUrl)
+                player.play(from: session.audioFileUrl)
             } else {
-                Player.shared.pause()
+                player.pause()
             }
         }
     }
@@ -162,7 +164,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         let time = TimeInterval(cell.slider.value)
         
         DispatchQueue.main.async {
-            Player.shared.setCurrentTime(time)
+            self.player.setCurrentTime(time)
         }
     }
     
@@ -176,7 +178,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     
     func analyticsPressedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
-            Player.shared.reset()
+            player.reset()
             finishedPlayback()
             
             let session = sessions[indexPath.row]
@@ -190,7 +192,7 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     
     func deletePressedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
-            Player.shared.reset()
+            player.reset()
             finishedPlayback()
             requestDeletionForSessionAt(indexPath)
         }

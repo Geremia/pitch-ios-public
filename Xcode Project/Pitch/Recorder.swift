@@ -13,7 +13,6 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     
     // MARK: - Properties
     
-    static let shared: Recorder = Recorder()
     private var recorder: AVAudioRecorder!
     
     var currentFileUrl: URL {
@@ -26,9 +25,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     
     // MARK: - Setup
     
-    private override init() {}
-    
-    func setupRecorder() -> Bool {
+    func setup() -> Bool {
         let recordSettings: [String : Any] = [AVFormatIDKey: NSNumber(value:Int32(kAudioFormatMPEG4AAC)),
                                               AVSampleRateKey: NSNumber(value: Float(44100.0)),
                                               AVNumberOfChannelsKey: NSNumber(value: Int32(2)),
@@ -50,7 +47,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     // MARK: - Actions
     
     func startRecording() {
-        if setupRecorder() {
+        if setup() {
             recorder.record()
         }
     }

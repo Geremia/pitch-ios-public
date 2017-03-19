@@ -18,6 +18,7 @@ class Mixer: NSObject {
     private var mixer: AKMixer!
     var tuner: Tuner!
     var soundGenerator: SoundGenerator!
+    var recorder: Recorder!
     
     var isSetup: Bool = false
     
@@ -26,6 +27,7 @@ class Mixer: NSObject {
     private override init() {
         tuner = Tuner()
         soundGenerator = SoundGenerator()
+        recorder = Recorder()
     }
     
     func setUp() {

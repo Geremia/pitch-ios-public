@@ -13,16 +13,10 @@ class Player: NSObject, AVAudioPlayerDelegate {
     
     // MARK: - Properties
     
-    static let shared: Player = Player()
-    
     private var player: AVAudioPlayer?
     private var currentTime: TimeInterval = 0
     private var timeToStartFrom: TimeInterval = 0
     private var updateLink: CADisplayLink?
-    
-    // MARK: - Setup
-    
-    private override init() {}
 
     // MARK: - Actions
     
