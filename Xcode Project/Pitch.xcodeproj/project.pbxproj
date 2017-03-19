@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1BDFE7583C2B2B666CFDB3A6 /* Pods_Pitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0F971E2A4F5406DEC1FB69 /* Pods_Pitch.framework */; };
 		4C12A5491E7D699200815CD5 /* SwipeTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12A5481E7D699200815CD5 /* SwipeTutorialViewController.swift */; };
+		4C12A54B1E7E191A00815CD5 /* StyledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12A54A1E7E191A00815CD5 /* StyledViewController.swift */; };
 		4C1642D71E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1642D61E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift */; };
 		4C1642DC1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1642DB1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift */; };
 		4C1642DE1E3D3979003F0FB5 /* ShortcutIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1642DD1E3D3979003F0FB5 /* ShortcutIdentifier.swift */; };
@@ -102,6 +103,7 @@
 /* Begin PBXFileReference section */
 		150EF076BE610739A0C36D89 /* Pods-Pitch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pitch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pitch/Pods-Pitch.debug.xcconfig"; sourceTree = "<group>"; };
 		4C12A5481E7D699200815CD5 /* SwipeTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTutorialViewController.swift; sourceTree = "<group>"; };
+		4C12A54A1E7E191A00815CD5 /* StyledViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledViewController.swift; sourceTree = "<group>"; };
 		4C1642D61E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Setup.swift"; sourceTree = "<group>"; };
 		4C1642DB1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Delegates.swift"; sourceTree = "<group>"; };
 		4C1642DD1E3D3979003F0FB5 /* ShortcutIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutIdentifier.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 		4CEAD70A1D8A0D8D000492E6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4C12A54A1E7E191A00815CD5 /* StyledViewController.swift */,
 				4CD74B6C1E622F7700F073B5 /* Onboarding */,
 				4CE5F0BD1E0EC74900EF0AB3 /* Analytics */,
 				4CD74B791E68E4B800F073B5 /* Sessions */,
@@ -754,6 +757,7 @@
 				4C253C7F1DAEE98900BD07D6 /* Extensions.swift in Sources */,
 				4CD743C21E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift in Sources */,
 				4CD74B701E622FB300F073B5 /* Onboarding2ViewController.swift in Sources */,
+				4C12A54B1E7E191A00815CD5 /* StyledViewController.swift in Sources */,
 				4C1642D71E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift in Sources */,
 				4C3C96F01E783A1B009E0769 /* Player.swift in Sources */,
 				4CD74B761E622FD300F073B5 /* Onboarding5ViewController.swift in Sources */,

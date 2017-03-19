@@ -45,9 +45,6 @@ extension MainViewController {
     }
     
     func setupUI() {
-        view.layer.cornerRadius = 8.0
-        view.clipsToBounds = true
-        
         recordViewTopConstraint.constant = -recordView.frame.height
         recordLabelUpdateLink = CADisplayLink(target: self, selector: #selector(updateRecordLabel))
         

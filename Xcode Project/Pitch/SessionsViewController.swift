@@ -9,7 +9,7 @@
 import UIKit
 import AudioKit
 
-class SessionsViewController: UIViewController, SessionsTableViewControllerDelegate {
+class SessionsViewController: StyledViewController, SessionsTableViewControllerDelegate {
     
     // MARK: - Outlets
     
@@ -80,11 +80,5 @@ class SessionsViewController: UIViewController, SessionsTableViewControllerDeleg
             tableViewController = segue.destination as? SessionsTableViewController
             tableViewController?.delegate = self
         }
-    }
-    
-    // MARK: - Status Bar Style
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 }

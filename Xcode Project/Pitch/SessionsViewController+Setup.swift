@@ -13,9 +13,6 @@ extension SessionsViewController {
     // MARK: - Setup
     
     func setup() {
-        view.layer.cornerRadius = 8.0
-        view.clipsToBounds = true
-        
         darkModeChanged()
         NotificationCenter.default.addObserver(self, selector: #selector(darkModeChanged), name: .darkModeChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(newSessionRecorded(_:)), name: .newSessionRecorded, object: nil)

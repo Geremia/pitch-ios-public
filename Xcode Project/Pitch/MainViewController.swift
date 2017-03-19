@@ -10,7 +10,7 @@ import UIKit
 import AudioKit
 import PureLayout
 
-class MainViewController: UIViewController {
+class MainViewController: StyledViewController {
     
     // MARK: - Tuner Outlets
     
@@ -208,12 +208,6 @@ class MainViewController: UIViewController {
     func updatePitchPipeButtonImage() {
         let image: UIImage = pitchPipeOpen ? state.closePitchPipeImage : state.pitchPipeImage
         pitchPipeButton.setImage(image, for: .normal)
-    }
-    
-    // MARK: - Status Bar Style
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 }
 

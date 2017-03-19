@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SwipeTutorialViewController: UIViewController {
+class SwipeTutorialViewController: StyledViewController {
     
     // MARK: - Outlets
     
@@ -91,11 +91,5 @@ class SwipeTutorialViewController: UIViewController {
     
     @IBAction func gotItPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-
-    // MARK: - Status Bar Style
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 }

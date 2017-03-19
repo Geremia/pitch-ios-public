@@ -12,7 +12,7 @@ import UICountingLabel
 import ScrollableGraphView
 import Crashlytics
 
-class AnalyticsViewController: UIViewController {
+class AnalyticsViewController: StyledViewController {
     
     // MARK: - Outlets
     
@@ -124,12 +124,6 @@ class AnalyticsViewController: UIViewController {
         alert.addActions([deleteAction, cancelAction])
         
         snapContainer?.present(alert, animated: true, completion: nil)
-    }
-    
-    // MARK: - Status Bar Style
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
     
     // MARK: - Navigation

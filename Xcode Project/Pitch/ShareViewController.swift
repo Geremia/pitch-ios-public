@@ -15,7 +15,7 @@ protocol ShareViewControllerDelegate {
     func userDidShare()
 }
 
-class ShareViewController: UIViewController {
+class ShareViewController: StyledViewController {
     
     // MARK: - Outlets
     
@@ -31,12 +31,6 @@ class ShareViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-    }
-    
-    func setupUI() {
-        view.layer.cornerRadius = 8.0
-        view.clipsToBounds = true
         updateForDarkMode()
     }
     
@@ -72,11 +66,5 @@ class ShareViewController: UIViewController {
         self.dismiss(animated: true, completion: { _ in
             self.delegate?.userCancelledShare()
         })
-    }
-    
-    // MARK: - Status Bar Style
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
 }

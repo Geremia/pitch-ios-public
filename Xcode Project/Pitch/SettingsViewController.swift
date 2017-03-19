@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class SettingsViewController: UIViewController, MFMailComposeViewControllerDelegate, SettingsTableViewControllerDelegate {
+class SettingsViewController: StyledViewController, MFMailComposeViewControllerDelegate, SettingsTableViewControllerDelegate {
     
     // MARK: - Outlets
     
@@ -35,8 +35,10 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.layer.masksToBounds = true
+        setup()
+    }
+    
+    func setup() {
         settingsView.layer.cornerRadius = 8.0
         settingsView.layer.masksToBounds = true
         instrumentKeyView.layer.cornerRadius = 8.0
@@ -150,12 +152,6 @@ class SettingsViewController: UIViewController, MFMailComposeViewControllerDeleg
             backButton.setImage(#imageLiteral(resourceName: "forward_arrow"), for: .normal)
             feedbackButton.backgroundColor = UIColor.inTune
         }
-    }
-    
-    // MARK: - Status Bar Style
-    
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
     
     // MARK: - Navigation
