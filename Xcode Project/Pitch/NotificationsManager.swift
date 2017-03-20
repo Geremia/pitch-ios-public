@@ -61,9 +61,12 @@ struct NotificationsManager {
     
     fileprivate static let realm = try! Realm()
     
-    static func firstNotificationTime(for dayType: DayType) -> TimeInterval {
+    // MARK: - Retrieving Data
+    
+    static func firstNotificationTime(for date: Date) -> TimeInterval {
+        let type = dayType(for: date)
         if let day = days().filter({ day in
-            return day.dayType == dayType
+            return day.dayType == type
         }).first {
             return day.earliestTime - 1800
         }
@@ -71,14 +74,29 @@ struct NotificationsManager {
         return 0
     }
     
-    static func secondNotificationTime(for dayType: DayType) -> TimeInterval {
+    static func secondNotificationTime(for date: Date) -> TimeInterval {
+        let type = dayType(for: date)
         if let day = days().filter({ day in
-            return day.dayType == dayType
+            return day.dayType == type
         }).first {
             return day.latestTime + 3600
         }
         
         return 0
+    }
+    
+    // MARK: - Adding Data
+    
+    static func userReachedSufficientData() {
+        
+    }
+    
+    // MARK: - Helpers
+    
+    private static func dayType(for date: Date) -> DayType {
+        let calendar = Calendar(identifier: .gregorian)
+        let weekDay = calendar.component(.weekday, from: date)
+        return DayType(rawValue: weekDay)!
     }
 
     private static func days() -> [NotificationsDayData] {
