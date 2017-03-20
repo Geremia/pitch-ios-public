@@ -12,7 +12,70 @@ import Realm
 
 class Day: Object {
     
-    // MARK: - Properties
+    // MARK: - Computed Properties
+    
+    /**
+     * The user's 'tuning score'. Takes into account timeToCenter
+     * and inTunePercentage to form a score from 0 - 100.
+     */
+    var tuningScore: Int {
+        /* Exponential decay for center time weight. We want to
+         penalize the user less as their time to center the pitch
+         increases. Example: Going from 2 seconds to 3 seconds
+         would lower the overall score more than going from 6 seconds
+         to 7 seconds. Accounts for 40% of the overall score. */
+        let centerTimeWeight = min(40 * 2 / (timeToCenter + 1.5), 40)
+        
+        // In-tune percentage accounts for 60% of the overall score.
+        let inTunePercentageWeight = 60 * inTunePercentage
+        
+        // Sum the two weights and round to get a score.
+        let combinedWeights = centerTimeWeight + inTunePercentageWeight
+        return Int(combinedWeights)
+    }
+    
+    /**
+     * An array of OffsetData. Each OffsetData contains a pitch, octave,
+     * and its average offset.
+     */
+    var pitchOffsets: List<OffsetData> = List<OffsetData>()
+    
+    /**
+     * Returns offset datas that only have more than 300 data points,
+     * sorted in descending order of the absolute value of every pitch's
+     * average offset.
+     */
+    var filteredPitchOffsets: [OffsetData] {
+        var offsets: [OffsetData] = []
+        offsets.append(contentsOf: pitchOffsets)
+        return offsets.filter { data in
+            if self is SessionAnalytics {
+                return true
+            } else {
+                return data.dataCount >= 200
+            }
+            }.sorted(by: { abs($0.averageOffset) > abs($1.averageOffset) })
+    }
+    
+    /**
+     * Boolean indicating whether enough data has been collected to be
+     * displayed to the user.
+     */
+    var hasSufficientData: Bool {
+        return inTunePercentageDataCount >= 800 && timeToCenterDataCount >= 3
+    }
+    
+    /**
+     * Double, 0 - 1 scale representing how close this Day is to
+     * having sufficient data.
+     */
+    var dataPercentage: Double {
+        let inTune = min(0.4 * Double(inTunePercentageDataCount) / 800, 0.4)
+        let timeToCenter = min(0.6 * Double(timeToCenterDataCount) / 3, 0.6)
+        return inTune + timeToCenter
+    }
+    
+    // MARK: - Stored Properties
     
     dynamic var date: Date = Date()
     dynamic var id: String = "0"
@@ -41,67 +104,6 @@ class Day: Object {
      * The number of data points added for timeToCenter.
      */
     dynamic var timeToCenterDataCount: Int = 0
-    
-    /**
-     * The user's 'tuning score'. Takes into account timeToCenter
-     * and inTunePercentage to form a score from 0 - 100.
-     */
-    var tuningScore: Int {
-        /* Exponential decay for center time weight. We want to
-        penalize the user less as their time to center the pitch
-        increases. Example: Going from 2 seconds to 3 seconds
-        would lower the overall score more than going from 6 seconds 
-        to 7 seconds. Accounts for 40% of the overall score. */
-        let centerTimeWeight = min(40 * 2 / (timeToCenter + 1.5), 40)
-        
-        // In-tune percentage accounts for 60% of the overall score.
-        let inTunePercentageWeight = 60 * inTunePercentage
-        
-        // Sum the two weights and round to get a score.
-        let combinedWeights = centerTimeWeight + inTunePercentageWeight
-        return Int(combinedWeights)
-    }
-    
-    /**
-     * An array of OffsetData. Each OffsetData contains a pitch, octave,
-     * and its average offset.
-     */
-    var pitchOffsets: List<OffsetData> = List<OffsetData>()
-    
-    /**
-     * Returns offset datas that only have more than 300 data points, 
-     * sorted in descending order of the absolute value of every pitch's 
-     * average offset.
-     */
-    var filteredPitchOffsets: [OffsetData] {
-        var offsets: [OffsetData] = []
-        offsets.append(contentsOf: pitchOffsets)
-        return offsets.filter { data in
-            if self is SessionAnalytics {
-                return true
-            } else {
-                return data.dataCount >= 200
-            }
-        }.sorted(by: { abs($0.averageOffset) > abs($1.averageOffset) })
-    }
-    
-    /**
-     * Boolean indicating whether enough data has been collected to be 
-     * displayed to the user.
-     */
-    var hasSufficientData: Bool {
-        return inTunePercentageDataCount >= 800 && timeToCenterDataCount >= 3
-    }
-    
-    /**
-     * Double, 0 - 1 scale representing how close this Day is to
-     * having sufficient data.
-     */
-    var dataPercentage: Double {
-        let inTune = min(0.4 * Double(inTunePercentageDataCount) / 800, 0.4)
-        let timeToCenter = min(0.6 * Double(timeToCenterDataCount) / 3, 0.6)
-        return inTune + timeToCenter
-    }
     
     // MARK: - Setup
     
