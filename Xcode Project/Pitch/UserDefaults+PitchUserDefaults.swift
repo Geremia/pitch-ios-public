@@ -56,8 +56,6 @@ extension UserDefaults {
                 setVersionString(version)
                 return false
             }
-            
-            return true
         }
         
         return true
