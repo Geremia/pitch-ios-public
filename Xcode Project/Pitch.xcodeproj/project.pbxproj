@@ -10,6 +10,7 @@
 		1BDFE7583C2B2B666CFDB3A6 /* Pods_Pitch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB0F971E2A4F5406DEC1FB69 /* Pods_Pitch.framework */; };
 		4C12A5491E7D699200815CD5 /* SwipeTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12A5481E7D699200815CD5 /* SwipeTutorialViewController.swift */; };
 		4C12A54B1E7E191A00815CD5 /* StyledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12A54A1E7E191A00815CD5 /* StyledViewController.swift */; };
+		4C12A54E1E80959C00815CD5 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12A54D1E80959C00815CD5 /* NotificationsManager.swift */; };
 		4C1642D71E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1642D61E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift */; };
 		4C1642DC1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1642DB1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift */; };
 		4C1642DE1E3D3979003F0FB5 /* ShortcutIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1642DD1E3D3979003F0FB5 /* ShortcutIdentifier.swift */; };
@@ -104,6 +105,7 @@
 		150EF076BE610739A0C36D89 /* Pods-Pitch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pitch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pitch/Pods-Pitch.debug.xcconfig"; sourceTree = "<group>"; };
 		4C12A5481E7D699200815CD5 /* SwipeTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTutorialViewController.swift; sourceTree = "<group>"; };
 		4C12A54A1E7E191A00815CD5 /* StyledViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledViewController.swift; sourceTree = "<group>"; };
+		4C12A54D1E80959C00815CD5 /* NotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		4C1642D61E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Setup.swift"; sourceTree = "<group>"; };
 		4C1642DB1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Delegates.swift"; sourceTree = "<group>"; };
 		4C1642DD1E3D3979003F0FB5 /* ShortcutIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutIdentifier.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		4C12A54C1E80955C00815CD5 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				4C12A54D1E80959C00815CD5 /* NotificationsManager.swift */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -756,6 +759,7 @@
 				4CDED8771E131354003C4000 /* DataManager.swift in Sources */,
 				4CD74B471E50D75900F073B5 /* ConnectionManager.swift in Sources */,
 				4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */,
+				4C12A54E1E80959C00815CD5 /* NotificationsManager.swift in Sources */,
 				4CE5F0C11E0EEA9F00EF0AB3 /* AnalyticsViewController+Animations.swift in Sources */,
 				4CD74B861E69119500F073B5 /* Session.swift in Sources */,
 				4CE5F0BF1E0EC77200EF0AB3 /* AnalyticsViewController.swift in Sources */,
