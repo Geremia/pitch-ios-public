@@ -32,8 +32,8 @@ class NotificationsDayData: Object {
     // MARK: - Stored Properties
     
     dynamic var id: String = "0"
-    dynamic var earliestTime: TimeInterval = 0
-    dynamic var latestTime: TimeInterval = 86400
+    dynamic var earliestTime: TimeInterval = 37800 // results in 10 AM when initially calling firstNotificationTime(for date: Date)
+    dynamic var latestTime: TimeInterval = 68400 // results in 8 PM when initially calling secondNotificationTime(for date: Date)
     
     // MARK: - Setup
     
