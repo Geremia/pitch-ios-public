@@ -57,7 +57,7 @@ class NotificationsDayData: Object {
     }
 }
 
-class NotificationsManager: NSObject {
+struct NotificationsManager {
     
     fileprivate static let realm = try! Realm()
     

@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class DataManager {
+struct DataManager {
     
     fileprivate static let realm = try! Realm()
     
