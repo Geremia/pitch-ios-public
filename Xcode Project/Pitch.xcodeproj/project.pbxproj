@@ -211,6 +211,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C12A54C1E80955C00815CD5 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
 		4C1642D81E39AD42003F0FB5 /* Analytics VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +289,7 @@
 				4CDED8761E131354003C4000 /* DataManager.swift */,
 				4CD74B841E69117C00F073B5 /* Analytics */,
 				4CD74B831E69115200F073B5 /* Sessions */,
+				4C12A54C1E80955C00815CD5 /* Notifications */,
 			);
 			name = "Data Storage";
 			sourceTree = "<group>";
