@@ -11,13 +11,13 @@ import Realm
 import RealmSwift
 
 enum DayType: Int {
+    case saturday
     case sunday
     case monday
     case tuesday
     case wednesday
     case thursday
     case friday
-    case saturday
 }
 
 class NotificationsDayData: Object {
