@@ -18,6 +18,15 @@ class NotificationsManager: NSObject {
     private let tracker: UsageTracker = UsageTracker()
     fileprivate let realm = try! Realm()
     
+    // MARK: - Setup
+    
+    private override init() {
+        super.init()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActive), name: .UIApplicationWillResignActive, object: nil)
+    }
+    
     // MARK: - Retrieving Data
     
     func firstNotificationTime(for date: Date) -> TimeInterval {
@@ -34,7 +43,7 @@ class NotificationsManager: NSObject {
     
     // MARK: - Adding Data
     
-    func userOpenedApp() {
+    @objc private func appWillEnterForeground() {
         let today = Date()
         let type = dayType(for: today)
         let dayData = day(for: type)
@@ -48,7 +57,7 @@ class NotificationsManager: NSObject {
         }
     }
     
-    func userWillCloseApp() {
+    @objc private func appWillResignActive() {
         /* If the user only had the app open for 15 seconds or less, don't count it.
            The intention is to avoid counting when people accidentally open the app 
            in the middle of the night. */
