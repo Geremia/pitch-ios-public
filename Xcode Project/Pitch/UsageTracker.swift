@@ -12,7 +12,7 @@ class UsageTracker: NSObject {
     
     // MARK: - Properties
     
-    private var openTime: Date = Date()
+    private(set) var openTime: Date = Date()
     var currentSessionLength: TimeInterval {
         let rightNow = Date()
         return rightNow.timeIntervalSince(openTime)

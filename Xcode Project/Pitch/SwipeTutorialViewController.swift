@@ -70,10 +70,6 @@ class SwipeTutorialViewController: StyledViewController {
         UIView.animate(withDuration: 1.2, delay: 1.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.4, options: [.curveEaseInOut], animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
-        
-//        UIView.animate(withDuration: 0.3, delay: 1.3, options: [.curveEaseInOut], animations: {
-//            self.hand.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-//        }, completion: nil)
     }
     
     func switchDirection() {
