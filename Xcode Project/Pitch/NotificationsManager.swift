@@ -73,4 +73,19 @@ struct NotificationsManager {
             realm.add(day)
         }
     }
+    
+    private static func dayType(for date: Date) -> DayType {
+        let weekDay = Calendar.current.component(.weekday, from: date)
+        return DayType(rawValue: weekDay) ?? .saturday
+    }
+    
+    private static func day(for dayType: DayType) -> NotificationsDayData {
+        if let day = days().filter({ day in
+            return day.dayType == dayType
+        }).first {
+            return day
+        }
+        
+        return NotificationsDayData(dayType: .saturday)
+    }
 }
