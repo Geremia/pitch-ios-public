@@ -18,40 +18,34 @@ struct NotificationsManager {
     
     static func firstNotificationTime(for date: Date) -> TimeInterval {
         let type = dayType(for: date)
-        if let day = days().filter({ day in
-            return day.dayType == type
-        }).first {
-            return day.earliestTime - 1800
-        }
-        
-        return 0
+        let dayData = day(for: type)
+        return dayData.earliestTime - 1800
     }
     
     static func secondNotificationTime(for date: Date) -> TimeInterval {
         let type = dayType(for: date)
-        if let day = days().filter({ day in
-            return day.dayType == type
-        }).first {
-            return day.latestTime + 3600
-        }
-        
-        return 0
+        let dayData = day(for: type)
+        return dayData.latestTime + 3600
     }
     
     // MARK: - Adding Data
     
-    static func userReachedSufficientData() {
+    static func userOpenedApp() {
+        let today = Date()
+        let type = dayType(for: today)
+        let dayData = day(for: type)
         
+        try! realm.write {
+            let startOfToday = Calendar.current.startOfDay(for: today)
+            let intervalSinceStart = today.timeIntervalSince(startOfToday)
+            if dayData.earliestTime > intervalSinceStart {
+                dayData.earliestTime = intervalSinceStart
+            }
+        }
     }
     
     // MARK: - Helpers
     
-    private static func dayType(for date: Date) -> DayType {
-        let calendar = Calendar(identifier: .gregorian)
-        let weekDay = calendar.component(.weekday, from: date)
-        return DayType(rawValue: weekDay)!
-    }
-
     private static func days() -> [NotificationsDayData] {
         if realm.objects(NotificationsDayData.self).count == 0 {
             populateDays()
