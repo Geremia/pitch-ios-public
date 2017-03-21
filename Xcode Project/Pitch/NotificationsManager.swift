@@ -44,6 +44,20 @@ struct NotificationsManager {
         }
     }
     
+    static func userWillCloseApp() {
+        let today = Date()
+        let type = dayType(for: today)
+        let dayData = day(for: type)
+        
+        try! realm.write {
+            let startOfToday = Calendar.current.startOfDay(for: today)
+            let intervalSinceStart = today.timeIntervalSince(startOfToday)
+            if dayData.latestTime < intervalSinceStart {
+                dayData.latestTime = intervalSinceStart
+            }
+        }
+    }
+    
     // MARK: - Helpers
     
     private static func days() -> [NotificationsDayData] {
