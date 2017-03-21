@@ -12,6 +12,7 @@
 		4C12A54B1E7E191A00815CD5 /* StyledViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12A54A1E7E191A00815CD5 /* StyledViewController.swift */; };
 		4C12A54E1E80959C00815CD5 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12A54D1E80959C00815CD5 /* NotificationsManager.swift */; };
 		4C12A5501E80A43900815CD5 /* NotificationsDayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12A54F1E80A43900815CD5 /* NotificationsDayData.swift */; };
+		4C12A5521E80A9D200815CD5 /* UsageTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C12A5511E80A9D200815CD5 /* UsageTracker.swift */; };
 		4C1642D71E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1642D61E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift */; };
 		4C1642DC1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1642DB1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift */; };
 		4C1642DE1E3D3979003F0FB5 /* ShortcutIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1642DD1E3D3979003F0FB5 /* ShortcutIdentifier.swift */; };
@@ -108,6 +109,7 @@
 		4C12A54A1E7E191A00815CD5 /* StyledViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyledViewController.swift; sourceTree = "<group>"; };
 		4C12A54D1E80959C00815CD5 /* NotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		4C12A54F1E80A43900815CD5 /* NotificationsDayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsDayData.swift; sourceTree = "<group>"; };
+		4C12A5511E80A9D200815CD5 /* UsageTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsageTracker.swift; sourceTree = "<group>"; };
 		4C1642D61E39AD31003F0FB5 /* AnalyticsViewController+Setup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Setup.swift"; sourceTree = "<group>"; };
 		4C1642DB1E39ADCC003F0FB5 /* AnalyticsViewController+Delegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AnalyticsViewController+Delegates.swift"; sourceTree = "<group>"; };
 		4C1642DD1E3D3979003F0FB5 /* ShortcutIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortcutIdentifier.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				4C12A54D1E80959C00815CD5 /* NotificationsManager.swift */,
 				4C12A54F1E80A43900815CD5 /* NotificationsDayData.swift */,
+				4C12A5511E80A9D200815CD5 /* UsageTracker.swift */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -789,6 +792,7 @@
 				4CDA49FE1DD13D7400D05DAB /* SettingsTableViewController.swift in Sources */,
 				4CDA4A021DD17A6C00D05DAB /* Constants.swift in Sources */,
 				4CD74B691E5BB48300F073B5 /* Mixer.swift in Sources */,
+				4C12A5521E80A9D200815CD5 /* UsageTracker.swift in Sources */,
 				4C12A5491E7D699200815CD5 /* SwipeTutorialViewController.swift in Sources */,
 				4CD74B6B1E5E7F7500F073B5 /* MainViewController+Layout.swift in Sources */,
 				4C253C811DAF181E00BD07D6 /* UserDefaults+PitchUserDefaults.swift in Sources */,
