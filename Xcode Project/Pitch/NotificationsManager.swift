@@ -45,6 +45,11 @@ struct NotificationsManager {
     }
     
     static func userWillCloseApp() {
+        /* If the user only had the app open for 15 seconds or less, don't count it.
+           The intention is to avoid counting when people accidentally open the app 
+           in the middle of the night. */
+        if UsageTracker.shared.currentSessionLength <= 15 { return }
+        
         let today = Date()
         let type = dayType(for: today)
         let dayData = day(for: type)
