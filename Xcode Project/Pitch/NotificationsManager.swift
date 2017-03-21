@@ -10,19 +10,23 @@ import Foundation
 import Realm
 import RealmSwift
 
-struct NotificationsManager {
+class NotificationsManager: NSObject {
     
-    fileprivate static let realm = try! Realm()
+    // MARK: - Properties
+    
+    static let shared: NotificationsManager = NotificationsManager()
+    private let tracker: UsageTracker = UsageTracker()
+    fileprivate let realm = try! Realm()
     
     // MARK: - Retrieving Data
     
-    static func firstNotificationTime(for date: Date) -> TimeInterval {
+    func firstNotificationTime(for date: Date) -> TimeInterval {
         let type = dayType(for: date)
         let dayData = day(for: type)
         return dayData.earliestTime - 1800
     }
     
-    static func secondNotificationTime(for date: Date) -> TimeInterval {
+    func secondNotificationTime(for date: Date) -> TimeInterval {
         let type = dayType(for: date)
         let dayData = day(for: type)
         return dayData.latestTime + 3600
@@ -30,7 +34,7 @@ struct NotificationsManager {
     
     // MARK: - Adding Data
     
-    static func userOpenedApp() {
+    func userOpenedApp() {
         let today = Date()
         let type = dayType(for: today)
         let dayData = day(for: type)
@@ -44,11 +48,11 @@ struct NotificationsManager {
         }
     }
     
-    static func userWillCloseApp() {
+    func userWillCloseApp() {
         /* If the user only had the app open for 15 seconds or less, don't count it.
            The intention is to avoid counting when people accidentally open the app 
            in the middle of the night. */
-        if UsageTracker.shared.currentSessionLength <= 15 { return }
+        if tracker.currentSessionLength <= 15 { return }
         
         let today = Date()
         let type = dayType(for: today)
@@ -65,7 +69,7 @@ struct NotificationsManager {
     
     // MARK: - Helpers
     
-    private static func days() -> [NotificationsDayData] {
+    private func days() -> [NotificationsDayData] {
         if realm.objects(NotificationsDayData.self).count == 0 {
             populateDays()
         }
@@ -79,7 +83,7 @@ struct NotificationsManager {
         return days
     }
     
-    private static func populateDays() {
+    private func populateDays() {
         for i in 0..<6 {
             let type = DayType(rawValue: i)
             let day = NotificationsDayData(dayType: type!)
@@ -87,12 +91,12 @@ struct NotificationsManager {
         }
     }
     
-    private static func dayType(for date: Date) -> DayType {
+    private func dayType(for date: Date) -> DayType {
         let weekDay = Calendar.current.component(.weekday, from: date)
         return DayType(rawValue: weekDay) ?? .saturday
     }
     
-    private static func day(for dayType: DayType) -> NotificationsDayData {
+    private func day(for dayType: DayType) -> NotificationsDayData {
         if let day = days().filter({ day in
             return day.dayType == dayType
         }).first {
