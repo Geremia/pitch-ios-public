@@ -41,9 +41,20 @@ class NotificationsManager: NSObject {
         return dayData.latestTime + 3600
     }
     
-    // MARK: - Adding Data
+    // MARK: - UIApplication Events
     
     @objc private func appWillEnterForeground() {
+        recordAppOpen()
+    }
+    
+    @objc private func appWillResignActive() {
+        recordAppClose()
+        scheduleNotifications()
+    }
+    
+    // MARK: - Adding Data
+    
+    func recordAppOpen() {
         let today = Date()
         let type = dayType(for: today)
         let dayData = day(for: type)
@@ -57,10 +68,10 @@ class NotificationsManager: NSObject {
         }
     }
     
-    @objc private func appWillResignActive() {
+    func recordAppClose() {
         /* If the user only had the app open for 15 seconds or less, don't count it.
-           The intention is to avoid counting when people accidentally open the app 
-           in the middle of the night. */
+         The intention is to avoid counting when people accidentally open the app
+         in the middle of the night. */
         if tracker.currentSessionLength <= 15 { return }
         
         let today = Date()
@@ -74,6 +85,12 @@ class NotificationsManager: NSObject {
                 dayData.latestTime = intervalSinceStart
             }
         }
+    }
+    
+    // MARK: - Scheduling Notifications
+    
+    func scheduleNotifications() {
+        
     }
     
     // MARK: - Helpers
