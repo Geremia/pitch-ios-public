@@ -76,21 +76,17 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
-//        scrollView.bounces = false
         scrollView.delaysContentTouches = false
         
-        let view = (
-            x: self.view.bounds.origin.x,
-            y: self.view.bounds.origin.y,
-            width: self.view.bounds.width,
-            height: self.view.bounds.height
-        )
+        let view = (x: self.view.bounds.origin.x,
+                    y: self.view.bounds.origin.y,
+                    width: self.view.bounds.width,
+                    height: self.view.bounds.height)
         
         scrollView.frame = CGRect(x: view.x,
                                   y: view.y,
                                   width: view.width + 16,
-                                  height: view.height
-        )
+                                  height: view.height)
         
         self.view.addSubview(scrollView)
         
@@ -102,26 +98,22 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         settingsVc.view.frame = CGRect(x: 0,
                                        y: 0,
                                        width: view.width,
-                                       height: view.height - 17
-        )
+                                       height: view.height - 17)
         
         mainVc.view.frame = CGRect(x: view.width + spacing,
                                    y: 0,
                                    width: view.width,
-                                   height: view.height - 17
-        )
+                                   height: view.height - 17)
         
         analyticsVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
                                         y: 0,
                                         width: view.width,
-                                        height: view.height - 17
-        )
+                                        height: view.height - 17)
         
         sessionsVc.view.frame = CGRect(x: (3 * view.width) + (3 * spacing),
                                        y: 0,
                                        width: view.width,
-                                       height: view.height - 17
-        )
+                                       height: view.height - 17)
         
         addChildViewController(settingsVc)
         addChildViewController(mainVc)
@@ -167,8 +159,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             self.scrollView.frame = CGRect(x: view.x,
                                       y: view.y,
                                       width: view.width + 16,
-                                      height: view.height
-            )
+                                      height: view.height)
             
             let spacing: CGFloat = 16
             let scrollWidth  = (4 * view.width) + (4 * spacing)
@@ -178,26 +169,22 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             self.settingsVc.view.frame = CGRect(x: 0,
                                        y: 0,
                                        width: view.width,
-                                       height: view.height - 17
-            )
+                                       height: view.height - 17)
             
             self.mainVc.view.frame = CGRect(x: view.width + spacing,
                                          y: 0,
                                          width: view.width,
-                                         height: view.height - 17
-            )
+                                         height: view.height - 17)
             
             self.analyticsVc.view.frame = CGRect(x: (2 * view.width) + (2 * spacing),
                                         y: 0,
                                         width: view.width,
-                                        height: view.height - 17
-            )
+                                        height: view.height - 17)
             
             self.sessionsVc.view.frame = CGRect(x: (3 * view.width) + (3 * spacing),
                                                  y: 0,
                                                  width: view.width,
-                                                 height: view.height - 17
-            )
+                                                 height: view.height - 17)
             
             self.scrollView.contentOffset.x = CGFloat(self.currentPage) * view.width + CGFloat(self.currentPage) * spacing
         }, completion: nil)
@@ -297,12 +284,10 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     func go(toViewController viewControllerType: SnapContainerViewControllerType, animated: Bool = false, completion: (() -> Void)? = nil) {
         if animated {
             scrollView.isUserInteractionEnabled = false
-//            scrollView.bounces = true
             UIView.animate(withDuration: 0.55, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.6, options: [.allowUserInteraction, .beginFromCurrentState], animations: {
                 self.scrollView.contentOffset.x = self.scrollView.frame.width * CGFloat(viewControllerType.rawValue)
             }, completion: { finished in
                 self.scrollView.isUserInteractionEnabled = true
-//                self.scrollView.bounces = false
                 self.scrollViewDidEndDecelerating(self.scrollView)
                 if let completion = completion {
                     completion()
