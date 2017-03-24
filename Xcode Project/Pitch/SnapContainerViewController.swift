@@ -211,7 +211,6 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         currentPage = Int(scrollView.contentOffset.x / scrollView.frame.width)
-        pageControl.currentPage = currentPage
         
         switch currentPage {
         case 0:
@@ -231,6 +230,12 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         default:
             break
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let fractionalPage: Float = Float(scrollView.contentOffset.x / scrollView.frame.width)
+        let page = lroundf(fractionalPage)
+        pageControl.currentPage = page
     }
     
     // MARK: - Notifications
