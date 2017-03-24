@@ -94,6 +94,11 @@ class AnalyticsViewController: StyledViewController {
             sessionViewAppeared()
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
 
     // MARK: - Actions
     
