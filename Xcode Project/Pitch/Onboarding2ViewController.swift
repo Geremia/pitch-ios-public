@@ -34,7 +34,7 @@ class Onboarding2ViewController: OnboardingViewController {
             switch status {
             case .authorized:
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "onboarding23", sender: nil)
+                    self.performSegue(withIdentifier: "onboarding24", sender: nil)
                 }
             default:
                 break
@@ -46,7 +46,7 @@ class Onboarding2ViewController: OnboardingViewController {
     
     func applicationDidBecomeActive(_ notification: Notification) {
         if permission.status == .authorized {
-            self.performSegue(withIdentifier: "onboarding23", sender: nil)
+            self.performSegue(withIdentifier: "onboarding24", sender: nil)
         }
     }
 }
