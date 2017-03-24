@@ -44,6 +44,13 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
         NotificationCenter.default.addObserver(self, selector: #selector(finishedPlayback), name: .finishedPlayback, object: nil)
     }
     
+    func hideKeyboard() {
+        if let expandedIndex = expandedCellIndex {
+            let expandedCell: SessionsTableViewCell = tableView.cellForRow(at: expandedIndex) as! SessionsTableViewCell
+            expandedCell.nameField.resignFirstResponder()
+        }
+    }
+    
     // MARK: - Dark Mode
     
     func darkModeChanged() {

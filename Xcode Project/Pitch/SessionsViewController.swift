@@ -60,6 +60,7 @@ class SessionsViewController: StyledViewController, SessionsTableViewControllerD
     
     @IBAction func backPressed(_ sender: Any) {
         if let container = snapContainer {
+            tableViewController?.hideKeyboard()
             container.transitionLeft(animated: true)
         }
     }
