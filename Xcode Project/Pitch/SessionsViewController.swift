@@ -9,7 +9,7 @@
 import UIKit
 import AudioKit
 
-class SessionsViewController: StyledViewController, SessionsTableViewControllerDelegate {
+class SessionsViewController: SnapContainerChildViewController, SessionsTableViewControllerDelegate  {
     
     // MARK: - Outlets
     

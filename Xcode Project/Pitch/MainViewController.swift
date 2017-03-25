@@ -10,7 +10,7 @@ import UIKit
 import AudioKit
 import PureLayout
 
-class MainViewController: StyledViewController {
+class MainViewController: SnapContainerChildViewController {
     
     // MARK: - Tuner Outlets
     

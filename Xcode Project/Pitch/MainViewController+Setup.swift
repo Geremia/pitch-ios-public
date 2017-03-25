@@ -67,4 +67,15 @@ extension MainViewController {
         transitionViewTo(newState: .outOfTune, animated: false)
         resetMovingLine()
     }
+    
+    // MARK: - Page Switching
+    
+    override func didBecomeCurrentPage() {
+        shouldUpdateUI = true
+    }
+    
+    override func didNotBecomeCurrentPage() {
+        shouldUpdateUI = false
+        hideAnalyticsPopup()
+    }
 }

@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class SettingsViewController: StyledViewController, MFMailComposeViewControllerDelegate, SettingsTableViewControllerDelegate {
+class SettingsViewController: SnapContainerChildViewController, MFMailComposeViewControllerDelegate, SettingsTableViewControllerDelegate  {
     
     // MARK: - Outlets
     

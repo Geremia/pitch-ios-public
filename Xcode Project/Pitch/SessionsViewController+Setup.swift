@@ -19,7 +19,7 @@ extension SessionsViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(doneRecording), name: .doneRecording, object: nil)
     }
     
-    // MARK: - Dark Mode
+    // MARK: - Dark Mode Switching
     
     func darkModeChanged() {
         let darkModeOn = UserDefaults.standard.darkModeOn()
@@ -32,5 +32,11 @@ extension SessionsViewController {
         let newSessionImage = darkModeOn ? #imageLiteral(resourceName: "white_plus") : #imageLiteral(resourceName: "plus")
         backButton.setImage(backImage, for: .normal)
         newSessionButton.setImage(newSessionImage, for: .normal)
+    }
+    
+    // MARK: - Page Switching
+    
+    override func didNotBecomeCurrentPage() {
+        tableViewController?.hideKeyboard()
     }
 }

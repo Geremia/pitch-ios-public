@@ -12,7 +12,7 @@ import UICountingLabel
 import ScrollableGraphView
 import Crashlytics
 
-class AnalyticsViewController: StyledViewController {
+class AnalyticsViewController: SnapContainerChildViewController {
     
     // MARK: - Outlets
     

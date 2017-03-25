@@ -10,6 +10,11 @@ import UIKit
 import Crashlytics
 import PureLayout
 
+class SnapContainerChildViewController: StyledViewController {
+    func didBecomeCurrentPage() {}
+    func didNotBecomeCurrentPage() {}
+}
+
 enum SnapContainerViewControllerType: Int {
     case settings
     case main
@@ -21,11 +26,11 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - Properties
     
-    var settingsVc: UIViewController!
-    var mainVc: UIViewController!
-    var analyticsVc: UIViewController!
-    var sessionsVc: UIViewController!
-    var horizontalViews = [UIViewController]()
+    var settingsVc: SnapContainerChildViewController!
+    var mainVc: SnapContainerChildViewController!
+    var analyticsVc: SnapContainerChildViewController!
+    var sessionsVc: SnapContainerChildViewController!
+    var horizontalViews = [SnapContainerChildViewController]()
     
     var scrollView: UIScrollView!
     var pageControl: UIPageControl!
@@ -33,13 +38,14 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     
     // MARK: - Setup
     
-    class func containerViewWith(_ settingsVc: UIViewController, mainVc: UIViewController, analyticsVc: UIViewController, sessionsVc: UIViewController) -> SnapContainerViewController {
+    class func containerViewWith(_ settingsVc: SnapContainerChildViewController, mainVc: SnapContainerChildViewController, analyticsVc: SnapContainerChildViewController, sessionsVc: SnapContainerChildViewController) -> SnapContainerViewController {
         let container = SnapContainerViewController()
         
         container.settingsVc = settingsVc
         container.mainVc = mainVc
         container.analyticsVc = analyticsVc
         container.sessionsVc = sessionsVc
+        container.horizontalViews.append(contentsOf: [settingsVc, mainVc, analyticsVc, sessionsVc])
         
         return container
     }
@@ -199,23 +205,9 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         currentPage = Int(scrollView.contentOffset.x / scrollView.frame.width)
         
-        switch currentPage {
-        case 0:
-            let main: MainViewController = mainVc as! MainViewController
-            main.shouldUpdateUI = false
-        case 1:
-            let main: MainViewController = mainVc as! MainViewController
-            main.shouldUpdateUI = true
-        case 2:
-            let main: MainViewController = mainVc as! MainViewController
-            main.shouldUpdateUI = false
-            main.hideAnalyticsPopup()
-            
-            let analytics: AnalyticsViewController = self.analyticsVc as! AnalyticsViewController
-            analytics.checkForShareAndAnimation()
-            Answers.logCustomEvent(withName: "Opened Analytics", customAttributes: ["afterPopup" : String(DataManager.today().hasSufficientData)])
-        default:
-            break
+        for i in 0..<horizontalViews.count {
+            let viewController = horizontalViews[i]
+            currentPage == i ? viewController.didBecomeCurrentPage() : viewController.didNotBecomeCurrentPage()
         }
     }
     
