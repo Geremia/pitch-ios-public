@@ -74,6 +74,12 @@ class SessionsViewController: SnapContainerChildViewController, SessionsTableVie
         }
     }
     
+    // MARK: - Page Switching
+    
+    override func didNotBecomeCurrentPage() {
+        tableViewController?.hideKeyboard()
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

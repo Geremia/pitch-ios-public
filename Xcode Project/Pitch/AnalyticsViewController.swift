@@ -131,6 +131,13 @@ class AnalyticsViewController: SnapContainerChildViewController {
         snapContainer?.present(alert, animated: true, completion: nil)
     }
     
+    // MARK: - Page Switching
+    
+    override func didBecomeCurrentPage() {
+        checkForShareAndAnimation()
+        Answers.logCustomEvent(withName: "Opened Analytics", customAttributes: ["afterPopup" : String(DataManager.today().hasSufficientData)])
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

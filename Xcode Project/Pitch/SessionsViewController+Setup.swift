@@ -33,10 +33,4 @@ extension SessionsViewController {
         backButton.setImage(backImage, for: .normal)
         newSessionButton.setImage(newSessionImage, for: .normal)
     }
-    
-    // MARK: - Page Switching
-    
-    override func didNotBecomeCurrentPage() {
-        tableViewController?.hideKeyboard()
-    }
 }

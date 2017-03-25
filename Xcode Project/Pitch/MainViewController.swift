@@ -209,6 +209,17 @@ class MainViewController: SnapContainerChildViewController {
         let image: UIImage = pitchPipeOpen ? state.closePitchPipeImage : state.pitchPipeImage
         pitchPipeButton.setImage(image, for: .normal)
     }
+    
+    // MARK: - Page Switching
+    
+    override func didBecomeCurrentPage() {
+        shouldUpdateUI = true
+    }
+    
+    override func didNotBecomeCurrentPage() {
+        shouldUpdateUI = false
+        hideAnalyticsPopup()
+    }
 }
 
 extension MainViewController: TunerDelegate {

@@ -45,7 +45,6 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         container.mainVc = mainVc
         container.analyticsVc = analyticsVc
         container.sessionsVc = sessionsVc
-        container.horizontalViews.append(contentsOf: [settingsVc, mainVc, analyticsVc, sessionsVc])
         
         return container
     }
@@ -136,6 +135,8 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         analyticsVc.didMove(toParentViewController: self)
         sessionsVc.didMove(toParentViewController: self)
         
+        horizontalViews.append(contentsOf: [settingsVc, mainVc, analyticsVc, sessionsVc])
+        
         scrollView.contentOffset.x = mainVc.view.frame.origin.x
         scrollView.delegate = self
     }
@@ -208,6 +209,10 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         for i in 0..<horizontalViews.count {
             let viewController = horizontalViews[i]
             currentPage == i ? viewController.didBecomeCurrentPage() : viewController.didNotBecomeCurrentPage()
+            
+            if i == 2 {
+                (analyticsVc as! AnalyticsViewController).didBecomeCurrentPage()
+            }
         }
     }
     

@@ -260,11 +260,4 @@ extension AnalyticsViewController {
         
         feedbackLabel.textColor = lineTextColor
     }
-    
-    // MARK: - Page Switching
-    
-    override func didBecomeCurrentPage() {
-        checkForShareAndAnimation()
-        Answers.logCustomEvent(withName: "Opened Analytics", customAttributes: ["afterPopup" : String(DataManager.today().hasSufficientData)])
-    }
 }
