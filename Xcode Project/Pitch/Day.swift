@@ -41,7 +41,7 @@ class Day: Object {
     var pitchOffsets: List<OffsetData> = List<OffsetData>()
     
     /**
-     * Returns offset datas that only have more than 300 data points,
+     * Returns offset datas that only have more than 100 data points,
      * sorted in descending order of the absolute value of every pitch's
      * average offset.
      */
@@ -52,7 +52,7 @@ class Day: Object {
             if self is SessionAnalytics {
                 return true
             } else {
-                return data.dataCount >= 200
+                return data.dataCount >= 100
             }
             }.sorted(by: { abs($0.averageOffset) > abs($1.averageOffset) })
     }
