@@ -12,11 +12,7 @@ class Constants {
     static var pitchPipeIsPlayingSound: Bool = false
     static var currentOrientation: Orientation = .portrait
     
-    static let versionUpdates: String = "- The interface has been cleaned up a bit! Just swipe to get to different screens.\n"
-                                                + "- NEW FEATURE: Sessions! Swipe over all the way over to the right and press the + to record your first session! After you're done, you can view the Analytics for that session or play back the recording.\n"
-                                                + "- You can now disable Analytics (if you're lame)."
-                                                + "- Fixed a bug that caused Analytics data not to update.\n"
-                                                + "- Lots of performance improvements (nice!)\n\n"
+    static let versionUpdates: String = "- Your Analytics data should now use MUCH less of your iPhone's storage space.\n\n"
         
                                                 + "~~~~ COMING SOON ~~~~\n"
                                                 + "- Game center integration! Compete with friends for who has the best intonation.\n"
