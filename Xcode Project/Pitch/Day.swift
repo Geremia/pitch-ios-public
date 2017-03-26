@@ -75,6 +75,11 @@ class Day: Object {
         return inTune + timeToCenter
     }
     
+    /**
+     * The default realm instance.
+     */
+    //var realm = try! Realm()
+    
     // MARK: - Stored Properties
     
     dynamic var date: Date = Date()
@@ -127,7 +132,7 @@ class Day: Object {
     // MARK: - Data Point Adding
     
     func add(tunerOutput: TunerOutput) {
-        let realm = try! Realm()
+        guard let realm = realm else { return }
         try! realm.write {
             inTunePercentageDataCount += 1
             
@@ -142,7 +147,7 @@ class Day: Object {
     }
     
     func updatePitchOffsets(tunerOutput: TunerOutput) {
-        let realm = try! Realm()
+        guard let realm = realm else { return }
         try! realm.write {
             let pitch = tunerOutput.pitch
             let offset = tunerOutput.centsDistance
@@ -164,7 +169,7 @@ class Day: Object {
     }
     
     func add(timeToCenter time: Double) {
-        let realm = try! Realm()
+        guard let realm = realm else { return }
         try! realm.write {
             timeToCenterDataCount += 1
             
