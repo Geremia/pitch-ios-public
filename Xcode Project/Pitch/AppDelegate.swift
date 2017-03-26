@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         updateRealmSchema()
+        compactRealm()
+        
         updateAnalyticsSharing()
         addShortcutItems(application: application)
         resetAnalyticsAnimationBools()
@@ -123,6 +125,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Tell Realm to use this new configuration object for the default Realm
         Realm.Configuration.defaultConfiguration = config
+    }
+    
+    func compactRealm() {
+        let defaultURL = Realm.Configuration.defaultConfiguration.fileURL!
+        let defaultParentURL = defaultURL.deletingLastPathComponent()
+        let compactedURL = defaultParentURL.appendingPathComponent("default-compact.realm")
+        
+        autoreleasepool {
+            let realm = try! Realm()
+            try! realm.writeCopy(toFile: compactedURL)
+            try! FileManager.default.removeItem(at: defaultURL)
+            try! FileManager.default.moveItem(at: compactedURL, to: defaultURL)
+        }
     }
     
     func addShortcutItems(application: UIApplication) {
