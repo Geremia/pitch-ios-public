@@ -117,7 +117,7 @@ extension UserDefaults {
      * Whether the sharing prompt should be shown when the user opens the
      * Analytics screen.
      */
-    func shouldShowAnalyticsSharePrompt() -> Bool {
+    func shouldShowAnalyticsSharePrompt() -> Bool {        
         _ = DataManager.today()
         let allDays = DataManager.allDays()
         

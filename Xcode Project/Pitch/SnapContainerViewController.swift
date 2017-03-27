@@ -209,10 +209,6 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         for i in 0..<horizontalViews.count {
             let viewController = horizontalViews[i]
             currentPage == i ? viewController.didBecomeCurrentPage() : viewController.didNotBecomeCurrentPage()
-            
-            if i == 2 {
-                (analyticsVc as! AnalyticsViewController).didBecomeCurrentPage()
-            }
         }
     }
     
