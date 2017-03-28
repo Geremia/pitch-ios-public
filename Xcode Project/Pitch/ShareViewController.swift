@@ -52,19 +52,14 @@ class ShareViewController: StyledViewController {
         let appStoreUrl = URL(string: "itms-apps://itunes.apple.com/app/pitch-tuner-app-for-iphone/id1169667039?ls=1&mt=8")
         
         UIApplication.shared.open(appStoreUrl!, options: [:], completionHandler: { _ in
-            self.dismiss(animated: true, completion: { _ in
-                Answers.logCustomEvent(withName: "App Store Review", customAttributes: nil)
-                UserDefaults.standard.userDidShareFromAnalytics()
-                self.delegate?.userDidShare()
-                self.dismiss(animated: true, completion: nil)
-            })
+            Answers.logCustomEvent(withName: "App Store Review", customAttributes: nil)
+            UserDefaults.standard.userDidShareFromAnalytics()
+            self.delegate?.userDidShare()
         })
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
         Answers.logCustomEvent(withName: "Cancel App Store Review", customAttributes: nil)
-        self.dismiss(animated: true, completion: { _ in
-            self.delegate?.userCancelledShare()
-        })
+        self.delegate?.userCancelledShare()
     }
 }

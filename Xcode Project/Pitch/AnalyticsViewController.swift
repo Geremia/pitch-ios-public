@@ -17,6 +17,7 @@ class AnalyticsViewController: SnapContainerChildViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var shareView: UIView!
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var analyticsLabel: UILabel!
@@ -141,7 +142,7 @@ class AnalyticsViewController: SnapContainerChildViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "analyticsToShare" {
+        if segue.identifier == "analyticsToShare" || segue.identifier == "shareEmbed" {
             let shareVC: ShareViewController = segue.destination as! ShareViewController
             shareVC.delegate = self
         } else if segue.identifier == "pitchesTableEmbed" {

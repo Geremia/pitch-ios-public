@@ -51,7 +51,11 @@ extension AnalyticsViewController {
     
     func showShareView() {
         hasShownShareView = true
-        performSegue(withIdentifier: "analyticsToShare", sender: nil)
+        
+        if !shareView.isHidden { return }
+        UIView.transition(with: view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
+            self.shareView.isHidden = false
+        }, completion: nil)
     }
     
     func startAnimation() {
