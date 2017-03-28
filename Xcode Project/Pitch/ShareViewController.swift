@@ -50,7 +50,7 @@ class ShareViewController: StyledViewController {
         
         UIApplication.shared.open(appStoreUrl!, options: [:], completionHandler: { _ in
             Answers.logCustomEvent(withName: "App Store Review", customAttributes: nil)
-//            UserDefaults.standard.userDidShareFromAnalytics()
+            UserDefaults.standard.userDidShareFromAnalytics()
             self.delegate?.userDidShare()
         })
     }
