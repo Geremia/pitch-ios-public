@@ -248,16 +248,18 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
             x: self.view.bounds.origin.x,
             y: self.view.bounds.origin.y,
             width: self.view.bounds.width,
-            height: self.view.bounds.height
-        )
+            height: self.view.bounds.height)
+        
         analyticsVc.view.frame = CGRect(x: (2 * view.width) + 32,
                                         y: 0,
                                         width: view.width,
-                                        height: view.height - 17
-        )
+                                        height: view.height - 17)
         
         addChildViewController(analyticsVc)
         scrollView.addSubview(analyticsVc.view)
+        
+        horizontalViews.remove(at: 2)
+        horizontalViews.insert(analyticsVc, at: 2)
         
         analytics.snapContainer = self
     }

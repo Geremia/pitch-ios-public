@@ -11,7 +11,6 @@ import MessageUI
 import Crashlytics
 
 protocol ShareViewControllerDelegate {
-    func userCancelledShare()
     func userDidShare()
 }
 
@@ -21,7 +20,6 @@ class ShareViewController: StyledViewController {
     
     @IBOutlet var labels: [UILabel]!
     @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
     
     // MARK: - Properties
     
@@ -42,7 +40,6 @@ class ShareViewController: StyledViewController {
                 label.textColor = .white
             }
             shareButton.backgroundColor = UIColor.darkInTune
-            cancelButton.setTitleColor(UIColor.white, for: .normal)
         }
     }
 
@@ -53,13 +50,8 @@ class ShareViewController: StyledViewController {
         
         UIApplication.shared.open(appStoreUrl!, options: [:], completionHandler: { _ in
             Answers.logCustomEvent(withName: "App Store Review", customAttributes: nil)
-            UserDefaults.standard.userDidShareFromAnalytics()
+//            UserDefaults.standard.userDidShareFromAnalytics()
             self.delegate?.userDidShare()
         })
-    }
-    
-    @IBAction func cancelButtonPressed(_ sender: Any) {
-        Answers.logCustomEvent(withName: "Cancel App Store Review", customAttributes: nil)
-        self.delegate?.userCancelledShare()
     }
 }

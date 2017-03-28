@@ -32,7 +32,7 @@ extension AnalyticsViewController {
         data = DataManager.today()
         let defaults = UserDefaults.standard
         if data.hasSufficientData && defaults.analyticsOn() {
-            if defaults.shouldShowAnalyticsSharePrompt() && !hasShownShareView {
+            if defaults.shouldShowAnalyticsSharePrompt() {
                 showShareView()
             } else if !hasSeenAnimation() {
                 startAnimation()
@@ -42,7 +42,7 @@ extension AnalyticsViewController {
     
     func sessionViewAppeared() {
         let defaults = UserDefaults.standard
-        if defaults.shouldShowAnalyticsSharePrompt() && !hasShownShareView {
+        if defaults.shouldShowAnalyticsSharePrompt() {
             showShareView()
         } else if !hasSeenAnimation() {
             startAnimation()
@@ -50,8 +50,6 @@ extension AnalyticsViewController {
     }
     
     func showShareView() {
-        hasShownShareView = true
-        
         if !shareView.isHidden { return }
         UIView.transition(with: view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
             self.shareView.isHidden = false

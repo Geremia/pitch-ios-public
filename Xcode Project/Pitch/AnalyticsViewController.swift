@@ -71,7 +71,6 @@ class AnalyticsViewController: SnapContainerChildViewController {
     
     var showingSessionData: Bool = false
     var showingData: Bool = false
-    var hasShownShareView: Bool = false
     var hasPreparedForAnimation: Bool = false
     var tutorialState: Int = 1
     
