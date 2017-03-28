@@ -50,6 +50,7 @@ extension AnalyticsViewController {
     }
     
     func showShareView() {
+        showingShareView = true
         if !shareView.isHidden { return }
         UIView.transition(with: view, duration: 0.3, options: [.transitionCrossDissolve], animations: {
             self.shareView.isHidden = false
@@ -147,7 +148,7 @@ extension AnalyticsViewController {
             helpButton.isHidden = false
         } else {
             noDataView.isHidden = data.hasSufficientData
-            helpButton.isHidden = !data.hasSufficientData
+            helpButton.isHidden = !data.hasSufficientData && !showingShareView
         }
     }
     

@@ -23,6 +23,7 @@ extension AnalyticsViewController: ShareViewControllerDelegate {
     // MARK: - ShareViewControllerDelegate Methods
     
     func userDidShare() {
+        showingShareView = false
         shareView.isHidden = false
         reloadData()
         checkForShareAndAnimation()
