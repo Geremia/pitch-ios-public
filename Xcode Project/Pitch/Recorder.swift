@@ -13,7 +13,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     
     // MARK: - Properties
     
-    private var recorder: AVAudioRecorder!
+    fileprivate var recorder: AVAudioRecorder!
     
     var currentFileUrl: URL {
         return recorder.url
@@ -70,7 +70,7 @@ class Recorder: NSObject, AVAudioRecorderDelegate {
     
     // MARK: - File URL
     
-    private func newFileURL() -> URL {
+    fileprivate func newFileURL() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentDirectory = paths[0]
         let filePath = documentDirectory.appendingPathComponent(newFileName(), isDirectory: true)

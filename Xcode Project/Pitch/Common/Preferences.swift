@@ -17,31 +17,31 @@ import Foundation
 @objc class Preferences: NSObject {                // will be used from objective-c so make it inherit from NSObject
     
     // Note: if these contanst change, update DefaultPreferences.plist
-    private static let appInSystemStatusBarKey = "AppInSystemStatusBar"
+    fileprivate static let appInSystemStatusBarKey = "AppInSystemStatusBar"
     
-    private static let scanFilterIsPanelOpenKey = "ScanFilterIsPanelOpen"
-    private static let scanFilterNameKey = "ScanFilterName"
-    private static let scanFilterIsNameExactKey = "ScanFilterIsNameExact"
-    private static let scanFilterIsNameCaseInsensitiveKey = "ScanFilterIsNameCaseInsensitive"
-    private static let scanFilterRssiValueKey = "ScanFilterRssiValue"
-    private static let scanFilterIsUnnamedEnabledKey = "ScanFilterIsUnnamedEnabled"
-    private static let scanFilterIsOnlyWithUartEnabledKey = "ScanFilterIsOnlyWithUartEnabled"
+    fileprivate static let scanFilterIsPanelOpenKey = "ScanFilterIsPanelOpen"
+    fileprivate static let scanFilterNameKey = "ScanFilterName"
+    fileprivate static let scanFilterIsNameExactKey = "ScanFilterIsNameExact"
+    fileprivate static let scanFilterIsNameCaseInsensitiveKey = "ScanFilterIsNameCaseInsensitive"
+    fileprivate static let scanFilterRssiValueKey = "ScanFilterRssiValue"
+    fileprivate static let scanFilterIsUnnamedEnabledKey = "ScanFilterIsUnnamedEnabled"
+    fileprivate static let scanFilterIsOnlyWithUartEnabledKey = "ScanFilterIsOnlyWithUartEnabled"
     
-    private static let updateServerUrlKey = "UpdateServerUrl"
-    private static let updateShowBetaVersionsKey = "UpdateShowBetaVersions"
-    private static let updateIgnoredVersionKey = "UpdateIgnoredVersion"
+    fileprivate static let updateServerUrlKey = "UpdateServerUrl"
+    fileprivate static let updateShowBetaVersionsKey = "UpdateShowBetaVersions"
+    fileprivate static let updateIgnoredVersionKey = "UpdateIgnoredVersion"
 
-    private static let infoRefreshOnLoadKey = "InfoRefreshOnLoad"
+    fileprivate static let infoRefreshOnLoadKey = "InfoRefreshOnLoad"
 
-    private static let uartReceivedDataColorKey = "UartReceivedDataColor"
-    private static let uartSentDataColorKey = "UartSentDataColor"
-    private static let uartIsDisplayModeTimestampKey = "UartIsDisplayModeTimestamp"
-    private static let uartIsInHexModeKey = "UartIsInHexMode"
-    private static let uartIsEchoEnabledKey = "UartIsEchoEnabled"
-    private static let uartIsAutomaticEolEnabledKey = "UartIsAutomaticEolEnabled"
-    private static let uartShowInvisibleCharsKey = "UartShowInvisibleChars"
+    fileprivate static let uartReceivedDataColorKey = "UartReceivedDataColor"
+    fileprivate static let uartSentDataColorKey = "UartSentDataColor"
+    fileprivate static let uartIsDisplayModeTimestampKey = "UartIsDisplayModeTimestamp"
+    fileprivate static let uartIsInHexModeKey = "UartIsInHexMode"
+    fileprivate static let uartIsEchoEnabledKey = "UartIsEchoEnabled"
+    fileprivate static let uartIsAutomaticEolEnabledKey = "UartIsAutomaticEolEnabled"
+    fileprivate static let uartShowInvisibleCharsKey = "UartShowInvisibleChars"
     
-    private static let neopixelIsSketchTooltipEnabledKey = "NeopixelIsSketchTooltipEnabledKey"
+    fileprivate static let neopixelIsSketchTooltipEnabledKey = "NeopixelIsSketchTooltipEnabledKey"
     
     enum PreferencesNotifications: String {
         case DidUpdatePreferences = "didUpdatePreferences"          // Note: used on some objective-c code, so when changed, update it
@@ -127,7 +127,7 @@ import Foundation
     }
     
     // MARK: - Firmware Updates
-    static var updateServerUrl: NSURL? {
+    static var updateServerUrl: URL? {
         get {
             let defaults = UserDefaults.standard
             let urlString = defaults.string(forKey: Preferences.updateServerUrlKey)

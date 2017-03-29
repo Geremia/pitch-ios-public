@@ -15,7 +15,7 @@ class Mixer: NSObject {
     
     static let shared: Mixer = Mixer()
     
-    private var mixer: AKMixer!
+    fileprivate var mixer: AKMixer!
     var tuner: Tuner = Tuner()
     var soundGenerator: SoundGenerator = SoundGenerator()
     var recorder: Recorder = Recorder()
@@ -24,7 +24,7 @@ class Mixer: NSObject {
     
     // MARK: - Setup
     
-    private override init() {}
+    fileprivate override init() {}
     
     func setUp() {
         self.mixer = AKMixer(tuner.silence, soundGenerator.bank)

@@ -14,7 +14,7 @@ extension MainViewController {
     
     // MARK: - Animations
     
-    func updateUI(output: TunerOutput) {
+    func updateUI(_ output: TunerOutput) {
         if output.isValid {
             displayPitch(pitch: output.pitch.description)
             updateCentsLabel(offset: output.centsDistance)
@@ -31,7 +31,7 @@ extension MainViewController {
         }, completion: nil)
     }
     
-    func updateCentsLabel(offset: Double) {
+    func updateCentsLabel(_ offset: Double) {
         centsLabel.isHidden = false
         
         let threshold = UserDefaults.standard.difficulty().tuningThreshold
@@ -44,12 +44,12 @@ extension MainViewController {
         }
     }
     
-    func updateOctaveLabel(octave: Int) {
+    func updateOctaveLabel(_ octave: Int) {
         octaveLabel.isHidden = false
         octaveLabel.text = String(octave)
     }
     
-    func updateMovingLine(centsDistance: Double) {
+    func updateMovingLine(_ centsDistance: Double) {
         portraitMovingLineCenterConstraint.constant = abs(centsDistance) > 1 ? CGFloat(-centsDistance * 5.0) : 0.0
         
         if state != .inTune {
@@ -95,14 +95,14 @@ extension MainViewController {
         }
     }
     
-    func setViewTo(newState: MainViewState) {
+    func setViewTo(_ newState: MainViewState) {
         if newState != state {
             state = newState
             transitionViewTo(newState: newState, animated: true)
         }
     }
     
-    func transitionViewTo(newState: MainViewState, animated: Bool) {
+    func transitionViewTo(_ newState: MainViewState, animated: Bool) {
         let options: UIViewAnimationOptions = [.transitionCrossDissolve, .beginFromCurrentState, .allowUserInteraction]
         let duration: TimeInterval = animated ? 0.2 : 0
         
@@ -155,7 +155,7 @@ extension MainViewController {
         }, completion: nil)
     }
     
-    func displayPitch(pitch: String) {
+    func displayPitch(_ pitch: String) {
         if pitch.characters.count > 1 {
             let font = noteLabel.font
             let fontSuper:UIFont? = noteLabel.font.withSize(38.0)

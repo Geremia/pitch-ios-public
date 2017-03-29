@@ -14,8 +14,8 @@ class SoundGenerator : NSObject {
     // MARK: - Properties
     
     var bank: AKOscillatorBank!
-    private var octaveConstant: Int = 60
-    private var channelsOn: [Int] = [] {
+    fileprivate var octaveConstant: Int = 60
+    fileprivate var channelsOn: [Int] = [] {
         didSet {
             Constants.pitchPipeIsPlayingSound = channelsOn.count > 0
         }

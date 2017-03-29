@@ -15,7 +15,7 @@ class BleUUIDNames {
     static let shared = BleUUIDNames()
 
     // Data
-    private var gattUUIds : [String : String]?
+    fileprivate var gattUUIds : [String : String]?
 
     init() {
         // Read known UUIDs
@@ -24,7 +24,7 @@ class BleUUIDNames {
 
     }
     
-    func nameForUUID(uuid: String) -> String? {
+    func nameForUUID(_ uuid: String) -> String? {
         return gattUUIds?[uuid]
     }
 }

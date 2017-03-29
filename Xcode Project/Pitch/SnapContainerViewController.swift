@@ -226,7 +226,7 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         analytics.checkForShareAndAnimation()
     }
     
-    func shortcutOpenToneGenerator(_ notification: NSNotification) {
+    func shortcutOpenToneGenerator(_ notification: Notification) {
         go(toViewController: .main)
     }
     
@@ -264,13 +264,13 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         analytics.snapContainer = self
     }
     
-    func transitionLeft(animated: Bool, completion: (() -> Void)? = nil) {
+    func transitionLeft(_ animated: Bool, completion: (() -> Void)? = nil) {
         if let viewController = SnapContainerViewControllerType(rawValue: currentPage - 1) {
             go(toViewController: viewController, animated: animated, completion: completion)
         }
     }
     
-    func transitionRight(animated: Bool, completion: (() -> Void)? = nil) {
+    func transitionRight(_ animated: Bool, completion: (() -> Void)? = nil) {
         if let viewController = SnapContainerViewControllerType(rawValue: currentPage + 1) {
             go(toViewController: viewController, animated: animated, completion: completion)
         }

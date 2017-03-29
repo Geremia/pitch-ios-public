@@ -9,8 +9,8 @@
 import Foundation
 
 class PeripheralList {
-    private var lastUserSelectionTime = CFAbsoluteTimeGetCurrent()
-    private var selectedPeripheralIdentifier: String?
+    fileprivate var lastUserSelectionTime = CFAbsoluteTimeGetCurrent()
+    fileprivate var selectedPeripheralIdentifier: String?
     
     var filterName: String? = Preferences.scanFilterName {
         didSet {
@@ -49,9 +49,9 @@ class PeripheralList {
         }
     }
     
-    private var isFilterDirty = true
+    fileprivate var isFilterDirty = true
    
-    private var cachedFilteredPeripherals: [String] = []
+    fileprivate var cachedFilteredPeripherals: [String] = []
     
     
     func setDefaultFilters() {
@@ -67,7 +67,7 @@ class PeripheralList {
         return (filterName != nil && !filterName!.isEmpty) || rssiFilterValue != nil || isOnlyUartEnabled || !isUnnamedEnabled
     }
     
-    func filteredPeripherals(forceUpdate: Bool) -> [String] {
+    func filteredPeripherals(_ forceUpdate: Bool) -> [String] {
         if isFilterDirty || forceUpdate {
             cachedFilteredPeripherals = calculateFilteredPeripherals()
             isFilterDirty = false
@@ -75,7 +75,7 @@ class PeripheralList {
         return cachedFilteredPeripherals
     }
     
-    private func calculateFilteredPeripherals() -> [String] {
+    fileprivate func calculateFilteredPeripherals() -> [String] {
         var peripherals = BleManager.shared.blePeripheralFoundAlphabeticKeys()
         
         let bleManager = BleManager.shared
@@ -170,7 +170,7 @@ class PeripheralList {
         return CFAbsoluteTimeGetCurrent() - self.lastUserSelectionTime
     }
     
-    func indexOfPeripheralIdentifier(identifier: String?) -> Int? {
+    func indexOfPeripheralIdentifier(_ identifier: String?) -> Int? {
         var result : Int?
         if let identifier = identifier {
             result = cachedFilteredPeripherals.index(of: identifier)
@@ -188,7 +188,7 @@ class PeripheralList {
         }
     }
     
-    func connectToPeripheral(identifier: String?) {
+    func connectToPeripheral(_ identifier: String?) {
         let bleManager = BleManager.shared
         
         if (identifier != bleManager.blePeripheralConnected?.peripheral.identifier.uuidString || identifier == nil) {
@@ -229,7 +229,7 @@ class PeripheralList {
         }
     }
     
-    func selectRow(row: Int) {
+    func selectRow(_ row: Int) {
         if (row != selectedPeripheralRow) {
             //DLog("Peripheral selected row: \(row)")
             connectToPeripheral(identifier: row >= 0 ? cachedFilteredPeripherals[row] : nil)

@@ -15,12 +15,12 @@ class NotificationsManager: NSObject {
     // MARK: - Properties
     
     static let shared: NotificationsManager = NotificationsManager()
-    private let tracker: UsageTracker = UsageTracker()
+    fileprivate let tracker: UsageTracker = UsageTracker()
     fileprivate let realm = try! Realm()
     
     // MARK: - Setup
     
-    private override init() {
+    fileprivate override init() {
         super.init()
         
         NotificationCenter.default.addObserver(self, selector: #selector(appWillEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)

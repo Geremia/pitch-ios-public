@@ -132,7 +132,7 @@ class Day: Object {
     
     // MARK: - Data Point Adding
     
-    func add(tunerOutput: TunerOutput) {
+    func add(_ tunerOutput: TunerOutput) {
         guard let realm = realm else { return }
         
         do {
@@ -153,7 +153,7 @@ class Day: Object {
         updatePitchOffsets(tunerOutput: tunerOutput)
     }
     
-    func updatePitchOffsets(tunerOutput: TunerOutput) {
+    func updatePitchOffsets(_ tunerOutput: TunerOutput) {
         guard let realm = realm else { return }
         
         do {

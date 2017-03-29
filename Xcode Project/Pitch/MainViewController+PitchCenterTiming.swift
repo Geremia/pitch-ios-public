@@ -12,7 +12,7 @@ extension MainViewController {
     
     // MARK: - Pitch Center Timing
     
-    func updatePitchCenterTimer(output: TunerOutput) {
+    func updatePitchCenterTimer(_ output: TunerOutput) {
         if output.isValid {
             userPlayedNote()
         } else {

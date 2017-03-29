@@ -61,7 +61,7 @@ class Pitch: NSObject {
     /**
      * This function returns the nearest pitch to the given frequency in Hz.
      */
-    class func nearest(frequency: Double) -> Pitch {
+    class func nearest(_ frequency: Double) -> Pitch {
         /* Map all pitches to tuples of the pitch and the distance between the
          * frequency for that pitch and the given frequency. */
         var results = all.map { pitch -> (pitch: Pitch, distance: Double) in

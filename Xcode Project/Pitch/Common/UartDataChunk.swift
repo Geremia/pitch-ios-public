@@ -11,8 +11,8 @@ import Foundation
 class UartDataChunk {      // A chunk of data received or sent
     var timestamp : CFAbsoluteTime
     enum TransferMode {
-        case TX
-        case RX
+        case tx
+        case rx
     }
     var mode : TransferMode
     var data : Data

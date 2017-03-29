@@ -12,7 +12,7 @@ extension MainViewController {
     
     // MARK: - Analytics
     
-    func addOutputToAnalytics(output: TunerOutput) {
+    func addOutputToAnalytics(_ output: TunerOutput) {
         if output.isValid {
             DataManager.today().add(tunerOutput: output)
             NotificationCenter.default.post(name: .reloadAnalyticsData, object: nil)

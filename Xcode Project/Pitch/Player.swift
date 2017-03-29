@@ -13,10 +13,10 @@ class Player: NSObject, AVAudioPlayerDelegate {
     
     // MARK: - Properties
     
-    private var player: AVAudioPlayer?
-    private var currentTime: TimeInterval = 0
-    private var timeToStartFrom: TimeInterval = 0
-    private var updateLink: CADisplayLink?
+    fileprivate var player: AVAudioPlayer?
+    fileprivate var currentTime: TimeInterval = 0
+    fileprivate var timeToStartFrom: TimeInterval = 0
+    fileprivate var updateLink: CADisplayLink?
 
     // MARK: - Actions
     
@@ -35,7 +35,7 @@ class Player: NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    private func loadAndPlay(from url: URL) {
+    fileprivate func loadAndPlay(from url: URL) {
         player = try! AVAudioPlayer(contentsOf: url)
         player?.delegate = self
         player?.currentTime = timeToStartFrom

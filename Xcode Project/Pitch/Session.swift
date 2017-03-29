@@ -90,12 +90,12 @@ class Session: Object {
         return "id"
     }
     
-    private func newFileName() -> String {
+    fileprivate func newFileName() -> String {
         let number = UserDefaults.standard.fileNumber()
         return "recording\(number).caf"
     }
     
-    private func documentDirectory() -> URL {
+    fileprivate func documentDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }

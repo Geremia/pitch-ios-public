@@ -74,8 +74,6 @@
 		4CEAD6D61D8A0CFD000492E6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D51D8A0CFD000492E6 /* MainViewController.swift */; };
 		4CEAD6D91D8A0CFD000492E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6D71D8A0CFD000492E6 /* Main.storyboard */; };
 		4CEAD6DE1D8A0CFD000492E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEAD6DC1D8A0CFD000492E6 /* LaunchScreen.storyboard */; };
-		4CEAD6E91D8A0CFD000492E6 /* PitchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6E81D8A0CFD000492E6 /* PitchTests.swift */; };
-		4CEAD6F41D8A0CFD000492E6 /* PitchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEAD6F31D8A0CFD000492E6 /* PitchUITests.swift */; };
 		4CF25E911DE8BA07009D109F /* InstrumentKeyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF25E901DE8BA07009D109F /* InstrumentKeyTableViewController.swift */; };
 		4CFC73B31DC59B3700AFD8AC /* PitchPipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */; };
 		4CFC73B51DC59B9800AFD8AC /* Lato-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CFC73B41DC59B9800AFD8AC /* Lato-Semibold.ttf */; };
@@ -174,11 +172,7 @@
 		4CEAD6DD1D8A0CFD000492E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4CEAD6DF1D8A0CFD000492E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CEAD6E41D8A0CFD000492E6 /* PitchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CEAD6E81D8A0CFD000492E6 /* PitchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchTests.swift; sourceTree = "<group>"; };
-		4CEAD6EA1D8A0CFD000492E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CEAD6EF1D8A0CFD000492E6 /* PitchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PitchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CEAD6F31D8A0CFD000492E6 /* PitchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchUITests.swift; sourceTree = "<group>"; };
-		4CEAD6F51D8A0CFD000492E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CF25E901DE8BA07009D109F /* InstrumentKeyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstrumentKeyTableViewController.swift; sourceTree = "<group>"; };
 		4CFC73B21DC59B3700AFD8AC /* PitchPipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchPipeView.swift; sourceTree = "<group>"; };
 		4CFC73B41DC59B9800AFD8AC /* Lato-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Semibold.ttf"; sourceTree = "<group>"; };
@@ -425,8 +419,6 @@
 			isa = PBXGroup;
 			children = (
 				4CEAD6D21D8A0CFD000492E6 /* Pitch */,
-				4CEAD6E71D8A0CFD000492E6 /* PitchTests */,
-				4CEAD6F21D8A0CFD000492E6 /* PitchUITests */,
 				4CEAD6D11D8A0CFD000492E6 /* Products */,
 				FB863E55DE01B0B3D015DD34 /* Pods */,
 				AF567B13DA37473D813F45E3 /* Frameworks */,
@@ -461,24 +453,6 @@
 				4CEAD6DF1D8A0CFD000492E6 /* Info.plist */,
 			);
 			path = Pitch;
-			sourceTree = "<group>";
-		};
-		4CEAD6E71D8A0CFD000492E6 /* PitchTests */ = {
-			isa = PBXGroup;
-			children = (
-				4CEAD6E81D8A0CFD000492E6 /* PitchTests.swift */,
-				4CEAD6EA1D8A0CFD000492E6 /* Info.plist */,
-			);
-			path = PitchTests;
-			sourceTree = "<group>";
-		};
-		4CEAD6F21D8A0CFD000492E6 /* PitchUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4CEAD6F31D8A0CFD000492E6 /* PitchUITests.swift */,
-				4CEAD6F51D8A0CFD000492E6 /* Info.plist */,
-			);
-			path = PitchUITests;
 			sourceTree = "<group>";
 		};
 		4CEAD7011D8A0D78000492E6 /* Fonts */ = {
@@ -621,17 +595,20 @@
 					4CEAD6CF1D8A0CFD000492E6 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = M24FQVR7AD;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					4CEAD6E31D8A0CFD000492E6 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = J2F7Z3X3WF;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 4CEAD6CF1D8A0CFD000492E6;
 					};
 					4CEAD6EE1D8A0CFD000492E6 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = J2F7Z3X3WF;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 4CEAD6CF1D8A0CFD000492E6;
 					};
@@ -828,7 +805,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CEAD6E91D8A0CFD000492E6 /* PitchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -836,7 +812,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CEAD6F41D8A0CFD000492E6 /* PitchUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1034,7 +1009,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plutoniumapps.PitchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pitch.app/Pitch";
 			};
 			name = Debug;
@@ -1049,7 +1024,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.plutoniumapps.PitchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pitch.app/Pitch";
 			};
 			name = Release;

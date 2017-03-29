@@ -19,7 +19,7 @@ enum MainViewState {
         return self == MainViewState.holding || self == MainViewState.inTune
     }
     
-    private var darkModeOn: Bool {
+    fileprivate var darkModeOn: Bool {
         return UserDefaults.standard.darkModeOn()
     }
     
