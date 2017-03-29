@@ -16,7 +16,7 @@ class NotificationsManager: NSObject {
     
     static let shared: NotificationsManager = NotificationsManager()
     fileprivate let tracker: UsageTracker = UsageTracker()
-    fileprivate let realm = try! Realm()
+    fileprivate let realm = DataManager.realm
     
     // MARK: - Setup
     

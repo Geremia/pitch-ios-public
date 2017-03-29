@@ -11,7 +11,7 @@ import RealmSwift
 
 struct DataManager {
     
-    fileprivate static let realm = try! Realm()
+    static let realm = try! Realm()
     
     // MARK: - Analytics
     

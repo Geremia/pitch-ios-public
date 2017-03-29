@@ -76,11 +76,6 @@ class Day: Object {
         return inTune + timeToCenter
     }
     
-    /**
-     * The default realm instance.
-     */
-    //var realm = try! Realm()
-    
     // MARK: - Stored Properties
     
     dynamic var date: Date = Date()
