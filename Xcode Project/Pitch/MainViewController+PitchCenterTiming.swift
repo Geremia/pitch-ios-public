@@ -12,7 +12,7 @@ extension MainViewController {
     
     // MARK: - Pitch Center Timing
     
-    func updatePitchCenterTimer(_ output: TunerOutput) {
+    func updatePitchCenterTimer(output: TunerOutput) {
         if output.isValid {
             userPlayedNote()
         } else {
@@ -53,7 +53,7 @@ extension MainViewController {
     func startPitchCenterTimer() {
         pitchCenterTimer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
             self.addPitchCenterTimeToAnalytics()
-            self.setViewTo(newState: .inTune)
+            self.setViewTo(.inTune)
             if self.shouldCheckForAnalyticsPopup {
                 self.checkForAnalyticsPopup()
             }

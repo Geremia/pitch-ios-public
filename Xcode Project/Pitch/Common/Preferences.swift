@@ -132,7 +132,7 @@ import Foundation
             let defaults = UserDefaults.standard
             let urlString = defaults.string(forKey: Preferences.updateServerUrlKey)
             if let urlString = urlString {
-                return NSURL(string: urlString)
+                return URL(string: urlString)
             }
             else {
                 return nil

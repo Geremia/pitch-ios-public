@@ -37,7 +37,7 @@ struct DataManager {
     static func data(forPastDaysIncludingToday days: Int) -> Results<Day> {
         let numberOfDays = max(days, 1)
         let today = Calendar.current.startOfDay(for: Date())
-        let startDate = today.adding(numberOfDays: -(numberOfDays - 1))
+        let startDate = today.adding(-(numberOfDays - 1))
         
         let days = realm.objects(Day.self).filter("date >= %@", startDate)
         return days

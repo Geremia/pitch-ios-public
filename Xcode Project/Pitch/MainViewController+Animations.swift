@@ -14,15 +14,15 @@ extension MainViewController {
     
     // MARK: - Animations
     
-    func updateUI(_ output: TunerOutput) {
+    func updateUI(output: TunerOutput) {
         if output.isValid {
-            displayPitch(pitch: output.pitch.description)
+            displayPitch(output.pitch.description)
             updateCentsLabel(offset: output.centsDistance)
             updateOctaveLabel(octave: output.pitch.octave)
             updateMovingLine(centsDistance: output.centsDistance)
             setViewToNewState(basedOnCentsDistance: output.centsDistance)
         } else {
-            setViewTo(newState: .outOfTune)
+            setViewTo(.outOfTune)
             resetMovingLine()
         }
         
@@ -31,7 +31,7 @@ extension MainViewController {
         }, completion: nil)
     }
     
-    func updateCentsLabel(_ offset: Double) {
+    func updateCentsLabel(offset: Double) {
         centsLabel.isHidden = false
         
         let threshold = UserDefaults.standard.difficulty().tuningThreshold
@@ -44,12 +44,12 @@ extension MainViewController {
         }
     }
     
-    func updateOctaveLabel(_ octave: Int) {
+    func updateOctaveLabel(octave: Int) {
         octaveLabel.isHidden = false
         octaveLabel.text = String(octave)
     }
     
-    func updateMovingLine(_ centsDistance: Double) {
+    func updateMovingLine(centsDistance: Double) {
         portraitMovingLineCenterConstraint.constant = abs(centsDistance) > 1 ? CGFloat(-centsDistance * 5.0) : 0.0
         
         if state != .inTune {
@@ -71,7 +71,7 @@ extension MainViewController {
             let intensities = [mainColorIntensity, intermediateIntensity, outOfTuneColorIntensity]
             
             for component in movingLineComponents {
-                component.backgroundColor = UIColor.blend(colors: colors, withIntensities: intensities)
+                component.backgroundColor = UIColor.blend(colors, withIntensities: intensities)
             }
         }
     }
@@ -86,19 +86,19 @@ extension MainViewController {
         switch abs(centsDistance) {
         case 0...threshold:
             if state != .inTune {
-                setViewTo(newState: .holding)
+                setViewTo(.holding)
             }
         case threshold...threshold + 5.0:
-            setViewTo(newState: .almostInTune)
+            setViewTo(.almostInTune)
         default:
-            setViewTo(newState: .outOfTune)
+            setViewTo(.outOfTune)
         }
     }
     
     func setViewTo(_ newState: MainViewState) {
         if newState != state {
             state = newState
-            transitionViewTo(newState: newState, animated: true)
+            transitionViewTo(newState, animated: true)
         }
     }
     
@@ -115,7 +115,7 @@ extension MainViewController {
             self.octaveLabel.font = newState.octaveLabelFont
             
             if self.noteLabel.text != "--" {
-                self.displayPitch(pitch: (self.noteLabel.text?.trimmingCharacters(in: .whitespaces))!)
+                self.displayPitch((self.noteLabel.text?.trimmingCharacters(in: .whitespaces))!)
             }
         }, completion: nil)
         

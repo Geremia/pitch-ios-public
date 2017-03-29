@@ -264,13 +264,13 @@ class SnapContainerViewController: UIViewController, UIScrollViewDelegate {
         analytics.snapContainer = self
     }
     
-    func transitionLeft(_ animated: Bool, completion: (() -> Void)? = nil) {
+    func transitionLeft(animated: Bool, completion: (() -> Void)? = nil) {
         if let viewController = SnapContainerViewControllerType(rawValue: currentPage - 1) {
             go(toViewController: viewController, animated: animated, completion: completion)
         }
     }
     
-    func transitionRight(_ animated: Bool, completion: (() -> Void)? = nil) {
+    func transitionRight(animated: Bool, completion: (() -> Void)? = nil) {
         if let viewController = SnapContainerViewControllerType(rawValue: currentPage + 1) {
             go(toViewController: viewController, animated: animated, completion: completion)
         }

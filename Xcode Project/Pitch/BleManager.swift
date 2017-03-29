@@ -172,7 +172,7 @@ class BleManager : NSObject, CBCentralManagerDelegate {
                 if identifier != self.blePeripheralConnected?.peripheral.identifier.uuidString { // Don't hide the connected peripheral
                     let elapsedTime = currentTime - blePeripheral.lastSeenTime
                     if elapsedTime > BleManager.kUndiscoverPeripheralConsideredOutOfRangeTime {
-                        print("undiscovered peripheral: \(blePeripheral.name)")
+                        print("undiscovered peripheral: \(String(describing: blePeripheral.name))")
                         self.blePeripheralsFound.removeValue(forKey: identifier)
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: BleNotifications.DidUnDiscoverPeripheral.rawValue), object: nil, userInfo: ["uuid" : identifier])
                     }

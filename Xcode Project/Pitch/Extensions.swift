@@ -11,7 +11,7 @@ import UIKit
 import AudioKit
 
 extension Double {
-    func roundTo(_ places:Int) -> Double {
+    func roundTo(places: Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
     }
@@ -146,15 +146,15 @@ extension Notification.Name {
 extension UIApplication {
     class func topViewController(_ controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
-            return topViewController(controller: navigationController.visibleViewController)
+            return topViewController(navigationController.visibleViewController)
         }
         if let tabController = controller as? UITabBarController {
             if let selected = tabController.selectedViewController {
-                return topViewController(controller: selected)
+                return topViewController(selected)
             }
         }
         if let presented = controller?.presentedViewController {
-            return topViewController(controller: presented)
+            return topViewController(presented)
         }
         return controller
     }

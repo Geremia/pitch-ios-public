@@ -91,7 +91,7 @@ class UartManager: NSObject {
     }
 
     func sendData(_ data: Data) {
-        let dataChunk = UartDataChunk(timestamp: CFAbsoluteTimeGetCurrent(), mode: .TX, data: data)
+        let dataChunk = UartDataChunk(timestamp: CFAbsoluteTimeGetCurrent(), mode: .tx, data: data)
         sendChunk(dataChunk)
     }
 
@@ -124,7 +124,7 @@ class UartManager: NSObject {
     
     func receivedData(_ data: Data) {
         
-        let dataChunk = UartDataChunk(timestamp: CFAbsoluteTimeGetCurrent(), mode: .RX, data: data)
+        let dataChunk = UartDataChunk(timestamp: CFAbsoluteTimeGetCurrent(), mode: .rx, data: data)
         receivedChunk(dataChunk)
     }
     

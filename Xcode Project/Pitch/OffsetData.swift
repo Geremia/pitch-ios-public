@@ -47,7 +47,7 @@ class OffsetData: Object {
     /**
      * Initializes a new OffsetData from a given Pitch and offset.
      */
-    static func new(_ pitch: Pitch, offset: Double) -> OffsetData {
+    static func new(pitch: Pitch, offset: Double) -> OffsetData {
         let offsetData = OffsetData()
         offsetData.pitchString = pitch.description
         offsetData.octave = pitch.octave
@@ -59,7 +59,7 @@ class OffsetData: Object {
      * Adds a new data point and recalculates average offset. Must be called
      * within a Realm.write block!
      */
-    func add(_ offset: Double) {
+    func add(offset: Double) {
         dataCount += 1
         
         let newDataPointWeight = 1 / Double(dataCount)

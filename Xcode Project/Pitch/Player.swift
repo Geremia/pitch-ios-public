@@ -89,6 +89,6 @@ class Player: NSObject, AVAudioPlayerDelegate {
     }
     
     func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
-        print("Audio player error: \(error?.localizedDescription)")
+        print("Audio player error: \(String(describing: error?.localizedDescription))")
     }
 }

@@ -227,13 +227,13 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func pitchStandardDecrement(_ sender: Any) {
         let newStandard = currentPitchStandard - 1
-        currentPitchStandard = clamp(value: newStandard, lower: 380, upper: 500)
+        currentPitchStandard = clamp(newStandard, lower: 380, upper: 500)
         updatePitchStandardLabel()
     }
     
     @IBAction func pitchStandardIncrement(_ sender: Any) {
         let newStandard = currentPitchStandard + 1
-        currentPitchStandard = clamp(value: newStandard, lower: 380, upper: 500)
+        currentPitchStandard = clamp(newStandard, lower: 380, upper: 500)
         updatePitchStandardLabel()
     }
 }

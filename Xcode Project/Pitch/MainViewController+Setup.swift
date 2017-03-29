@@ -64,7 +64,7 @@ extension MainViewController {
         analyticsPopupView.backgroundColor = darkModeOn ? UIColor.darkInTune : UIColor.inTune
         
         state = .outOfTune
-        transitionViewTo(newState: .outOfTune, animated: false)
+        transitionViewTo(.outOfTune, animated: false)
         resetMovingLine()
     }
 }

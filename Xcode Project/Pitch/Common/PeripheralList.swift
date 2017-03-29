@@ -163,7 +163,7 @@ class PeripheralList {
     
     
     var selectedPeripheralRow: Int? {
-        return indexOfPeripheralIdentifier(identifier: selectedPeripheralIdentifier)
+        return indexOfPeripheralIdentifier(selectedPeripheralIdentifier)
     }
     
     var elapsedTimeSinceSelection: CFAbsoluteTime {
@@ -232,7 +232,7 @@ class PeripheralList {
     func selectRow(_ row: Int) {
         if (row != selectedPeripheralRow) {
             //DLog("Peripheral selected row: \(row)")
-            connectToPeripheral(identifier: row >= 0 ? cachedFilteredPeripherals[row] : nil)
+            connectToPeripheral(row >= 0 ? cachedFilteredPeripherals[row] : nil)
         }
     }
 }

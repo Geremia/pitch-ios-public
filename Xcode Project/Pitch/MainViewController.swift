@@ -232,7 +232,7 @@ extension MainViewController: TunerDelegate {
         
         if shouldUpdateUI {
             updateUI(output: output)
-            addOutputToAnalytics(output: output)
+            addOutputToAnalytics(output)
             updatePitchCenterTimer(output: output)
         }
     }

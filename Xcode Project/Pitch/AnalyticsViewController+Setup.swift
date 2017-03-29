@@ -193,7 +193,7 @@ extension AnalyticsViewController {
         
         graphView.set(data: data, withLabels: labels)
         
-        graphView.dataPointSpacing = (view.frame.width - 50) / clamp(value: CGFloat(data.count), lower: 2, upper: 30)
+        graphView.dataPointSpacing = (view.frame.width - 50) / clamp(CGFloat(data.count), lower: 2, upper: 30)
         graphView.dataPointLabelFont = UIFont(name: "Lato-Regular", size: 15.0)!
         graphView.backgroundFillColor = UIColor.clear
         graphView.shouldDrawDataPoint = data.count == 1
