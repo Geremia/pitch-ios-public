@@ -228,10 +228,10 @@ public final class Siren: NSObject {
     /// The current version of your app that is available for download on the App Store
     public fileprivate(set) var currentAppStoreVersion: String?
 
+    internal var updaterWindow: UIWindow?
     fileprivate var appID: Int?
     fileprivate var lastVersionCheckPerformedOnDate: Date?
     fileprivate lazy var alertViewIsVisible: Bool = false
-    fileprivate var updaterWindow: UIWindow?
 
     /// The App's Singleton
     public static let shared = Siren()
@@ -263,7 +263,7 @@ public final class Siren: NSObject {
                 return
             }
 
-            if days(since: lastVersionCheckPerformedOnDate) >= checkType.rawValue {
+            if Date.days(since: lastVersionCheckPerformedOnDate) >= checkType.rawValue {
                 performVersionCheck()
             } else {
                 postError(.recentlyCheckedAlready, underlyingError: nil)
@@ -280,40 +280,43 @@ private extension Siren {
         do {
             let url = try iTunesURLFromString()
             let request = URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30)
-            let task = URLSession.shared.dataTask(with: request, completionHandler: { [unowned self] (data, _, error) in
-                if let error = error {
-                    self.postError(.appStoreDataRetrievalFailure, underlyingError: error)
-                } else {
-                    guard let data = data else {
-                        self.postError(.appStoreDataRetrievalFailure, underlyingError: nil)
-                        return
-                    }
-
-                    do {
-                        let jsonData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-                        guard let appData = jsonData as? [String: Any],
-                            self.isUpdateCompatibleWithDeviceOS(appData: appData) else {
-
-                                self.postError(.appStoreJSONParsingFailure, underlyingError: nil)
-                                return
-                        }
-
-                        DispatchQueue.main.async {
-                            // Print iTunesLookup results from appData
-                            self.printMessage(message: "JSON results: \(appData)")
-
-                            // Process Results (e.g., extract current version that is available on the AppStore)
-                            self.processVersionCheck(withResults: appData)
-                        }
-
-                    } catch let error as NSError {
-                        self.postError(.appStoreDataRetrievalFailure, underlyingError: error)
-                    }
-                }
-            })
-          task.resume()
+            URLSession.shared.dataTask(with: request, completionHandler: { [unowned self] (data, response, error) in
+                self.processResults(withData: data, response: response, error: error)
+            }).resume()
         } catch let error as NSError {
             postError(.malformedURL, underlyingError: error)
+        }
+    }
+
+    func processResults(withData data: Data?, response: URLResponse?, error: Error?) {
+        if let error = error {
+            self.postError(.appStoreDataRetrievalFailure, underlyingError: error)
+        } else {
+            guard let data = data else {
+                self.postError(.appStoreDataRetrievalFailure, underlyingError: nil)
+                return
+            }
+
+            do {
+                let jsonData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+                guard let appData = jsonData as? [String: Any],
+                    self.isUpdateCompatibleWithDeviceOS(appData: appData) else {
+
+                        self.postError(.appStoreJSONParsingFailure, underlyingError: nil)
+                        return
+                }
+
+                DispatchQueue.main.async {
+                    // Print iTunesLookup results from appData
+                    self.printMessage(message: "JSON results: \(appData)")
+
+                    // Process Results (e.g., extract current version that is available on the AppStore)
+                    self.processVersionCheck(withResults: appData)
+                }
+
+            } catch let error as NSError {
+                self.postError(.appStoreDataRetrievalFailure, underlyingError: error)
+            }
         }
     }
 
@@ -357,7 +360,7 @@ private extension Siren {
         }
 
         guard let currentVersionReleaseDate = allResults.first?["currentVersionReleaseDate"] as? String,
-            let daysSinceRelease = days(since: currentVersionReleaseDate),
+            let daysSinceRelease = Date.days(since: currentVersionReleaseDate),
             daysSinceRelease >= alertDays else {
                 return
         }
@@ -558,28 +561,6 @@ private extension Siren {
     }
 }
 
-// MARK: - Helpers (Date)
-
-private extension Siren {
-    static func setupDateFormatter() -> DateFormatter {
-        let dateformatter = DateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        return dateformatter
-    }
-
-    func days(since date: Date) -> Int {
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.day], from: date, to: Date())
-        return components.day!
-    }
-
-    func days(since dateString: String) -> Int? {
-        let dateformatter = Siren.setupDateFormatter()
-        guard let releaseDate = dateformatter.date(from: dateString) else { return nil }
-        return days(since: releaseDate)
-    }
-}
-
 // MARK: - Helpers (Misc.)
 
 private extension Siren {
@@ -609,79 +590,20 @@ private extension Siren {
     }
 
     func launchAppStore() {
-        guard let appID = appID else {
+        guard let appID = appID,
+            let iTunesURL = URL(string: "https://itunes.apple.com/app/id\(appID)") else {
             return
         }
 
-        let iTunesString =  "https://itunes.apple.com/app/id\(appID)"
-        let iTunesURL = URL(string: iTunesString)
-
         DispatchQueue.main.async {
-            UIApplication.shared.openURL(iTunesURL!)
+            UIApplication.shared.openURL(iTunesURL)
         }
-
     }
 
     func printMessage(message: String) {
         if debugEnabled {
             print("[Siren] \(message)")
         }
-    }
-}
-
-// MARK: - UIAlertController Extension
-
-private extension UIAlertController {
-    func show() {
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = ViewController()
-        window.windowLevel = UIWindowLevelAlert + 1
-
-        Siren.shared.updaterWindow = window
-
-        window.makeKeyAndVisible()
-        window.rootViewController!.present(self, animated: true, completion: nil)
-    }
-
-    class ViewController: UIViewController {
-        override var preferredStatusBarStyle: UIStatusBarStyle { return UIApplication.shared.statusBarStyle }
-    }
-}
-
-// MARK: - Bundle Extension
-
-private extension Bundle {
-    class func bundleID() -> String? {
-        return Bundle.main.bundleIdentifier
-    }
-
-    func sirenBundlePath() -> String {
-        return Bundle(for: Siren.self).path(forResource: "Siren", ofType: "bundle") as String!
-    }
-
-    func sirenForcedBundlePath(forceLanguageLocalization: SirenLanguageType) -> String {
-        let path = sirenBundlePath()
-        let name = forceLanguageLocalization.rawValue
-        return Bundle(path: path)!.path(forResource: name, ofType: "lproj")!
-    }
-
-    func localizedString(stringKey: String, forceLanguageLocalization: SirenLanguageType?) -> String {
-        var path: String
-        let table = "SirenLocalizable"
-        if let forceLanguageLocalization = forceLanguageLocalization {
-            path = sirenForcedBundlePath(forceLanguageLocalization: forceLanguageLocalization)
-        } else {
-            path = sirenBundlePath()
-        }
-
-        return Bundle(path: path)!.localizedString(forKey: stringKey, value: stringKey, table: table)
-    }
-
-    func bestMatchingAppName() -> String {
-        let bundleDisplayName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
-        let bundleName = Bundle.main.object(forInfoDictionaryKey: kCFBundleNameKey as String) as? String
-
-        return bundleDisplayName ?? bundleName ?? ""
     }
 }
 
@@ -741,11 +663,5 @@ extension Siren {
 
     func testIsAppStoreVersionNewer() -> Bool {
         return isAppStoreVersionNewer()
-    }
-}
-
-extension Bundle {
-    func testLocalizedString(stringKey: String, forceLanguageLocalization: SirenLanguageType?) -> String {
-        return Bundle().localizedString(stringKey: stringKey, forceLanguageLocalization: forceLanguageLocalization)
     }
 }

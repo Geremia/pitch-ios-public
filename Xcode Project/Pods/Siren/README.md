@@ -2,7 +2,7 @@
 
 ### Notify users when a new version of your app is available and prompt them to upgrade.
 
-[![CocoaPods](https://img.shields.io/cocoapods/v/Siren.svg)](https://cocoapods.org/pods/Siren)  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/) [![CocoaPods](https://img.shields.io/cocoapods/dt/Siren.svg)](https://cocoapods.org/pods/Siren) [![CocoaPods](https://img.shields.io/cocoapods/dm/Siren.svg)](https://cocoapods.org/pods/Siren)
+[![BuddyBuild](https://dashboard.buddybuild.com/api/statusImage?appID=58c4d0d85601d40100c5c51d&branch=master&build=latest)](https://dashboard.buddybuild.com/apps/58c4d0d85601d40100c5c51d/build/latest?branch=master) [![CocoaPods](https://img.shields.io/cocoapods/v/Siren.svg)](https://cocoapods.org/pods/Siren)  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/) [![CocoaPods](https://img.shields.io/cocoapods/dt/Siren.svg)](https://cocoapods.org/pods/Siren) [![CocoaPods](https://img.shields.io/cocoapods/dm/Siren.svg)](https://cocoapods.org/pods/Siren)
 ---
 
 ## About
@@ -19,10 +19,15 @@ If a new version is available, an alert can be presented to the user informing t
 - [**简体中文**](README.zh_CN.md) (by [**Daniel Hu**](http://www.jianshu.com/u/d8bbc4831623))
 
 ## Ports
-- Siren is a Swift language port of [**Harpy**](http://github.com/ArtSabintsev/Harpy), an Objective-C library that achieves the same functionality.
-- Siren and Harpy are maintained by the same developers.
-- This library was the inspiration for [**Egghead Games' Siren library**](https://github.com/eggheadgames/Siren), which achieves the same functionality with the Google Play store on the Android platform.
-- This library was the inspiration for [**Gant Laborde's Siren library**](https://github.com/GantMan/react-native-siren), which achieves the same functionality for React Native projects (iOS/Android).
+- **Objective-C (iOS)**
+ - [**Harpy**](http://github.com/ArtSabintsev/Harpy)
+ - Siren was ported _from_ Harpy, as Siren and Harpy are maintained by the same developer.
+- **Java (Android)**
+ - [**Egghead Games' Siren library**](https://github.com/eggheadgames/Siren)
+ - The Siren Swift library inspired the Java library.
+- **React Native (iOS)**
+ - [**Gant Laborde's Siren library**](https://github.com/GantMan/react-native-siren)
+ - The Siren Swift library inspired the React Native library.
 
 ## Features
 - [x] CocoaPods Support
@@ -32,7 +37,8 @@ If a new version is available, an alert can be presented to the user informing t
 - [x] Pre-Update Device Compatibility Check (See **Device Compatibility**)
 - [x] Three types of alerts (see **Screenshots**)
 - [x] Optional delegate methods (see **Optional Delegate**)
-- [x] Unit Tests!
+- [x] Unit Tests
+- [x] Documentation can be found at http://sabintsev.com/Siren
 
 ## Screenshots
 
@@ -41,9 +47,9 @@ If a new version is available, an alert can be presented to the user informing t
 - The **right picture** gives the user the option to skip the current update.
 - These options are controlled by the `SirenAlertType` enum.
 
-<img src="https://github.com/ArtSabintsev/Harpy/blob/master/Assets/picForcedUpdate.png?raw=true" height=480">
-<img src="https://github.com/ArtSabintsev/Harpy/blob/master/Assets/picOptionalUpdate.png?raw=true" height=480">
-<img src="https://github.com/ArtSabintsev/Harpy/blob/master/Assets/picSkippedUpdate.png?raw=true" height=480">
+<img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picForcedUpdate.png?raw=true" height=480">
+<img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picOptionalUpdate.png?raw=true" height=480">
+<img src="https://github.com/ArtSabintsev/Siren/blob/master/Assets/picSkippedUpdate.png?raw=true" height=480">
 
 
 ## Installation Instructions
@@ -85,8 +91,6 @@ github "ArtSabintsev/Siren" "swift2.3"
 ## Setup
 
 Here's some commented sample code. Adapt this to meet your app's needs. For a full list of optional settings/preferences, please refer to https://github.com/ArtSabintsev/Siren/blob/master/Sample%20App/Sample%20App/AppDelegate.swift in the Sample Project.
-
-Full documentation can be found at http://sabintsev.com/Siren.
 
 ```Swift
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -214,13 +218,13 @@ Siren is localized for
 
 You may want the update dialog to *always* appear in a certain language, ignoring iOS's language setting (e.g. apps released in a specific country).
 
-You can enable it like this:
+You can enable it like so:
 
 ```swift
 Siren.shared.forceLanguageLocalization = SirenLanguageType.<#SirenLanguageType_Enum_Value#>
 ```
 ## Device Compatibility
-If an app update is available, Siren checks to make sure that the version of iOS on the user's device is compatible the one that is required by the app update. For example, if a user has iOS 9 installed on their device, but the app update requires iOS 10, an alert will not be shown. This takes care of the *false positive* case regarding app updating.
+If an app update is available, Siren checks to make sure that the version of iOS on the user's device is compatible with the one that is required by the app update. For example, if a user has iOS 9 installed on their device, but the app update requires iOS 10, an alert will not be shown. This takes care of the *false positive* case regarding app updating.
 
 ## Testing Siren
 Temporarily change the version string in Xcode (within the `.xcodeproj`) to an older version than the one that's currently available in the App Store. Afterwards, build and run your app, and you should see the alert.
