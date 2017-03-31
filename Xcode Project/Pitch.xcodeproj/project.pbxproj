@@ -27,6 +27,8 @@
 		4C5076071E20461200DBD02C /* OffsetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076061E20461200DBD02C /* OffsetData.swift */; };
 		4C5076091E205DB300DBD02C /* PitchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5076081E205DB300DBD02C /* PitchesTableViewController.swift */; };
 		4C50760B1E205DC300DBD02C /* PitchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50760A1E205DC300DBD02C /* PitchesTableViewCell.swift */; };
+		4C5D15681E8DDFA300D8F15C /* AudioKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE3A1DC1E8DDBA300255867 /* AudioKit.framework */; };
+		4C5D15691E8DDFA300D8F15C /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4CE3A1DC1E8DDBA300255867 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CB3A2EF1E2D865600DE48AF /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB3A2EE1E2D865600DE48AF /* ShareViewController.swift */; };
 		4CD743C21E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD743C11E4AB2C000F073B5 /* MainViewController+PitchCenterTiming.swift */; };
 		4CD74B471E50D75900F073B5 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD74B461E50D75900F073B5 /* ConnectionManager.swift */; };
@@ -85,6 +87,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4C5D156A1E8DDFA300D8F15C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4CE3A1D71E8DDBA100255867 /* AudioKit For iOS.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C42F34FF1C057E03000E937C;
+			remoteInfo = AudioKit;
+		};
 		4CE3A1DB1E8DDBA300255867 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4CE3A1D71E8DDBA100255867 /* AudioKit For iOS.xcodeproj */;
@@ -115,6 +124,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4C5D15691E8DDFA300D8F15C /* AudioKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5D15681E8DDFA300D8F15C /* AudioKit.framework in Frameworks */,
 				981283005449DB07389302D5 /* Pods_Pitch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -571,6 +582,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				4C5D156B1E8DDFA300D8F15C /* PBXTargetDependency */,
 			);
 			name = Pitch;
 			productName = Pitch;
@@ -865,6 +877,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4C5D156B1E8DDFA300D8F15C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AudioKit;
+			targetProxy = 4C5D156A1E8DDFA300D8F15C /* PBXContainerItemProxy */;
+		};
 		4CEAD6E61D8A0CFD000492E6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4CEAD6CF1D8A0CFD000492E6 /* Pitch */;
