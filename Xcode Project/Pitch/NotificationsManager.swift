@@ -43,12 +43,16 @@ class NotificationsManager: NSObject {
     // MARK: - UIApplication Events
     
     @objc private func appWillEnterForeground() {
-        recordAppOpen()
+        DispatchQueue.main.async {
+            self.recordAppOpen()
+        }
     }
     
     @objc private func appWillResignActive() {
-        recordAppClose()
-        scheduleNotifications()
+        DispatchQueue.main.async {
+            self.recordAppClose()
+            self.scheduleNotifications()
+        }
     }
     
     // MARK: - Adding Data

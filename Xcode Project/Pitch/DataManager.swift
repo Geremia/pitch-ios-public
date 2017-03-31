@@ -16,9 +16,11 @@ struct DataManager {
     // MARK: - Analytics
     
     static func resetToday() {
-        let day = today()
-        try! realm.write {
-            realm.delete(day)
+        DispatchQueue.main.async {
+            let day = today()
+            try! realm.write {
+                realm.delete(day)
+            }
         }
     }
     
@@ -49,8 +51,10 @@ struct DataManager {
     }
     
     fileprivate static func add(_ day: Day) {
-        try! realm.write {
-            realm.add(day, update: true)
+        DispatchQueue.main.async {
+            try! realm.write {
+                realm.add(day, update: true)
+            }
         }
     }
     
@@ -65,27 +69,35 @@ struct DataManager {
     }
     
     static func add(_ session: Session) {
-        try! realm.write {
-            realm.add(session, update: true)
+        DispatchQueue.main.async {
+            try! realm.write {
+                realm.add(session, update: true)
+            }
         }
     }
     
     static func delete(_ session: Session) {
-        try! realm.write {
-            session.prepareForDeletion()
-            realm.delete(session)
+        DispatchQueue.main.async {
+            try! realm.write {
+                session.prepareForDeletion()
+                realm.delete(session)
+            }
         }
     }
     
     static func rename(_ session: Session, to newName: String) {
-        try! realm.write {
-            session.name = newName
+        DispatchQueue.main.async {
+            try! realm.write {
+                session.name = newName
+            }
         }
     }
     
     static func setHasSeenAnalyticsAnimation(_ hasSeen: Bool, forSession session: Session) {
-        try! realm.write {
-            session.analytics?.hasSeenAnimation = hasSeen
+        DispatchQueue.main.async {
+            try! realm.write {
+                session.analytics?.hasSeenAnimation = hasSeen
+            }
         }
     }
     

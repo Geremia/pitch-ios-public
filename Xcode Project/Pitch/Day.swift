@@ -130,19 +130,21 @@ class Day: Object {
     func add(tunerOutput: TunerOutput) {
         guard let realm = realm else { return }
         
-        do {
-            try realm.write {
-                inTunePercentageDataCount += 1
-                
-                let inTune: Double = tunerOutput.centsDistance <= tuningThreshold ? 1 : 0
-                let newDataPointWeight = 1 / Double(self.inTunePercentageDataCount)
-                let oldAverageWeight = 1 - newDataPointWeight
-                
-                inTunePercentage = (inTunePercentage * oldAverageWeight) + (inTune * newDataPointWeight)
+        DispatchQueue.main.async {
+            do {
+                try realm.write {
+                    self.inTunePercentageDataCount += 1
+                    
+                    let inTune: Double = tunerOutput.centsDistance <= self.tuningThreshold ? 1 : 0
+                    let newDataPointWeight = 1 / Double(self.inTunePercentageDataCount)
+                    let oldAverageWeight = 1 - newDataPointWeight
+                    
+                    self.inTunePercentage = (self.inTunePercentage * oldAverageWeight) + (inTune * newDataPointWeight)
+                }
+            } catch let error {
+                let description = error.localizedDescription
+                Answers.logCustomEvent(withName: description, customAttributes: nil)
             }
-        } catch let error {
-            let description = error.localizedDescription
-            Answers.logCustomEvent(withName: description, customAttributes: nil)
         }
         
         updatePitchOffsets(tunerOutput: tunerOutput)
@@ -151,46 +153,50 @@ class Day: Object {
     func updatePitchOffsets(tunerOutput: TunerOutput) {
         guard let realm = realm else { return }
         
-        do {
-            try realm.write {
-                let pitch = tunerOutput.pitch
-                let offset = tunerOutput.centsDistance
-                
-                // If the offset is greater than 50 cents, this data point is not valid.
-                if abs(offset) > 50.0 { return }
-                
-                /* Here, we could use the 'pitch' property but since it's computed, it uses
-                 LOTS of CPU. So we just compare pitchString and octave instead. */
-                if let index = pitchOffsets.index(where: { $0.pitchString == pitch.description && $0.octave == pitch.octave }) {
-                    // Pitch is present. Update its averageOffset.
-                    pitchOffsets[index].add(offset: offset)
-                } else {
-                    // Pitch is not present. Add it to pitchOffsets.
-                    let offsetData = OffsetData.new(pitch: pitch, offset: offset)
-                    pitchOffsets.append(offsetData)
+        DispatchQueue.main.async {
+            do {
+                try realm.write {
+                    let pitch = tunerOutput.pitch
+                    let offset = tunerOutput.centsDistance
+                    
+                    // If the offset is greater than 50 cents, this data point is not valid.
+                    if abs(offset) > 50.0 { return }
+                    
+                    /* Here, we could use the 'pitch' property but since it's computed, it uses
+                     LOTS of CPU. So we just compare pitchString and octave instead. */
+                    if let index = self.pitchOffsets.index(where: { $0.pitchString == pitch.description && $0.octave == pitch.octave }) {
+                        // Pitch is present. Update its averageOffset.
+                        self.pitchOffsets[index].add(offset: offset)
+                    } else {
+                        // Pitch is not present. Add it to pitchOffsets.
+                        let offsetData = OffsetData.new(pitch: pitch, offset: offset)
+                        self.pitchOffsets.append(offsetData)
+                    }
                 }
+            } catch let error {
+                let description = error.localizedDescription
+                Answers.logCustomEvent(withName: description, customAttributes: nil)
             }
-        } catch let error {
-            let description = error.localizedDescription
-            Answers.logCustomEvent(withName: description, customAttributes: nil)
         }
     }
     
     func add(timeToCenter time: Double) {
         guard let realm = realm else { return }
         
-        do {
-            try realm.write {
-                timeToCenterDataCount += 1
-                
-                let newDataPointWeight = 1 / Double(self.timeToCenterDataCount)
-                let oldAverageWeight = 1 - newDataPointWeight
-                
-                timeToCenter = (timeToCenter * oldAverageWeight) + (time * newDataPointWeight)
+        DispatchQueue.main.async {
+            do {
+                try realm.write {
+                    self.timeToCenterDataCount += 1
+                    
+                    let newDataPointWeight = 1 / Double(self.timeToCenterDataCount)
+                    let oldAverageWeight = 1 - newDataPointWeight
+                    
+                    self.timeToCenter = (self.timeToCenter * oldAverageWeight) + (time * newDataPointWeight)
+                }
+            } catch let error {
+                let description = error.localizedDescription
+                Answers.logCustomEvent(withName: description, customAttributes: nil)
             }
-        } catch let error {
-            let description = error.localizedDescription
-            Answers.logCustomEvent(withName: description, customAttributes: nil)
         }
     }
 }
