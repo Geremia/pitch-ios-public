@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AudioKit
+
 
 class SessionsViewController: SnapContainerChildViewController, SessionsTableViewControllerDelegate  {
     

@@ -1,0 +1,6 @@
+dependencies: \
+  /Users/danielkuntz/Git\ Repositories/AudioKit/AudioKit/Common/Internals/EZAudio/EZRecorder.m \
+  /Users/danielkuntz/Git\ Repositories/AudioKit/AudioKit/iOS/build/AudioKit\ For\ iOS.build/Release-iphoneos/AudioKit.build/module.modulemap \
+  /Users/danielkuntz/Git\ Repositories/AudioKit/AudioKit/Common/Internals/EZAudio/EZRecorder.h \
+  /Users/danielkuntz/Git\ Repositories/AudioKit/AudioKit/Common/Internals/EZAudio/EZAudioUtilities.h \
+  /Users/danielkuntz/Git\ Repositories/AudioKit/AudioKit/Common/Internals/EZAudio/TPCircularBuffer.h

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AudioKit
+
 
 class PitchPipeView: UIView {
 

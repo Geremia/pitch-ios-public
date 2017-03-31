@@ -1,0 +1,5 @@
+dependencies: \
+  /Users/danielkuntz/Git\ Repositories/AudioKit/AudioKit/Common/Internals/Soundpipe/lib/kissfft/kiss_fft.c \
+  /Users/danielkuntz/Git\ Repositories/AudioKit/AudioKit/macOS/build/AudioKit\ For\ macOS.build/Release/AudioKit.build/module.modulemap \
+  /Users/danielkuntz/Git\ Repositories/AudioKit/AudioKit/Common/Internals/Soundpipe/lib/kissfft/_kiss_fft_guts.h \
+  /Users/danielkuntz/Git\ Repositories/AudioKit/AudioKit/Common/Internals/Soundpipe/lib/kissfft/kiss_fft.h

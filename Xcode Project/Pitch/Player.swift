@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AudioKit
+import AVFoundation
 
 class Player: NSObject, AVAudioPlayerDelegate {
     

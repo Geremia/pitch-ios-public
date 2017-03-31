@@ -26,6 +26,7 @@
 
 // MARK:- Imports
 
+import Foundation
 import AudioKit
 
 // MARK:- TunerDelegate Protocol
@@ -114,11 +115,11 @@ class Tuner: NSObject {
      */
     var delegate: TunerDelegate?
     
-    fileprivate let threshold: Double
-    fileprivate var smoothing: Float
-    let microphone: AKMicrophone
-    let analyzer: AKFrequencyTracker
-    var silence: AKBooster
+    fileprivate var threshold: Double = 0.0
+    fileprivate var smoothing: Float = 0.0
+    let microphone: AKMicrophone!
+    let analyzer: AKFrequencyTracker!
+    var silence: AKBooster!
     fileprivate var timer: Timer?
     fileprivate var smoothingBuffer: [Double] = []
     fileprivate var frequencyBuffer: [Double] = []
@@ -132,16 +133,26 @@ class Tuner: NSObject {
      - parameter smoothing: Exponential smoothing factor, 0 < smoothing < 1
      
      */
-    init(threshold: Double = 0.0, smoothing: Float = 0.0) {
-        self.threshold = min(abs(threshold), 1.0)
-        self.smoothing = min(abs(smoothing), 1.0)
+    
+    required override init() {
         self.previousAmplitude = 0.0
         self.previousFrequency = 0.0
         microphone = AKMicrophone()
-        analyzer = AKFrequencyTracker(microphone, hopSize: 512, peakCount: 100)
+        analyzer = AKFrequencyTracker(microphone)
         silence = AKBooster(analyzer, gain: 0.0)
         super.init()
     }
+    
+//    init(threshold: Double = 0.0, smoothing: Float = 0.0) {
+//        self.threshold = min(abs(threshold), 1.0)
+//        self.smoothing = min(abs(smoothing), 1.0)
+//        self.previousAmplitude = 0.0
+//        self.previousFrequency = 0.0
+//        microphone = AKMicrophone()
+//        analyzer = AKFrequencyTracker(microphone, hopSize: 512, peakCount: 100)
+//        silence = AKBooster(analyzer, gain: 0.0)
+//        super.init()
+//    }
     
     func registerNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged(_:)), name: NSNotification.Name.AVAudioSessionRouteChange, object: nil)

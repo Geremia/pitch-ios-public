@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AudioKit
+
 import Permission
 
 class Onboarding2ViewController: OnboardingViewController {

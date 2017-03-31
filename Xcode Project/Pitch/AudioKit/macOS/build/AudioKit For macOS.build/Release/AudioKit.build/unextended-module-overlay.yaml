@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/danielkuntz/Git Repositories/AudioKit/Frameworks/build/Release/AudioKit.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/danielkuntz/Git Repositories/AudioKit/AudioKit/macOS/build/AudioKit For macOS.build/Release/AudioKit.build/unextended-module.modulemap',
+    }]
+  }]
+}
