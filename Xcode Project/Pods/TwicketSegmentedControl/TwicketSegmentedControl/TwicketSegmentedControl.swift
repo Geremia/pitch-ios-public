@@ -16,9 +16,9 @@ open class TwicketSegmentedControl: UIControl {
     open static let height: CGFloat = Constants.height + Constants.topBottomMargin * 2
 
     private struct Constants {
-        static let height: CGFloat = 30
+        static let height: CGFloat = 40
         static let topBottomMargin: CGFloat = 5
-        static let leadingTrailingMargin: CGFloat = 10
+        static let leadingTrailingMargin: CGFloat = 0
     }
 
     class SliderView: UIView {
@@ -170,11 +170,11 @@ open class TwicketSegmentedControl: UIControl {
         selectedContainerView.frame = frame
         sliderView.frame = CGRect(x: 0, y: 0, width: segmentWidth, height: backgroundView.frame.height)
 
-        let cornerRadius = backgroundView.frame.height / 2
+        let cornerRadius: CGFloat = 8.0
         [backgroundView, selectedContainerView].forEach { $0.layer.cornerRadius = cornerRadius }
         sliderView.cornerRadius = cornerRadius
 
-        backgroundColor = .white
+        backgroundColor = .clear
         backgroundView.backgroundColor = segmentsBackgroundColor
         selectedContainerView.backgroundColor = sliderBackgroundColor
 
