@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D4B8BE129FAA56D33C0FA5D18F5EE93AA63A0721",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D4B8BE129FAA56D33C0FA5D18F5EE93AA63A0721" : 9223372036854775807,
+    "92CBA65579F61C75FEC665D01E78C47FFFAA6B01" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DD6C1941-0ACC-4F79-8C8A-7E8ADAD9250E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D4B8BE129FAA56D33C0FA5D18F5EE93AA63A0721" : "pitch-ios\/",
+    "92CBA65579F61C75FEC665D01E78C47FFFAA6B01" : "AudioKit\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Pitch",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Xcode Project\/Pitch.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/audiokit\/AudioKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "92CBA65579F61C75FEC665D01E78C47FFFAA6B01"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dkun7944\/pitch-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D4B8BE129FAA56D33C0FA5D18F5EE93AA63A0721"
+    }
+  ]
+}
