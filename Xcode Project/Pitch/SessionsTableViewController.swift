@@ -151,8 +151,9 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
     func nameEditedOn(_ cell: SessionsTableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
             let session = sessions[indexPath.row]
-            DataManager.rename(session, to: cell.nameField.text!)
-            reloadData(andTableView: false)
+            DataManager.rename(session, to: cell.nameField.text!) {
+                self.reloadData(andTableView: false)
+            }
         }
     }
     
@@ -230,11 +231,12 @@ class SessionsTableViewController: UITableViewController, SessionsTableViewCellD
             }
         })
         
-        DataManager.delete(sessions[indexPath.row])
-        sessions.remove(at: indexPath.row)
-        tableView.beginUpdates()
-        tableView.deleteRows(at: [indexPath], with: .middle)
-        tableView.endUpdates()
+        DataManager.delete(sessions[indexPath.row]) {
+            self.sessions.remove(at: indexPath.row)
+            self.tableView.beginUpdates()
+            self.tableView.deleteRows(at: [indexPath], with: .middle)
+            self.tableView.endUpdates()
+        }
     }
     
     // MARK: - Playback Notifications

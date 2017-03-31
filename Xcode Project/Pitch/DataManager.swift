@@ -68,35 +68,51 @@ struct DataManager {
         return sessions
     }
     
-    static func add(_ session: Session) {
+    static func add(_ session: Session, completion: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             try! realm.write {
                 realm.add(session, update: true)
             }
+            
+            if let completion = completion {
+                completion()
+            }
         }
     }
     
-    static func delete(_ session: Session) {
+    static func delete(_ session: Session, completion: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             try! realm.write {
                 session.prepareForDeletion()
                 realm.delete(session)
             }
-        }
-    }
-    
-    static func rename(_ session: Session, to newName: String) {
-        DispatchQueue.main.async {
-            try! realm.write {
-                session.name = newName
+            
+            if let completion = completion {
+                completion()
             }
         }
     }
     
-    static func setHasSeenAnalyticsAnimation(_ hasSeen: Bool, forSession session: Session) {
+    static func rename(_ session: Session, to newName: String, completion: (() -> Void)? = nil) {
+        DispatchQueue.main.async {
+            try! realm.write {
+                session.name = newName
+            }
+            
+            if let completion = completion {
+                completion()
+            }
+        }
+    }
+    
+    static func setHasSeenAnalyticsAnimation(_ hasSeen: Bool, forSession session: Session, completion: (() -> Void)? = nil) {
         DispatchQueue.main.async {
             try! realm.write {
                 session.analytics?.hasSeenAnimation = hasSeen
+            }
+            
+            if let completion = completion {
+                completion()
             }
         }
     }

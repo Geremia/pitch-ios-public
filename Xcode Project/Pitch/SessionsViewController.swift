@@ -34,8 +34,9 @@ class SessionsViewController: SnapContainerChildViewController, SessionsTableVie
     
     func newSessionRecorded(_ notification: Notification) {
         let session: Session = notification.object as! Session
-        DataManager.add(session)
-        tableViewController?.newSessionAdded()
+        DataManager.add(session) {
+            self.tableViewController?.newSessionAdded()
+        }
     }
     
     func doneRecording() {
