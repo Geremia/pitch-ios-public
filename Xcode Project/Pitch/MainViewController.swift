@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AudioKit
 import PureLayout
 
 class MainViewController: SnapContainerChildViewController {

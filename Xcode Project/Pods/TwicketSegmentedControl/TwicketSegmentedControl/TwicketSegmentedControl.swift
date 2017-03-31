@@ -9,16 +9,16 @@
 import UIKit
 
 public protocol TwicketSegmentedControlDelegate: class {
-    func twicketSegmentedControl(_ segmentedControl: TwicketSegmentedControl, didSelect segmentIndex: Int)
+    func didSelect(_ segmentIndex: Int)
 }
 
 open class TwicketSegmentedControl: UIControl {
     open static let height: CGFloat = Constants.height + Constants.topBottomMargin * 2
 
     private struct Constants {
-        static let height: CGFloat = 40
+        static let height: CGFloat = 30
         static let topBottomMargin: CGFloat = 5
-        static let leadingTrailingMargin: CGFloat = 0
+        static let leadingTrailingMargin: CGFloat = 10
     }
 
     class SliderView: UIView {
@@ -170,11 +170,11 @@ open class TwicketSegmentedControl: UIControl {
         selectedContainerView.frame = frame
         sliderView.frame = CGRect(x: 0, y: 0, width: segmentWidth, height: backgroundView.frame.height)
 
-        let cornerRadius: CGFloat = 8.0
+        let cornerRadius = backgroundView.frame.height / 2
         [backgroundView, selectedContainerView].forEach { $0.layer.cornerRadius = cornerRadius }
         sliderView.cornerRadius = cornerRadius
 
-        backgroundColor = .clear
+        backgroundColor = .white
         backgroundView.backgroundColor = segmentsBackgroundColor
         selectedContainerView.backgroundColor = sliderBackgroundColor
 
@@ -267,7 +267,7 @@ open class TwicketSegmentedControl: UIControl {
         }
         let index = segmentIndex(for: location)
         move(to: index)
-        delegate?.twicketSegmentedControl(self, didSelect: index)
+        delegate?.didSelect(index)
     }
 
     open func move(to index: Int) {

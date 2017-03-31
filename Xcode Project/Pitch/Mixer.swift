@@ -50,7 +50,7 @@ class Mixer: NSObject {
             return
         default:
             if !isSetup {
-                self.setUp()
+//                self.setUp()
             }
         }
     }

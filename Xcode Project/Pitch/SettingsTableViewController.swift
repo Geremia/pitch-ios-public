@@ -239,7 +239,7 @@ class SettingsTableViewController: UITableViewController {
 }
 
 extension SettingsTableViewController : TwicketSegmentedControlDelegate {
-    func twicketSegmentedControl(_ segmentedControl: TwicketSegmentedControl, didSelect segmentIndex: Int) {
+    func didSelect(_ segmentIndex: Int) {
         currentDisplayMode = segmentIndex == 0 ? .sharps : .flats
         updateKeyLabel()
     }
