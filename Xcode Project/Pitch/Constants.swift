@@ -12,7 +12,7 @@ class Constants {
     static var pitchPipeIsPlayingSound: Bool = false
     static var currentOrientation: Orientation = .portrait
     
-    static let versionUpdates: String = "- Your Analytics data should now use MUCH less of your iPhone's storage space.\n\n"
+    static let versionUpdates: String = "- Optimized performance for iOS 10.3.\n\n"
         
                                                 + "~~~~ COMING SOON ~~~~\n"
                                                 + "- Game center integration! Compete with friends for who has the best intonation.\n"
