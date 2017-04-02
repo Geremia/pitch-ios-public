@@ -70,7 +70,6 @@ extension MainViewController {
         if let container = snapContainer {
             guard let analytics = self.sessionAnalytics else { return }
             let session = Session(withRecordedFileUrl: Mixer.shared.recorder.currentFileUrl, analytics: analytics)
-            resetSessionAnalytics()
             container.go(toViewController: .sessions, animated: true, completion: {
                 NotificationCenter.default.post(name: .newSessionRecorded, object: session)
                 self.resetRecordView()
