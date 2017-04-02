@@ -34,6 +34,7 @@ extension MainViewController {
     func addOutputToSession(output: TunerOutput) {
         if output.isValid, let analytics = sessionAnalytics, recordingState == .recording {
             if !analytics.isInvalidated {
+                print("Add to session")
                 analytics.add(tunerOutput: output)
             }
         }
