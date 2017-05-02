@@ -24,7 +24,7 @@ class SoundGenerator : NSObject {
     // MARK: - Setup
     
     override init() {
-        bank = AKOscillatorBank(waveform: AKTable(.triangle), attackDuration: 0.06, releaseDuration: 0.06)
+        bank = AKOscillatorBank(waveform: AKTable(.sine), attackDuration: 0.06, releaseDuration: 0.06)
         super.init()
         
         setPitchStandard()
